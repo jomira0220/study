@@ -148,6 +148,16 @@ button:disabled {
 }
 
 
+#userCountTable{
+  strong{
+    font-size: 0.5em;
+    display: block;
+    margin-top:10px;
+    color:red;
+    font-weight:400;
+  }
+}
+
 
 .tableWrap {
   
@@ -335,5 +345,50 @@ button:disabled {
         width: 50%;
       }
     }
+  }
+}
+
+
+#guideBox {
+  background-color:rgba(0,0,0,0.8);
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 555;
+  text-align: center;
+  
+  .inner {
+    width: 320px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding:20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  
+  p{
+    margin: 20px 0;
+    word-break: keep-all;
+    line-height: 1.5em;
+  }
+  
+  button {
+    width: 100%;
+    height: 50px;
+    background-color: var(--color-set2);
+    border:none;
+    border-radius: 15px;
+    color:#fff;
+    font-size: 1em;
   }
 }
