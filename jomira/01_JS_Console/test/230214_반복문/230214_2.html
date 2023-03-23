@@ -1,0 +1,43 @@
+<script>
+
+  /*
+      [문제]
+          scoreList 배열은 학생 6명의 점수이다.
+          이 데이터를 그래프로 표현하려 한다.
+          표시는 10자리 숫자로 표현해서 개수만큼 * 로 출력한다.
+          단, 아래에서 위로 출력해보자.
+      [정답]
+                          *
+                          *
+                          *
+                 *        *
+                 *        *
+                 *  *     *
+                 *  *     *
+              *  *  *     *
+              *  *  *     *  *
+              *  *  *     *  *
+              31 76 54 2 100 23	    
+  */
+
+  let scoreList = [31, 76, 54, 2, 100, 23];
+
+  let unit = 100;
+  for (let j = 0; j < 10; j++) {
+
+    for (let i = 0; i < scoreList.length; i++) {
+      if (scoreList[i] >= unit) {
+        document.write(" * &nbsp;")
+      } else {
+        document.write(" &nbsp;&nbsp;&nbsp;")
+      }
+    }
+
+    unit -= 10
+    document.write("<br>")
+  }
+
+  document.write(scoreList)
+
+
+</script>

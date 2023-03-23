@@ -1,0 +1,38 @@
+<script>
+
+  /*
+      [문제] 
+          1000보다 큰 수중에서 8의 배수를 검색하고, 
+          십의자리가 5인 배수를
+          가장 작은 수부터 차례대로 4개를 출력하시오.
+      [정답]
+          1056 1152 1256 1352     
+
+
+  let i = 1;
+  let run = 1;
+  let count = 0;
+
+  while (run == 1) {
+
+    if (i % 8 == 0 && i > 1000 && parseInt(i % 100 / 10) == 5) {
+      count += 1;
+      console.log(i)
+      if (count == 4) {
+        run = 0;
+      }
+    }
+
+    i += 1;
+  }
+  */
+
+  let count = 0;
+  for (let i = 1000; i < 2000; i++) {
+    if (i % 8 == 0 && parseInt(i % 100 / 10) == 5) {
+      count += 1;
+      if (count < 5) document.write(i + " ")
+    }
+  }
+
+</script>

@@ -1,0 +1,147 @@
+<script>
+
+  /*
+      [문제]
+          1. 총 3번 주문을 받는다.
+          2. 랜덤으로 메뉴(1~3)와 구매수량(1~3)을 저장한다.
+          3. 랜덤 구매수량 맞큼 재고수량은 차감된다.
+          4. 만약 랜덤 구매수량이 재고수량보다 클 경우,
+              "재고가 부족합니다."라는 메세지를 출력한다.
+          5. 랜덤 구매수량만큼 구매할 때마다 결제할 총 금액도 출력해준다.
+      [예시]
+          [스타벅스 커피]
+          1. 콜드브루 플로토 : 8700원
+          2. 돌체라떼 : 5300원
+          3. 자바칩 프라푸치노 : 6200원
+          
+          메뉴 선택 : 2
+          구매 수량 : 3
+          결제할 총 금액은 15900원 입니다.
+          
+          메뉴 선택 : 2
+          구매 수량 : 3
+          재고가 부족합니다.
+          
+          ...    
+  */
+  let price1 = 8700;
+  let price2 = 5300;
+  let price3 = 6200;
+
+  let cnt1 = 5;
+  let cnt2 = 3;
+  let cnt3 = 7;
+
+
+
+  for (let i = 0; i < 3; i++) {
+    let total = 0;
+    let menu = Math.floor(Math.random() * 3) + 1
+    let order = Math.floor(Math.random() * 3) + 1
+
+    document.write("메뉴선택 : " + menu + "<br>")
+    document.write("구매수량 : " + order + "<br>")
+
+    if (menu == 1) {
+
+      if (cnt1 == 0) {
+        document.write("재고가 부족합니다.<br>")
+      } else if (cnt1 < order) {
+        let 주문수량 = order - cnt1
+        total += 주문수량 * price1
+        document.write("재고가 부족하여 " + 주문수량 + "개 주문하였습니다.<br>")
+      } else {
+        cnt1 -= order
+        total += order * price1
+      }
+
+    } else if (menu == 2) {
+
+      if (cnt2 == 0) {
+        document.write("재고가 부족합니다.<br>")
+      } else if (cnt2 < order) {
+        let 주문수량 = order - cnt2
+        total += 주문수량 * price2
+        document.write("재고가 부족하여 " + + "주문하였습니다.")
+      } else {
+        cnt1 -= order
+        total += order * price2
+      }
+
+    } else {
+
+      if (cnt3 == 0) {
+        document.write("재고가 부족합니다.<br>")
+      } else if (cnt3 < order) {
+        let 주문수량 = order - cnt3
+        total += 주문수량 * price3
+        document.write("재고가 부족하여 " + + "주문하였습니다.")
+      } else {
+        cnt3 -= order
+        total += order * price3
+      }
+
+    }
+
+    document.write("결제할 총 금액은 " + total + "원 입니다. <br><br>")
+
+  }
+
+
+
+  /*
+  let price1 = 8700;
+  let price2 = 5300;
+  let price3 = 6200;
+
+  let cnt1 = 5;
+  let cnt2 = 3;
+  let cnt3 = 7;
+
+  let total = 0;
+
+
+  document.write("[스타벅스 커피]<br>");
+  document.write("1. 콜드브루 플로토 : " + price1 + "원<br>");
+  document.write("2. 돌체라떼 : " + price2 + "원<br>");
+  document.write("3. 자바칩 프라푸치노 : " + price3 + "원<br><br>");
+
+
+  for (let i = 0; i < 3; i++) {
+    let 메뉴 = Math.floor(Math.random() * 3) + 1;
+    let 구매수량 = Math.floor(Math.random() * 3) + 1;
+
+    document.write("메뉴선택 : " + 메뉴 + "<br>")
+    document.write("구매수량 : " + 구매수량 + "<br>")
+
+    if (메뉴 == 1) {
+      if (구매수량 > cnt1) {
+        document.write("재고가 부족합니다.<br><br>")
+      } else {
+        total = price1 * 구매수량
+        document.write("결제할 총금액 " + total + "<br><br>")
+        cnt1 -= 구매수량
+      }
+    } else if (메뉴 == 2) {
+      if (구매수량 > cnt2) {
+        document.write("재고가 부족합니다.<br><br>")
+      } else {
+        total = price2 * 구매수량
+        document.write("결제할 총금액 " + total + "<br><br>")
+        cnt2 -= 구매수량
+      }
+    } else {
+      if (구매수량 > cnt3) {
+        document.write("재고가 부족합니다.<br><br>")
+      } else {
+        total = price3 * 구매수량
+        document.write("결제할 총금액 " + total + "<br><br>")
+        cnt3 -= 구매수량
+      }
+    }
+  }
+
+*/
+
+
+</script>

@@ -1,0 +1,32 @@
+<script>
+
+  /*
+      [문제]
+          아래와 같이 삼각형을 출력하시오.
+      [정답]
+          ********
+          ******
+          ****
+          **   
+  */
+
+  let index = 8;
+  for (let i = 0; i < 4; i++) {
+    for (let j = index; j > 0; j--) {
+      document.write("*")
+    }
+    index -= 2;
+    document.write("<br>")
+  }
+
+  /*
+  for (let i = 0; i < 4; i++) {
+    let size = (4 - i) * 2;
+    for (let j = 0; j < size; j++) {
+      document.write("*");
+    }
+    document.write("<br>");
+  }
+  */
+
+</script>

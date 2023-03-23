@@ -1,0 +1,69 @@
+<script>
+
+  /*
+      [문제]
+          data배열에 두번째 6의 값을 제거 후,
+          b배열에 저장하시오.
+      [정답]
+          b = [5, 6, 2, 4, 8, 5, 3, 6]
+  */
+
+  let data = [5, 6, 2, 6, 4, 8, 5, 3, 6];
+  let b = [];
+
+
+  let value = data[1];
+  let count = 0
+  for (let i = 0; i < data.length; i++) {
+    if (data[i] != value) {
+      b.push(data[i])
+    } else {
+      count++
+      if (count != 2) {
+        b.push(data[i])
+      }
+    }
+  }
+
+  document.write(b)
+
+
+  /*
+
+  let value = data[1];
+  let cnt = 0;
+  for (let i = 0; i < data.length; i++) {
+    if (data[i] != value) { //두번째 배열의 값과 일치하지 않으면 넣고
+      b.push(data[i])
+    } else { //일치하는 경우 2번째 일치를 제외하고 넣으시오
+      cnt++
+      if (cnt != 2) {
+        b.push(data[i])
+      }
+    }
+  }
+
+  document.write(b)
+  */
+
+
+
+  /*
+  let value = 6;
+  let cnt = 0;
+  for (let i = 0; i < data.length; i++) {
+    if (data[i] != value) {
+      b.push(data[i])
+    } else {
+      cnt++
+      if (cnt != 2) {
+        b.push(data[i])
+      }
+    }
+  }
+
+  document.write(b)
+  */
+
+
+</script>

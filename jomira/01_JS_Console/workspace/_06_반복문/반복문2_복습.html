@@ -1,0 +1,41 @@
+<script>
+    //반복문 : while
+    //조건 3가지 : 초기식, 조건식, 증감식
+    /*
+       1. 반복의 횟수를 알고 있을 때
+       2. 반복의 횟수를 모를 때
+    */
+
+    let run = true;
+    while (run) {
+        document.write("1.아메리카노<br>");
+        document.write("2.카페라떼<br>");
+        document.write("0.주문종료<br>");
+
+        let menu = 0;
+        if (menu == 0) {
+            run = false;
+            document.write("주문이 종료되었습니다.")
+        }
+    }
+
+    /*
+       (1) 합구하기, (2) 개수
+       예) 1부터 10까지 반복을 하면서 짝수의 합과 개수를 구하시오.
+    */
+
+    let total = 0;
+    let count = 0;
+
+    let i = 1;
+    while (i <= 10) {
+        if (i % 2 == 0) {
+            total += 1 //total = total + i;
+            count += 1 //count = count + i;
+        }
+        i += 1;
+    }
+
+    document.write("<br>" + total + "<br>" + count);
+
+</script>

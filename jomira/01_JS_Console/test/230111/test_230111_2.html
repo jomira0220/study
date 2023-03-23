@@ -1,0 +1,36 @@
+<script>
+
+
+  /*
+    랜덤으로 1~10중에서 짝수만 5개 출력하시오.    
+  */
+
+
+  let count = 0;
+  for (let i = 0; i < 10; i++) {
+    if (i % 2 == 0 && count <= 5) {
+      count += 1
+      document.write(i + " ")
+    }
+  }
+
+  /*
+  let count = 0;
+
+  let run = true;
+  while (run) {
+
+    let num = Math.floor(Math.random() * 10) + 1;   // [0 ~ 9] + 1
+
+    if (num % 2 == 0) {
+      document.write(num + " ");
+      count += 1;
+    }
+
+    if (count == 5) {
+      run = false;
+    }
+  }
+  */
+
+</script>

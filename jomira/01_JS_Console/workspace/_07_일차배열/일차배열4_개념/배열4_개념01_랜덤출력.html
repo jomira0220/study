@@ -1,0 +1,22 @@
+<script>
+
+  /*
+      [문제]
+          [조건1] arr배열에 랜덤숫자(1~100) 5개를 추가하고,
+          [조건2] 랜덤으로 위 값 중 한 개만 출력하시오. 
+      [예시]
+          arr = 1, 43, 22, 77 ,44
+          출력 = 22    
+  */
+
+  let arr = [];
+
+  for (let i = 0; i < 5; i++) {
+    arr.push(Math.floor(Math.random() * 100) + 1)
+  }
+
+  document.write("arr = " + arr + "<br>")
+  document.write(arr[Math.floor(Math.random() * 5)])
+
+
+</script>

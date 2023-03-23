@@ -1,0 +1,53 @@
+<script>
+
+    /*
+        [문제]		  
+            a는 1  ~ 9  사이의 랜덤 숫자를 저장한다.
+            c는 11 ~ 20 사이의 랜덤 숫자를 저장한다. 
+            a와 c중 어떤 숫자가 b와 더 가까운지 출력하시오.
+        
+            [1] a가 c보다 가까우면 "a가 가깝다."
+            [2] c가 a보다 가까우면 "c가 가깝다."
+            [3] 서로 거리가 같으면 "서로 같다."
+    */
+
+    let a = 0;
+    let c = 0;
+
+    let b = 10;
+
+    a = Math.floor(Math.random() * 9) + 1;
+    c = Math.floor(Math.random() * 10) + 11;
+
+    let a차이 = b - a;
+    let c차이 = c - b;
+
+    //Math.abs() : 음수를 양수로 바꿔주는 함수
+    console.log(a, c)
+    //console.log(Math.abs(a - b), Math.abs(c - b))
+
+    /*
+    if (Math.abs(a - b) < Math.abs(c - b)) {
+        console.log("a가 가깝다.");
+    } else if (Math.abs(a - b) > Math.abs(c - b)) {
+        console.log("c가 가깝다.")
+    } else if (Math.abs(a - b) == Math.abs(c - b)) {
+        console.log("서로 같다.")
+    }
+    */
+
+    if (a차이 < c차이) {
+        console.log("a가 가깝다.");
+        document.write("a가 가깝다.<br>");
+    }
+    if (c차이 < a차이) {
+        console.log("c가 가깝다.");
+        document.write("c가 가깝다.<br>");
+    }
+    if (a차이 == c차이) {
+        console.log("서로 같다.");
+        document.write("서로 같다.");
+    }
+
+
+</script>

@@ -1,0 +1,55 @@
+<script>
+
+  /*
+      [문제]
+          반복문을 10회 반복해서 아래와 같이 출력하시오.
+          
+      [예시]
+          0 1
+          1 2 *
+          2 2
+          3 3 *
+          4 3
+          5 3
+          6 4 *
+          7 4
+          8 4
+          9 4 
+          10 5  
+  */
+
+  let a = 0;
+  let b = 1;
+  let count = 0;
+
+  for (let i = 0; i < 10; i++) {
+    document.write(a + " " + b + "<br>")
+    count += 1;
+    if (b == count) {
+      b++
+      count = 0
+    }
+    a++ // 1
+  }
+
+
+
+  /*
+  let a = 0;
+  let b = 1;
+
+  let count = 0;
+  while (a < 10) {
+    console.log(a + " " + b);
+    document.write(a + " " + b + "<br>");
+    count += 1;
+
+    if (b == count) { //카운트의 개수가 b와 같아지면 카운트 리셋 및 b 증감
+      b += 1;
+      count = 0;
+    }
+    a += 1;
+  }
+  */
+
+</script>

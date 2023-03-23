@@ -1,0 +1,18 @@
+<script>
+
+  function solution(age) {
+    let result = ""
+    let ageStr = String(age)
+    let abc = "abcdefghijklmnopqrstuvwxyz"
+    for (let j = 0; j < ageStr.length; j++) {
+      for (let i = 0; i < abc.length; i++) {
+        if (i == ageStr[j]) {
+          result += abc[i]
+        }
+      }
+    }
+    document.write(result)
+  }
+  let age = 51
+  solution(age)
+</script>

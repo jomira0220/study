@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+    rel="stylesheet">
+  <style>
+    #prdInfo {
+      width: 900px;
+      margin: 50px auto;
+    }
+
+    #prdInfo tbody {
+      vertical-align: top;
+    }
+
+    #prdInfo .prdImg {
+      width: 400px;
+    }
+
+    #prdInfo .name {
+      font-size: 25px;
+      font-weight: 500;
+    }
+
+    #prdInfo .info_1,
+    #prdInfo .point p {
+      font-size: 14px;
+      color: gray;
+      font-weight: 300;
+    }
+
+    #prdInfo .info_1 td {
+      padding: 10px 0;
+    }
+
+    #prdInfo .price {
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    #prdInfo .price td {
+      padding-bottom: 15px;
+    }
+
+
+    #prdInfo .price span {
+      font-size: 18px;
+      font-weight: 400;
+    }
+
+    #prdInfo .point {
+      font-weight: bold;
+      border-top: 1px solid gray;
+      padding: 10px 0;
+    }
+
+    #prdInfo .count {
+      border-top: 1px solid gray;
+      padding: 10px 0;
+    }
+
+
+    #prdInfo .count input {
+      height: 30px;
+      width: 30px;
+      font-size: 20px;
+      line-height: 20px;
+      border: none;
+      text-align: center;
+    }
+
+    #prdInfo .count button {
+      width: 30px;
+      height: 30px;
+      background-color: #fff;
+      border: 1px solid gray;
+      border-radius: 5px;
+      font-size: 20px;
+    }
+
+
+    #basket {
+      background-color: purple;
+      color: #fff;
+      width: 100%;
+      border: none;
+      height: 50px;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+
+    .totalPrice {
+      text-align: right;
+    }
+
+    .totalPrice td {
+      padding: 5px 0 20px;
+      font-size: 30px;
+      font-weight: bold;
+    }
+
+    .totalPrice td span {
+      font-weight: 300;
+      font-size: 20px;
+    }
+
+
+    /* footer 하단에 고정 */
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      height: 100%;
+      /* body의 기본 값을 초기화 */
+      margin: 0;
+      padding: 0;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    #headerTop {
+      width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .space {
+      width: 1000px;
+    }
+
+    .topNav {
+      width: 70px;
+      height: 50px;
+      font-size: 13px;
+    }
+
+
+
+    #header {
+      width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .logo {
+      width: 150px;
+    }
+
+
+
+    #headerMenu {
+      width: 1000px;
+      margin: 0 auto;
+      text-align: right;
+      font-weight: bold;
+    }
+
+    .menu {
+      width: 160px;
+      text-align: center;
+    }
+
+    .menu a:hover {
+      color: purple;
+    }
+
+    .searchInput {
+      width: 250px;
+      height: 35px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    .searchImg {
+      width: 40px;
+      cursor: pointer;
+    }
+
+    a {
+      color: #000;
+      text-decoration: none;
+    }
+
+    /* footer */
+    #footerTable {
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .footerMenu {
+      font-size: 10px;
+      color: gray;
+      line-height: 15px;
+      padding: 30px 30px;
+      width: 1900px;
+      background-color: rgb(247, 247, 247);
+    }
+
+    #footer-top {
+      flex: 1;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <table id="headerTop">
+    <tr>
+      <td class="space"></td>
+      <td class="topNav"><a href="#">회원가입</a></td>
+      <td class="topNav"><a href="#">로그인</a></td>
+      <td class="topNav"><a href="#">고객센터</a></td>
+    </tr>
+  </table>
+
+  <table id="header">
+    <tr>
+      <td></td>
+      <td><a href="#"><img class="logo" src="./img/logo.png" alt=""></a></td>
+      <td></td>
+    </tr>
+  </table>
+
+  <table id="headerMenu">
+    <tr>
+      <td class="menu"><a href="#">전체상품보기</a></td>
+      <td class="menu"><a href="#">신상품</a></td>
+      <td class="menu"><a href="#">베스트</a></td>
+      <td class="menu"><a href="#">알뜰쇼핑</a></td>
+      <td><input class="searchInput" type="search" placeholder="검색어를 입력해주세요"></td>
+      <td><img class="searchImg" src="./img/search.png" alt=""></td>
+    </tr>
+  </table>
+
+
+
+  <table id="prdInfo">
+    <tbody>
+      <tr>
+        <td><img class="prdImg" src="./img/23.jpg" alt=""></td>
+        <td>
+          <table>
+            <tr class="name">
+              <td>[빕스] 바베큐 폭립 오리지날 450g</td>
+            </tr>
+            <tr class="info_1">
+              <td>집에서 즐기는 빕스의 대표 메뉴</td>
+            </tr>
+            <tr class="price">
+              <td>15,800<span>원</span></td>
+            </tr>
+            <tr class="info_2">
+              <td class="point">
+                <span>샛별배송</span>
+                <p>
+                  23시 전 주문 시 내일 아침 7시 전 도착<br>
+                  (대구·부산·울산 샛별배송 운영시간 별도 확인)
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td class="point">판매자 : 컬러</td>
+            </tr>
+            <tr>
+              <td class="point">원산지 : 상품설명/상세정보 참조</td>
+            </tr>
+            <tr>
+              <td class="count">
+                <button type="button">-</button>
+                <input type="text" value="0">
+                <button type="button">+</button>
+              </td>
+            </tr>
+            <tr class="totalPrice">
+              <td><span>총상품금액</span> 15,800<span>원</span></td>
+            </tr>
+            <tr>
+              <td><button id="basket" type="button">장바구니 담기</button></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+
+  <table style="display: none;">
+    <tr>
+      <td><a href="#"><img class="mainImg" src="./img/center_default.jpg" alt=""></a></td>
+    </tr>
+  </table>
+
+
+  <div id="footer-top"></div>
+
+  <!-- footer -->
+  <table id="footerTable">
+    <tr>
+      <td class="footerMenu">
+        컬리에서 판매되는 상품 중에는 컬리에 입점한 개별 판매자가 판매하는 마켓플레이스(오픈마켓) 상품이 포함되어 있습니다.
+        <br>
+        마켓플레이스(오픈마켓) 상품의 경우 컬리는 통신판매중개자로서 통신판매의 당사자가 아닙니다. 컬리는 해당 상품의 주문, 품질, 교환/환불 등 의무와 책임을 부담하지 않습니다.
+        <br><br>
+        <em>© KURLY CORP. ALL RIGHTS RESERVED</em>
+      </td>
+    </tr>
+  </table>
+
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<script>
+
+  /*
+      [문제]
+          500에서 1000 사이의 랜덤 숫자 한 개를 저장하고,
+          그 숫자보다 큰 첫 번째 소수를 출력하시오.
+      [정답]
+          랜덤 = 1000
+          1000보다 큰 첫 번째 소수는 1009
+          
+          랜덤 = 500
+          500보다 큰 첫 번째 소수는 503    
+  */
+
+  let r = Math.floor(Math.random() * 501) + 500;
+  r = 1000
+  let num = r + 1
+
+  while (true) {
+
+    let count = 0
+    for (let i = 1; i <= num; i++) {
+      if (num % i == 0) {
+        count++
+      }
+    }
+
+    if (count == 2) {
+      document.write(num)
+      break;
+    }
+
+    num++
+  }
+
+</script>

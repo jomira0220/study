@@ -1,0 +1,42 @@
+<script>
+
+    /*
+        [문제]
+            1부터 10 사이의 랜덤 숫자 두 개를 출력한다.
+            하나는 반드시 1~5 사이의 숫자이어야 하고,
+            나머지 하나는 반드시 6~10 사이의 숫자이어야 한다.
+            출력순서도 랜덤으로 출력되어야 한다. 
+        
+            [예1]
+                3, 6
+            [예2]
+                8, 1
+ 
+
+    function random_num(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+    */
+
+    let num1 = Math.floor(Math.random() * 5) + 1;     // [0 ~ 4] + 1
+    let num2 = Math.floor(Math.random() * 5) + 6;     // [0 ~ 4] + 6
+
+    console.log("num1 = " + num1);
+    console.log("num2 = " + num2);
+    document.write("num1 = " + num1 + "<br>");
+    document.write("num2 = " + num2 + "<br>");
+
+    let position = Math.floor(Math.random() * 2);
+    console.log("position = " + position);
+    document.write("position = " + position + "<br>");
+    if (position == 0) {
+        console.log(num1 + ", " + num2);
+        document.write(num1 + ", " + num2);
+    }
+    if (position == 1) {
+        console.log(num2 + ", " + num1);
+        document.write(num2 + ", " + num1);
+    }
+
+
+</script>

@@ -1,0 +1,81 @@
+<script>
+
+  /*
+      [문제]
+          철수는 무인도를 사들여 국왕이 되었다.
+          철수는 평소 월요일을 싫어해서 주 7일을 주 6일로 바꾸고 월요일을 삭제했다.
+          5월 1일이 일요일이면, 
+          5월 1일부터 5월31일까지 날짜와 요일을 전부 출력해보자.
+      [정답]
+          1 일
+          2 화
+          3 수
+          4 목
+          5 금
+          6 토
+          7 일
+          8 화
+          9 수
+          10 목
+          ...
+          22 목
+          23 금
+          24 토
+          25 일
+          26 화
+          ...
+          30 토
+          31 일    
+  */
+
+  for (let i = 1; i <= 31; i++) {
+    document.write(i + " ")
+    if (i % 6 == 1) {
+      document.write("일 <br>")
+    } else if (i % 6 == 2) {
+      document.write("화 <br>")
+    } else if (i % 6 == 3) {
+      document.write("수 <br>")
+    } else if (i % 6 == 4) {
+      document.write("목 <br>")
+    } else if (i % 6 == 5) {
+      document.write("금 <br>")
+    } else if (i % 6 == 0) {
+      document.write("토 <br>")
+    }
+  }
+
+
+  /*
+  let i = 1;
+
+  while (i <= 31) {
+
+    let unit = i % 6;
+    let day = "";
+
+    if (unit == 0) {
+      day = "토"
+    } else if (unit == 1) {
+      day = "일"
+    } else if (unit == 2) {
+      day = "화"
+    } else if (unit == 3) {
+      day = "수"
+    } else if (unit == 4) {
+      day = "목"
+    } else if (unit == 5) {
+      day = "금"
+    }
+
+    console.log(i, day)
+
+    i += 1;
+  }
+
+  */
+
+
+
+
+</script>

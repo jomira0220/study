@@ -1,0 +1,160 @@
+<script>
+
+  /*
+      [문제]
+          input배열 안의 값들이 array배열의 값들과 일치하고,
+          그 순서도 일치하면 true, 아니면 false를 출력하시오. 	
+      [예시] input1의 값들은 6,1,8이고 array의  
+          index 5~7(6,1,8)의 값과 순서가 일치한다.
+      [예시] input2의 값들을 array 배열에 있는 값들과 일치하지만, 
+          input2 순서가 6,3이고, array의 값은 3,6으로 순서가 다르다.
+          
+      [정답1] true	
+      [정답2] false    
+  */
+
+  let array = [1, 3, 3, 6, 5, 6, 1, 8, 9];
+
+  let input1 = [6, 1, 8];
+  let input2 = [6, 3];
+
+  let select = Math.floor(Math.random() * 2) + 1;
+  //select = 1;
+  //select = 2;
+  document.write("select = " + select + "<br>");
+
+  if (select == 1) {
+
+    let check = false;
+    for (let i = 0; i < array.length - input1.length + 1; i++) {
+      let count = 0;
+      for (let j = 0; j < input1.length; j++) {
+        if (array[j + i] == input1[j]) {
+          count++
+        }
+      }
+      if (count == input1.length) {
+        check = true
+      }
+    }
+
+    document.write(check)
+
+  } else if (select == 2) {
+
+    let check = false;
+    for (let i = 0; i < array.length - input2.length + 1; i++) {
+      let count = 0;
+      for (let j = 0; j < input2.length; j++) {
+        if (array[j + i] == input2[j]) {
+          count++
+        }
+      }
+      if (count == input2.length) {
+        check = true
+      }
+    }
+
+    document.write(check)
+
+  }
+
+
+
+
+  /*
+
+  if (select == 1) {
+
+    let result = "false";
+
+    for (let i = 0; i < array.length - input1.length + 1; i++) {
+
+      let count = 0
+      for (let j = 0; j < input1.length; j++) {
+        if (array[i + j] == input1[j]) {
+          count++
+        }
+      }
+      if (count == input1.length) {
+        result = "true"
+        break;
+      }
+    }
+
+    document.write(result)
+
+
+  } else {
+    let result = "false";
+
+    for (let i = 0; i < array.length - input2.length + 1; i++) {
+
+      let count = 0
+      for (let j = 0; j < input2.length; j++) {
+        if (array[i + j] == input2[j]) {
+          count++
+        }
+      }
+      if (count == input2.length) {
+        result = "true"
+        break;
+      }
+    }
+
+    document.write(result)
+  }
+
+*/
+
+  /*
+  //3개씩 혹은 2개씩 검사시 검사횟수 확인 = 3개씩의 경우 7, 2개씩일 경우 8
+  if (select == 1) {
+    let check = false;
+    for (let i = 0; i < array.length - input1.length + 1; i++) {
+
+      let count = 0;
+
+      for (let j = 0; j < input1.length; j++) {
+        document.write(array[i + j] + " ");
+        if (array[i + j] == input1[j]) { 
+          count += 1;
+        }
+      }
+      document.write("<br>");
+
+      if (count == input1.length) {
+        check = true;
+      }
+
+    }
+    document.write(check);
+
+  } else if (select == 2) {
+
+    let check = false;
+
+    for (let i = 0; i < array.length - input2.length + 1; i++) {
+
+      let count = 0;
+
+      for (let j = 0; j < input2.length; j++) {
+        document.write(array[i + j] + " ");
+        if (array[i + j] == input2[j]) {
+          count += 1;
+        }
+      }
+      document.write("<br>");
+
+      if (count == input2.length) {
+        check = true;
+      }
+
+    }
+    document.write(check);
+  }
+
+  document.write(array.length - input2.length + 1)
+  */
+
+</script>

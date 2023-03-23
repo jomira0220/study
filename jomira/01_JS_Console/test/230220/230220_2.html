@@ -1,0 +1,51 @@
+<script>
+
+  /*
+      [문제]
+          arr배열에 value의 값이 있으면
+           result 배열에 인덱스 두개씩 차례로 저장하시오.
+      [정답]
+          result = [
+              [0,0]
+              [2,2]
+              [1,1]
+              [-1,-1]
+              [-1,-1]
+          ]
+  */
+
+  let arr = [
+    [10, 20, 30],
+    [40, 50, 60],
+    [70, 80, 90]
+  ];
+
+  let value = [10, 2, 54, 90, 50];
+  let result = [
+    [-1, -1],
+    [-1, -1],
+    [-1, -1],
+    [-1, -1],
+    [-1, -1]
+  ];
+
+  let index = 0;
+  for (let i = 0; i < value.length; i++) {
+    for (let j = 0; j < arr.length; j++) {
+      for (let k = 0; k < arr[j].length; k++) {
+        if (value[i] == arr[j][k]) {
+          result[index][0] = j
+          result[index][1] = k
+          index++
+        }
+      }
+    }
+  }
+
+  for (let i = 0; i < result.length; i++) {
+    document.write(result[i] + "<br>")
+  }
+
+
+
+</script>

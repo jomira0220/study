@@ -1,0 +1,81 @@
+<script>
+
+  /*
+      [문제] 
+          다음 배열을 이용해서 a의 값 중 짝수만 c에 저장하시오.
+          [조건] 위치는 뒤에서부터 저장한다. 
+      [정답]   
+          c = 0, 0, 0, 36, 10
+  */
+  let a = [10, 49, 51, 36, 17];
+  let c = [0, 0, 0, 0, 0];
+
+
+  let index = c.length - 1
+  for (let i = 0; i < a.length; i++) {
+    if (a[i] % 2 == 0) {
+      c[index] = a[i]
+      index--
+    }
+
+  }
+  document.write(c)
+  /*
+  let a = [10, 49, 51, 36, 17];
+  let c = [0, 0, 0, 0, 0];
+
+  let last = c.length - 1
+
+  for (let i = 0; i < a.length; i++) {
+    if (a[i] % 2 == 0) {
+
+      c[last] = a[i]
+      last -= 1
+
+    }
+  }
+
+  document.write(c)
+*/
+
+
+  /*
+
+  let last = c.length - 1;
+  for (let i = 0; i < a.length; i++) {
+    if (a[i] % 2 == 0) {
+      c[last] = a[i]
+      last -= 1;
+    }
+  }
+  document.write(c)
+
+*/
+
+
+  /*
+  let last = c.length - 1
+  for (let i = 0; i < a.length; i++) {
+    if (a[i] % 2 == 0) {
+      c[last] = a[i]
+      last -= 1
+    }
+  }
+  document.write(c)
+*/
+
+  /*
+  let a = [10, 49, 51, 36, 17];
+  let c = [0, 0, 0, 0, 0];
+  let last = c.length - 1;
+  for (let i = 0; i < a.length; i++) {
+    if (a[i] % 2 == 0) {
+      c[last] = a[i]
+      last -= 1
+    }
+  }
+
+  document.write(c)
+  */
+
+</script>

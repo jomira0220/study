@@ -1,0 +1,65 @@
+<script>
+
+  /*
+      [문제]
+          2~1000 사이의 랜덤 숫자 하나를 저장한다.
+          위 숫자 바로 다음 소수를 출력하시오.
+      [예시1]
+          r = 1000
+          소수 = 1009	 
+      [예시2]
+          r = 500
+          소수 = 503    
+  */
+  let r = Math.floor(Math.random() * 999) + 2;
+  r = 1000;
+
+  /*
+  r숫자보다 큰 어떤수가 소수인지 찾는것이므로 
+  r을 기준으로 잡고 1씩 증감시켜 소수(약수가 두개인 수) 검색 진행
+  */
+  let i = r + 1;
+  while (true) {
+    let count = 0
+    for (let j = 1; j <= i; j++) {
+      //약수는 1부터 자기자신까지 나눌때 나누어지는 수
+      if (i % j == 0) {
+        count++
+      }
+    }
+
+    if (count == 2) {
+      //약수의 개수가 두개인 경우
+      document.write("소수 = " + i)
+      break;
+    }
+
+    i++
+
+  }
+
+
+
+  /*
+  r = 1000
+
+  let i = r + 1;
+  while (true) {
+    let count = 0;
+    for (let j = 1; j <= i; j++) { // 1부터 i까지
+      if (i % j == 0) {
+        count += 1;
+      }
+    }
+
+    if (count == 2) {
+      document.write("소수 = " + i);
+      break;
+    }
+
+    i += 1;
+  }
+*/
+
+
+</script>

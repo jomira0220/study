@@ -1,0 +1,150 @@
+<script>
+
+  /*
+      [문제]
+          철수네 공장의 창고를 아래 arr배열로 표현하였다.
+          1은 물건이 차 있는 상황이고 0은 비어있는 상황이다.
+          랜덤(1~5)으로 물건 크기를 입력받고 창고에 저장 후 출력하시오.
+          저장할 수 없으면 "창고 부족"이라고 출력하시오.
+          단, 물건은 앞에서부터 채워나간다.
+          예를 들어 랜덤이 3이 나오면 연속으로 0이 3개 있어야 한다.
+      [예시1]
+          r = 3
+          arr = [0, 1, 0, 0, 1, 1, 1, 1, 0, 1] 0 2 5   1 2 3~4
+      [예시2]
+          r = 5
+          "창고부족"  
+        
+  */
+
+  let arr = [0, 1, 0, 0, 1, 0, 0, 0, 0, 1];
+  //0 2 5 
+  //1 2 3~4
+
+  let r = Math.floor(Math.random() * 5) + 1;
+  r = 3
+  document.write("r = " + r + "<br>")
+
+  let count = 0;
+  let index = 0;
+  for (let i = 0; arr.length; i++) {
+    if (arr[i] == 0) {
+      count++
+      if (count == r) {
+        index = i
+      }
+    }
+  }
+
+  if (count < r) {
+    document.write("창고부족")
+  } else {
+    for (let i = 0; i < r; i++) {
+      arr[index - i] = 1
+    }
+  }
+
+
+  /*
+
+  let count = 0;
+  let index = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] == 0) {
+      // 0이면 0의 개수 카운트 누적
+      count += 1
+      if (count == r) {
+        //0의 개수랑 r의 개수가 같아지면 해당 순서 index 저장
+        index = i
+        break;
+      }
+    } else {
+      count = 0
+    }
+  }
+
+  if (count < r) {
+    //0의 카운트 개수보다 r이 더 크면
+    document.write("창고부족")
+  } else {
+    for (let i = 0; i < r; i++) {
+      //r 만큼 실행하여 1 삽입
+      arr[index - i] = 1
+    }
+    document.write("r = " + r + "<br>")
+    document.write("arr = " + arr)
+  }
+*/
+
+
+
+
+
+  /*
+
+  let count = 0;
+  let index = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] == 0) {
+      count += 1
+      if (count == r) {
+        index = i
+        break;
+      }
+    } else {
+      count = 0
+    }
+  }
+
+  if (count < r) {
+    document.write("창고부족")
+  } else {
+    for (let i = 0; i < r; i++) {
+      arr[index - i] = 1
+    }
+    document.write("r = " + r + "<br>")
+    document.write("arr = " + arr)
+  }
+  
+  */
+
+
+
+
+
+
+
+
+  /*
+
+  let index = -1;
+  let count = 0;
+  for (let i = 0; i < arr.length; i++) {
+    //0이 연속인지 아닌지를 먼저 판단
+    if (arr[i] == 0) { //arr 0이면 
+      count += 1; //몇개인지 누적하고
+
+      if (count == r) { //누적한 숫자가 r과 같아지면 진행멈추고 순서값 인덱스에 저장
+        index = i;
+        break;
+      }
+    } else { //arr이 0이 아니면 카운트 리셋
+      count = 0;
+    }
+  }
+  document.write("index = " + index + "<br>");
+
+  if (index >= 0) { //순서값이 0보다 크면 
+    //0 ~ r까지의 배열에 1저장
+    for (let i = 0; i < r; i++) {
+      arr[index - i] = 1;
+    }
+    document.write("arr = " + arr);
+  } else { //순서값이 5이상이면
+    document.write("창고부족");
+  }
+  */
+
+
+
+</script>

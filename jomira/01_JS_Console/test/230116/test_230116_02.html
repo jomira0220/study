@@ -1,0 +1,52 @@
+<script>
+
+  /*
+      [문제] 
+          구호 물품으로 소독약 120개와 붕대 72개를 
+          환자 한 명당 똑같은 양의 소독약과 붕대를 나눠주려고 한다. 
+          최대한 많은 환자에게 나눠줄 때 몇 명인지 구하시오.
+      [정답]
+          24	    
+  */
+
+
+  let a = 120;
+  let b = 72;
+  let result = 0
+  for (let i = 0; i < b; i++) {
+    if (a % i == 0 && b % i == 0) {
+      result = i
+    }
+  }
+
+  document.write(result)
+
+
+  /*
+  let a = 120;
+  let b = 72;
+  let result = 0;
+  for (let i = 1; i <= 72; i++) {
+    if (a % i == 0 && b % i == 0) {
+      result = i
+    }
+  }
+
+  document.write(result)
+*/
+  /*
+  let 소독약 = 120;
+  let 붕대 = 72;
+  let 명수 = 0;
+  for (let i = 0; i < 붕대; i++) {
+
+    if (소독약 % i == 0 && 붕대 % i == 0) {
+      명수 = i
+    }
+
+  }
+
+  document.write(명수)
+  */
+
+</script>

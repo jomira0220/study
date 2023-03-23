@@ -1,0 +1,54 @@
+<script>
+  /*
+    [문제]
+      배열의 랜덤값이 모두 짝수면 true를 출력하고,
+      하나라도 짝수가 아니면 false를 출력하는 함수를 만드시오.
+      단, 0은 짝수이다.
+    [정답]
+      true
+  */
+
+
+  function evenCheck(arr) {
+    let count = 0;
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] % 2 == 0) {
+        count++
+      }
+    }
+
+    if (count == arr.length) {
+      document.write("true")
+    } else {
+      document.write("false")
+    }
+  }
+
+
+  let arr = [10, 0, 2, 6];
+
+  evenCheck(arr)
+
+
+  /* 선생님 풀이
+  
+  
+    function checkEven(arr) {
+    let check = true;
+
+    for(let i=0; i<arr.length; i++) {
+      if(arr[i] % 2 > 0) {
+        check = false;
+      }
+    }
+
+    document.write(check);
+  }	
+
+  let arr = [10, 0, 2, 6];
+
+  checkEven(arr);
+
+
+*/
+</script>

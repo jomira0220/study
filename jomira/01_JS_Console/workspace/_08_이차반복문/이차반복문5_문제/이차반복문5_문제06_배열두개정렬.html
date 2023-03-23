@@ -1,0 +1,63 @@
+<script>
+
+  /*
+      [문제]
+          아래 리스트 두 개를 합치고 오름차순으로 정렬하시오. 
+      [정답]
+          [1, 2, 3, 5, 7, 8, 9, 10, 12, 15, 19, 20]    
+  */
+
+  let a = [9, 10, 3, 2, 20, 19];
+  let b = [15, 12, 1, 5, 7, 8];
+  let c = [];
+
+
+  for (let i = 0; i < a.length; i++) {
+    c.push(a[i])
+    c.push(b[i])
+  }
+
+
+  for (let i = 0; i < c.length; i++) {
+    let minNum = c[i]
+    let minIndex = i
+
+    for (let j = i; j < c.length; j++) {
+      if (minNum > c[j]) {
+        minNum = c[j]
+        minIndex = j
+      }
+    }
+
+    let temp = c[i]
+    c[i] = c[minIndex]
+    c[minIndex] = temp
+
+  }
+
+  document.write(c)
+
+
+  /*
+for (let i = 0; i < a.length; i++) {
+  c.push(a[i])
+  c.push(b[i])
+}
+
+for (let i = 0; i < c.length; i++) {
+  let minNum = c[i]; // max 는 0으로 해도 되지만 min은 아님
+  let minIndex = i;
+  for (let j = i; j < c.length; j++) {
+    if (minNum > c[j]) { //작은수부터이니까 큰수면 부등호 반대
+      minNum = c[j]
+      minIndex = j
+    }
+  }
+  let temp = c[i]
+  c[i] = c[minIndex];
+  c[minIndex] = temp;
+}
+
+document.write(c)
+*/
+</script>

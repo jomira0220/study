@@ -1,0 +1,94 @@
+<script>
+
+  /*
+      [문제]  
+          아래 arr배열은 순서대로 값이 저장되어있다.
+          1~70사이의 랜덤숫자 하나를 저장 후,
+          arr배열의 값들 사이에 저장하려고 한다. 
+          저장 조건은 arr배열의 바로 앞의 값 보다는 크고 
+          바로 뒤의 값 보다는 이하인 위치에 삽입 후 출력하시오.
+      [예시1]
+          r = 5
+          arr = 5,10,20,30,40,50,60   
+      [예시2]
+          r = 15
+          arr = 10,15,20,30,40,50,60       
+      [예시3]
+          r = 65
+          arr = 10,20,30,40,50,60,65                     
+  */
+
+  let arr = [10, 20, 30, 40, 50, 60];
+
+  let r = Math.floor(Math.random() * 70) + 1;
+
+  document.write("r = " + r + "<br>");
+
+  let index = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] < r) {
+      index++
+    }
+  }
+
+  document.write("index = " + index + "<br>")
+
+  arr.push(0)
+
+  for (let j = arr.length - 1; j > index; j--) {
+    arr[j] = arr[j - 1]
+  }
+
+  arr[index] = r
+
+  document.write(arr)
+
+
+
+
+
+
+
+
+  /*
+  1.10보다 작으면 순서가 맨앞으로 온다.
+  2.60보다 크면 순서가 맨뒤로 간다.
+  3.10보다 크면서 60보다 작으면 순서가 사이에 들어간다.
+  3-1.20~50까지 비교하여 어느 사이의 순서에 끼는지 확인해야한다.
+  4.새로운 값을 넣어줄 방을 만들어준다.
+  5.뒤에 순서부터 차례대로 옮겨준다.
+ 
+
+  let index = 0;
+
+  if (r <= arr[0]) {
+    //r이 배열의 첫번째 배열의 값과 일치하면 순서 맨앞으로
+    index = 0;
+  } else if (r >= arr[arr.length - 1]) {
+    //r이 마지막 배열의 값보다 크거나 같으면 순서 맨 마지막으로
+    index = arr.length;
+  } else {
+    //r이 중간에 들어가야하는 경우 배열의 길이만큼 돌리고 배열의 값보다 크거나 같고 다음 값보다 작거나 같으면 해당 배열의 순서 + 1 하고 종료
+    for (let i = 0; i < arr.length - 1; i++) {
+      if (arr[i] <= r && r <= arr[i + 1]) {
+        index = i + 1;
+        break;
+      }
+    }
+  }
+  //순서를 먼저 추출하고
+  document.write("index = " + index + "<br>");
+
+  arr.push(0); //빈공간 한개 만들고
+
+  for (let i = arr.length - 1; i > index; i--) {
+    //index순서에 따른 배열 변경처리 후
+    arr[i] = arr[i - 1];
+  }
+  //해당 순서에 값을 삽입
+  arr[index] = r;
+  document.write("arr = " + arr);
+
+ */
+
+</script>

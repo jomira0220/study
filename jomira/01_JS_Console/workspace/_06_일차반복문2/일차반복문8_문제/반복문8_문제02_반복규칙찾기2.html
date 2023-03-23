@@ -1,0 +1,38 @@
+<script>
+
+  /*
+      [문제]
+          반복문을 사용해서 아래와 같이 출력해보세요.
+      [예시]
+          0 0
+          1 1
+          2 3  2
+          3 6  3
+          4 10  4
+          5 15 
+          6 21    
+  */
+
+  /*
+   let a = 0;
+   let b = 0;
+ 
+   while (a <= 6) {
+ 
+     document.write(a + " " + b + " " + "<br>")
+ 
+     a += 1;
+     b += a;
+   }
+  */
+  let a = 0;
+  let b = 0;
+  for (let i = 0; i <= 6; i++) {
+    document.write(a + " " + b + "<br>")
+    a++
+    b += a
+  }
+
+
+
+</script>

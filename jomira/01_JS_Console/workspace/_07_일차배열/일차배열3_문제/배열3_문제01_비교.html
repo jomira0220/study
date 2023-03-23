@@ -1,0 +1,42 @@
+<script>
+
+  /*
+      [문제]
+          [조건1] 배열 arr에 랜덤숫자(1~100) 5개를 추가한다.
+          [조건2] 리스트의 숫자 중 50보다 큰 값들만 출력하시오.
+          [조건3] 위 조건의 값들의 누적된 합을 출력하시오.
+          [조건4] 위 조건의 개수를 출력하시오. 
+      [예시]
+          arr = 2,95,85,24,7
+          출력 = 95 85
+          합 = 180
+          개수 = 2 
+  */
+
+  let arr = [];
+
+  let count = 0;
+  let total = 0;
+
+  for (let i = 0; i < 5; i++) {
+    arr.push(Math.floor(Math.random() * 100) + 1);
+  }
+  document.write(arr + "<br>")
+  document.write("출력 = ")
+
+  for (let i = 0; i < 5; i++) {
+    if (arr[i] > 50) {
+      document.write(arr[i] + " ")
+      total += arr[i]
+      count += 1
+    }
+  }
+
+  document.write("<br>")
+  document.write("합 = " + total + "<br>")
+  document.write("개수 = " + count + "<br>")
+
+
+
+
+</script>

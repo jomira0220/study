@@ -1,0 +1,28 @@
+<script>
+  /*
+     [연산자 총정리]
+     1. 소괄호 연산자 : ()
+     2. 산술연산자 : * / % 
+     3. 산술연산자 : + -
+     4. 비교연산자 : > < >= <= == !=
+     5. 논리연산자 : && || !
+     6. 대입연산자 : =
+  */
+
+  let x = 10;
+  let y = 3;
+
+  let result = (x + y > 3) || ((y + 5) * 7) < 35;
+
+  console.log(result);
+  document.write(result + "<br>")
+
+  let rs1 = x + y > 3;
+  let rs2 = (y + 5) * 7 < 35;
+  let rs3 = rs1 || rs2;
+
+  console.log(rs3)
+  document.write(rs3)
+
+
+</script>

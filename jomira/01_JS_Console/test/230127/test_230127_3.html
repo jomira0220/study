@@ -1,0 +1,67 @@
+<script>
+
+  /*
+      [문제]
+          인덱스 위치에 번호와 점수를 삽입 후, 출력하시오.
+      [정답]
+          c = [1001, 40, 1002, 60, 1003, 65, 1004, 70 ,0, 0]
+  */
+
+  let c = [1001, 40, 1003, 65, 1004, 70, 0, 0, 0, 0];
+  let index = 2;
+  let number = 1002;
+  let score = 60;
+
+
+  for (let i = c.length - 1; i > index; i--) {
+      c[i] = c[i-2]
+  }
+
+  c[index] = number
+  c[index+1] = score
+  
+  document.write(c)
+
+
+  /*
+    for (let i = c.length - 1; i > index; i--) {
+      c[i] = c[i - 2]
+    }
+  
+    c[index] = number
+    c[index + 1] = score
+  
+    document.write(c)
+  
+  */
+  /*
+
+  for (let j = c.length - 1; j > 0; j--) {
+    c[j] = c[j - 2]
+  }
+
+  c[index] = number;
+  c[index + 1] = score;
+
+*/
+
+
+  //뒤에가 비어있으므로 뒤에 부터 밀기
+  /*
+    c[9] = c[7]
+    c[8] = c[6]
+    c[7] = c[5]
+    c[6] = c[4]
+    c[5] = c[3]
+
+  for (let i = c.length - 1; i > index; i--) {
+    c[i] = c[i - 2]
+  }
+  c[index] = number;
+  c[index + 1] = score;
+
+
+  document.write(c)
+  */
+
+</script>

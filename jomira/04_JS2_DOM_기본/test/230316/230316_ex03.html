@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    ul {
+      display: none;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <a href="#" class="btn">목차보기</a>
+  <hr>
+  <ul>
+    <li>바나나</li>
+    <li>딸기</li>
+    <li>사과</li>
+  </ul>
+
+
+
+  <script>
+
+    let turn = true
+    document.querySelector(".btn").addEventListener("click", (e) => {
+      if (turn) {
+        document.querySelector("ul").style.display = "block"
+      } else {
+        document.querySelector("ul").style.display = "none"
+      }
+      turn = !turn
+    })
+
+  </script>
+</body>
+
+</html>

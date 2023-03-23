@@ -1,0 +1,36 @@
+<script>
+
+  /*
+      [문제]
+          이름과 성적을 아래와 같이 슬러시(/)와 콤마(,)로
+          하나의 문자열로 연결한 후 출력하시오.
+      [정답]
+          str = 김철수/87,이만수/42,이영희/95
+  */
+
+  let name = ["김철수", "이만수", "이영희"];
+  let score = [87, 42, 95];
+  let str = "";
+
+  for (let i = 0; i < name.length; i++) {
+    str += name[i] + "/"
+    str += score[i] + ","
+  }
+
+  str = str.substring(0, str.length - 1)
+
+  document.write(str)
+
+
+  /*
+  for (let i = 0; i < score.length; i++) {
+    str += name[i];
+    str += "/";
+    str += score[i];
+    str += ",";
+  }
+  str = str.substring(0, str.length - 1);
+  document.write("str = " + str);
+  */
+
+</script>

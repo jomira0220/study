@@ -1,0 +1,65 @@
+<script>
+
+  /*
+      [문제]
+          배열에 랜덤으로 1 또는 7을 7개 저장한다.
+          단, 7은 딱 3개만 저장한다.
+          7이 연속으로 3개면 당첨이다.
+          당첨인지 꽝인지 출력해주는 함수를 만드시오.
+      [예시] 
+          7,1,7,7,1,1,1
+          꽝
+          1,1,1,1,7,7,7
+          당첨
+  */
+
+
+  function setLotto(arr) {
+
+    let num7 = 0;
+    let num1 = 0;
+
+    for (let i = 0; i < 7; i++) {
+      let num = Math.floor(Math.random() * 2);
+      if (num == 0) {
+        num = 7
+        num7++
+        if (num7 > 3) {
+          num = 1
+        }
+      } else {
+        num1++
+        if (num1 > 4) {
+          num = 7
+        }
+      }
+      arr.push(num)
+    }
+
+    let result = "꽝";
+    let count = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] == 7) {
+        count++
+      } else {
+        count = 0
+      }
+
+      if (count == 3) {
+        result = "당첨"
+        break
+      }
+    }
+
+    document.write(arr + "<br>")
+    document.write(result)
+
+  }
+
+
+  let lotto = []
+  setLotto(lotto)
+
+
+</script>

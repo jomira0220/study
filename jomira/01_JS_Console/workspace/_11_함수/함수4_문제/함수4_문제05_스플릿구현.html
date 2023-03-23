@@ -1,0 +1,38 @@
+<script>
+
+  /*
+    [문제]
+      문자열의 split() 함수를 직접 구현해보시오.
+    [정답]
+      ["1001", "1002", "1003", "1004"]
+  */
+
+  // 기존 split() 함수
+  let data1 = "1001,1002,1003,1004";
+  let rs1 = data1.split(",");
+  document.write(rs1 + "<br>");
+
+
+
+
+
+  // 내가 만든 함수
+  function dataSplit(dataStr, separator) {
+    let result = []
+    let temp = ""
+    for (let i = 0; i <= dataStr.length; i++) {
+      if (dataStr[i] == separator || i == dataStr.length) {
+        result.push(temp);
+        temp = "";
+      } else {
+        temp += dataStr[i];
+      }
+    }
+    console.log(result)
+    return result
+  }
+
+  dataSplit(data1, ",")
+
+
+</script>

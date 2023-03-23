@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #header-top {
+            width:800px;
+            margin:0 auto;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <!--
+        1)페이지이동 : page
+        2)페이지이동 + 데이터처리 : pro(=process)
+        3)이벤트처리 : 이벤트명(clic,input,blur)
+    -->
+    <div id="header-top">
+        <h1>로고</h1>
+        <ul>
+            <li><a href="">메뉴1</a></li>
+            <li><a href="">메뉴2</a></li>
+            <li><a href="">메뉴3</a></li>
+        </ul>
+        <button id="button-memberJoinPage">회원가입</button>
+        <button id="button-memberLoginPage">로그인</button>
+    </div>
+    <script>
+        let $joinBtn = document.querySelector("#button-memberJoinPage")
+        let $LoginBtn = document.querySelector("#button-memberLoginPage")
+        
+        $joinBtn.addEventListener("click",buttonMemberJoinPageClick)
+        $LoginBtn.addEventListener("click",buttonMemberLoginPageClick)
+        
+        /*
+        let buttonMemberJoinPageClick = $joinBtn.addEventListener("click",(event) => {
+            console.log("1")
+        })
+        let buttonMemberLoginPageClick =  $LoginBtn.addEventListener("click",(event) => {
+            console.log("2")
+        })
+        */
+        
+    </script>
+</body>
+</html>

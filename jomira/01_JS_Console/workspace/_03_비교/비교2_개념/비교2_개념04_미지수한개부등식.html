@@ -1,0 +1,28 @@
+<script>
+     /*
+        [미지수가 한개 있는 일차부등식]
+        다음부등식의 풀이과정을 주석으로 표현하시오.
+
+        ★부등호의 경우 - 상쇄시 부등호가 반대로 바뀐다.
+    */
+
+    let a = 0;
+    let result = 7 * 2 - a * 2  < -5;
+
+    /*
+      14 - 2a < -5
+      14 - 14 - 2a < -5 -14
+      -2a < -19
+      2a > 19
+      2a / 2 > 19 / 2
+      a > 9.5
+    */
+
+    a = Math.round(9.5);
+    result = 7 * 2 - a * 2  < -5;
+
+    document.write(result)
+    console.log(result)
+
+
+</script>

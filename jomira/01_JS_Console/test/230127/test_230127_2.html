@@ -1,0 +1,35 @@
+<script>
+
+  /*
+      [문제]	
+          arr1은 앞에서부터 뒤로 반복한다.
+          arr2는 뒤에서부터 앞으로 거꾸로 반복한다. 	
+          b에 arr1 과 arr2 각각의 값의 합을 저장 후 출력하시오.
+
+          예) b[0] = arr1[0] + arr2[4] 
+          예) b[1] = arr1[1] + arr2[3] 
+      [정답]
+          b = [40, 49, 58, 67, 76]
+  */
+
+  let arr1 = [11, 21, 31, 41, 51];
+  let arr2 = [25, 26, 27, 28, 29];
+  let b = [];
+
+  let last = arr2.length - 1
+  for (let i = 0; i < arr1.length; i++) {
+    b.push(arr1[i] + arr2[last - i])
+  }
+
+  document.write(b)
+
+  /*
+  let index = arr2.length - 1;
+  for (let i = 0; i < arr1.length; i++) {
+    b.push(arr1[i] + arr2[index - i])
+  }
+
+  document.write(b)
+  */
+
+</script>

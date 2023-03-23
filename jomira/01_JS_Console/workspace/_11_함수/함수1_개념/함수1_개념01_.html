@@ -1,0 +1,24 @@
+<script>
+
+  /*
+    함수
+  */
+
+  //영역1) 함수 밖 영역
+  let num = 10;
+  //함수정의
+
+  function a() {
+    document.write("a함수 호출!")
+  }
+
+  //영역2) 함수 안 영역
+  function print() {
+    let x = 3;
+    a()
+    document.write("함수호출")
+  }
+
+  print()
+
+</script>

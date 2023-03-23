@@ -1,0 +1,18 @@
+<script>
+
+  /*
+      arr배열에서 20만 삭제하시오.
+  */
+
+  let arr = [10, 20, 30, 20, 20, 20, 70, 80, 90, 100];
+  document.write("arr = " + arr + "<br>");
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] == 20) {
+      arr.splice(i, 1)
+      i--
+    }
+  }
+  document.write("arr = " + arr + "<br>");
+
+</script>

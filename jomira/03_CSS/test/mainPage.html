@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+    rel="stylesheet">
+  <style>
+    #headerTop {
+      width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .space {
+      width: 1000px;
+    }
+
+    .topNav {
+      width: 70px;
+      height: 50px;
+      font-size: 13px;
+    }
+
+
+
+    #header {
+      width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .logo {
+      width: 150px;
+    }
+
+
+
+    #headerMenu {
+      width: 1000px;
+      margin: 0 auto;
+      text-align: right;
+      font-weight: bold;
+    }
+
+    .menu {
+      width: 160px;
+      text-align: center;
+    }
+
+    .menu a:hover {
+      color: purple;
+    }
+
+    .searchInput {
+      width: 250px;
+      height: 35px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    .searchImg {
+      width: 40px;
+      cursor: pointer;
+    }
+
+
+    .mainImg {
+      width: 100%;
+    }
+
+    a {
+      color: #000;
+      text-decoration: none;
+    }
+
+    /* footer */
+    #footerTable {
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .footerMenu {
+      font-size: 10px;
+      color: gray;
+      line-height: 15px;
+      padding: 30px 30px;
+      width: 1900px;
+      background-color: rgb(247, 247, 247);
+    }
+
+
+    #joinBox {
+      width: 800px;
+      margin: 0 auto 100px;
+      border-collapse: collapse;
+    }
+
+    #joinBox th {
+      text-align: left;
+      font-weight: 500;
+    }
+
+    #joinBox th,
+    #joinBox td {
+      border: 1px solid #ccc;
+      height: 70px;
+    }
+
+    #joinBox th,
+    #joinBox td.buttonBox {
+      width: 150px;
+    }
+
+    #joinBox td.inputBox input:not([type="radio"], [type="checkbox"]) {
+      width: 300px;
+      height: 40px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    #joinBox td.inputBox select {
+      width: 150px;
+      height: 40px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    #joinBox h3 {
+      text-align: center;
+      font-size: 30px;
+    }
+
+    button {
+      cursor: pointer;
+      border: 1px solid purple;
+      background-color: #fff;
+      border-radius: 10px;
+      height: 50px;
+      width: 120px;
+      color: purple;
+      font-weight: bold;
+    }
+
+    button.joinBtn {
+      background-color: purple;
+      color: #fff;
+      width: 200px;
+    }
+
+    .allAgree {
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    .agreeBox ul {
+      list-style: none;
+    }
+
+    .agreeBox ul li {
+      margin-bottom: 10px;
+    }
+
+    #joinBox .line td {
+      height: 10px;
+    }
+
+
+    /* footer 하단에 고정 */
+    html,
+    body {
+      height: 100%;
+      /* body의 기본 값을 초기화 */
+      margin: 0;
+      padding: 0;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    #footer-top {
+      flex: 1;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <table id="headerTop">
+    <tr>
+      <td class="space"></td>
+      <td class="topNav"><a href="#">회원가입</a></td>
+      <td class="topNav"><a href="#">로그인</a></td>
+      <td class="topNav"><a href="#">고객센터</a></td>
+    </tr>
+  </table>
+
+  <table id="header">
+    <tr>
+      <td></td>
+      <td><a href="#"><img class="logo" src="./img/logo.png" alt=""></a></td>
+      <td></td>
+    </tr>
+  </table>
+
+  <table id="headerMenu">
+    <tr>
+      <td class="menu"><a href="#">전체상품보기</a></td>
+      <td class="menu"><a href="#">신상품</a></td>
+      <td class="menu"><a href="#">베스트</a></td>
+      <td class="menu"><a href="#">알뜰쇼핑</a></td>
+      <td><input class="searchInput" type="search" placeholder="검색어를 입력해주세요"></td>
+      <td><img class="searchImg" src="./img/search.png" alt=""></td>
+    </tr>
+  </table>
+
+
+
+  <table id="joinBox" border="1">
+    <tr>
+      <td colspan="3">
+        <h3>회원가입</h3>
+      </td>
+    </tr>
+    <tr class="line">
+      <td colspan="3">
+        <hr>
+      </td>
+    </tr>
+
+    <tr>
+      <th class="titleBox">아이디</th>
+      <td class="inputBox"><input type="text" name="" id="" placeholder="아이디를 입력해주세요"></td>
+      <td class="buttonBox"><button type="button">중복확인</button></td>
+    </tr>
+
+    <tr>
+      <th class="titleBox">비밀번호</th>
+      <td class="inputBox"><input type="password" name="" id="" placeholder="비밀번호를 입력해주세요"></td>
+      <td class="buttonBox"></td>
+    </tr>
+
+    <tr>
+      <th class="titleBox">비밀번호확인</th>
+      <td class="inputBox"><input type="password" name="" id="" placeholder="비밀번호를 한번 더 입력해주세요"></td>
+      <td class="buttonBox"></td>
+    </tr>
+
+    <tr>
+      <th class="titleBox">이름</th>
+      <td class="inputBox"><input type="text" name="" id="" placeholder="이름을 입력해주세요"></td>
+      <td class="buttonBox"></td>
+    </tr>
+
+    <tr>
+      <th class="titleBox">이메일</th>
+      <td class="inputBox"><input type="text" name="" id="" placeholder="이메일을 입력해주세요"></td>
+      <td class="buttonBox"><button type="button">중복확인</button></td>
+    </tr>
+
+    <tr>
+      <th class="titleBox">휴대폰</th>
+      <td class="inputBox"><input type="number" name="" id="" placeholder="숫자만 입력해주세요"></td>
+      <td class="buttonBox"></td>
+    </tr>
+
+    <tr>
+      <th class="titleBox">우편번호</th>
+      <td class="inputBox"><input type="text" placeholder="우편번호를 입력해주세요"></td>
+      <td class="buttonBox"><button type="button">우편번호검색</button></td>
+    </tr>
+    <tr>
+      <th class="titleBox">지번 주소</th>
+      <td class="inputBox"><input type="text" name="" id="" placeholder="지번 주소를 입력해주세요"></td>
+      <td class="buttonBox"></td>
+    </tr>
+    <tr>
+      <th class="titleBox">도로명 주소</th>
+      <td class="inputBox"><input type="text" name="" id="" placeholder="도로명 주소를 입력해주세요"></td>
+      <td class="buttonBox"></td>
+    </tr>
+    <tr>
+      <th class="titleBox">남은주소</th>
+      <td class="inputBox"><input type="text" name="" id="" placeholder="남은 주소를 입력해주세요"></td>
+      <td class="buttonBox"></td>
+    </tr>
+    <tr>
+      <th class="titleBox">성별</th>
+      <td class="inputBox">
+        <label><input type="radio" name="gender" id="" value="men">남자</label>
+        <label><input type="radio" name="gender" id="" value="woman">여자</label>
+        <label><input type="radio" name="gender" id="" value="defalt">선택안함</label>
+      </td>
+      <td class="buttonBox"></td>
+    </tr>
+
+    <tr>
+      <th class="titleBox">유입경로</th>
+      <td class="inputBox" colspan="2">
+        <select name="" id="">
+          <option value="인터넷검색">인터넷검색</option>
+          <option value="지인권유">지인권유</option>
+          <option value="SNS">SNS</option>
+          <option value="광고">광고</option>
+          <option value="기타" selected>기타</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr class="line">
+      <td colspan="3">
+        <hr>
+      </td>
+    </tr>
+
+    <tr>
+      <td>이용약관동의</td>
+      <td colspan="2" class="allAgree">
+        <label><input type="checkbox">전체동의</label>
+      </td>
+    </tr>
+
+    <tr class="agreeBox">
+      <td></td>
+      <td colspan="2">
+        <ul>
+          <li><input type="checkbox">이용약관 동의</li>
+          <li><input type="checkbox">개인정보취급 동의</li>
+          <li><input type="checkbox">만 14세 이상입니다.</li>
+          <li><input type="checkbox">마케팅 메일 수신 동의(선택)</li>
+        </ul>
+      </td>
+    </tr>
+
+    <tr>
+      <td></td>
+      <td colspan="2"><button class="joinBtn" type="submit">가입하기</button></td>
+    </tr>
+
+  </table>
+
+
+
+
+
+  <table style="display: none;">
+    <tr>
+      <td><a href="#"><img class="mainImg" src="./img/center_default.jpg" alt=""></a></td>
+    </tr>
+  </table>
+
+
+  <div id="footer-top"></div>
+
+  <!-- footer -->
+  <table id="footerTable">
+    <tr>
+      <td class="footerMenu">
+        컬리에서 판매되는 상품 중에는 컬리에 입점한 개별 판매자가 판매하는 마켓플레이스(오픈마켓) 상품이 포함되어 있습니다.
+        <br>
+        마켓플레이스(오픈마켓) 상품의 경우 컬리는 통신판매중개자로서 통신판매의 당사자가 아닙니다. 컬리는 해당 상품의 주문, 품질, 교환/환불 등 의무와 책임을 부담하지 않습니다.
+        <br><br>
+        <em>© KURLY CORP. ALL RIGHTS RESERVED</em>
+      </td>
+    </tr>
+  </table>
+
+</body>
+
+</html>

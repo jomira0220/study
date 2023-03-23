@@ -1,0 +1,64 @@
+<script>
+
+  /*
+      [문제]
+          철수는 도서관에서 책을 한 권 빌렸다. 
+          빌린 날짜는 2020년 11월 10일이고, 대여 일수는 100일이다. 
+          도서가 연체되면 연체 비용은 하루에 100원이다.
+          오늘은 2022년 2월 25일 이라고 할 때, 지급해야 하는 비용은 얼마인지 구하시오.
+          단, 윤년은 계산하지 않는다.
+      [정답]
+          37200원    
+  */
+
+  let monthList = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+  let rentYear = 2020;
+  let rentMonth = 11;
+  let rentDay = 10;
+
+  let thisYear = 2022;
+  let thisMonth = 2;
+  let thisDay = 25;
+
+  let before = (rentYear - 1) * 365;
+  for (let i = 0; i < rentMonth - 1; i++) {
+    before += monthList[i]
+  }
+  before += rentDay
+  before += 100
+
+  let after = (thisYear - 1) * 365;
+  after += thisDay
+  for (let i = 0; i < thisMonth - 1; i++) {
+    after += monthList[i]
+  }
+
+  document.write((after - before) * 100)
+
+
+  /*
+    let before = (rentYear - 1) * 365;
+    for (let i = 0; i < rentMonth - 1; i++) {
+      before += monthList[i];
+    }
+    before += rentDay;
+    before += 100;
+    document.write("before = " + before + "<br>");
+  
+    let after = (thisYear - 1) * 365;
+    for (let i = 0; i < thisMonth - 1; i++) {
+      after += monthList[i];
+    }
+    after += thisDay;
+    document.write("after = " + after + "<br>");
+  
+    let result = after - before;
+    document.write("result = " + result + "<br>");
+  
+    let total = result * 100;
+    document.write("total = " + total + "원");
+  */
+
+
+</script>

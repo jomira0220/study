@@ -1,0 +1,59 @@
+<script>
+
+  /*
+    [문제]
+      배열과 어떤 수를 매개변수로 사용하여 
+      그 어떤 수가 배열 안에 있는지 검사해,
+      그 값이 있으면 true, 
+      없으면 false를 반환하는 함수를 만드시오.
+    [예시]
+      1,5,3,2,4
+  */
+
+  function checkNum(arr, num) {
+    let check = false;
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] == num) {
+        check = true
+        break
+      }
+    }
+    return check
+  }
+
+  let arr = [1, 5, 3, 2, 4]
+  let num = 5;
+  let chk = checkNum(arr, num)
+  document.write(chk)
+
+  /*
+  function checkArr(arr, num){
+    let check = false;
+
+    for(let i= 0; i < arr.length; i++){
+      if(arr[i] == num){
+        check = true;
+        break;
+      }
+    }
+    return check;
+  }
+
+  let arr = [];
+	
+  let i = 0;
+  while(true){
+    let ran = Math.floor(Math.random() * 5 + 1);
+
+    if(checkArr(arr, ran) == false){
+      arr[i] = ran;
+      i += 1;
+    }
+    if(i == 5){
+      break;
+    }
+  }
+
+  document.write(arr);
+*/
+</script>

@@ -1,0 +1,75 @@
+<script>
+
+  /*
+      [문제]
+          userList는 회원들의 정보이다. 
+          userno 는 회원번호이다.
+          username 은 회원이름이다.
+          
+          pointList는 회원들의 점수이다.
+          userno 는 회원번호이다.
+          point는 포인트 점수이다.
+          
+          포인트 점수가 가장높은 회원의 점수와 이름을 구하시오.
+      [정답]
+          4   김철수    
+  */
+
+  let userList = [
+    { "userno": 1001, "username": "김철수" },
+    { "userno": 1002, "username": "이만수" },
+    { "userno": 1003, "username": "이영희" }
+  ];
+
+  let pointList = [
+    { "userno": 1001, "point": 1 },
+    { "userno": 1002, "point": 3 },
+    { "userno": 1001, "point": 4 },
+    { "userno": 1003, "point": 2 },
+    { "userno": 1003, "point": 1 }
+  ];
+
+  //제일 높은 포인트값과 
+  let maxPoint = 0;
+  let userNo = 0;
+  for (let i = 0; i < pointList.length; i++) {
+    for (let j = 0; j < pointList.length; j++) {
+      if (maxPoint < pointList[i]["point"]) {
+        maxPoint = pointList[i]["point"];
+        userNo = pointList[i]["userno"]
+      }
+    }
+  }
+
+  document.write(maxPoint + " " + userNo)
+
+  for (let j = 0; j < userList.length; j++) {
+    if (userNo == userList[j]["userno"]) {
+      document.write(userList[j]["username"])
+    }
+  }
+
+  /*
+  let maxPoint = 0;
+  let userNo = 0;
+  let userName = 0;
+  for (let i = 0; i < pointList.length; i++) {
+    if (maxPoint < pointList[i]["point"]) {
+      maxPoint = pointList[i]["point"]
+      userNo = pointList[i]["userno"]
+    }
+  }
+
+
+  for (let i = 0; i < userList.length; i++) {
+    if (userNo == userList[i]["userno"]) {
+      userName = userList[i]["username"]
+    }
+  }
+
+
+  document.write(maxPoint + " " + userName)
+  */
+
+
+</script>

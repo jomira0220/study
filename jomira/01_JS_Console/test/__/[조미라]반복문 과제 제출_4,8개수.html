@@ -1,0 +1,30 @@
+<script>
+
+  /*
+    [문제]
+    반복문을 활용하여 1~ 99까지 반복한다.
+    1~99 사이의 숫자 중에서 4와 8의 개수를 출력하시오.
+    [주의]
+    44 또는 48등 과 같이 두 개 추가가 되는 경우도 있다.
+    [정답]
+    40
+  */
+
+  let count = 0;
+  for (let i = 1; i <= 99; i++) {
+
+    if (i % 10 == 4 || i % 10 == 8) { //1의자리가 4,8인경우
+      count += 1
+      document.write(i + " <br>")
+    }
+
+    if (parseInt(i / 10) == 4 || parseInt(i / 10) == 8) { //10의자리가 4,8인경우
+      count += 1
+      document.write(i + " <br>")
+    }
+
+  }
+  document.write("<br>" + count)
+
+
+</script>

@@ -1,0 +1,30 @@
+<script>
+
+    /*
+        [문제]
+            아래배열들은 3명의 학생데이터이다.	
+            각 학생은 세로로 3개씩 데이터로 표현하였다. 					
+        [예시] 
+            1001번, 국어 20, 수학 30
+            1002번, 국어 43, 수학 23
+            1003번, 국어 45, 수학 1
+            아래 학생 3명 중 국어점수가 수학점수 보다 높은 학생 번호 출력하시오.
+        [정답]
+            1002, 1003 
+    */
+
+
+    let numList = [1001, 1002, 1003];
+    let korList = [20, 43, 45];
+    let mathList = [30, 23, 1];
+    let result = [];
+
+    for (let i = 0; i < numList.length; i++) {
+        if (korList[i] > mathList[i]) {
+            result.push(numList[i])
+        }
+    }
+    document.write(result)
+
+
+</script>

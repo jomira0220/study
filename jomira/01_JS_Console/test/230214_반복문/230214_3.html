@@ -1,0 +1,84 @@
+<script>
+
+  /*
+      [문제]
+          변수 index에는 랜덤으로 0~9 사이의 인덱스 값을 저장한다.
+          변수 pos에는 랜덤으로 3~6 사이의 거리값을 저장한다.
+          
+          arr배열에 index부터 pos만큼 숫자1로 채우고 출력하시오. 
+          
+          [조건1] pos의 값이 짝수면 뒤에서 앞으로 저장
+          [조건2] pos의 값이 홀수면 앞에서 뒤로 저장 
+          [조건3] 인덱스가 배열을 초과하면 앞에서부터 이어서 저장
+          [조건4] 인덱스가 배열 미만이되면 뒤에서부터 앞으로 이어서 저장 
+          
+          [예시1] pos가 홀수이므로 3,4,5를 1로 채운다.
+              index : 3 , pos : 3  ==> {0,0,0,1,1,1,0,0,0,0};
+              
+          [예시2] pos가 짝수이므로 8,7,6,5를 1로채운다.
+              index : 8 , pos : 4  ==> {0,0,0,0,0,1,1,1,1,0};
+              
+          [예시3] pos가 짝수이므로 2,1,0,9,8,7을 1로채운다.
+              index : 2 , pos : 6  ==> {1,1,1,0,0,0,0,1,1,1};
+              
+          [예시4] pos가 홀수이므로 2,1,0,9,8,7을 1로채운다.
+              index : 7 , pos : 5  ==> {1,1,0,0,0,0,0,1,1,1};	    
+  */
+
+  let arr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+  let index = Math.floor(Math.random() * 10);
+  let pos = Math.floor(Math.random() * 4) + 3;
+
+  //document.write("index = " + index + " pos = " + pos + "<br>")
+
+  index = 3;
+  pos = 4;
+
+  if (pos % 2 == 0) {
+    let j = index;
+    for (let i = 0; i < pos; i++) {
+      arr[j] = 1;
+      if (j - 1 < 0) {
+        j = arr.length - 1;
+      } else {
+        j -= 1;
+      }
+    }
+  } else {
+    let j = index
+    for (let i = 0; i < pos; i++) { //0 2 ~ 3 6
+      j %= arr.length
+      arr[j] = 1
+      j += 1
+    }
+  }
+  document.write(arr);
+
+  /*
+
+  if (pos % 2 == 0) {
+    let j = index;
+    for (let i = 0; i < pos; i++) {
+      arr[j] = 1;
+      if (j - 1 < 0) {
+        j = arr.length - 1;
+      } else {
+        j -= 1;
+      }
+    }
+  }
+
+  else {
+    let j = index;
+    for (let i = 0; i < pos; i++) {
+      j %= arr.length;
+      arr[j] = 1;
+      j += 1;
+    }
+  }
+
+  document.write(arr);
+  */
+
+</script>

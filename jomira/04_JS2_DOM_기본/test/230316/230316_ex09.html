@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <label>HTML<input type="checkbox" value="HTML"></label>
+  <label>CSS<input type="checkbox" value="CSS"></label>
+  <label>JavaScript<input type="checkbox" value="JavaScript"></label>
+  <button type="button">제출</button>
+  <p></p>
+
+  <script>
+    let result = [];
+    let check = document.querySelectorAll("input")
+    let btn = document.querySelector("button")
+
+
+    btn.addEventListener("click", () => {
+
+      check.forEach((e) => {
+        if (e.checked == true) {
+          let val = e.getAttribute("value")
+          result.push(val)
+        }
+      });
+
+      document.querySelector("p").innerText = "선택한 과목은 : " + result
+      result = []
+    })
+
+  </script>
+</body>
+
+</html>

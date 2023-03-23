@@ -1,0 +1,100 @@
+<script>
+
+  /*
+    [문제1]
+    회원별로 아이템 구매목록을 출력하시오.
+  [정답1]
+    [이만수 ==> 고래밥3,칸쵸1] 
+    [김철민 ==> 고래밥1] 
+    [이영희 ==> 고래밥1,새우깡2]
+	
+  [문제2]
+    아이템별로 판매개수를 출력하시오.
+  [정답2]
+    [고래밥 ==> 5][새우깡 ==> 2][칸쵸 ==> 1]
+  */
+
+  let itemData = "1001/고래밥,1002/새우깡,1003/칸쵸";
+  let userData = "3001/이만수,3002/김철민,3003/이영희";
+
+  let cartData = "";
+  cartData += "3001/1001\n";
+  cartData += "3001/1001\n";
+  cartData += "3003/1002\n";
+  cartData += "3001/1001\n";
+  cartData += "3001/1003\n";
+  cartData += "3003/1002\n";
+  cartData += "3003/1001\n";
+  cartData += "3002/1001";
+
+  function DataArr(data, separator1, separator2) {
+    let Data = []
+    let token = data.split(separator1);
+    for (let i = 0; i < token.length; i++) {
+      Data.push(token[i].split("/"))
+    }
+    console.log(Data)
+    return Data
+  }
+
+  let userList = DataArr(userData, ",")
+  let itemList = DataArr(itemData, ",")
+  let cartList = DataArr(cartData, "\n")
+
+
+  //고객의 상품별 주문개수
+  function shoppingList(userList, itemList, cartList) {
+    let result = [];
+    for (let i = 0; i < userList.length; i++) {
+
+      let info = [userList[i][1]];
+      //아이템별로 몇개샀는지 체크
+      for (let j = 0; j < itemList.length; j++) {
+        let count = 0;
+        for (let k = 0; k < cartList.length; k++) {
+          if (userList[i][0] == cartList[k][0] && itemList[j][0] == cartList[k][1]) {
+            //유저번호랑 카트번호가 일치하고 (유저가 카트에 담은 상품있을때)
+            //아이템번호랑 카트번호가 일치하면 해당 상품 카운트 증가
+            count += 1;
+          }
+        }
+        info.push(count); //고객명 옆으로 하나씩 푸시
+      }
+
+      result.push(info); //고객주문내역으로 최종 결과 푸시
+    }
+    return result;
+  }
+
+
+  //고객별 총 상품 주문수량
+  function countList(resultList) {
+    let totalList = [];
+    for (let i = 1; i < resultList[0].length; i++) {
+      let total = 0;
+      for (let j = 0; j < resultList.length; j++) {
+        total += resultList[j][i];
+      }
+      totalList.push(total);
+    }
+    return totalList;
+  }
+
+  function printData(data) {
+    for (let i = 0; i < data.length; i++) {
+      document.write(data[i] + "<br>");
+    }
+    document.write("<br>");
+  }
+
+
+  rs1 = shoppingList(userList, itemList, cartList);
+  printData(rs1);
+
+  rs2 = countList(rs1);
+  document.write(rs2);
+
+
+
+
+</script>

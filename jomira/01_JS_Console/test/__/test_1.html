@@ -1,0 +1,30 @@
+<script>
+
+  /*
+      [문제] 
+          1000 보다 작은수 중에서 8의 배수이면서 백의 자리가 7이며 , 십의자리가 6인수를 출력하시오.
+      [정답]
+          760
+          768    
+  */
+
+  /*
+  let i = 1;
+
+  while (i < 1000) {
+
+    if (i % 8 == 0 && parseInt(i % 1000 / 100) == 7 && parseInt(i % 100 / 10) == 6) {
+      console.log(i)
+    }
+
+    i += 1;
+  }
+  */
+
+  for (let i = 1; i < 1000; i++) {
+    if (i % 8 == 0 && parseInt(i % 1000 / 100) == 7 && parseInt(i % 100 / 10) == 6) {
+      document.write(i + "<br>")
+    }
+  }
+
+</script>

@@ -1,0 +1,55 @@
+<script>
+
+  /*
+      [문제] 
+          280의 약수 중에
+          50바로 전의 값과 바로 뒤의 값을 구하시오.
+      [정답]
+          40
+          56    
+  */
+  /*
+  let num = 280;
+  let i = 1;
+
+  let front = 0;
+  let back = 0;
+
+  while (i <= num) {
+
+    if (num % i == 0) {
+      if (i < 50) { //50보다 큰값
+        front = i;
+      }
+      if (i >= 50 && back == 0) { //50보다 같거나 작은수, 자리에 수가 담기면 실행안함
+        back = i;
+
+      }
+    }
+
+    i += 1;
+  }
+
+  console.log(back, front)
+  */
+
+  let front = 0;
+  let back = 0;
+  let count = 0;
+  for (let i = 1; i <= 280; i++) {
+    if (280 % i == 0) {
+      if (i < 50) {
+        front = i
+      } else {
+        count += 1;
+        if (count == 1) {
+          back = i;
+        }
+      }
+    }
+  }
+
+  document.write(front + "<br>" + back)
+
+
+</script>

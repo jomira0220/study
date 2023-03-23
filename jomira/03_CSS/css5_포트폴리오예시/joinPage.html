@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+    rel="stylesheet">
+  <style>
+    #headerTop {
+      width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .space {
+      width: 1000px;
+    }
+
+    .topNav {
+      width: 70px;
+      height: 50px;
+      font-size: 13px;
+    }
+
+
+
+    #header {
+      width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .logo {
+      width: 150px;
+    }
+
+
+
+    #headerMenu {
+      width: 1000px;
+      margin: 0 auto;
+      text-align: right;
+      font-weight: bold;
+    }
+
+    .menu {
+      width: 160px;
+      text-align: center;
+    }
+
+    .menu a:hover {
+      color: purple;
+    }
+
+    .searchInput {
+      width: 250px;
+      height: 35px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    .searchImg {
+      width: 40px;
+      cursor: pointer;
+    }
+
+    /* join 영역 */
+
+    #joinWarpBox {
+      width: 800px;
+      margin: 0 auto;
+      border-collapse: collapse;
+      border-color: #ccc;
+    }
+
+    #joinWarpBox h3 {
+      text-align: center;
+      font-size: 30px;
+    }
+
+    #joinWarpBox th,
+    #joinWarpBox td {
+      height: 70px;
+      text-align: left;
+    }
+
+    #joinWarpBox th,
+    #joinWarpBox td.btnBox {
+      width: 150px;
+    }
+
+    #joinWarpBox td.inputBox input:not([type="radio"], [type="checkbox"]) {
+      width: 80%;
+      height: 30px;
+    }
+
+    #joinWarpBox td.inputBox select {
+      width: 150px;
+      height: 40px;
+    }
+
+    #joinWarpBox button {
+      border: 1px solid purple;
+      border-radius: 10px;
+      height: 50px;
+      width: 120px;
+      color: purple;
+      font-weight: bold;
+      background-color: #fff;
+    }
+
+    #joinWarpBox button.submitBtn {
+      background-color: purple;
+      color: #fff;
+    }
+
+
+    .agreeCheck {
+      list-style: none;
+    }
+
+    .agreeCheck li {
+      margin-bottom: 15px;
+    }
+
+    #joinWarpBox .line td {
+      height: 10px;
+    }
+
+    hr {
+      margin: 0;
+    }
+
+    /* footer 하단에 고정 */
+    html,
+    body {
+      height: 100%;
+      /* body의 기본 값을 초기화 */
+      margin: 0;
+      padding: 0;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      color: #000;
+      text-decoration: none;
+    }
+
+    #footer-top {
+      flex: 1;
+    }
+
+  </style>
+</head>
+
+<body>
+  <table id="headerTop">
+    <tr>
+      <td class="space"></td>
+      <td class="topNav"><a href="#">회원가입</a></td>
+      <td class="topNav"><a href="#">로그인</a></td>
+      <td class="topNav"><a href="#">고객센터</a></td>
+    </tr>
+  </table>
+
+  <table id="header">
+    <tr>
+      <td></td>
+      <td><a href="#"><img class="logo" src="./img/logo.png" alt=""></a></td>
+      <td></td>
+    </tr>
+  </table>
+
+  <table id="headerMenu">
+    <tr>
+      <td class="menu"><a href="#">전체상품보기</a></td>
+      <td class="menu"><a href="#">신상품</a></td>
+      <td class="menu"><a href="#">베스트</a></td>
+      <td class="menu"><a href="#">알뜰쇼핑</a></td>
+      <td><input class="searchInput" type="search" placeholder="검색어를 입력해주세요"></td>
+      <td><img class="searchImg" src="./img/search.png" alt=""></td>
+    </tr>
+  </table>
+
+
+  <table id="joinWarpBox" border="1">
+    <tr>
+      <td colspan="3">
+        <h3>회원가입</h3>
+      </td>
+    </tr>
+
+    <tr class="line">
+      <td colspan="3">
+        <hr>
+      </td>
+    </tr>
+
+    <tr>
+      <th class="titleBox">아이디</th>
+      <td class="inputBox"><input type="text" placeholder="아이디를 입력해주세요"></td>
+      <td class="btnBox"><button type="button">중복확인</button></td>
+    </tr>
+
+    <tr>
+      <th class="titleBox">비밀번호</th>
+      <td class="inputBox"><input type="password" placeholder="비밀번호를 입력해주세요"></td>
+      <td class="btnBox"></td>
+    </tr>
+
+    <tr>
+      <th class="titleBox">비밀번호 확인</th>
+      <td class="inputBox"><input type="password" placeholder="비밀번호를 한번 더 입력해주세요"></td>
+      <td class="btnBox"></td>
+    </tr>
+
+    <tr>
+      <th class="titleBox">이름</th>
+      <td class="inputBox"><input type="text" placeholder="이름을 입력해주세요"></td>
+      <td class="btnBox"></td>
+    </tr>
+
+    <tr>
+      <th class="titleBox">이메일</th>
+      <td class="inputBox"><input type="text" placeholder="이메일을 입력해주세요"></td>
+      <td class="btnBox"><button type="button">중복확인</button></td>
+    </tr>
+
+    <tr>
+      <th class="titleBox">휴대폰</th>
+      <td class="inputBox"><input type="number" placeholder="숫자만 입력해주세요"></td>
+      <td class="btnBox"></td>
+    </tr>
+
+    <tr>
+      <th class="titleBox">우편번호</th>
+      <td class="inputBox"><input type="number" placeholder="우편번호를 입력해주세요"></td>
+      <td class="btnBox"><button type="button">우편번호검색</button>
+      </td>
+    </tr>
+
+    <tr>
+      <th class="titleBox">지번 주소</th>
+      <td class="inputBox"><input type="text" placeholder="지번 주소를 입력해주세요"></td>
+      <td class="btnBox"></td>
+    </tr>
+
+    <tr>
+      <th class="titleBox">도로명 주소</th>
+      <td class="inputBox"><input type="text" placeholder="도로명 주소를 입력해주세요"></td>
+      <td class="btnBox"></td>
+    </tr>
+
+    <tr>
+      <th class="titleBox">남은 주소</th>
+      <td class="inputBox"><input type="text" placeholder="남은 주소를 입력해주세요"></td>
+      <td class="btnBox"></td>
+    </tr>
+
+    <tr>
+      <th class="titleBox">성별</th>
+      <td class="inputBox">
+        <label><input type="radio" name="gender">남자</label>
+        <label><input type="radio" name="gender">여자</label>
+        <label><input type="radio" name="gender">선택안함</label>
+      </td>
+      <td class="btnBox"></td>
+    </tr>
+
+    <tr>
+      <th class="titleBox">유입경로</th>
+      <td class="inputBox">
+        <select name="" id="">
+          <option value="">기타</option>
+          <option value="">기타</option>
+          <option value="">기타</option>
+          <option value="">기타</option>
+        </select>
+      </td>
+      <td class="btnBox"></td>
+    </tr>
+
+    <tr class="line">
+      <td colspan="3">
+        <hr>
+      </td>
+    </tr>
+
+    <tr>
+      <th class="titleBox">이용약관동의</th>
+      <td class="inputBox" colspan="2"><input type="checkbox"> 전체동의</td>
+    </tr>
+
+    <tr>
+      <td></td>
+      <td colspan="2">
+        <ul class="agreeCheck">
+          <li><label><input type="checkbox">이용약관 동의</label></li>
+          <li><label><input type="checkbox">개인정보취급 동의</label></li>
+          <li><label><input type="checkbox">만 14세 이상입니다.</label></li>
+          <li><label><input type="checkbox">마케팅 메일 수신 동의(선택)</label></li>
+        </ul>
+      </td>
+    </tr>
+
+    <tr>
+      <td></td>
+      <td colspan="2"><button class="submitBtn" type="submit">가입하기</button></td>
+    </tr>
+  </table>
+
+
+
+</body>
+
+</html>

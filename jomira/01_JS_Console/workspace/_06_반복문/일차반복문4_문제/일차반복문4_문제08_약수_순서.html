@@ -1,0 +1,35 @@
+<script>
+
+  /*
+      [문제]
+          745의 약수 중에서 작은 수부터 출력했을 때, 
+          세 번째 약수만 출력하시오.
+      [정답]
+          149  
+  */
+  /*
+  let i = 1;
+  let num = 745;
+  let count = 0;
+
+  while (i <= 745) {
+
+    if (num % i == 0) {
+      count += 1;
+      if (count == 3) {
+        console.log(i)
+      }
+    }
+
+    i += 1;
+  }
+  */
+  let count = 0;
+  for (let i = 1; i <= 745; i++) {
+    if (745 % i == 0) {
+      count += 1;
+      if (count == 3) document.write(i)
+    }
+  }
+
+</script>

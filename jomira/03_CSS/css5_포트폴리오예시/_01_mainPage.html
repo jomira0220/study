@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* header */
+        #headerTable1 {
+            margin: 0 auto;
+            text-align: center;
+            width: 1280px;
+        }
+        #headerSpace {
+            width: 1100px;
+        }
+        .headerMenu {
+            font-size: 12px;
+            width: 60px;
+            height: 50px;
+        }
+        #headerTable2 {
+            margin: 0 auto;
+            text-align: center;
+            width: 1280px;
+        }
+        .logoImg {
+            width: 120px;
+        }
+        
+        /* nav */
+        #navTable {
+            margin: 0 auto;
+            text-align: center;
+        }
+        .navMenu {
+            width: 200px;
+            height: 50px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .searchInput {
+            width: 250px;
+            height: 30px;
+            border: 1px solid lightgray;
+        }
+        .searchImg {
+            width: 35px;
+            /* 마우스 손모양 포인터 */
+            cursor: pointer;
+        }
+
+        /* contents */
+        #contentsTable {
+            margin: 0 auto;
+        }
+        .bannerImg {
+            width: 1900px;
+        }
+
+        /* footer */
+        #footerTable {
+            margin: 0 auto;
+            text-align: center;
+        }
+        .footerMenu {
+            font-size: 10px;
+            color: gray;
+            line-height: 15px;
+            padding: 30px 30px;
+            width: 1900px;
+            background-color: rgb(247, 247, 247);
+        }
+
+        /* 공통 */
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        a:hover {
+            color: purple;
+        }
+        table, tr, td {
+            border-collapse: collapse;
+            border: 1px solid lightgray;
+        }
+        /* footer 하단에 고정 */
+        html,
+        body {
+            height: 100%;
+            /* body의 기본 값을 초기화 */
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+        #footer-top {
+            flex: 1;
+        }       
+    </style>
+</head>
+<body>
+    <!-- header -->
+    <table id="headerTable1">
+        <tr>
+            <td id="headerSpace"></td>
+            <td class="headerMenu"><a href="">회원가입</a></td>
+            <td class="headerMenu"><a href="">로그인</a></td>
+            <td class="headerMenu"><a href="">고객센터</a></td>
+        </tr>
+    </table>
+    <table id="headerTable2">
+        <tr>
+            <td>
+                <a href=""><img class="logoImg" src="img/logo.png"></a>
+            </td>
+        </tr>
+    </table>
+
+    <!-- nav -->
+    <table id="navTable">
+        <tr>
+            <td class="navMenu"><a href="">전체상품 보기</a></td>
+            <td class="navMenu"><a href="">신상품</a></td>
+            <td class="navMenu"><a href="">베스트</a></td>
+            <td class="navMenu"><a href="">알뜰쇼핑</a></td>
+            <td>
+                <input class="searchInput" type="text" placeholder="검색어를 입력해주세요">
+            </td>
+            <td><img class="searchImg" src="img/search.png"></td>
+        </tr>
+    </table>
+
+    <!-- contents -->
+    <table id="contentsTable">
+        <tr>
+            <td><img class="bannerImg" src="img/center_default.jpg"></td>
+        </tr>
+    </table>
+
+    <div id="footer-top"></div>
+    <!-- footer -->
+    <table id="footerTable">
+        <tr>
+            <td class="footerMenu">
+                컬리에서 판매되는 상품 중에는 컬리에 입점한 개별 판매자가 판매하는 마켓플레이스(오픈마켓) 상품이 포함되어 있습니다.
+                <br>
+                마켓플레이스(오픈마켓) 상품의 경우 컬리는 통신판매중개자로서 통신판매의 당사자가 아닙니다. 컬리는 해당 상품의 주문, 품질, 교환/환불 등 의무와 책임을 부담하지 않습니다.
+                <br><br>
+                <em>© KURLY CORP. ALL RIGHTS RESERVED</em>
+            </td>
+        </tr>
+    </table>
+
+</body>
+</html>

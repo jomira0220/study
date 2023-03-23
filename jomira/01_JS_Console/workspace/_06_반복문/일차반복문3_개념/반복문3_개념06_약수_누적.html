@@ -1,0 +1,37 @@
+<script>
+
+    /*
+        [문제]
+            18의 약수를 출력하고, 전체 합을 구하시오.
+        [정답]
+            1 2 3 6 9 18 
+            합 = 39    
+    */
+
+    /*
+    let total = 0;
+    let num = 18;
+
+    let i = 1;
+    while (i <= num) {
+
+        if (num % i == 0) {
+            total += i
+        }
+        i += 1
+    }
+
+    console.log(total)
+    */
+
+    let rs = 0;
+    for (let i = 1; i <= 18; i++) {
+        if (18 % i == 0) {
+            document.write(i + " ")
+            rs += i
+        }
+    }
+
+    document.write("<br>" + rs)
+
+</script>

@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+    rel="stylesheet">
+  <style>
+    #headerTop {
+      width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .space {
+      width: 1000px;
+    }
+
+    .topNav {
+      width: 70px;
+      height: 50px;
+      font-size: 13px;
+    }
+
+
+
+    #header {
+      width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .logo {
+      width: 150px;
+    }
+
+
+
+    #headerMenu {
+      width: 1000px;
+      margin: 0 auto;
+      text-align: right;
+      font-weight: bold;
+    }
+
+    .menu {
+      width: 160px;
+      text-align: center;
+    }
+
+    .menu a:hover {
+      color: purple;
+    }
+
+    .searchInput {
+      width: 250px;
+      height: 35px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    .searchImg {
+      width: 40px;
+      cursor: pointer;
+    }
+
+
+    .mainImg {
+      width: 100%;
+    }
+
+    a {
+      color: #000;
+      text-decoration: none;
+    }
+
+    /* footer */
+    #footerTable {
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .footerMenu {
+      font-size: 10px;
+      color: gray;
+      line-height: 15px;
+      padding: 30px 30px;
+      width: 1900px;
+      background-color: rgb(247, 247, 247);
+    }
+
+
+    table,
+    td,
+    tr {
+      border: 1px solid #ccc;
+      border-collapse: collapse;
+    }
+
+    .pageTitle {
+      width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .pageTitle td {
+      font-weight: bold;
+    }
+
+    .pageTitle h3 {
+      font-size: 30px;
+      margin: 15px 0;
+    }
+
+    .pageTitle td.line {
+      height: 10px;
+    }
+
+    .pageTitle td.line hr {
+      margin: 0px;
+    }
+
+    .itemList {
+      width: 1000px;
+      margin: 0 auto 80px;
+    }
+
+    .dummyspace {
+      width: 20px;
+    }
+
+    .itemList .imgBox {
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .itemList .imgBox img {
+      width: 226px;
+    }
+
+    .itemList .info {
+      font-size: 12px;
+      color: #a7a7a7;
+    }
+
+    .itemList .price {
+      font-weight: bold;
+    }
+
+    .pageing {
+      margin: 0px auto 80px;
+      text-align: center;
+    }
+
+    .pageing td {
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      color: gray;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+
+    /* footer 하단에 고정 */
+
+    html,
+    body {
+      height: 100%;
+      /* body의 기본 값을 초기화 */
+      margin: 0;
+      padding: 0;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    #footer-top {
+      flex: 1;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <table id="headerTop">
+    <tr>
+      <td class="space"></td>
+      <td class="topNav"><a href="#">회원가입</a></td>
+      <td class="topNav"><a href="#">로그인</a></td>
+      <td class="topNav"><a href="#">고객센터</a></td>
+    </tr>
+  </table>
+
+  <table id="header">
+    <tr>
+      <td></td>
+      <td><a href="#"><img class="logo" src="./img/logo.png" alt=""></a></td>
+      <td></td>
+    </tr>
+  </table>
+
+  <table id="headerMenu">
+    <tr>
+      <td class="menu"><a href="#">전체상품보기</a></td>
+      <td class="menu"><a href="#">신상품</a></td>
+      <td class="menu"><a href="#">베스트</a></td>
+      <td class="menu"><a href="#">알뜰쇼핑</a></td>
+      <td><input class="searchInput" type="search" placeholder="검색어를 입력해주세요"></td>
+      <td><img class="searchImg" src="./img/search.png" alt=""></td>
+    </tr>
+  </table>
+
+  <table class="pageTitle" border="1">
+    <tr>
+      <td colspan="3">
+        <h3>전체상품</h3>
+      </td>
+    </tr>
+    <tr>
+      <td class="line">
+        <hr>
+      </td>
+    </tr>
+  </table>
+
+  <table class="itemList" border="1">
+    <tr>
+      <td>
+        <table>
+          <tr>
+            <td class="imgBox"><img src="./img/23.jpg" alt=""></td>
+          </tr>
+          <tr>
+            <td class="name">[빕스]바베큐 폭립 오리지날 450g</td>
+          </tr>
+          <tr>
+            <td class="info">집에서 즐기는 빕스의 대표메뉴</td>
+          </tr>
+          <tr>
+            <td class="price">15,800원</td>
+          </tr>
+        </table>
+      </td>
+      <td class="dummyspace"></td>
+      <td>
+        <table>
+          <tr>
+            <td class="imgBox"><img src="./img/23.jpg" alt=""></td>
+          </tr>
+          <tr>
+            <td class="name">[빕스]바베큐 폭립 오리지날 450g</td>
+          </tr>
+          <tr>
+            <td class="info">집에서 즐기는 빕스의 대표메뉴</td>
+          </tr>
+          <tr>
+            <td class="price">15,800원</td>
+          </tr>
+        </table>
+      </td>
+      <td class="dummyspace"></td>
+      <td>
+        <table>
+          <tr>
+            <td class="imgBox"><img src="./img/23.jpg" alt=""></td>
+          </tr>
+          <tr>
+            <td class="name">[빕스]바베큐 폭립 오리지날 450g</td>
+          </tr>
+          <tr>
+            <td class="info">집에서 즐기는 빕스의 대표메뉴</td>
+          </tr>
+          <tr>
+            <td class="price">15,800원</td>
+          </tr>
+        </table>
+      </td>
+      <td class="dummyspace"></td>
+      <td>
+        <table>
+          <tr>
+            <td class="imgBox"><img src="./img/23.jpg" alt=""></td>
+          </tr>
+          <tr>
+            <td class="name">[빕스]바베큐 폭립 오리지날 450g</td>
+          </tr>
+          <tr>
+            <td class="info">집에서 즐기는 빕스의 대표메뉴</td>
+          </tr>
+          <tr>
+            <td class="price">15,800원</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+
+  <table class="itemList" border="1">
+    <tr>
+      <td>
+        <table>
+          <tr>
+            <td class="imgBox"><img src="./img/23.jpg" alt=""></td>
+          </tr>
+          <tr>
+            <td class="name">[빕스]바베큐 폭립 오리지날 450g</td>
+          </tr>
+          <tr>
+            <td class="info">집에서 즐기는 빕스의 대표메뉴</td>
+          </tr>
+          <tr>
+            <td class="price">15,800원</td>
+          </tr>
+        </table>
+      </td>
+      <td class="dummyspace"></td>
+      <td>
+        <table>
+          <tr>
+            <td class="imgBox"><img src="./img/23.jpg" alt=""></td>
+          </tr>
+          <tr>
+            <td class="name">[빕스]바베큐 폭립 오리지날 450g</td>
+          </tr>
+          <tr>
+            <td class="info">집에서 즐기는 빕스의 대표메뉴</td>
+          </tr>
+          <tr>
+            <td class="price">15,800원</td>
+          </tr>
+        </table>
+      </td>
+      <td class="dummyspace"></td>
+      <td>
+        <table>
+          <tr>
+            <td class="imgBox"><img src="./img/23.jpg" alt=""></td>
+          </tr>
+          <tr>
+            <td class="name">[빕스]바베큐 폭립 오리지날 450g</td>
+          </tr>
+          <tr>
+            <td class="info">집에서 즐기는 빕스의 대표메뉴</td>
+          </tr>
+          <tr>
+            <td class="price">15,800원</td>
+          </tr>
+        </table>
+      </td>
+      <td class="dummyspace"></td>
+      <td>
+        <table>
+          <tr>
+            <td class="imgBox"><img src="./img/23.jpg" alt=""></td>
+          </tr>
+          <tr>
+            <td class="name">[빕스]바베큐 폭립 오리지날 450g</td>
+          </tr>
+          <tr>
+            <td class="info">집에서 즐기는 빕스의 대표메뉴</td>
+          </tr>
+          <tr>
+            <td class="price">15,800원</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+
+  <table class="itemList" border="1">
+    <tr>
+      <td>
+        <table>
+          <tr>
+            <td class="imgBox"><img src="./img/23.jpg" alt=""></td>
+          </tr>
+          <tr>
+            <td class="name">[빕스]바베큐 폭립 오리지날 450g</td>
+          </tr>
+          <tr>
+            <td class="info">집에서 즐기는 빕스의 대표메뉴</td>
+          </tr>
+          <tr>
+            <td class="price">15,800원</td>
+          </tr>
+        </table>
+      </td>
+      <td class="dummyspace"></td>
+      <td>
+        <table>
+          <tr>
+            <td class="imgBox"><img src="./img/23.jpg" alt=""></td>
+          </tr>
+          <tr>
+            <td class="name">[빕스]바베큐 폭립 오리지날 450g</td>
+          </tr>
+          <tr>
+            <td class="info">집에서 즐기는 빕스의 대표메뉴</td>
+          </tr>
+          <tr>
+            <td class="price">15,800원</td>
+          </tr>
+        </table>
+      </td>
+      <td class="dummyspace"></td>
+      <td>
+        <table>
+          <tr>
+            <td class="imgBox"><img src="./img/23.jpg" alt=""></td>
+          </tr>
+          <tr>
+            <td class="name">[빕스]바베큐 폭립 오리지날 450g</td>
+          </tr>
+          <tr>
+            <td class="info">집에서 즐기는 빕스의 대표메뉴</td>
+          </tr>
+          <tr>
+            <td class="price">15,800원</td>
+          </tr>
+        </table>
+      </td>
+      <td class="dummyspace"></td>
+      <td>
+        <table>
+          <tr>
+            <td class="imgBox"><img src="./img/23.jpg" alt=""></td>
+          </tr>
+          <tr>
+            <td class="name">[빕스]바베큐 폭립 오리지날 450g</td>
+          </tr>
+          <tr>
+            <td class="info">집에서 즐기는 빕스의 대표메뉴</td>
+          </tr>
+          <tr>
+            <td class="price">15,800원</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+
+  <table class="pageing">
+    <tr>
+      <td>←←</td>
+      <td>←</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+      <td>7</td>
+      <td>8</td>
+      <td>9</td>
+      <td>10</td>
+      <td>→</td>
+      <td>→→</td>
+    </tr>
+  </table>
+
+
+  <div id="footer-top"></div>
+
+  <!-- footer -->
+  <table id="footerTable">
+    <tr>
+      <td class="footerMenu">
+        컬리에서 판매되는 상품 중에는 컬리에 입점한 개별 판매자가 판매하는 마켓플레이스(오픈마켓) 상품이 포함되어 있습니다.
+        <br>
+        마켓플레이스(오픈마켓) 상품의 경우 컬리는 통신판매중개자로서 통신판매의 당사자가 아닙니다. 컬리는 해당 상품의 주문, 품질, 교환/환불 등 의무와 책임을 부담하지 않습니다.
+        <br><br>
+        <em>© KURLY CORP. ALL RIGHTS RESERVED</em>
+      </td>
+    </tr>
+  </table>
+
+</body>
+
+</html>

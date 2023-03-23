@@ -1,0 +1,53 @@
+<script>
+
+  /*
+      // 중복숫자 금지(3종류) : 1탄
+
+      [문제]
+          arr배열에 1~4 사이의 랜덤 숫자 4개를 저장한다. 
+          단, 중복없는 숫자로 저장한다.
+      [예시]
+          arr = 1,4,2,3
+  */
+
+  let arr = [0, 0, 0, 0];
+  let check = [false, false, false, false];
+  let count = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    let index = Math.floor(Math.random() * arr.length);
+    if (check[index] == false) {
+      check[index] = true;
+      arr[count] = index + 1;
+      count++
+    }
+    for (let j = 0; j < check.length; j++) {
+      if (check[i] == false) {
+        i--
+      }
+    }
+  }
+  document.write("arr = " + arr);
+  //document.write("check = " + check);
+
+
+  /*
+  while (true) {
+    let index = Math.floor(Math.random() * arr.length);
+
+    if (check[index] == false) {
+      check[index] = true;
+      arr[count] = index + 1;
+
+      count += 1;
+    }
+
+    if (count == 4) {
+      break;
+    }
+  }
+
+  document.write("arr = " + arr);
+*/
+
+</script>

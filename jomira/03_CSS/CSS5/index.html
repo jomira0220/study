@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table,
+    tr,
+    td {
+      border: 1px solid #000;
+    }
+
+    #headerTable1 {
+      width: 1200px;
+      margin: 0 auto;
+      border: 1px solid #ddd;
+    }
+
+    #headerSpace {
+      width: 800px;
+    }
+
+    .headerMenu {
+      width: 60px;
+      height: 50px;
+      text-align: center;
+      font-size: 12px;
+    }
+
+    #headerTable2 {
+      width: 1200px;
+      margin: 0 auto;
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+
+    .logoImg {
+      width: 150px;
+    }
+
+
+    #navTable {
+      width: 1000px;
+      margin: 0 auto;
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+
+    .navMenu {
+      width: 200px;
+      height: 50px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .searchInput {
+      width: 250px;
+      height: 30px;
+      border: 1px solid lightgray;
+    }
+
+    .searchImg {
+      width: 22px;
+    }
+
+    a {
+      text-decoration: none;
+      color: #000;
+    }
+
+    a:hover {
+      color: purple;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <table id="headerTable1">
+    <tr>
+      <td id="headerSpace"></td>
+      <td class="headerMenu"><a href="#">회원가입</a></td>
+      <td class="headerMenu"><a href="#">로그인</a></td>
+      <td class="headerMenu"><a href="#">고객센터</a></td>
+      <td class="headerMenu"><a href="#">장바구니</a></td>
+    </tr>
+  </table>
+
+  <table id="headerTable2">
+    <tr>
+      <td><img class="logoImg" src="./img/logo.png" alt=""></td>
+    </tr>
+  </table>
+
+  <table id="navTable">
+    <tr>
+      <td class="navMenu"><a href="#">전체상품보기</a></td>
+      <td class="navMenu"><a href="#">신상품</a></td>
+      <td class="navMenu"><a href="#">베스트</a></td>
+      <td class="navMenu"><a href="#">알뜰쇼핑</a></td>
+      <td><input class="searchInput" type="search" placeholder="검색어를 입력해주세요."></td>
+      <td><button><img class="searchImg" src="./img/search.png"></button></td>
+    </tr>
+  </table>
+
+  <img src="./img/center_default.jpg" alt="">
+
+
+</body>
+
+</html>

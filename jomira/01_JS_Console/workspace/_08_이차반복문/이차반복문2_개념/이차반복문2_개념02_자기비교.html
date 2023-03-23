@@ -1,0 +1,88 @@
+<script>
+
+  /*
+      [문제]
+          arr배열은 철수 반 중간고사 점수이다. 
+          각 학생들이 다른 학생들과 비교하여 자기보다 크거나 같은 점수를 출력하시오.
+      [정답]
+          10보다 큰 점수는 54 90 20 이다.
+          54보다 큰 점수는 90 이다.
+          90보다 큰 점수는 없다.
+          20보다 큰 점수는 54 90 이다.            
+  */
+
+  let arr = [10, 54, 90, 20];
+
+  // 0 123
+  // 1 234
+  // 2 013
+  // 3 012
+
+
+  for (let i = 0; i < arr.length; i++) {
+
+    document.write(arr[i] + "보다 큰 점수는 ")
+
+    let check = false
+    for (let j = 0; j < arr.length; j++) {
+      if (arr[i] < arr[j] && i != j) {
+        document.write(arr[j] + " ")
+        check = true
+      }
+    }
+
+    if (check) {
+      document.write("이다 <br>")
+    } else {
+      document.write("없다 <br>")
+    }
+
+  }
+
+  /*
+
+  for (let i = 0; i < arr.length; i++) {
+    document.write(arr[i] + "보다 큰 점수는 ");
+
+    let check = false;
+    for (let j = 0; j < arr.length; j++) {
+      if (i != j && arr[i] < arr[j]) {
+        // 본인 인덱스는 제외해야 한다.
+        check = true;
+        document.write(arr[j] + " ");
+      }
+    }
+
+    if (check) {
+      document.write("이다.<br>");
+    } else {
+      document.write("없다.<br>");
+    }
+  }
+
+  */
+
+  /* 예시 : 로그인
+
+  let loginId = "qwer";
+  let loginPw = "1234";
+
+  let ids = ["abcd", "qwer", "haha"];
+  let pws = ["1234", "1234", "1234"];
+
+  let check = false;
+  for (let i = 0; i < 3; i++) {
+    if (ids[i] == loginId && pws[i] == loginPw) {
+      check = true;
+    }
+  }
+
+  if (check) {
+    document.write("로그인 성공<br>");
+  } else {
+    document.write("로그인 실패<br>");
+  }
+  */
+
+
+</script>

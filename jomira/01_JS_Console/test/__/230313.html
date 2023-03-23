@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    let array = [30, 3, 10, 28, 22, 21]
+    //array = [10, 11, 12]
+    let n = 20;
+    //n = 13
+    const solution = (array, n) => +array.filter(a => Math.abs(a - n) === Math.min(...array.map(a => Math.abs(a - n)))).sort((a, b) => a - b)[0]
+    solution(array, n)
+
+  </script>
+</body>
+
+</html>

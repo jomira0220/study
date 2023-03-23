@@ -1,0 +1,22 @@
+<script>
+
+  let x = 10;
+  let y = 20;
+
+  let rs1 = (x = x + 1) > 10 && (y = y + 1) < 10;
+  document.write(rs1 + "<br>");
+  document.write("X = " + x + ", y = " + y + "<br>");
+
+  x = 10;
+  y = 20;
+  let rs2 = (x = x + 1) > 10 || (y = y + 1) < 10;
+  document.write(rs2 + "<br>");
+  document.write("X = " + x + ", y = " + y + "<br>");
+
+  /*
+   || or 연산자와 && and 연산자의 경우 
+   short-circuit evalution
+   and와 or에서는 첫번째 조건의 결과에 따라
+   두번째 조건을 확인하지 않아도 결과가 정해진다.
+  */
+</script>

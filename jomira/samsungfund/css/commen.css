@@ -1,0 +1,295 @@
+:root {
+  --color-primary-black: #000;
+  --color-primary-white: #FFF;
+  --color-primary-blue: #1454FF;
+  --color-primary-red: #E11D1D;
+  --color-kodex-blue: #1454FF;
+  --color-blue-dark: #000084;
+  --color-blue-light1: #41AFFF;
+  --color-blue-light2: #94D2FF;
+  --color-blue-light3: #CFE9FF;
+  --color-blue-hover: #033CD4;
+  --color-orange-dark: #A01E00;
+  --color-orange: #FA5317;
+  --color-orange-light1: #FAA264;
+  --color-orange-light2: #FACFAA;
+  --color-pink-dark: #8C0054;
+  --color-pink: #F000E8;
+  --color-pink-light1: #FF80FF;
+  --color-pink-light2: #FFC2FF;
+  --color-purple-dark: #37007D;
+  --color-purple: #6D13F7;
+  --color-purple-light1: #A07DFF;
+  --color-purple-light2: #D2C3FF;
+  --color-mint-dark: #005955;
+  --color-mint: #00D4D0;
+  --color-mint-light1: #82E8E8;
+  --color-mint-light2: #C3F6F0;
+  --color-fund-blue1: #003CDC;
+  --color-fund-blue2: #1898F4;
+  --color-blue1: #326af3;
+  --color-blue3: #00B7FF;
+  --color-lime: #DAFE52;
+  --color-green: #4CA951;
+  --color-purple2: #4E00C7;
+  --color-purple3: #7426ED;
+  --color-green2: #5CBC62;
+  --color-green3: #0D3F3C;
+  --color-green4: #017A78;
+  --color-green5: #00A2A0;
+  --color-yellow1: #FFD52B;
+  --color-yellow2: #FBB938;
+  --color-pink2: #CE007C;
+  --color-pink3: #FCAFFC;
+  --color-pink4: #FF80A9;
+  --color-orange1: #F65742;
+  --color-gray-typo1: #111;
+  --color-gray-typo2: #4D4D4D;
+  --color-gray-typo3: #080101;
+  --color-gray-typo4: #888888;
+  --color-gray-typo5: #ACACAC;
+  --color-gray-typo6: #616161;
+  --dropdown-bd: rgba(97, 102, 118, 0.2);
+  --toggle-bg: rgba(215, 221, 229, 0.7);
+  --header-bg: #F1F3F8;
+  --top-of-site-link-bg: rgba(31, 33, 49, 0.9);
+  --top-of-site-link-hover: rgba(31, 33, 49, 1)
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block
+}
+
+body {
+  line-height: 1
+}
+
+ol,
+ul {
+  list-style: none
+}
+
+blockquote,
+q {
+  quotes: none
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0
+}
+
+button {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: rgba(0, 0, 0, 0);
+  color: inherit;
+  font: inherit;
+  line-height: normal;
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  -webkit-appearance: none
+}
+
+.hidden,
+[hidden] {
+  display: none !important
+}
+
+/* 읽히지만 가리기용 */
+.a11y {
+  position: absolute !important;
+  overflow: hidden;
+  height: 1px;
+  width: 1px;
+  clip: rect(1px, 1px, 1px, 1px)
+}
+
+.ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis
+}
+
+.pre-line {
+  white-space: pre-line
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: border-box
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Red Hat Display", "Pretendard", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  color: #111;
+  word-break: keep-all;
+  word-wrap: break-word
+}
+
+body {
+  /*
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden
+  */
+}
+
+body.show {
+  opacity: 1;
+  visibility: visible;
+  overflow: initial
+}
+
+main {
+  min-height: 100vh;
+  position: relative
+}
+
+button {
+  border: 0;
+  background-color: rgba(0, 0, 0, 0)
+}
+
+a {
+  display: inline-block;
+  color: inherit;
+  text-decoration: none
+}
+
+b {
+  font-weight: 600
+}
+
+em {
+  color: #1454ff
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid rgba(97, 102, 118, .2);
+  margin: 0;
+  width: 100%
+}
+
+p {
+  min-height: 1em
+}
+
+
+
+

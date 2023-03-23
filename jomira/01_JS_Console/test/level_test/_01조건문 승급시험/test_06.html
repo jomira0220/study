@@ -1,0 +1,66 @@
+<script>
+
+  /*
+      [문제]
+          1. 1~50 사이의 랜덤 숫자를 저장한다.
+          2. 랜덤 숫자 중에서 3이나 6이나 9의 개수가 2개면, 짝짝을 출력한다.
+          3. 랜덤 숫자 중에서 3이나 6이나 9의 개수가 1개면, 짝을 출력한다.
+          4. 랜덤 숫자 중에서 3이나 6이나 9의 개수가 0이면, 해당 숫자를 출력한다.
+              예)
+                  33		=>		짝짝
+                  16		=>		짝
+                  7		=>		7    
+  */
+
+  let num = Math.floor(Math.random() * 50) + 1;
+  //document.write(num + "<br>")
+  let count = 0;
+  let 십의자리 = num / 10;
+  let 일의자리 = parseInt(num % 10);
+
+  if (십의자리 == 3 || 십의자리 == 6 || 십의자리 == 9) {
+    count += 1;
+  }
+  if (일의자리 == 3 || 일의자리 == 6 || 일의자리 == 9) {
+    count += 1;
+  }
+
+  if (count == 2) {
+    document.write("짝짝")
+  } else if (count == 1) {
+    document.write("짝")
+  } else {
+    document.write(num)
+  }
+
+
+
+  /*
+  let num = Math.floor(Math.random() * 50) + 1;
+
+  let _십의자리 = num / 10;
+  let _일의자리 = parseInt(num % 10);
+  let count = 0;
+
+  console.log(num)
+
+  if (_십의자리 == 3 || _십의자리 == 6 || _십의자리 == 9) {
+    count += 1;
+  }
+  if (_일의자리 == 3 || _일의자리 == 6 || _일의자리 == 9) {
+    count += 1;
+  }
+
+  if (count == 1) {
+    console.log("짝")
+  } else if (count == 2) {
+    console.log("짝짝")
+  } else {
+    console.log(num)
+  }
+*/
+
+
+
+
+</script>

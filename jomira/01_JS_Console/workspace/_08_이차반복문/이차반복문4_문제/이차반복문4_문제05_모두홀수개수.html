@@ -1,0 +1,82 @@
+<script>
+
+  /*
+      [문제]
+          (1) 1 ~ 9사이의 랜덤값을 4개를 저장 후 비교한다. 
+          (2) 4개의 랜덤값이 모두 홀수이면 1을 total에 추가,
+              하나라도 홀수가 아니면 2를 total에 추가한다.
+          (3) (1~2)를 5번 반복한다. 
+      [예시] 
+          [3, 1, 5, 1] 모두 홀수  => total = [1]
+          [5, 2, 1, 4] 모두 홀수x => total = [1,2]
+          ...
+  */
+
+
+  let total = [];
+  let arr = [];
+
+
+  for (let i = 0; i < 5; i++) {
+
+    let cnt = 0;
+    let check = 1;
+    for (let j = 0; j < 4; j++) {
+      let num = Math.floor(Math.random() * 9) + 1;
+      document.write(num + " ");
+
+      if (num % 2 == 0) {
+        check = 2;
+        cnt++
+      }
+    }
+
+    if (cnt > 0) { //짝수가 한개라도 있으면
+      document.write("모두 홀수 X");
+    } else {
+      document.write("모두 홀수")
+    }
+
+    document.write(" => ");
+
+    total.push(check);
+    document.write("total = " + total + "<br>");
+
+  }
+
+
+
+  /*
+  let arr = [];
+
+  for (let j = 0; j < 5; j++) {
+
+    for (let i = 0; i < 4; i++) {
+      let r = Math.floor(Math.random() * 9) + 1;
+      arr[i] = r
+    }
+
+    document.write(arr + " ")
+
+    let cnt = 0
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] % 2 != 0) {
+        cnt++
+      }
+    }
+    if (cnt == arr.length) {
+      document.write("모두 홀수 =>")
+      total.push(1)
+      document.write("total = " + total + "<br>")
+    } else {
+      document.write("모두 홀수 x =>")
+      total.push(2)
+      document.write("total = " + total + "<br>")
+    }
+
+  }
+  
+  */
+
+
+</script>

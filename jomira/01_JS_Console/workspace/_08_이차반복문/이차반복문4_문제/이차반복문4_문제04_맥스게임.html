@@ -1,0 +1,105 @@
+<script>
+
+  /*
+      [문제]
+          0~4 사이의 랜덤 숫자를 저장해 arr배열에서 그 위치의 값이
+          최대값인지 검사한다.
+          만약 최대값이면 그 위치의 값을 0으로 바꾸고,
+          전부 0이되면 종료한다. 
+          과정을 전부 출력하시오.
+      [예시]
+          랜덤 : 3
+          [11, 87, 42, 0, 24]
+
+          랜덤 : 0
+          [11, 87, 42, 0, 24]   <- 최대값이 아니므로 그대로 유지
+
+          랜덤 : 1
+          [11, 0, 42, 100, 24]
+
+          ...
+  */
+
+  let arr = [11, 87, 42, 100, 24];
+
+
+
+
+
+
+  let count = 0;
+  while (true) {
+
+    let r = Math.floor(Math.random() * 5);
+    document.write("r = " + r + "<br>")
+
+    let max = 0;
+    let index = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] > max) {
+        max = arr[i]
+        index = i
+      }
+    }
+
+    if (index == r) {
+      arr[index] = 0
+      count++
+    }
+
+    if (count == arr.length) {
+      break
+    }
+
+    document.write(arr + "<br>")
+
+  }
+
+  document.write(arr)
+
+
+
+
+
+
+
+
+
+
+  /*
+  let cnt = 0;
+  while (true) {
+
+    let index = Math.floor(Math.random() * 5);
+    //r = 3
+    document.write("index = " + index + "<br>")
+
+    let maxNum = 0;
+    let maxIndex = 0;
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] > maxNum) {
+        maxNum = arr[i]
+        maxIndex = i
+      }
+    }
+
+
+    if (index == maxIndex) {
+      arr[index] = 0
+      cnt++
+    }
+
+    document.write("arr = " + arr + "<br>")
+
+    if (cnt == arr.length) {
+      break;
+    }
+
+  }
+*/
+
+
+
+
+</script>

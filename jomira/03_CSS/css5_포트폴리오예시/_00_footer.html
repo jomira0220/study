@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        /* footer 하단에 고정 */
+        html,
+        body {
+            height: 100%;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+        #footer-top {
+            flex: 1;
+            background-color: white;
+        }
+        footer {
+            height: 100px;
+            background-color: tomato;
+        }
+
+
+        #header {
+            height: 100px;
+            background-color: pink;
+        }
+        #contents {
+            height: 600px;
+            background-color: yellowgreen;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 헤더 -->
+    <div id="header"></div>
+    <!-- 컨텐츠 -->
+    <div id="contents"></div>
+    
+    <!-- 푸터
+        (1) footer-top 이 상단의 내용과 footer 사이의 공백을 채워서
+        (2) footer가 강제로 바닥으로 내려주는 개념이다.
+    -->
+    <!-- 아래 두 개가 모두 footer로서 하나의 셋트이다. -->
+    <div id="footer-top">빈 공간입니다.</div>
+    <footer>
+        바닥입니다.
+    </footer>
+</body>
+</html>

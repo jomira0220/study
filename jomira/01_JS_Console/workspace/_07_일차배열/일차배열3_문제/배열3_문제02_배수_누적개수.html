@@ -1,0 +1,48 @@
+<script>
+
+  /*
+      [문제]
+          [조건1] 배열에 랜덤숫자(1~100) 5개를 추가하고,
+          [조건2] 짝수만 출력하시오.
+          [조건3] 짝수의 누적 합을 저장 후 출력하시오.
+          [조건4] 짝수의 개수를 출력하시오.
+      [예시]
+          arr = 88,71,48,13,27
+          출력 = 88 48
+          합 = 136
+          개수 = 2   
+  */
+
+  let arr = [];
+
+  let count = 0;
+  let total = 0;
+
+  let 출력 = [];
+
+  for (let i = 0; i < 5; i++) {
+    arr.push(Math.floor(Math.random() * 100) + 1)
+    if (arr[i] % 2 == 0) {
+      출력.push(arr[i] + " ")
+      total += arr[i]
+      count++
+    }
+  }
+  /*
+  for (let i = 0; i < 5; i++) {
+    arr.push(Math.floor(Math.random() * 100) + 1)
+    if (arr[i] % 2 == 1) {
+      출력.push(arr[i])
+      total += arr[i]
+      count += 1;
+    }
+  }
+  */
+
+  document.write("arr = " + arr + "<br>")
+  document.write("출력 = " + 출력 + "<br>")
+  document.write("합 = " + total + "<br>")
+  document.write("개수 = " + count + "<br>")
+
+
+</script>

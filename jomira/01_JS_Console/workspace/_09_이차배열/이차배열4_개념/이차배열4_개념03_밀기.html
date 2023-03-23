@@ -1,0 +1,94 @@
+<script>
+
+    /*
+        [문제]
+            랜덤으로 dir배열의 값을 d에 저장한다.
+            d값의 방향으로 arr배열의 모든값이 한칸씩 이동한다.
+            밀린값은 반대편으로 저장된다.
+        [예시1]
+            d = "북" 위로
+        [결과1]    
+            [1004,1005,1006,1007]
+            [1008,1009,1010,1011]
+            [1000,1001,1002,1003]
+  
+        [예시2]
+            d = "동" 왼쪽
+        [결과2]
+            [1003,1000,1001,1002]
+            [1007,1004,1005,1006]
+            [1011,1008,1009,1010]  
+            
+        [예시3]
+            d = "남" 아래
+        [결과3]
+            [1008,1009,1010,1011]
+            [1000,1001,1002,1003]
+            [1004,1005,1006,1007]              
+  
+        [예시4]
+            d = "서" 오른쪽
+        [결과5]
+            [1001,1002,1003,1000]
+            [1005,1006,1007,1004]
+            [1009,1010,1011,1008]  
+  
+    */
+
+    let dir = ["북", "동", "남", "서"];
+    let d = "";
+    let arr = [
+        [1000, 1001, 1002, 1003],
+        [1004, 1005, 1006, 1007],
+        [1008, 1009, 1010, 1011]
+    ];
+
+    let r = Math.floor(Math.random() * dir.length)
+    d = dir[r]
+    d = "서"
+
+    if (d == "북") {
+
+        let temp = arr[0];
+        for (let i = 0; i < arr.length; i++) {
+            arr[i] = arr[i + 1]
+        }
+        arr[arr.length - 1] = temp
+
+    } else if (d == "동") {
+
+        for (let i = 0; i < arr.length; i++) {
+            let temp = arr[i][arr[i].length - 1];
+            for (let j = arr[i].length - 1; j > 0; j--) {
+                arr[i][j] = arr[i][j - 1]
+            }
+            arr[i][0] = temp
+        }
+
+    } else if (d == "남") {
+
+        let temp = arr[arr.length - 1];
+        for (let i = arr.length - 1; i > 0; i--) {
+            arr[i] = arr[i - 1]
+        }
+        arr[0] = temp
+
+    } else if (d == "서") {
+
+        for (let i = 0; i < arr.length; i++) {
+            let temp = arr[i][0];
+            for (let j = 0; j < arr[i].length; j++) {
+                arr[i][j] = arr[i][j + 1]
+            }
+            arr[i][arr[i].length - 1] = temp
+        }
+
+    }
+
+
+    for (let i = 0; i < arr.length; i++) {
+        document.write(arr[i] + "<br>")
+    }
+
+
+</script>

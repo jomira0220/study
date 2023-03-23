@@ -1,0 +1,153 @@
+<script>
+
+  /*
+     [문제]
+          arr배열에 1~10 사이의 랜덤 숫자를
+          중복없이 5개 저장하고 출력하시오.
+      [예시]
+          4,3,5,8,9
+  */
+
+  let arr = [0, 0, 0, 0, 0];
+  let check = [false, false, false, false, false, false, false, false, false, false];
+
+  let index = 0;
+  while (true) {
+    let num = Math.floor(Math.random() * 10) + 1;
+
+    if (check[num] == false) {
+      check[num] = true
+      arr[index] = num
+      index++
+    }
+
+    let count = 0;
+    for (let i = 0; i < check.length; i++) {
+      if (check[i] == true) {
+        count++
+      }
+    }
+    if (count == 5) {
+      break
+    }
+
+  }
+
+  document.write(arr)
+
+
+
+  /*
+  let cnt = 0;
+  while (true) {
+    let index = Math.floor(Math.random() * 10) + 1;
+    for (let i = 0; i < arr.length; i++) {
+      if (check[index] == false) {
+        arr[cnt] = index;
+        check[index] = true;
+        cnt++
+      }
+    }
+    if (cnt == 5) {
+      break
+    }
+  }
+
+  document.write(arr)
+  
+  */
+  /*
+  let cnt = 0;
+  while (true) {
+    let index = Math.floor(Math.random() * 10);
+    for (let j = 0; j < check.length; j++) {
+      if (check[index] == false) {
+        check[index] = true
+        arr[cnt] = index + 1
+        cnt++
+      }
+    }
+    if (cnt == 5) {
+      break
+    }
+  }
+
+  document.write(arr)
+*/
+  /*
+  let index = 0;
+  while (true) {
+    let r = Math.floor(Math.random() * 10) + 1;
+    let check = false;
+    for (let j = 0; j < arr.length; j++) {
+      if (i != j && arr[i] == arr[j]) {
+        check = true
+        break;
+      }
+    }
+
+    if (check == false) {
+      arr[index] = r
+      index++
+    }
+
+    if (index == 5) {
+      break
+    }
+
+  }
+  */
+
+
+
+  /*
+  let count = 0;
+  while (true) {
+    let index = Math.floor(Math.random() * 10) + 1
+    if (check[index] == false) {
+      check[index] = true
+      arr[count] = index + 1
+      count++
+    }
+    if (count == 5) {
+      break;
+    }
+  }
+
+  document.write(check + "<br>")
+  document.write(arr)
+*/
+
+
+
+
+
+  /*
+  let count = 0;
+  while (true) {
+    let num = Math.floor(Math.random() * 10) + 1;
+
+    let check = false;
+    for (let i = 0; i < count; i++) {
+      if (arr[i] == num) {
+        check = true;
+        break;
+      }
+    }
+
+    if (check == false) {
+      arr[count] = num;
+      count++
+    }
+
+    if (count == 5) {
+      break
+    }
+
+  }
+    document.write(arr)
+  */
+
+
+
+</script>

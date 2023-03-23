@@ -1,0 +1,131 @@
+<script>
+  /*
+  묵찌빠 만들기
+  가위바위보 승부 이후 이긴 사람이 공격권을 가지고, 묵(바위)/찌(가위)/빠(보자기) 가운데 하나를 외치는 동시에 말한 것과 일치하도록 손 모양을 바꾼다.
+  */
+
+
+
+
+  let you = Math.floor(Math.random() * 3);
+  let me = Math.floor(Math.random() * 3);
+
+
+  let turn = false;
+  for (let i = 0; i < 5; i++) {
+
+    if (i == 0) { //선먼저 확인
+
+      if (you == 0) {
+        document.write("상대방은 찌를 냈다.")
+      } else if (you == 1) {
+        document.write("상대방은 묵을 냈다.")
+      } else {
+        document.write("상대방은 빠를 냈다.")
+      }
+
+      if (me == 0) {
+        document.write("나는 찌를 냈다.")
+      } else if (me == 1) {
+        document.write("나는 묵을 냈다.")
+      } else {
+        document.write("나는 빠를 냈다.")
+      }
+
+
+      //가위 = 0 바위 = 1 보 = 2
+      if ((you == 0 && me == 2) || (you == 1 && me == 0) || (you == 2 && me == 1)) {
+        document.write("내가 졌다")
+        turn = false
+        break
+      } else if ((you == 2 && me == 0) || (you == 0 && me == 1) || (you == 1 && me == 2)) {
+        document.write("내가 이겼다")
+        turn = true
+        break
+      } else {
+        document.write("비겼다")
+        i-- //선이 나올때까지 진행
+      }
+
+    } else { //선이 나왔으면
+
+      if (turn) { //내가 선일때
+
+        me = Math.floor(Math.random() * 3);
+        you = Math.floor(Math.random() * 3);
+
+        if (me == 0) {
+          document.write("me = 찌")
+        } else if (me == 1) {
+          document.write("me = 묵")
+        } else {
+          document.write("me = 빠")
+        }
+
+        if (you == 0) {
+          document.write("you = 찌")
+        } else if (you == 1) {
+          document.write("you = 묵")
+        } else {
+          document.write("you = 빠")
+        }
+
+        if ((me == 0 && you == 0) || (me == 1 && you == 1) || (me == 2 && you == 2)) {
+          document.write("me 승")
+          break
+        } else if ((me == 0 && you == 1) || (me == 1 && you == 2) || (me == 2 && you == 0)) {
+          document.write("you가 선")
+          turn = false
+          i--
+        } else {
+          document.write("me가 다시 선")
+          i--
+        }
+
+      } else { //상대방이 선일때
+
+        you = Math.floor(Math.random() * 3);
+        me = Math.floor(Math.random() * 3);
+
+        if (you == 0) {
+          document.write("you = 찌")
+        } else if (you == 1) {
+          document.write("you = 묵")
+        } else {
+          document.write("you = 빠")
+        }
+
+        if (me == 0) {
+          document.write("me = 찌")
+        } else if (me == 1) {
+          document.write("me = 묵")
+        } else {
+          document.write("me = 빠")
+        }
+
+        if ((me == 0 && you == 0) || (me == 1 && you == 1) || (me == 2 && you == 2)) {
+          document.write("you 승")
+          break
+        } else if ((me == 0 && you == 1) || (me == 1 && you == 2) || (me == 2 && you == 0)) {
+          document.write("you가 다시 선")
+          i--
+        } else {
+          document.write("me가 선")
+          turn = true
+          i--
+        }
+
+      }
+
+
+    }
+
+
+
+
+
+
+  }
+
+
+</script>

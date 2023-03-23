@@ -1,0 +1,61 @@
+<script>
+
+  /*
+      [1] 대부분의 클래스는 보통 데이터를 담당하는 클래스와 
+          그 데이터를 배열로 관리하는 매니저 클래스 두개가 세트로 작용한다. 
+      [2] 여기서 매니저는 임의로 정한 이름으로 
+          원하는 이름으로 변경해도 된다. (Service, Cotroller 등등 )
+  */
+  //DTO
+  class Student {
+    num = 0;
+    name = "";
+    kor = 0;
+    math = 0;
+
+    setData(num, name, kor, math) {
+      this.num = num;
+      this.name = name;
+      this.kor = kor;
+      this.math = math;
+    };
+
+    printData() {
+      document.write(this.num + ", " + this.name + ", " + this.kor + ", " + this.math + "<br>");
+    }
+  }
+
+  //DAO
+  class StudentManager {
+    stList = [];
+
+    parseData(data) {
+      let token1 = data.split(",");
+
+      for (let i = 0; i < token1.length; i++) {
+        let token2 = token1[i].split("/");
+
+        let temp = new Student();
+        let num = Number(token2[0]);
+        let name = (token2[1]);
+        let kor = Number(token2[2]);
+        let math = Number(token2[3]);
+        temp.setData(num, name, kor, math);
+
+        this.stList.push(temp);
+      }
+    }
+
+    printStList() {
+      for (let i = 0; i < this.stList.length; i++) {
+        this.stList[i].printData();
+      }
+    }
+  }
+
+  let strdata1 = "1001/김철수/100/20,1002/이영수/90/40,1003/오민수/20/50";
+  let stManager = new StudentManager();
+  stManager.parseData(strdata1);
+  stManager.printStList();
+
+</script>

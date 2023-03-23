@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    let my_str = "abc1Addfggg4556b"
+    let n = 6;
+
+    function solution(my_str, n) {
+      let temp = "";
+      let result = [];
+      for (let i = 0; i < my_str.length; i++) {
+        temp += my_str[i % n]
+        //document.write(i % n)
+        document.write("<br>" + (n - 1))
+        if (i % n == n - 1) {
+          document.write("<br>")
+          result.push(temp)
+          temp = ""
+          n += 6
+        }
+      }
+      document.write(result)
+    }
+
+
+    solution(my_str, n)
+  </script>
+</body>
+
+</html>

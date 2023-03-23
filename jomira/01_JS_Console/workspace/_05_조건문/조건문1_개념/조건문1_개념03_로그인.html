@@ -1,0 +1,25 @@
+<script>
+
+    /*
+            [회원가입과 로그인] 
+                1. 가입된 아이디와 비밀번호로 로그인시, 
+                   입력한 아이디와 비밀번호를 비교한다.
+                2. "로그인 성공" 또는 "로그인 실패"를 출력하시오.
+    */
+
+    let joinId = "qwer1234";
+    let joinPw = "1234qwer";
+
+    let loginId = "qwer1234";
+    let loginPw = "1234qwer";
+
+    if (joinId == loginId && joinPw == loginPw) {
+        document.write("로그인성공")
+    } else if (joinId != loginId) {
+        document.write("아이디가 일치하지 않습니다.")
+    } else if (joinPw != loginPw) {
+        document.write("비번이 일치하지 않습니다.")
+    }
+
+
+</script>

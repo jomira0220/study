@@ -1,0 +1,67 @@
+<script>
+
+  /*
+      [문제]
+          [조건1] a배열과 b배열 두 개에 1~100 사이의 랜덤 값 다섯 개를 저장한다.
+          [조건2] base 변수에 랜덤으로 1~100 사이의 숫자를 저장한다. 
+                  base 변수 값보다 큰 값들을 전부 출력하시오.
+      [예시]  
+          a = 73,35,40,14,17
+          b = 87,61,18,16,69
+          base = 36
+          a : 73
+          b : 87
+          b : 61
+          a : 40
+          b : 69          
+  */
+
+  let a = [];
+  let b = [];
+
+  let base = Math.floor(Math.random() * 100) + 1;
+
+  for (let i = 0; i < 5; i++) {
+    a.push(Math.floor(Math.random() * 100) + 1)
+    b.push(Math.floor(Math.random() * 100) + 1)
+  }
+
+  document.write("a = " + a + "<br>")
+  document.write("b = " + b + "<br>")
+  document.write("base = " + base + "<br>")
+
+  for (let i = 0; i < a.length; i++) {
+    if (a[i] > base) {
+      document.write("a : " + a[i] + "<br>")
+    }
+    if (b[i] > base) {
+      document.write("b : " + b[i] + "<br>")
+    }
+  }
+
+
+  /*
+
+  for (let i = 0; i < 5; i++) {
+    a.push(Math.floor(Math.random() * 100) + 1);
+    b.push(Math.floor(Math.random() * 100) + 1);
+  }
+
+  base = Math.floor(Math.random() * 100) + 1;
+
+  document.write("a = " + a + "<br>")
+  document.write("a = " + b + "<br>")
+  document.write("base = " + base + "<br>")
+
+  for (let i = 0; i < a.length; i++) {
+    if (base < a[i]) {
+      document.write("a : " + a[i] + "<br>")
+    }
+    if (base < b[i]) {
+      document.write("b : " + b[i] + "<br>")
+    }
+  }
+  
+  */
+
+</script>

@@ -1,0 +1,32 @@
+<script>
+
+    /*
+        [문제] 
+            1~15 사이의 숫자를 출력하시오.
+        [옆으로 출력 중 줄 바꿈]
+            옆으로도 계속 길어지면 또 보기가 힘들기 때문에 
+            적당히 출력 중에 줄 바꿈을 해주면 더 보기 좋아진다.
+    */
+
+    /*
+   let i = 1;
+   while (i <= 15) {
+       document.write(i + "&nbsp;");
+
+       if (i % 5 == 0) {
+           document.write("<br>");
+       }
+
+       i += 1;
+   }
+   */
+
+    for (let i = 1; i <= 15; i++) {
+        if (i % 5 == 0) {
+            document.write(i + " <br>")
+        } else {
+            document.write(i + " ")
+        }
+    }
+
+</script>

@@ -1,0 +1,54 @@
+<script>
+
+    /*
+        [문제]
+            [1] 1~99 사이의 랜덤 숫자를 저장한다.
+        	
+            랜덤 숫자 중에서 3이나 6이나 9의 개수가
+            [2-1] 2개이면, 짝짝을 출력한다.
+            [2-2] 1개이면, 짝을 출력한다.
+            [2-3] 0개이면, 해당 숫자를 출력하시오.
+        	
+            [예]
+                33	==> 짝짝
+                16	==> 짝
+                7	==> 7
+    */
+
+    let num = Math.floor(Math.random() * 99) + 1;
+    let result = 0;
+
+    let 십의자리 = parseInt(num % 100 / 10);
+    let 일의자리 = parseInt(num % 10);
+
+    if (십의자리 == 3 || 십의자리 == 6 || 십의자리 == 9) {
+        result = result + 1;
+    }
+
+    if (일의자리 == 3 || 일의자리 == 6 || 일의자리 == 9) {
+        result = result + 1;
+    }
+
+    if (result == 0) {
+        console.log(num)
+    }
+    if (result == 1) {
+        console.log("짝")
+    }
+    if (result == 2) {
+        console.log("짝짝")
+    }
+
+
+
+
+
+
+    /*
+    if (num > 10 && num % 3 > 0) {
+
+    }
+    */
+
+
+</script>

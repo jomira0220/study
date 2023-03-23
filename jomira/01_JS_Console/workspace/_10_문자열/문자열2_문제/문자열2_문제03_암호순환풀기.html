@@ -1,0 +1,50 @@
+<script>
+
+  /*
+      [문제]
+          철수는 비밀번호는 아래와 같다. 
+          철수는 비밀번호를 보호하기 위해 비밀번호 순환을 3번 반복했다.
+          순환이란, 글자를 한칸씩 앞으로 밀고 맨 앞의 글자는 뒤로 붙이는 걸 말한다.
+          철수가 만든 비밀번호를 풀어 원래대로 비밀번호를 복원하시오.
+      [정답]
+          qwer1234    
+  */
+
+  let password = "r1234qwe"; //er1234qw
+
+  let temp = "";
+  for (let i = 0; i < 3; i++) {
+    let temp = password[password.length - 1]
+    for (let j = 0; j < password.length - 1; j++) {
+      temp += password[j]
+    }
+    password = temp
+    document.write(password + "<br>")
+  }
+
+
+  /*
+  let result = "";
+  for (let i = 0; i < 3; i++) {
+    let temp = password[password.length - 1]
+    for (let j = 0; j < password.length - 1; j++) {
+      temp += password[j]
+    }
+    password = temp
+    document.write(password + "<br>")
+  }
+  //document.write(password)
+*/
+  /*
+  for (let i = 0; i < 3; i++) {
+    let temp = password[password.length - 1];
+    for (let j = 0; j < password.length - 1; j++) {
+      temp += password[j]
+    }
+    password = temp
+  }
+  document.write(password)
+  */
+
+
+</script>

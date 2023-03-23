@@ -1,0 +1,63 @@
+<script>
+
+  /*
+      [문제] 
+          1~45사이의 랜덤값 6개를 lotto배열에 저장하려 한다.
+          단, 중복되는 숫자는 없어야 하며,
+          내림차순 정렬 후 출력하시오.
+      [예시]
+          40, 38, 27, 26, 18, 5
+  */
+
+  let lotto = [];
+
+
+  let i = 0;
+  while (true) {
+    let num = Math.floor(Math.random() * 45) + 1;
+
+    let check = false;
+    for (let j = 0; j < i; j++) {
+      if (num == lotto[j]) {
+        check = true;
+        break;
+      }
+    }
+
+    if (check == false) {
+      lotto.push(num);
+      i += 1;
+    }
+
+    if (i == 6) {
+      break;
+    }
+  }
+
+  /*
+  배열을 한개씩 검사할때 
+  (최대값)과 (최대값의 순서)를 찾아서 
+  현재 검사하는 위치의 배열의 값과 
+  최대값을 가진 위치의 값을 교환한다.
+  현재 검사하는 위치가 나중에 검사하게되는 값보다 
+  위치값 즉 인덱스가 앞순이므로 현재 검사하는 배열의 
+  위치값을 큰값으로 변경 
+  */
+
+  for (let i = 0; i < lotto.length; i++) {
+    let maxNum = lotto[i]; // 45
+    let maxIndex = i; // 0
+    for (let j = i; j < lotto.length; j++) { //0~6 1~6 2~6
+      if (maxNum < lotto[j]) {
+        maxNum = lotto[j];
+        maxIndex = j;
+      }
+    }
+    let temp = lotto[i];
+    lotto[i] = lotto[maxIndex];
+    lotto[maxIndex] = temp;
+  }
+
+  document.write(lotto);
+
+</script>

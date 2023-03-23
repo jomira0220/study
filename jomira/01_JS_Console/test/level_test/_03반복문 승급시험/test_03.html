@@ -1,0 +1,85 @@
+<script>
+
+  /*
+      [문제]
+          랜덤으로 1~10을 10번 출력하고
+          가장 작은 수를 출력하시오.
+          단, 가장 작은 수가 여러번 나온 경우
+          중복 출력된 횟수도 함께 출력하시오.
+      [예시]
+          9 7 9 2 3 9 6 2 8 2
+          최소값 = 2
+          중복 출력된 횟수 = 3
+  */
+
+  let min = 10;
+  let count = 0;
+  for (let i = 0; i < 10; i++) {
+    let num = Math.floor(Math.random() * 10) + 1
+    document.write(num + " ")
+    if (num < min) {
+      min = num
+      count = 1;
+    } else if (num == min) {
+      count++
+    }
+  }
+
+  document.write("<br>" + min + "<br>")
+  document.write(count + "<br>")
+
+  /*
+  let min = 10;
+  let cnt = 1;
+  for (let i = 0; i < 10; i++) {
+    let num = Math.floor(Math.random() * 10) + 1;
+    document.write(num + " ")
+    if (min > num) {
+      min = num
+    } else if (min == num) {
+      cnt++
+    }
+  }
+
+  document.write("<br>" + min + "<br>")
+  document.write(cnt + "<br>")
+*/
+  /*
+  let min = 10;
+  let count = 1; //최소값이 무조건 1개는 나오니까
+  for (let i = 0; i < 10; i++) {
+    let num = Math.floor(Math.random() * 10) + 1;
+    document.write(num + " ")
+
+    if (num < min) {
+      min = num
+    } else if (num == min) {
+      count += 1
+    }
+
+  }
+
+  document.write("<br> 최소값 = " + min)
+  document.write("<br> 중복출력횟수 = " + count)
+*/
+  /*
+  let minNum = 10;
+  let minCount = 0;
+
+  for (let i = 0; i < 10; i++) {
+    let num = Math.floor(Math.random() * 10) + 1;
+    document.write(num + " ");
+
+    if (minNum > num) {
+      minNum = num;
+      minCount = 1; //작은값이 한번 들어온것 값 셋팅
+    } else if (minNum == num) {
+      minCount += 1; //이후 동일한 값일 경우 추가
+    }
+  }
+  document.write("<br>");
+
+  document.write("최소값 = " + minNum + "<br>");
+  document.write("중복 출력된 횟수 = " + minCount + "<br>");
+*/
+</script>

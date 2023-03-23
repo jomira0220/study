@@ -1,0 +1,28 @@
+
+<script>
+/*
+★ console.log에서는 이스케이프 문자가 실행되지만
+document.write 에서는 실행되지 않음
+
+[1] 이스케이프 문자(escape sequence)
+    문자열 출력 중간에 이스케이프 문자를 사용해서 다양한 효과를 표현할 수 있다. 
+    
+[2] 이스케이프 문자 종류 
+    (1) \n	: 줄바꿈
+    (2) \t	: tab (4칸 띄어쓰기)
+    (3) \"	: "
+    (4) \'	: '
+    (5) \\	: \
+*/
+
+console.log("안녕\n하세요");
+console.log("안녕\t하세요");
+console.log("안녕 \"미라\" 입니다");
+console.log("안녕 \'미라\' 입니다");
+console.log("안녕 \\미라\\ 입니다");
+
+document.write("나는 도큐먼트에 출력할꺼임<br> 안녕하세요!");
+//&nbsp; = none break spacebar 한줄에 들어가는 공백 한칸
+document.write("공&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;백");
+
+</script>

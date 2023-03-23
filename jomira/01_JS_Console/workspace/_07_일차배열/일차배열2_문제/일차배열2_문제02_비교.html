@@ -1,0 +1,42 @@
+<script>
+
+  /*
+      [문제]
+          [조건1] arr배열에 랜덤 숫자(1~100) 5개를 추가한다.
+          [조건2] 위 값 중에 50보다 큰 값들만 출력한다.
+      [예시]
+          arr = 6,78,56,73,1
+          78
+          56
+          73    
+  */
+
+
+
+  let arr = [];
+
+  for (let i = 0; i < 5; i++) {
+    let num = Math.floor(Math.random() * 100) + 1
+    arr.push(num)
+    if (num > 50) {
+      document.write(num + "<br>")
+    }
+  }
+
+  document.write(arr)
+
+
+  /*
+  for (let i = 0; i < 5; i++) {
+    arr.push(Math.floor(Math.random() * 100) + 1)
+  }
+  document.write("arr = " + arr + "<br>")
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > 50) {
+      document.write(arr[i] + "<br>")
+    }
+  }
+*/
+
+</script>

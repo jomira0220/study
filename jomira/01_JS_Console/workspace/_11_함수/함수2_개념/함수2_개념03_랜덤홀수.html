@@ -1,0 +1,76 @@
+<script>
+
+  /*
+      [문제]
+          배열에 -100 ~ 100 사이의 랜덤 숫자를 4개 저장하고
+          전부 홀수인지 검사하는 함수를 만드시오.
+      [예시]
+          -90,93,1,47
+          전부 홀수가 아니다.
+  */
+
+  let arr = []
+
+
+  function oddCheck(arr) {
+
+    for (let i = 0; i < 4; i++) {
+      let r = Math.floor(Math.random() * 201) - 100;
+      arr.push(r)
+    }
+
+    document.write(arr + "<br>");
+
+    let check = false;
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] % 2 == 0) {
+        check = true
+        break
+      }
+    }
+
+    if (check) {
+      document.write("전부 홀수가 아니다")
+    } else {
+      document.write("전부 홀수다")
+    }
+
+  }
+
+  oddCheck(arr)
+
+
+
+  /*
+  function setRandom(arr) {
+    for (let i = 0; i < 4; i++) {
+      let ran = Math.floor(Math.random() * 201) - 100;
+      arr.push(ran);
+    }
+    document.write(arr + "<br>");
+  }
+
+  function checkArr(arr) {
+    let check = false;
+
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] % 2 == 0) {
+        check = true;
+        break;
+      }
+    }
+    if (check == false) {
+      document.write("전부 홀수이다.");
+
+    } else {
+      document.write("전부 홀수가 아니다.");
+    }
+  }
+
+  let arr = [];
+
+  setRandom(arr);
+  checkArr(arr);
+*/
+
+</script>

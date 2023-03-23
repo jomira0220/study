@@ -1,0 +1,28 @@
+<script>
+
+  /*
+      [문제]
+          arr배열은 학생 번호와 점수 한 세트를 이루고 있다.		
+          일등 학생의 번호와 점수를 출력하시오.
+      [정답]
+          번호 = 1002
+          점수 = 82    
+  */
+
+  let arr = [1001, 40, 1002, 82, 1003, 65, 1004, 70];
+
+  let max = 0;
+  let number = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (i % 2 != 0) {
+      if (max < arr[i]) {
+        max = arr[i]
+        number = arr[i - 1]
+      }
+    }
+  }
+
+  document.write(number + "<br>")
+  document.write(max)
+
+</script>

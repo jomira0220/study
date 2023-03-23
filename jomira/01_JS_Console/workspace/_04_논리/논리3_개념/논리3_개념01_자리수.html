@@ -1,0 +1,21 @@
+<script>
+
+	/*
+		[문제] 
+			아래 변수의 a값이 
+			100의 자리가 3이고 10의 자리가 4이면,
+			true 출력하시오.
+		[정답]
+			true
+	*/
+
+	let a = 3340;
+
+	let 백의자리 = parseInt(a % 1000 / 100);
+	let 십의자리 = parseInt(a % 100 / 10);
+
+	let 결과 = 백의자리 == 3 && 십의자리 == 4;
+	console.log(결과);
+	document.write(결과);
+
+</script>

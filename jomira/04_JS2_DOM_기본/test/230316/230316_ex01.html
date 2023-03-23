@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div,
+    table {
+      display: inline-block;
+      width: 300px;
+      vertical-align: top;
+    }
+
+    img {
+      width: 70px;
+    }
+
+    img.prd {
+      width: 300px;
+    }
+
+    ul li {
+      display: inline-block;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <h1>간식종류</h1>
+  <div>
+    <img class="prd" src="images/snack1.jpg" alt="">
+    <ul>
+      <li><img class="list" src="images/snack3.jpg" alt=""></li>
+      <li><img class="list" src="images/snack2.jpg" alt=""></li>
+      <li><img class="list" src="images/snack1.jpg" alt=""></li>
+    </ul>
+  </div>
+  <table>
+    <tr>
+      <td>상품명:삼립 미니꿀약과</td>
+    </tr>
+    <tr>
+      <td>판매가:20000원</td>
+    </tr>
+    <tr>
+      <td>배송빗:3000원</td>
+    </tr>
+    <tr>
+      <td>수량:<input type="number" value="1"></td>
+    </tr>
+    <tr>
+      <td><button type="button">장바구니 담기</button></td>
+    </tr>
+  </table>
+
+
+
+  <script>
+
+
+    console.log(document.querySelectorAll(".list"))
+    document.querySelectorAll(".list").forEach(function (el) {
+      el.addEventListener("click", (e) => {
+        let getSrc = e.target.getAttribute("src")
+        document.querySelector(".prd").setAttribute("src", getSrc)
+      })
+    })
+
+
+
+
+
+
+  </script>
+</body>
+
+</html>

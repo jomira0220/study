@@ -1,0 +1,71 @@
+<script>
+
+  /*
+      [문제]
+          세로 가로 인덱스 두개를 랜덤으로 저장한다. 
+          그 인덱스를 기점으로 대각선 + 십자가 방향으로 전부 1로 채운 후 출력하시오.
+      [예시]
+          y = 3, x = 0
+          
+          [1, 0, 0, 1, 0]
+          [1, 0, 1, 0, 0]
+          [1, 1, 0, 0, 0]
+          [1, 1, 1, 1, 1]
+          [1, 1, 0, 0, 0]    
+  */
+
+  let list = [
+    [0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0]
+  ];
+
+  let y = Math.floor(Math.random() * list.length);
+  let x = Math.floor(Math.random() * list.length);
+
+  y = 3;
+  x = 0;
+  list[y][x] = 1;
+
+  document.write("y = " + y + "<br>");
+  document.write("x = " + x + "<br>");
+
+
+  //1씩 차감 혹은 증감 가능 위치 확인
+  for (let i = -1; i <= 1; i++) {
+    for (let j = -1; j <= 1; j++) {
+
+      let temp_i = i;
+      let temp_j = j;
+
+      if (i == 0 && j == 0) continue; //불필요 조건이므로 패스
+
+
+      //★y축이나 x축에서 1씩 차감 혹은 증감한 값이 인덱스 조건에
+      //맞지 않으면 가능한 인덱스 조건이 나올때까지 찾도록 
+      //break후 다른 조건 계산 확인
+      while (true) {
+
+        if ((list.length <= y + temp_i) || (y + temp_i < 0)) break;
+        //y축이 최대값과 같거나 더 크고 또는 y축이 0 보다 작으면
+        if ((list.length <= x + temp_j) || (x + temp_j < 0)) break;
+        //x축이 최대값과 같거나 더 크고 또는 x축이 0 보다 작으면
+
+        list[y + temp_i][x + temp_j] = 1;
+
+        temp_i += i;
+        temp_j += j;
+      }
+
+
+    }
+  }
+
+  for (let i = 0; i < list.length; i++) {
+    document.write(list[i] + "<br>");
+  }
+
+
+</script>

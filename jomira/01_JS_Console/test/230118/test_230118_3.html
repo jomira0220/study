@@ -1,0 +1,57 @@
+<script>
+
+  /*
+      [문제]
+          250 ~ 350 사이의 랜덤 숫자를 저장하고,
+          랜덤 숫자의 가운데 숫자를 출력하시오.
+      [예시]
+          249	=> 4        
+  */
+
+  let r = Math.floor(Math.random() * 101) + 250;
+  document.write(r + " => ")
+  let temp = r
+  for (let i = 0; i < 3; i++) {
+    let unit = temp % 10;
+    temp = parseInt(temp / 10)
+    if (i == 1) {
+      document.write(unit)
+    }
+  }
+
+  /*
+  let num = Math.floor(Math.random() * 101) + 250;
+  document.write(num + "<br>")
+  let temp = num;
+  let count = 0;
+  for (let i = 0; i < 3; i++) {
+    let unit = temp % 10;
+    temp = parseInt(temp / 10);
+    count += 1
+    if (count == 2) {
+      document.write(unit)
+    }
+  }
+  */
+
+  /*
+  let num = Math.floor(Math.random() * 101) + 250;
+  let temp = num;
+  document.write(temp + "<br>")
+
+  let count = 0;
+
+  for (let i = 0; i < 3; i++) {
+    let unit = temp % 10;
+    temp = parseInt(temp / 10);
+    count += 1
+    if (count == 2) {
+      document.write(unit + " ")
+    }
+  }
+  */
+
+
+
+
+</script>

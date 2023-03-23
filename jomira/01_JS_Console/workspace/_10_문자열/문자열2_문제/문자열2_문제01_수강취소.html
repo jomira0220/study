@@ -1,0 +1,76 @@
+<script>
+
+  /*
+      [문제]
+          regist배열은 수강 신청을 신청한 학생명단이다.
+          cancel배열은 수강 철회를 신청한 학생명단이다.
+          수강신청을 한 학생들을 lastRegist에 저장 후 출력하시오.    
+      [정답]
+          lastRegist = [김철민, 오사랑, 김밥집, 박대한]
+  */
+
+  let regist = ["김철민", "이민정", "오사랑", "최면술", "김밥집", "박대한", "조정민"];
+  let cancel = ["이민정", "최면술", "조정민"];
+
+  let lastRegist = [];
+
+  for (let i = 0; i < regist.length; i++) {
+
+    let check = false;
+
+    for (let j = 0; j < cancel.length; j++) {
+      if (regist[i] == cancel[j]) {
+        check = true
+      }
+    }
+
+    if (check == false) {
+      lastRegist.push(regist[i])
+    }
+
+  }
+
+  document.write(lastRegist)
+
+
+
+  /*
+  for (let i = 0; i < regist.length; i++) {
+    let check = false;
+    for (let j = 0; j < cancel.length; j++) {
+      if (regist[i] == cancel[j]) {
+        check = true
+      }
+    }
+    if (check == false) {
+      lastRegist.push(regist[i])
+    }
+  }
+
+  document.write(lastRegist)
+*/
+
+
+  /*
+
+  for (let i = 0; i < regist.length; i++) {
+
+    let check = false;
+    for (let j = 0; j < cancel.length; j++) {
+      if (regist[i] == cancel[j]) {
+        check = true
+        break
+      }
+    }
+
+    if (check == false) {
+      lastRegist.push(regist[i])
+    }
+
+  }
+
+  document.write(lastRegist)
+  
+  */
+
+</script>

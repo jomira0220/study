@@ -1,0 +1,60 @@
+<script>
+
+  /*
+      [문제]
+          1 ~ 10,000 사이의 랜덤 숫자를 저장하고,
+          자리별 홀수의 개수를 출력하시오.
+          
+          예)
+              561		: 2개
+              1		: 1개
+              668		: 0개
+              9999	: 4개
+  */
+
+  let num = Math.floor(Math.random() * 10000) + 1;
+  document.write(num + " : ")
+
+  let temp = num;
+  let count = 0;
+
+  for (let i = 0; i < 5; i++) {
+    let unit = temp % 10;
+    temp = parseInt(temp / 10);
+
+    if (unit % 2 == 1) {
+      count += 1
+    }
+
+    if (temp == 0) {
+      break
+    }
+
+  }
+
+  document.write(count + "개")
+
+  /*
+  let num = Math.floor(Math.random() * 10000) + 1;
+  document.write(num + " : ");
+
+  let temp = num; //값이 바뀌지 않도록
+  let count = 0;
+
+  while (true) {
+    let unit = temp % 10; //일의자리 확인
+    if (unit % 2 == 1) { //일의자리가 홀수이면
+      count += 1;
+    }
+    temp = parseInt(temp / 10); //10으로 나눈 값이 0이면 종료
+    if (temp == 0) {
+      break;
+    }
+  }
+
+  document.write(count + "개");
+*/
+
+
+
+</script>

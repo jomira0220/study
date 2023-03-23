@@ -1,0 +1,114 @@
+<script>
+
+  /*
+      [문제]
+          랜덤(1~4)를 저장한다. 랜덤숫자는 회전 횟수이다. 
+          회전 횟수만큼 block의 숫자들을 90도로 우회전시키시오.
+          
+      [예시]
+          rNum = 4
+          1 2 3      00 01 02 
+          4 5 6 
+          7 8 9 
+
+          7 4 1      02 
+          8 5 2      12
+          9 6 3      22
+
+          9 8 7      
+          6 5 4 
+          3 2 1 
+
+          3 6 9      
+          2 5 8 
+          1 4 7  
+          
+          1 2 3      
+          4 5 6 
+          7 8 9 
+          
+          
+  */
+
+  let block = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+  ];
+
+
+  /*
+  let rNum = Math.floor(Math.random() * 4) + 1;
+  document.write("rNum = " + rNum + "<br>")
+  for (let i = 0; i < rNum; i++) {
+
+    for (let j = 0; j < block.length; j++) {
+      document.write(block[j] + "<br>")
+    }
+
+    //앞배열 값 참고저장용
+    let temp = [];
+    for (let j = 0; j < block.length; j++) {
+      let unit = [];
+      for (let k = 0; k < block[i].length; k++) {
+        unit.push(block[j][k])
+      }
+      temp.push(unit)
+    }
+
+
+    for (let j = 0; j < block.length; j++) {
+      for (let k = 0; k < block[i].length; k++) {
+        block[k][block.length - 1 - j] = temp[j][k]
+      }
+    }
+
+    document.write("<br>")
+
+  }
+  */
+
+
+
+
+  let rNum = Math.floor(Math.random() * 4) + 1;
+  rNum = 4
+  document.write("rNum = " + rNum + "<br>")
+
+
+  for (let i = 0; i < rNum; i++) {
+
+    for (let j = 0; j < block.length; j++) {
+      document.write(block[j] + "<br>")
+    }
+    document.write("<br>")
+
+    let temp = [];
+    for (let j = 0; j < block.length; j++) {
+      let unit = [];
+      for (let k = 0; k < block[i].length; k++) {
+        unit.push(block[j][k])
+      }
+      temp.push(unit)
+    }
+
+    for (let j = 0; j < block.length; j++) {
+      for (let k = 0; k < block[i].length; k++) {
+        block[k][block.length - 1 - j] = temp[j][k]
+        // block[0][2] == temp[0][0]
+        // block[1][2] == temp[0][1]
+        // block[2][2] == temp[0][2]
+
+        // block[0][1] == temp[1][0]
+        // block[1][1] == temp[1][1]
+        // block[2][1] == temp[1][2]
+      }
+    }
+
+  }
+
+
+
+
+
+</script>

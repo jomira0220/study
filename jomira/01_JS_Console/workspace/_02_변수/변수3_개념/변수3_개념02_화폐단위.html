@@ -1,0 +1,28 @@
+<script>
+	
+	/*
+		[문제]  
+			거스름돈 8700원을 거슬러주려 한다.
+			오천원 천원 오백원 백원단위로 표현하시오.
+		[정답]
+			오천원 : 1, 일천원 : 3, 오백원 : 1, 일백원 : 2
+	*/
+
+	let 총금액 = 8700;
+
+	let 오천원 = parseInt(총금액 / 5000);
+	let 천원 = parseInt(총금액 % 5000 / 1000);
+	let 오백원 = parseInt(총금액 % 1000 / 500);
+	let 백원 = parseInt(총금액 % 500 / 100);
+
+	console.log(오천원);
+	console.log(천원);
+	console.log(오백원);
+	console.log(백원);
+
+	document.write(오천원 + "<br>");
+	document.write(천원 + "<br>");
+	document.write(오백원 + "<br>");
+	document.write(백원 + "<br>");
+
+</script>

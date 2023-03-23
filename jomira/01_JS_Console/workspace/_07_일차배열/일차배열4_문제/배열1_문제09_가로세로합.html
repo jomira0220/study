@@ -1,0 +1,94 @@
+<script>
+
+  /*
+      [문제]	
+          배열a는 한 줄 이지만 아래와 같이 사각형으로 놓였다고 했을 때,  
+          [1] a배열의 가로 합은 garo배열에 저장하시오.
+          [2] a배열의 세로 합은 sero배열에 저장하시오.
+      [정답]
+          garo = 10, 26, 42
+          sero = 15, 18, 21, 24
+          
+          
+  */
+
+  let a = [1, 2, 3, 4,
+    5, 6, 7, 8,
+    9, 10, 11, 12];
+
+  let garo = [0, 0, 0];
+  let sero = [0, 0, 0, 0];
+
+  let index = 0;
+  for (let i = 0; i < a.length; i++) {
+    garo[index] += a[i]; //a의 0번째부터 3번째까지 더하다가
+    if (i % 4 == 3) { //a의 순서가 3번째가 되는 시점에 garo 자리값 변경
+      index++
+    }
+  }
+  document.write(garo + "<br>");
+
+  index = 0;
+  for (let i = 0; i < a.length; i++) {
+    sero[index] += a[i];
+    index += 1;
+
+    if (i % 4 == 3) {
+      index = 0;
+    }
+  }
+  document.write(sero + "<br>");
+
+
+  /*
+  let index = 0;
+  for (let i = 0; i < a.length; i++) {
+    garo[index] += a[i]
+    if (i % 4 == 3) {
+      index += 1
+    }
+  }
+
+  index = 0;
+  for (let i = 0; i < a.length; i++) {
+    sero[index] += a[i];
+    index += 1;
+
+    if (i % 4 == 3) {
+      index = 0;
+    }
+  }
+*/
+
+
+
+  /*
+  for (let i = 0; i < a.length; i++) {
+
+    if (i < 4) {
+      garo[0] += a[i]
+    } else if (4 <= i && i < 8) {
+      garo[1] += a[i]
+    } else if (8 <= i && i <= 11) {
+      garo[2] += a[i]
+    }
+
+    if (i % 4 == 0) {
+      sero[0] += a[i]
+    } else if (i % 4 == 1) {
+      sero[1] += a[i]
+    } else if (i % 4 == 2) {
+      sero[2] += a[i]
+    } else if (i % 4 == 3) {
+      sero[3] += a[i]
+    }
+
+  }
+  
+  
+  document.write(garo + "<br>")
+  document.write(sero)
+  */
+
+
+</script>

@@ -1,0 +1,39 @@
+<script>
+
+  /*
+      [문제]
+          90과 45의 최대공약수를 출력하시오.
+      [출력]
+          45    
+  */
+
+  /*
+  let num_1 = 90;
+  let num_2 = 45;
+
+  let answer = 0;
+
+  let i = 1;
+
+  while (i <= num_2) {
+
+    if (num_1 % i == 0 && num_2 % 1 == 0) {
+      answer = i;
+    }
+
+    i += 1;
+  }
+
+  console.log(answer)
+  */
+
+  let rs = 0;
+  for (let i = 1; i <= 45; i++) {
+    if (90 % i == 0 && 45 % i == 0) {
+      rs = i
+    }
+  }
+
+  document.write(rs)
+
+</script>

@@ -1,0 +1,51 @@
+<script>
+
+  /*
+      [문제]
+          arr배열의 값들 중 0을 제외하고 
+          모든 값을 오른쪽으로 모으시오.
+      [결과]
+          arr = 0,0,0,0,0,0,2,3,4,5
+  */
+
+  let arr = [0, 0, 2, 0, 3, 0, 4, 0, 0, 5];
+
+
+  let index = arr.length - 1;
+  for (let i = arr.length - 1; i >= 0; i--) {
+    if (arr[i] > 0) {
+      let temp = arr[index];
+      arr[index] = arr[i];
+      arr[i] = temp;
+      index -= 1;
+    }
+  }
+
+  console.log(arr);
+  document.write(arr);
+
+
+
+  /*
+  let index = arr.length - 1; // 9
+  let arr_1 = [];
+  let count = 0;
+  for (let i = index; i >= 0; i--) {
+    if (arr[i] != 0) {
+      arr_1.push(arr[i])
+    }
+  }
+
+  for (let i = index; i >= 0; i--) {
+    arr[i] = arr_1[count]
+    count++
+    if (count > arr_1.length) {
+      arr[i] = 0
+    }
+  }
+
+  document.write(arr)
+*/
+
+
+</script>

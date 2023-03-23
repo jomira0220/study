@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+</head>
+
+<body>
+
+  <input id="name" type="text" name="subject" value="조미라">
+  <br>
+  <div id="content">
+    <span style="display: none;">숨겨진 글자</span>
+  </div>
+  <p class="animal">기린</p>
+  <p class="animal">호랑이</p>
+  <p class="animal">사자</p>
+
+  <p id="fruit"></p>
+
+  <script>
+
+    //★ 1.input은 innerText를 지원하지 않는다.
+    //input안의 내용수정을 원할 경우 .value
+    //value : input,select 태그 지원
+    document.querySelector("#name").innerText = "whalfk" //작동안함
+    document.querySelector("#name").value = "whalfk" //작동
+
+    let element = document.querySelector("#content");
+    console.log(element.innerText) //눈에 보이는 텍스트만 출력
+    console.log(element.innerHTML) //해당요소의 html 모두 출력
+    console.log(element.textContent) // 숨겨진 텍스트 전부 출력
+
+    element.innerHTML = "<div style='font-weight:bold;'><span style='color:purple;'>내가</span> 넣은 html</div>"
+
+
+    let el3 = document.getElementsByName("subject");
+    console.log(el3)
+
+
+
+    let el1 = document.getElementById("fruit");
+    console.log(el1)
+
+    let el2 = document.getElementsByClassName("animal");
+    console.log(el2)
+
+
+
+
+
+    let el4 = document.querySelector("#fruit");
+    console.log(el4)
+    el4.innerText = "딸기"
+
+    let el5 = document.querySelector(".animal");
+    console.log(el5)
+    //같은 이름중에서 첫번째만
+
+    let el6 = document.querySelectorAll(".animal")
+    console.log(el6)
+    //같은 이름 모두 선택
+
+
+    let animal = ["토끼", "참새", "다람쥐"];
+    let list = document.querySelectorAll(".animal");
+
+    for (let i = 0; i < list.length; i++) {
+      list[i].innerText = animal[i]
+    }
+
+
+  </script>
+
+</body>
+
+</html>

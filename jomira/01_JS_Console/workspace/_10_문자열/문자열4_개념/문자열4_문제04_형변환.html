@@ -1,0 +1,33 @@
+<script>
+
+  /*
+      [문제]
+          arr배열에 각 점수를 저장하고 출력하시오.
+      [정답]
+          arr = 11,100,89
+  */
+
+  let str = "11/100/89";
+  let arr = [];
+
+
+  let temp = str.split("/")
+
+  for (let i = 0; i < temp.length; i++) {
+    arr.push(temp[i])
+  }
+
+  document.write(arr)
+
+  /*
+
+  let token = str.split("/");
+  for (let i = 0; i < token.length; i++) {
+    arr.push(Number(token[i]));
+  }
+
+  document.write("arr = " + arr + "<br>");
+  
+  */
+
+</script>

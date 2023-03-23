@@ -1,0 +1,28 @@
+<script>
+
+  /*
+      [문제]
+          1~10 사이의 랜덤 숫자 3개 저장하고
+          그 숫자의 합이 무조건 20이 되도록 출력해보자.    
+      [예시]
+          x = 9, y = 5, z = 6
+ */
+
+  let run = true;
+  while (run) {
+    let num1 = Math.floor(Math.random() * 10) + 1;
+    let num2 = Math.floor(Math.random() * 10) + 1;
+    let num3 = Math.floor(Math.random() * 10) + 1;
+
+    let rs = num1 + num2 + num3;
+
+    if (rs == 20) {
+      run = false;
+    }
+
+    document.write(rs + " ")
+
+  }
+
+
+</script>

@@ -1,0 +1,74 @@
+<script>
+
+  /*
+      [반복문 옵션 continue]
+          else를 이용해서 충분히 식을 만들 수 있기 때문에
+          continue는 굳지 사용안해도 된다.
+  */
+
+  // else 사용
+  while (true) {
+    console.log("--------------------");
+    console.log("1.햄버거");
+    console.log("2.콜라");
+    console.log("3.감자");
+
+    var sel = parseInt(Math.random() * 7); // 0~6
+    console.log(sel + "번을 선택했습니다.");
+    document.write(sel + "번을 선택했습니다.<br>");
+    if (sel == 0) {
+      break;
+    }
+    if (sel != 1 && sel != 2 && sel != 3) {
+      console.log("잘못된 입력입니다.");
+      document.write("잘못된 입력입니다.<br>");
+    } else {
+      if (sel == 1) {
+        console.log("햄버거");
+        document.write("햄버거<br>");
+      } else if (sel == 2) {
+        console.log("콜라");
+        document.write("콜라<br>");
+      } else if (sel == 3) {
+        console.log("감자");
+        document.write("감자<br>");
+      }
+    }
+  }
+
+  console.log("-------------------------");
+  document.write("-------------------------<br>");
+
+  // continue 사용
+  while (true) {
+    console.log("--------------------");
+    console.log("1.햄버거");
+    console.log("2.콜라");
+    console.log("3.감자");
+
+    var sel = parseInt(Math.random() * 7); // 0~9
+    console.log(sel + "번을 선택했습니다.");
+    document.write(sel + "번을 선택했습니다.<br>");
+    if (sel == 0) {
+      break;
+    }
+    if (sel != 1 && sel != 2 && sel != 3) {
+      console.log("잘못된 입력입니다.");
+      document.write("잘못된 입력입니다.<br>");
+
+      continue;
+    }
+
+    if (sel == 1) {
+      console.log("햄버거");
+      document.write("햄버거<br>");
+    } else if (sel == 2) {
+      console.log("콜라");
+      document.write("콜라<br>");
+    } else if (sel == 3) {
+      console.log("감자");
+      document.write("감자<br>");
+    }
+  }
+
+</script>

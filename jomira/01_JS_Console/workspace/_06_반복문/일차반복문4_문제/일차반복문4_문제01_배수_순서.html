@@ -1,0 +1,38 @@
+<script>
+
+  /*
+      [문제] 
+          [1] 100 이상의 숫자 중에서  
+              7의 배수를 순차적으로 검색하고,
+          [2] 그 중 3번째 7의 배수를 출력하시오.
+      [정답] 
+          119    
+ 
+ 
+  let run = 1;
+  let i = 1;
+  let count = 0;
+
+  while (run == 1) {
+
+    if (i % 7 == 0 && i >= 100) {
+      count += 1;
+      if (count == 3) {
+        console.log(i)
+        run = 0;
+      }
+    }
+
+    i += 1;
+  }
+  */
+
+  let count = 0;
+  for (let i = 100; i < 200; i++) {
+    if (i % 7 == 0) {
+      count += 1;
+      if (count == 3) document.write(i)
+    }
+  }
+
+</script>

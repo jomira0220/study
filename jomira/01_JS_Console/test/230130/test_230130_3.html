@@ -1,0 +1,174 @@
+<script>
+
+  /*
+      [문제] 
+          lotto배열안에 1 또는 7을 랜덤으로 7개 추가 후 출력하시오. 
+          단, 7의 개수는 3개만 추가하고, 1의 개수는 4개만 추가한다.
+          위에서 만든 복권을 판정한다. 
+          7이 연속으로 3개면 "당첨"을 출력한다.
+          아니면 "꽝"을 출력한다.
+      [예시]
+          1,7,1,1,7,7,1 : 꽝
+          1,1,7,7,7,1,1 : 당첨
+  */
+
+  let lotto = [];
+  let num7 = 0;
+  let num1 = 0;
+  for (let i = 0; i < 7; i++) {
+    let num = Math.floor(Math.random() * 2)
+    if (num == 0) {
+      num = 7
+      num7++
+      if (num7 > 3) {
+        num = 1
+      }
+    } else {
+      num1++
+      if (num1 > 4) {
+        num = 7
+      }
+    }
+    lotto.push(num)
+  }
+
+  let result = false;
+  let count = 0;
+  for (let i = 0; i < lotto.length; i++) {
+    if (lotto[i] == 7) {
+      count++
+      if (count == 3) {
+        result = true
+      }
+    } else {
+      count = 0
+    }
+  }
+
+  if (result) {
+    document.write(lotto + "<br>")
+    document.write("당첨")
+  } else {
+    document.write(lotto + "<br>")
+    document.write("꽝")
+  }
+
+
+
+
+  /*
+  let cnt_7 = 0;
+  let cnt_1 = 0;
+
+  for (let i = 0; i < 7; i++) {
+    let num = Math.floor(Math.random() * 2);
+    if (num == 0) {
+      num = 7;
+      cnt_7++
+      if (cnt_7 > 3) {
+        num = 1
+      }
+    } else {
+      cnt_1++
+      if (cnt_1 > 4) {
+        num = 7
+      }
+    }
+    lotto.push(num)
+  }
+
+  document.write(lotto)
+*/
+
+
+  /*
+  let cnt_7 = 0;
+  let cnt_1 = 0;
+
+  for (let i = 0; i < 7; i++) {
+    let num = Math.floor(Math.random() * 2);
+    if (num == 0) {
+      num = 7;
+      cnt_7++
+      if (cnt_7 > 3) {
+        num = 1
+      }
+    } else {
+      num = 1
+      cnt_1++
+      if (cnt_1 > 4) {
+        num = 7
+      }
+    }
+    lotto.push(num)
+  }
+
+  document.write(lotto)
+
+  let max = 0;
+  let cnt = 0;
+  for (let i = 0; i < lotto.length; i++) {
+    if (lotto[i] == 7) {
+      cnt++
+      if (cnt > max) {
+        max = cnt
+      }
+    } else {
+      cnt = 0
+    }
+  }
+
+  if (max == 3) {
+    document.write("당첨")
+  } else {
+    document.write("꽝")
+  }
+*/
+
+  /*
+  let lotto = [];
+  let count_1 = 0;
+  let count_7 = 0;
+  let count = 0;
+
+  //개수에 맞춰 배열 먼저 만들고
+  for (let i = 0; i < 7; i++) {
+    let num = Math.floor(Math.random() * 2);
+    if (num == 0) { // 7일때
+      num = 7
+      count_7++
+      if (count_7 > 3) { //7이 3개초과이면 1로 변경
+        num = 1
+      }
+    } else { //1일때
+      count_1++
+      if (count_1 > 4) { //1이 4개초과이면 7로 변경
+        num = 7
+      }
+    }
+    lotto.push(num)
+  }
+
+  document.write(lotto + " : ")
+  let count_max = 0;
+  //도출한 배열의 값을 토대로 연속최대값 확인하여 결과값 도출
+  for (let i = 0; i < lotto.length; i++) {
+    if (lotto[i] == 7) {
+      count++
+      if (count_max < count) {
+        count_max = count
+      }
+    } else {
+      count = 0
+    }
+  }
+
+  document.write("" + count_max)
+
+  if (count_max < 3) {
+    document.write(" : 꽝")
+  } else {
+    document.write(" : 당첨")
+  }
+  */
+</script>

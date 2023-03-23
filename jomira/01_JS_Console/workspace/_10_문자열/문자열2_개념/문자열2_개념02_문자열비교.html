@@ -1,0 +1,62 @@
+<script>
+
+  /*
+      [문제]
+          info배열은 학생 정보이다.
+          search배열의 내용이 info에 있으면 O, 없으면 X를 출력하시오.
+      [정답]
+          이민수O
+          김철수O
+          김상진X
+  */
+
+  let info = ["김철수", "이민수", "유영희", "이민정", "조아라"];
+  let search = ["이민수", "김철수", "김상진"];
+
+
+  for (let i = 0; i < search.length; i++) {
+
+    let check = false;
+
+    for (let j = 0; j < info.length; j++) {
+      if (info[j] == search[i]) {
+        check = true
+        break
+      }
+    }
+
+    let result = search[i];
+    if (check) {
+      result += "O<br>"
+    } else {
+      result += "X<br>"
+    }
+    document.write(result)
+  }
+
+
+
+
+
+  /*
+  for (let i = 0; i < search.length; i++) {
+
+    let check = false;
+    for (let j = 0; j < info.length; j++) {
+      if (search[i] == info[j]) {
+        check = true;
+        break;
+      }
+    }
+
+    let result = search[i];
+    if (check) {
+      result += "O<br>";
+    } else {
+      result += "X<br>";
+    }
+    document.write(result);
+  }
+  */
+
+</script>

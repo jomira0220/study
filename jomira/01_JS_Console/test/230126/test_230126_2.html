@@ -1,0 +1,53 @@
+<script>
+
+    /*
+        [문제] 
+            [1] seatList 는 영화관 7자리를 나타낸다. 	 
+            [2] seatList 의 값들은 영화관 예매한 회원번호를 나타낸다. 	
+            [3] find에는 검색하고자하는 회원번호를 의미한다.	
+            [4] find 의 값을 영화관에서 찾아 자리를 출력하시오.		
+            [5] 찾는 값이 없으면 "없다" 를 출력하시오.
+        [예시1] 
+            번호 : 1003
+            결과 : 0, 1
+        [예시2]
+            번호 : 1005
+            결과 : "없다"  
+    */
+    let seatList = [1003, 1003, 0, 0, 1002, 0, 1001];
+    let find = 1003;
+    let result = []
+    for (let i = 0; i < seatList.length; i++) {
+        if (seatList[i] == find) {
+            result.push(i)
+        }
+    }
+
+    if (result.length == 0) {
+        document.write("없다")
+    } else {
+        document.write(result)
+    }
+
+
+
+
+    /*
+    let seatList = [1003, 1003, 0, 0, 1002, 0, 1001];
+    let find = 1003;
+    //find = 1005;
+    let 결과 = [];
+    let 번호 = "";
+    for (let i = 0; i < seatList.length; i++) {
+        if (seatList[i] == find) {
+            결과.push(i)
+        }
+    }
+    document.write(find + "<br>")
+    if (결과.length == 0) {
+        document.write("결과 : 없다")
+    } else {
+        document.write("결과 : " + 결과)
+    }
+*/
+</script>

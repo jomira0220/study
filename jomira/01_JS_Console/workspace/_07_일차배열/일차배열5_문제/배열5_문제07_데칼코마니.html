@@ -1,0 +1,33 @@
+<script>
+
+    /*
+        [문제]
+            arr배열이 데칼코마니인지 구하시오.
+            데칼로마니이면 true를 출력 아니면 false 출력하시오.
+            데칼코마니란? 절반으로 나눴을 때 서로 값들이 대칭이면 데칼코마니이다.
+        [예시]	
+            [1,5,4,4,5,1] true
+            [1,5,4,3,5,1] false    
+        [정답]
+            true
+    */
+
+    let arr = [1, 5, 4, 4, 5, 1];
+    //arr = [1, 5, 4, 3, 5, 1]
+    //0 == 3, 1 == 4 , 2 == 5
+    let count = 0;
+    let result = false;
+    let half = parseInt(arr.length / 2);
+    for (let i = 0; i < half; i++) {
+        if (arr[i] == arr[arr.length - 1 - i]) {
+            count++
+            if (count == half) {
+                result = true
+            }
+        }
+    }
+
+    document.write(result)
+
+
+</script>

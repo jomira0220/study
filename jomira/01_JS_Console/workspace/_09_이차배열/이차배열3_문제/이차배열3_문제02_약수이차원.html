@@ -1,0 +1,78 @@
+<script>
+
+  /*
+      [문제]
+          랜덤(2~100) 숫자를 저장해 그 수의 약수를 모두 arr배열에 저장한다.
+          위 규칙을 다섯 번 반복하여 이차원 배열을 만드시오.
+      [정답]
+          27 [1, 3, 9, 27]
+          72 [1, 2, 3, 4, 6, 8, 9, 12, 18, 24, 36, 72]
+          76 [1, 2, 4, 19, 38, 76]
+          94 [1, 2, 47, 94]
+          91 [1, 7, 13, 91]      
+  */
+
+  let arr = [];
+
+  for (let i = 0; i < 5; i++) {
+
+    let r = Math.floor(Math.random() * 99) + 2;
+    document.write(r + " ")
+
+    arr.push([])
+
+    let index = 0;
+    for (let j = 1; j <= r; j++) {
+      if (r % j == 0) {
+        arr[i][index] = j
+        index++
+      }
+    }
+
+    document.write(arr[i] + "<br> ")
+
+  }
+
+  /*
+  for (let i = 0; i < 5; i++) {
+
+    let num = Math.floor(Math.random() * 99) + 2;
+    document.write(num + " ")
+
+    arr.push([0])
+
+    let index = 0;
+    //숫자별로 약수개수 다르므로 리셋되도록 안에 변수 선언
+    for (let j = 1; j <= num; j++) {
+      if (num % j == 0) {
+        arr[i][index] = j;
+        index++
+      }
+    }
+  }
+
+  console.log(arr)
+*/
+
+  /*
+  for (let i = 0; i < 5; i++) {
+
+    arr.push([0])
+
+    let num = Math.floor(Math.random() * 99) + 2;
+    document.write(num + " ")
+
+    let index = 0;
+    for (let j = 1; j <= num; j++) {
+      if (num % j == 0) {
+        arr[i][index] = j
+        index++
+      }
+    }
+    document.write(arr[i] + "<br>")
+  }
+
+  console.log(arr)
+*/
+
+</script>

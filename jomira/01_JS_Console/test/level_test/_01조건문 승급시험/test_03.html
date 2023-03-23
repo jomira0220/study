@@ -1,0 +1,171 @@
+<script>
+
+  /*
+      [문제]
+          1. 철수는 지금 모두의 마블 게임을 하고있다.
+          2. 게임은 0 ~ 20까지 이동할 수 있는 거리가 있다.
+          3. 현재 철수의 차례이다.
+          4. 철수의 위치는 시작점으로부터 9만큼 이동한 상태이다.
+          5. 1 ~ 6의 숫자가 있는 주사위 2개를 던진다.
+          6. 주사위 숫자의 합만큼 이동할 수 있다.
+          7. 다음 이동할 철수의 위치를 출력하시오.
+          
+          8. 조건
+              1) 두 주사위 숫자가 서로 다를 경우에는
+              현재 위치에서 주사위 숫자의 합만큼 이동한다.
+              예) 3, 5 => 8만큼 이동
+              2) 두 주사위의 숫자가 같은 경우 보너스로 이동거리 6이 추가된다.
+              예) 2, 2 => 4 + 6 만큼 이동
+              3) 14, 15, 16 번의 위치에 함정이 있다.
+              함정에 걸리면 다시 주사위 2개를 던지고
+              그 합이 6이하이면 [패널티] 처음 위치(0)로 이동한다.
+              그 합이 7이상이면 [패널티 없음] 함정을 탈출한다.(현재자리 유지)
+              4) 20 이상의 값이 나오면 "승리"를 출력한다. 
+  */
+  /*
+  let i = 0;
+  let 철수위치 = 9;
+  let 주사위1 = Math.floor(Math.random() * 6) + 1;
+  let 주사위2 = Math.floor(Math.random() * 6) + 1;
+
+  while (i <= 20) {
+
+    let 주사위합 = 주사위1 + 주사위2
+
+    if (주사위1 == 주사위2) {
+      철수위치 = 철수위치 + 주사위합 + 6;
+    } else {
+      철수위치 = 철수위치 + 주사위합;
+    }
+
+    if (주사위합 == 14 || 주사위합 == 15 || 주사위합 == 16) {
+      주사위1 = Math.floor(Math.random() * 6) + 1;
+      주사위2 = Math.floor(Math.random() * 6) + 1;
+
+      주사위합 = 주사위1 + 주사위2
+
+      if (주사위합 <= 6) {
+        철수위치 = 0;
+        document.write("패널티")
+      }
+      if (주사위합 >= 7) {
+        document.write("패널티없음")
+      }
+    }
+
+    if (주사위합 >= 20) {
+      document.write("승리")
+    }
+
+    i += 1;
+  }
+  */
+  // 철수가 이동할 위치 출력
+  let position = 0;
+  position += 9;
+
+  let r11 = Math.floor(Math.random() * 6) + 1;
+  let r12 = Math.floor(Math.random() * 6) + 1;
+
+  document.write("r11: " + r11 + "<br>");
+  document.write("r12: " + r12 + "<br>");
+
+  let sum1 = r11 + r12;
+  document.write("sum1: " + sum1 + "<br>");
+
+  // r1 != r2
+  position = position + sum1;
+  // r1 == r2
+  if (r11 == r12) {
+    position = position + 6;
+  }
+
+
+  let r21 = 0;
+  let r22 = 0;
+  let sum2 = 0;
+  if (position >= 20) {
+    document.write("case i : 승리");
+  } else if (position == 14 || position == 15 || position == 16) {
+    document.write("함정에 빠졌다!<br>");
+    r21 = Math.floor(Math.random() * 6) + 1;
+    r22 = Math.floor(Math.random() * 6) + 1;
+    document.write("case ii :" + "<br>");
+    document.write("r21: " + r21 + "<br>");
+    document.write("r22: " + r22 + "<br>");
+
+    sum2 = r21 + r22;
+    document.write("sum2: " + sum2 + "<br>");
+
+    // 패널티
+    if (sum2 <= 6) {
+      postition = 0;
+    } else {
+      document.write("함정 탈출!<br>");
+    }
+
+    // sum2 >= 7 현재 자리 유지
+  }
+
+  document.write("position: " + position);
+
+
+
+
+
+
+
+
+
+  /*
+    let i = 0;
+    let 철수위치 = 9;
+    let 주사위_1 = Math.floor(Math.random() * 6) + 1;
+    let 주사위_2 = Math.floor(Math.random() * 6) + 1;
+    let 결과 = "";
+  
+  
+    if (주사위_1 != 주사위_2) {
+      철수위치 = 철수위치 + 주사위_1 + 주사위_2;
+    } else {
+      철수위치 = 철수위치 + 주사위_1 + 주사위_2 + 6;
+    }
+  
+    결과 = 철수위치;
+  
+    console.log("주사위1 : " + 주사위_1)
+    console.log("주사위2 : " + 주사위_2)
+    console.log("철수위치 : " + 철수위치)
+  
+    if (철수위치 == 14 || 철수위치 == 15 || 철수위치 == 16) {
+  
+      주사위_1 = Math.floor(Math.random() * 20);
+      주사위_2 = Math.floor(Math.random() * 20);
+  
+      주사위합 = 주사위_1 + 주사위_2;
+  
+      console.log("주사위1 : " + 주사위_1)
+      console.log("주사위2 : " + 주사위_2)
+  
+      if (주사위합 <= 6) {
+        철수위치 = 0;
+        결과 = "패널티";
+      }
+      if (주사위합 >= 7) {
+        결과 = "패널티없음";
+      }
+    }
+  
+    if (철수위치 > 20) {
+      결과 = "승리";
+    }
+  
+    console.log("철수위치" + 철수위치)
+    console.log("결과" + 결과)
+    */
+
+
+
+
+
+</script>

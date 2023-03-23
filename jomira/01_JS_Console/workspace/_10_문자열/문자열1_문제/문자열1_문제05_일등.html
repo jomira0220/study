@@ -1,0 +1,71 @@
+<script>
+
+  /*
+      [문제]
+          아래 배열은 학생들의 데이터이다. 
+          학생 두 명의 국어 점수가 서로 바뀌어서 
+          잘못 저장되었다. 
+          랜덤으로 번호 두 개를 저장 후,
+          각 번호의 해당하는 국어점수를 교환 하시오.
+          이후 국어점수와 영어점수의 총합이 1등인 학생의 이름을 출력하시오.
+      [예시]
+          1001, 1003
+          stKor = [30, 20, 10, 40]
+          1등 = 이만수
+  */
+
+  let stNo = [1001, 1002, 1003, 1004];
+  let stName = ["김철수", "이만수", "신정아", "이영희"];
+  let stKor = [10, 20, 30, 40];
+  let stEng = [60, 80, 32, 13];
+
+  let r1 = Math.floor(Math.random() * (stKor.length - 1))
+  let r2 = Math.floor(Math.random() * (stKor.length - 1))
+
+  document.write(r1 + "<br>")
+  document.write(r2 + "<br>")
+
+
+  let temp = stKor[r1]
+  stKor[r1] = stKor[r2]
+  stKor[r2] = temp
+
+  document.write(stKor + "<br>")
+
+  let max = 0;
+  let maxindex = 0;
+  for (let i = 0; i < stName.length; i++) {
+    if (max < stKor[i] + stEng[i]) {
+      max = stKor[i] + stEng[i]
+      maxIndex = i
+    }
+  }
+
+  document.write("1등 = " + stName[maxIndex])
+
+
+  /*
+  let r1 = Math.floor(Math.random() * (stName.length - 1))
+  let r2 = Math.floor(Math.random() * (stName.length - 1))
+
+  document.write(stNo[r1] + ", " + stNo[r2] + "<br>")
+
+  let temp = stKor[r1];
+  stKor[r1] = stKor[r2]
+  stKor[r2] = temp
+
+  document.write(stKor + "<br>")
+
+  let max = 0;
+  let index = 0;
+  for (let i = 0; i < stKor.length; i++) {
+    if (max < stKor[i]) {
+      max = stKor[i]
+      index = i
+    }
+  }
+
+  document.write("1등 = " + stName[index])
+*/
+
+</script>

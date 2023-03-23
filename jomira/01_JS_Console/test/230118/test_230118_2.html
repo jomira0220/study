@@ -1,0 +1,83 @@
+<script>
+
+  /*
+      [문제]
+          아래 num의 각 자리의 숫자를 구하고,
+          각 자리의 최대값과 최소값을 구해 그 차를 출력하시오.
+      [정답]
+          최대값 : 8
+          최소값 : 2
+          결과 = 8 - 2 = 6        
+  */
+
+  let num = Math.floor(Math.random() * 900) + 100
+  document.write(num + "<br>")
+
+  let temp = num;
+
+  let max = 0;
+  for (let i = 0; i < 3; i++) {
+    let unit = temp % 10;
+    temp = parseInt(temp / 10);
+    if (max < unit) {
+      max = unit
+    }
+  }
+
+  let min = max
+  temp = num
+  for (let i = 0; i < 3; i++) {
+    let unit = temp % 10;
+    temp = parseInt(temp / 10);
+
+    if (min > unit) {
+      min = unit
+    }
+  }
+
+  document.write("결과 = " + max + " - " + min + " = " + (max - min))
+
+
+  /*
+  let num = 827;
+  let temp = num;
+  let max = 0;
+  let min = 9;
+  for (let i = 0; i < 3; i++) {
+    let _unit1 = temp % 10;
+    temp = parseInt(temp / 10);
+    if (max < _unit1) {
+      max = _unit1
+    }
+    if (min > _unit1) {
+      min = _unit1
+    }
+  }
+ */
+
+  /*
+  let num = 827;
+  let temp = num;
+  let min = 9;
+  let max = 0;
+  for (let i = 0; i < 3; i++) {
+    let unit = temp % 10;
+    temp = parseInt(temp / 10);
+    if (min > unit) {
+      min = unit
+    }
+    if (max < unit) {
+      max = unit
+    }
+  }
+
+
+  document.write("최대값 = " + max + "<br>")
+  document.write("최소값 = " + min + "<br>")
+  document.write("결과 = " + (max - min))
+  */
+
+
+
+
+</script>

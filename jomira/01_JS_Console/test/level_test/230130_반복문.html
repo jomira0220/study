@@ -1,0 +1,97 @@
+<script>
+  /*
+          [문제]
+              랜덤으로 3~8의 숫자를 저장한다. 
+              랜덤숫자 3 이면 세자리 자리수를 뜻한다. 
+              랜덤숫자 4 이면 네자리 자리수를뜻한다.
+              랜덤숫자 8 이면 여덟자리 자리수를 뜻한다. 
+              
+              세자리수라면 100~999 사이의 랜덤숫자를 다시 저장한다.
+              네자리수라면 1000~9999 사이의 랜덤숫자를 다시 저장한다. 
+              다섯자리수라면 10000~99999 사이의 랜덤숫자를 다시 저장한다.
+              ...
+              여덟자리수라면 10000000~99999999 사이의 랜덤숫자를 다시 저장한다. 
+              위 규칙으로 뽑은 랜덤숫자의 한가운데 위치의 수를 출력한다.
+              단, 숫자의 개수가 짝수라면 가운데 자리의 수는 두개가 될것이고,
+              그중 앞의 자리수를 출력한다. 
+          [예시] 
+              r = 3  ==> 세자리수 534 ==> 
+              가운데위치의 수인 3을 출력한다.  
+              r = 4  ==> 네자리수 1945 ==> 
+              가운데위치는 9, 4 두개인데 그중 앞의 자리수인 9 를 출력한다.
+              r = 5  ==> 다섯자리수 13534 ==> 
+              가운데 위치의 수인 5를 출력한다.
+              r = 6  ==> 여섯자리수 564301 ==> 
+              가운데위치는 4, 3 두개인데 그중 앞의 자리수인 4를 출력한다.     
+      */
+
+
+  let r = Math.floor(Math.random() * 6) + 3;
+  //r = 3
+  document.write("r = " + r + "<br>")
+
+  let n = 1
+  for (let i = 1; i < r; i++) {
+    n *= 10;
+  }
+
+  let num = Math.floor(Math.random() * (9 * n)) + n;
+  let cnt = 0;
+
+  document.write("num = " + num + "<br>")
+
+  for (let i = 0; i < r; i++) {
+    let temp = num;
+    let unit = parseInt(num % 10);
+    num = temp / 10;
+
+    cnt++
+    //document.write("순서 = " + parseInt(r / 2))
+
+    if (i == parseInt(r / 2)) {
+      document.write(unit)
+    }
+
+  }
+
+
+  /*
+
+  let num = Math.floor(Math.random() * 6) + 3;
+  let n = 1;
+  for (let i = 1; i < num; i++) {
+    n *= 10
+  }
+  document.write("자리수 = " + num + "<br>")
+
+  let 범위 = Math.floor(Math.random() * (9 * n)) + 1 * n;
+  document.write("범위수 = " + 범위 + "<br>")
+
+  let count = 0;
+  let temp = 범위;
+
+  for (let i = 0; i < num; i++) {
+    let unit = temp % 10;
+    temp = parseInt(temp / 10)
+    count++
+  }
+
+  let index = parseInt(count / 2);
+  document.write(index + "<br>")
+
+  temp = 범위;
+  count = 0
+  let 결과 = 0;
+  for (let i = 0; i < num; i++) {
+    let unit = temp % 10;
+    temp = parseInt(temp / 10)
+    count++
+    if (count == index + 1) {
+      document.write(unit)
+    }
+  }
+  */
+
+
+
+</script>

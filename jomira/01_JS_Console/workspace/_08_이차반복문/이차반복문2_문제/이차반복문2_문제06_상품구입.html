@@ -1,0 +1,51 @@
+<script>
+
+  /*
+      [문제]
+          item배열은 쇼핑몰 아이템 번호들이다.
+          count배열은 오늘 판매된 아이템 개수를 적는 장부이다. 
+          purchase배열은 오늘 판매된 아이템 번호이다.
+  
+          오늘 판매된 개수만큼 count배열의 값을 증가시키시오.
+      [예시]
+          1002 : count = [   0,    1,    0,    0,    0,    0]
+          1003 : count = [   0,    1,    1,    0,    0,    0]
+          1004 : count = [   0,    1,    1,    1,    0,    0]
+          1001 : count = [   1,    1,    1,    1,    0,    0]
+          1001 : count = [   2,    1,    1,    1,    0,    0]
+      [정답]
+          2, 1, 1, 1, 0, 0
+  */
+
+  let item = [1001, 1002, 1003, 1004, 1005, 1006];
+  let count = [0, 0, 0, 0, 0, 0];
+
+  let purchase = [1002, 1003, 1004, 1001, 1001];
+
+  for (let i = 0; i < purchase.length; i++) {
+    document.write(purchase[i] + " : ")
+    for (let j = 0; j < item.length; j++) {
+      if (purchase[i] == item[j]) {
+        count[j] += 1
+        document.write("count = " + count + "<br>")
+      }
+    }
+  }
+
+  document.write(count)
+
+
+  /*
+    for (let i = 0; i < item.length; i++) {
+      for (let j = 0; j < purchase.length; j++) {
+        if (item[i] == purchase[j]) {
+          count[i] += 1
+        }
+      }
+    }
+  
+    document.write(count)
+    */
+
+
+</script>

@@ -1,0 +1,44 @@
+<script>
+
+  /*
+     [문제]
+          memberList는 회원목록이다. 번호와 아이디가 기록되어있다.
+          itemList는 쇼핑몰 판매상품이다. 상품이름과 가격이 기록되어있다.
+          orderList는 오늘 주문 목록이다. 주문한 회원아이디와 아이템이름 
+          그리고 주문개수가 기록되어있다. 
+          오늘의 매출을 출력하시오.
+      [정답]
+          33200        
+  */
+
+  let memberList = ["qwer1234", "pythongood", "testid"];
+  let itemList = ["사과", 1100, "바나나", 2000, "딸기", 4300]; //2
+  let orderList = ["qwer1234", "사과", 3, "pythongood", "바나나", 2, "qwer1234", "딸기", 5, "testid", "사과", 4];
+
+
+
+  let orderCount = 0;
+  for (let i = 0; i < orderList.length; i++) {
+    for (let j = 0; j < memberList.length; j++) {
+      if (orderList[i] == memberList[j]) {
+        orderCount++
+      }
+    }
+  }
+
+  document.write("orderCount = " + orderCount + "<br>")
+
+  let total = 0;
+  let index = 1;
+  for (let i = 0; i < orderCount; i++) {
+    for (let j = 0; j < orderCount; j++) { // 0 2 4 
+      if (itemList[j * 2] == orderList[index]) {
+        total += itemList[j * 2 + 1] * orderList[index + 1]
+      }
+    }
+    index += 3
+  }
+
+  document.write("total = " + total)
+
+</script>

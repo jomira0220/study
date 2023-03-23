@@ -1,0 +1,38 @@
+<script>
+
+  /*
+      [문제]
+          852의 약수 중에서 큰 수부터 작은 수를 거꾸로 출력했을 때,
+          다섯 번째 약수만 출력하시오.
+      [정답]
+          142    
+  */
+
+  /*
+  let num = 852;
+  let count = 0;
+
+  let i = num;
+  while (i >= 1) {
+    if (num % i == 0) {
+      count += 1;
+      if (count == 5) {
+        console.log(i);
+        document.write(i);
+      }
+    }
+    i -= 1;
+  }
+  */
+
+  let count = 0;
+  for (let i = 852; i >= 1; i--) {
+    if (852 % i == 0) {
+      count += 1;
+      if (count == 5) {
+        document.write(i)
+      }
+    }
+  }
+
+</script>

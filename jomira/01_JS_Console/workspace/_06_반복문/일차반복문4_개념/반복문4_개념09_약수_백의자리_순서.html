@@ -1,0 +1,36 @@
+<script>
+
+  /*
+      [문제]
+          1980의 약수 중에서 순서대로 약수를 출력했을 때, 
+          십의 자리가 9인 두 번째 약수를 출력하시오.
+      [정답]
+          99    
+  */
+
+  /*
+  let num = 1980;
+  let i = 1;
+  let count = 0;
+
+  while (i <= num) {
+
+    if (num % i == 0 && parseInt(i % 100 / 10) == 9) {
+      count += 1;
+      if (count == 2) {
+        console.log(i)
+      }
+    }
+
+    i += 1
+  }
+  */
+  let count = 0;
+  for (let i = 1; i <= 1980; i++) {
+    if (1980 % i == 0 && parseInt(i % 100 / 10) == 9) {
+      count += 1;
+      if (count == 2) document.write(i)
+    }
+  }
+
+</script>

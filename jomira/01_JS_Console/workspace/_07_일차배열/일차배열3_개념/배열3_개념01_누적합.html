@@ -1,0 +1,30 @@
+<script>
+
+  /*
+      [문제]
+          [조건1] arr배열에 랜덤숫자(1~10) 5개를 추가하고,
+          [조건2] 위 조건의 누적합을 출력하시오. 
+      [예시]
+          arr   = 6,7,10,7,9
+          total = 39        
+  */
+
+  let arr = [];
+  let total = 0;
+
+  for (let i = 0; i < 5; i++) {
+    arr.push(Math.floor(Math.random() * 10) + 1)
+    total += arr[i]
+  }
+
+  /*
+  for (let i = 0; i < 5; i++) {
+    arr.push(Math.floor(Math.random() * 10) + 1);
+
+    total += arr[i];
+  }
+*/
+  document.write("arr = " + arr + "<br>");
+  document.write("total = " + total);
+
+</script>

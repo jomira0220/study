@@ -1,0 +1,69 @@
+<script>
+
+  /*
+      [문제]
+      반복문을 활용해서 1 ~ 99까지 반복
+      1~99사이의 숫자중에서 4와 8의 개수를 출력
+      [주의]
+      44 또는 48등과 같이 두 개 추가가 되는 경우도 있다.
+      [정답]
+      40
+  */
+
+  let count = 0
+  for (let i = 1; i <= 99; i++) {
+    let unit = i % 10;
+    let unit2 = parseInt(i / 10);
+
+    if (unit == 4 || unit == 8) {
+      count++
+    }
+    if (unit2 == 4 || unit2 == 8) {
+      count++
+    }
+
+  }
+
+  document.write(count)
+
+
+  /*
+  let count = 0;
+  for (let i = 1; i <= 99; i++) {
+    let _unit1 = i % 10;
+    let _unit10 = parseInt(i / 10);
+    if (_unit1 == 4 || _unit1 == 8) {
+      count += 1
+    }
+    if (_unit10 == 4 || _unit10 == 8) {
+      count += 1
+    }
+  }
+
+  document.write(count)
+*/
+
+  /*
+  let i = 1;
+  let totalCount = 0;
+
+  while (i <= 99) {
+
+    let 십의자리 = parseInt(i / 10);
+    let 일의자리 = i % 10;
+
+    if (십의자리 == 4 || 십의자리 == 8) {
+      totalCount += 1;
+    }
+
+    if (일의자리 == 4 || 일의자리 == 8) {
+      totalCount += 1;
+    }
+
+    i += 1;
+  }
+
+  document.write(totalCount)
+*/
+
+</script>

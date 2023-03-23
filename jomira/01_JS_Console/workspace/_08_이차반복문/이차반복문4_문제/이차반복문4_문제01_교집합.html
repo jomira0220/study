@@ -1,0 +1,25 @@
+<script>
+
+  /*
+      [문제]
+          a배열의 값 중 b배열의 값과 같은 값이 있으면
+          total배열에 저장한다. 
+      [정답]
+          total = 20, 30
+  */
+
+  let a = [10, 20, 30, 60];
+  let b = [40, 30, 20, 50];
+
+  let total = [];
+  for (let i = 0; i < a.length; i++) {
+    for (let j = 0; j < a.length; j++) {
+      if (a[i] == b[j]) {
+        total.push(a[i]);
+      }
+    }
+  }
+
+  document.write(total)
+
+</script>

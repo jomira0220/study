@@ -1,0 +1,80 @@
+<script>
+
+  /*
+      [문제]
+          1 ~ 10000 사이의 랜덤 숫자를 저장하고,
+          자리별 홀수의 개수를 출력하시오.
+      [예시]
+          561		: 2개
+          1		: 1개
+          668		: 0개
+          9999	: 4개    
+  */
+
+  let num = Math.floor(Math.random() * 10000) + 1;
+  num = 561
+  document.write("num = " + num + "<br>")
+
+  let count = 0;
+  while (true) {
+
+    let temp = num;
+    let unit = temp % 10;
+    num = parseInt(temp / 10);
+
+
+    if (unit % 2 != 0) {
+      count++
+    }
+
+    if (num == 0) {
+      break
+    }
+
+  }
+
+  document.write(count)
+
+
+  /*
+  let cnt = 0;
+  while (true) {
+    let temp = num;
+    let unit = num % 10;
+    num = parseInt(temp / 10);
+    //document.write(unit)
+
+    if (unit % 2 != 0) {
+      cnt++
+    }
+
+    if (num == 0) {
+      break
+    }
+  }
+
+  document.write(cnt)
+  */
+
+  /*
+  let i = 0;
+  let count = 0
+  while (true) {
+
+    let temp = num;
+    let unit = parseInt(num % 10);
+    num = parseInt(temp / 10)
+
+    if (unit % 2 != 0) {
+      count++
+    }
+
+    if (num == 0) {
+      break
+    }
+
+  }
+
+  document.write(count)
+  */
+</script>

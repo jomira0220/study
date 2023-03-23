@@ -1,0 +1,25 @@
+<script>
+
+    /*
+        [최대값]
+            [1] 숫자 3개를 랜덤으로 저장한다. (-100 ~ 100 사이의 숫자)
+            [2] 3개의 랜덤 숫자를 비교한다.
+            [3] 가장 작은 수(MIN)를 출력하시오.
+    */
+
+    let num1 = Math.floor(Math.random() * 201) - 100;
+    let num2 = Math.floor(Math.random() * 201) - 100;
+    let num3 = Math.floor(Math.random() * 201) - 100;
+
+    let MIN = num1;
+
+    if (MIN > num2) {
+        MIN = num2
+    }
+    if (MIN > num3) {
+        MIN = num3
+    }
+
+    console.log(num1, num2, num3, MIN)
+
+</script>

@@ -1,0 +1,52 @@
+<script>
+
+  /*
+      [문제]
+          arr배열을 이차원으로 만들고 
+          랜덤 값(-100~100)을 3개씩 3줄 총 9개를 저장해
+          사각형모양으로 출력한다.
+          그 중에 가장 작은 값을 출력하시오.
+      [예시]
+          6,-12,90
+          -98,45,18
+          34,2,0
+      
+          가장 작은 값 = -98    
+  */
+
+  let arr = [];
+
+
+
+  for (let i = 0; i < 3; i++) {
+    arr.push([0]);
+    for (let j = 0; j < 3; j++) {
+      arr[i][j] = Math.floor(Math.random() * 201) - 100;
+    }
+  }
+
+  let min = 100;
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr[i].length; j++) {
+      if (min > arr[i][j]) {
+        min = arr[i][j]
+      }
+    }
+  }
+
+
+  /*
+  let min = 100;
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr[i].length; j++) {
+      if (min > arr[i][j]) {
+        min = arr[i][j]
+      }
+    }
+  }
+  */
+
+  document.write(arr + " <br>")
+  document.write(min + " <br>")
+
+</script>

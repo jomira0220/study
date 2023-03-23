@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <label><input class="bgbtn" type="radio" name="bgcolor" value="blue">파랑색</label>
+  <label><input class="bgbtn" type="radio" name="bgcolor" value="green">녹색</Label>
+
+  <script>
+
+
+    let btn = document.querySelectorAll(".bgbtn")
+
+    console.log(btn)
+
+    btn.forEach((e) => {
+      e.addEventListener("click", () => {
+        document.querySelector("body").style.background = e.value
+      })
+    })
+
+
+  </script>
+</body>
+
+</html>

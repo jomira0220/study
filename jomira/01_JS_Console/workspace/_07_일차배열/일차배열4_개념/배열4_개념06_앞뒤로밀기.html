@@ -1,0 +1,52 @@
+<script>
+
+  /*
+      [문제1]
+          a배열의 값들을 한칸씩 앞으로 당기고 출력하시오.
+      [정답]
+          a = 10,20,30,40,50,0
+  */
+
+  let a = [0, 10, 20, 30, 40, 50];
+
+  for (let i = 0; i < a.length - 1; i++) {
+    a[i] = a[i + 1]
+  }
+  a[a.length - 1] = 0
+
+  document.write(a + "<br>")
+
+  /*
+  for (let i = 0; i < a.length - 1; i++) { 
+    a[i] = a[i + 1];
+  }
+  a[a.length - 1] = 0;
+  document.write("a = " + a + "<br>");
+  */
+
+  /*
+      [문제2]
+          b배열의 값들을 한칸씩 뒤로 밀고 출력하시오.
+      [정답]
+          b = 0,10,20,30,40,50  
+  */
+  let b = [10, 20, 30, 40, 50, 0];
+
+  for (let i = b.length - 1; i > 0; i--) {
+    b[i] = b[i - 1]; // i:5 b[5] = b[5-1]
+  }
+  b[0] = 0;
+  document.write(b)
+
+  /*
+
+
+  let index = b.length - 1;
+  for (let i = index; i > 0; i--) {
+    b[i] = b[i - 1];
+  }
+  b[0] = 0;
+  document.write("b = " + b);
+  */
+
+</script>

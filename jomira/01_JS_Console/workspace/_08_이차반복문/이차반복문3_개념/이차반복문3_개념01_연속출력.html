@@ -1,0 +1,46 @@
+<script>
+
+  /*
+      [문제] 
+          1~10 사이의 랜덤 숫자를 다섯 번 반복해서 arr배열에 저장하고, 
+          랜덤 숫자 개수만큼 출력하시오.
+      [예시]
+          예를 들어 4, 5, 3, 1, 2 가 나왔다고 한다면,
+          4444
+          55555
+          333
+          1
+          22    
+  */
+
+  let arr = [];
+
+
+  for (let i = 0; i < 5; i++) {
+    let r = Math.floor(Math.random() * 10) + 1;
+    arr.push(r)
+  }
+  document.write("arr = " + arr + "<br>")
+
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr[i]; j++) {
+      document.write(arr[i])
+    }
+    document.write("<br>")
+  }
+
+
+  /*
+  for (let i = 0; i < 5; i++) {
+    arr.push(Math.floor(Math.random() * 10) + 1);
+  }
+
+  for (let i = 0; i < 5; i++) {
+    for (let j = 0; j < arr[i]; j++) {
+      document.write(arr[i]);
+    }
+    document.write("<br>");
+  }
+  */
+
+</script>

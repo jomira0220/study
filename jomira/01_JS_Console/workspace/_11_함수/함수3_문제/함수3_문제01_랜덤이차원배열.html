@@ -1,0 +1,37 @@
+<script>
+
+  /*
+    [문제] 
+      이차원배열의 세로와 가로를 저장하면,
+      그 숫자만큼 랜덤으로 숫자를 넣어서 
+      이차원 배열로 반환해주는 함수를 만드시오.
+    [예시]
+      4, 3
+
+      1 2 3
+      4 5 6
+      7 8 9
+      10 11 12			
+  */
+
+
+  function newArr(y, x) {
+    let arr = [];
+    let index = 1;
+    for (let i = 0; i < y; i++) {
+      arr.push([])
+      for (let j = 0; j < x; j++) {
+        arr[i][j] = index
+        index++
+      }
+      document.write(arr[i] + "<br>")
+    }
+
+    return arr
+  }
+  //1~12
+
+  newArr(4, 3)
+  //document.write(arr)
+
+</script>

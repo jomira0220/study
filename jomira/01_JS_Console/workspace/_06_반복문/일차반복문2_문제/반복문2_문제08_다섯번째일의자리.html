@@ -1,0 +1,43 @@
+<script>
+
+    /*
+            [문제] 
+                    9의 배수 중 일의 자리가 6인 
+                    다섯번째 배수를 출력하시오.
+            [정답]
+                396
+    */
+
+    /*
+    let i = 1;
+    let count = 0; //9의배수 개수 카운트
+    let run = true; //다섯번째 배수를 찾으면 멈추도록
+    while (run) {
+
+        if (i % 9 == 0 && i % 10 == 6) {
+            count += 1;
+
+            if (count == 5) {
+                console.log(i)
+                run = false
+            }
+        }
+
+        i += 1;
+    }
+*/
+    let count = 0;
+    for (let i = 1; i <= 100; i++) {
+        let _9의배수 = i * 9;
+        if (_9의배수 % 10 == 6) {
+            count += 1
+            if (count == 5) {
+                document.write(_9의배수)
+            }
+        }
+    }
+
+
+
+
+</script>

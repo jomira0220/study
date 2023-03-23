@@ -1,0 +1,47 @@
+<script>
+
+  class Test {
+    x = 10;
+    y = 20;
+    z = 30;
+  }
+
+  let t1 = new Test();
+  let t2 = new Test();
+  let t3 = t2;
+  t3.z = 100;
+
+  document.write(t2.z + "<br>");
+  document.write(t3.z + "<br>");
+
+  /*
+      let t1 = {"x":10, "y":20, "z":30};
+      
+      let arr = [10, 20, 30];
+      let arr = {0:10, 1:20, 2:30};
+  */
+
+  /*
+    메모리공간 : 3종류
+    (1)stack
+     : 함수가 호출되면 사용하는 공간
+    (2)heap
+     : 주소변수의 값이 저장되는 공간
+    (3)static
+     : 전역(함수와 클래스 밖에 선언된 변수) 변수 
+    (4)
+    
+     
+     변수의 종류
+     (1) 일반변수
+     1)정수 let x = 10; 
+     2)실수 let y = 3.14;
+     3)논리형 let z = true
+     
+     (2) 주소변수
+     1)배열
+     2)클래스 new
+     
+  */
+
+</script>

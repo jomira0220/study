@@ -1,0 +1,25 @@
+<script>
+
+  /*
+      [문제] 
+          a 배열 안의 값들 중에서 b배열의 값이 있으면 
+          a와 b의 각각 겹치는 값 중 b배열의 인덱스를 c에 저장하시오.
+      [정답] 
+          b를 기준으로 인덱스를 저장하므로 0과 2이다.
+          c = [0,2]    
+  */
+
+  let a = [10, 20, 30, 40]
+  let b = [10, 5, 20,];
+  let c = [];
+
+  for (let i = 0; i < a.length; i++) {
+    for (let j = 0; j < b.length; j++) {
+      if (a[i] == b[j]) {
+        c.push(j)
+      }
+    }
+  }
+
+  document.write(c)
+</script>

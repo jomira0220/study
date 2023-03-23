@@ -1,0 +1,100 @@
+<script>
+
+  /*
+      [문제]
+          apt배열은 아파트 1동의 각 세대를 의미한다.
+          pay배열은 이번달 관리비를 뜻한다.    
+          아래 문제를 잘 읽고 정답을 구하시오.
+  */
+
+  let apt = [
+    [101, 102, 103],
+    [201, 202, 203],
+    [301, 302, 303]
+  ];
+
+  let pay = [
+    [1000, 2100, 1300],
+    [4100, 2000, 1000],
+    [3000, 1600, 800]
+  ];
+
+  /*
+      [문제 1] 
+          각 층별 관리비 합을 출력하시오.
+      [정답 1] 
+          4400 7100 5400    
+  */
+
+
+  for (let i = 0; i < pay.length; i++) {
+    let 관리비 = 0;
+    for (let j = 0; j < pay[i].length; j++) {
+      관리비 += pay[i][j]
+    }
+    document.write(관리비 + " ")
+  }
+
+  document.write("<br>")
+
+  /*
+      [문제 2] 
+          랜덤으로 호수와 관리비 한개 출력하시오.
+      [예시 2]
+          0 2
+          103 1300원     
+  */
+
+  let r1 = Math.floor(Math.random() * apt.length)
+  let r2 = Math.floor(Math.random() * apt.length)
+  document.write(r1 + " " + r2 + "<br>")
+
+  document.write(apt[r1][r2] + "<br>")
+  document.write(pay[r1][r2] + "<br>")
+
+
+
+  /*
+      [문제 3] 
+          관리비가 가장 많이 나온 집, 가장 적게 나온 집을 출력하시오.
+      [정답 3]
+          가장 많이 나온 집 = 201
+          가장 적게 나온 집 = 303        
+  */
+
+  let max = 0;
+  let x = 0;
+  let y = 0;
+
+  for (let i = 0; i < pay.length; i++) {
+    for (let j = 0; j < pay[i].length; j++) {
+      if (pay[i][j] > max) {
+        max = pay[i][j]
+        x = i
+        y = j
+      }
+    }
+  }
+
+  document.write(apt[x][y] + "<br>")
+
+  let min = max;
+  x = 0;
+  y = 0;
+
+  for (let i = 0; i < pay.length; i++) {
+    for (let j = 0; j < pay[i].length; j++) {
+      if (pay[i][j] <= min) {
+        min = pay[i][j]
+        x = i
+        y = j
+      }
+    }
+  }
+
+  document.write(apt[x][y])
+
+
+
+
+</script>

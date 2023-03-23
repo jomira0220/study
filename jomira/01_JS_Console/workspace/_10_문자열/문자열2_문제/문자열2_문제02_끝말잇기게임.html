@@ -1,0 +1,77 @@
+<script>
+
+  /*
+      [문제]
+          아래 game배열은 철수와 민수가 서로 끝말잇기를 한 결과이다. 
+          끝말 잇기가 틀린 단어를 출력하시오. 
+
+          자전거 - 거미 : 정답
+          거미 - 미용실 : 정답
+          미용실 - 실업자 : 정답
+          실업자 - 자석 : 정답
+          자석 - 서유기 : 오답
+          서유기 - 기러기 : 정답
+      [정답]
+          서유기
+  */
+
+  let game = ["자전거", "거미", "미용실", "실업자", "자석", "서유기", "기러기"];
+
+  let result = "";
+  for (let i = 0; i < game.length - 1; i++) {
+    let 앞에서뒤 = game[i][game[i].length - 1];
+    let 뒤에서앞 = game[i + 1][0];
+
+    document.write(game[i] + " - " + game[i + 1])
+
+    if (앞에서뒤 == 뒤에서앞) {
+      document.write("정답")
+    } else {
+      document.write("오답")
+      result = game[i + 1]
+    }
+
+    document.write("<br>")
+
+  }
+
+  document.write(result)
+
+
+  /*
+  for (let i = 0; i < game.length; i++) {
+
+    let 앞단어마지막 = game[i][game[i].length - 1]
+    let 뒷단어처음 = game[i + 1][0]
+
+    if (앞단어마지막 == 뒷단어처음) {
+      document.write(game[i] + "-" + game[i + 1] + " : 정답")
+    } else {
+      document.write(game[i] + "-" + game[i + 1] + " : 오답")
+    }
+
+    document.write("<br>")
+
+  }
+*/
+
+
+  /*
+  for (let i = 0; i < game.length - 1; i++) {
+
+    let 마지막글자 = game[i][game[i].length - 1]
+    let 첫번째글자 = game[i + 1][0]
+
+    if (마지막글자 == 첫번째글자) {
+      document.write(game[i] + " - " + game[i + 1] + " : 정답")
+    } else {
+      document.write(game[i] + " - " + game[i + 1] + " : 오답")
+    }
+
+    document.write("<br>")
+
+  }
+  
+  */
+
+</script>

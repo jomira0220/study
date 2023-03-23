@@ -1,0 +1,45 @@
+<script>
+
+	/*
+				[문제] 
+					아래조건을 충족하는 식을 작성하시오.
+								[조건1] 10~1까지 거꾸로 반복문을 실행한다.
+								[조건2] 3의 배수일때는 "안녕" 을 출력한다.
+								[조건3] 3의 배수가 아닐때는 숫자를 출력한다. 
+				[정답]
+					10
+					안녕
+					8
+					7
+					안녕
+					5
+					4
+					안녕
+					2
+					1
+		*/
+
+	/*
+let i = 1;
+let num = 10;
+while (i <= 10) {
+
+	if (num % 3 == 0) {
+		console.log("안녕")
+	} else (
+		console.log(num)
+	)
+
+	i = i + 1;
+	num = num - 1;
+}
+*/
+	for (let i = 10; i >= 1; i--) {
+		if (i % 3 == 0) {
+			document.write("안녕<br>")
+		} else {
+			document.write(i + "<br>")
+		}
+	}
+
+</script>

@@ -1,0 +1,40 @@
+<script>
+
+  /*
+      [문제]
+          공간이 10개인 arr배열이 있다. 
+          index변수(=시작 인덱스)에 0~9사이의 랜덤 숫자를 저장하고,
+          count변수(=개수)에 1~10사이의 랜덤 숫자를 저장한다.
+          시작 인덱스부터 개수만큼 거꾸로 arr배열에 숫자를 채워나간다.
+          채우는 숫자는 1부터 1씩 증가한다.
+      [예시]
+          * 인덱스 3부터 7개를 채운다.     
+          index = 3 
+          count = 7		
+          arr = 4,3,2,1,0,0,0,7,6,5
+          
+          3 2 1 0 9 8 7
+  */
+
+
+  let arr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  let index = Math.floor(Math.random() * 9);
+  let count = Math.floor(Math.random() * 10) + 1;
+
+  document.write("index = " + index + "<br>")
+  document.write("count = " + count + "<br>")
+
+  for (let i = 0; i < count; i++) {
+
+    arr[index] = i + 1
+
+    index--
+    if (index < 0) {
+      index = arr.length - 1
+    }
+
+  }
+
+  document.write("<br>" + arr)
+
+</script>

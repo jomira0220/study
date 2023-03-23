@@ -1,0 +1,74 @@
+<script>
+
+  /*
+      [문제]
+          member는 회원목록이다.
+          item은 쇼핑몰 판매상품이다.
+          order는 오늘 주문목록이다.
+          회원별 아이템 주문개수를 출력하시오.
+      [정답]
+          이만수: 고래밥 3
+          김철민: 고래밥 1 칸쵸 1
+          이영희: 새우깡 2 칸쵸 1    
+  */
+
+  let member = "3001/이만수,3002/김철민,3003/이영희";
+  let item = "1001/고래밥,1002/새우깡,1003/칸쵸";
+  let order = "3001,1001/3001,1001/3003,1002/3002,1003/3001,1001/3003,1002/3003,1003/3002,1001";
+
+
+  let memberSet = member.split(",")
+  let itemSet = item.split(",")
+  let orderSet = order.split("/")
+
+  console.log()
+  let memberArr = []
+  let itemArr = []
+  for (let i = 0; i < memberSet.length; i++) {
+    memberArr.push(memberSet[i].split("/"))
+    itemArr.push(itemSet[i].split("/"))
+
+  }
+
+  document.write("memberArr = " + memberArr + "<br>")
+  document.write("itemArr =" + itemArr + "<br>")
+  let orderArr = []
+  for (let i = 0; i < orderSet.length; i++) {
+    orderArr.push(orderSet[i].split(","))
+  }
+  document.write(orderArr + "<br><br>")
+
+
+  let order1 = []
+  for (let i = 0; i < memberArr.length; i++) {
+
+    document.write(memberArr[i][1] + ": ")
+
+    let orderPrd = []
+    for (let j = 0; j < orderArr.length; j++) {
+      if (memberArr[i][0] == orderArr[j][0]) {
+        orderPrd.push(orderArr[j][1])
+      }
+    }
+    order1.push(orderPrd)
+
+
+    for (let j = 0; j < itemArr.length; j++) {
+      document.write(itemArr[j][1])
+      let count = 0;
+      for (let k = 0; k < orderPrd.length; k++) {
+        if (itemArr[j][0] == orderPrd[k]) {
+          count++
+        }
+      }
+      document.write(count + " ")
+    }
+
+    document.write("<br>")
+
+  }
+
+
+
+
+</script>

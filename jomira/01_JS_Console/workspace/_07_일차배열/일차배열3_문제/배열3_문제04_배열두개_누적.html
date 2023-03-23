@@ -1,0 +1,67 @@
+<script>
+
+  /*
+      [문제]
+          배열 a와 b에 랜덤 숫자(1~100)를 다섯 개씩 저장하고,
+          배열 a의 전체 합과 배열 b의 전체 합 중 더 큰 값을 출력하시오.
+          단, 서로 같으면 둘 다 출력하시오.
+      [예시]
+          a = 93, 100, 41, 74, 45
+          b = 84,  80, 25, 19, 27
+          totalA = 353
+          totalB = 235
+          353    
+  */
+
+  let a = [];
+  let b = [];
+
+  let totalA = 0;
+  let totalB = 0;
+
+  for (let i = 0; i < 5; i++) {
+    a.push(Math.floor(Math.random() * 100) + 1)
+    b.push(Math.floor(Math.random() * 100) + 1)
+
+    totalA += a[i]
+    totalB += b[i]
+  }
+
+  document.write("a = " + a + "<br>")
+  document.write("b = " + b + "<br>")
+  document.write("totalA = " + totalA + "<br>")
+  document.write("totalB = " + totalB + "<br>")
+
+  if (totalA > totalB) {
+    document.write(totalA)
+  } else if (totalA < totalB) {
+    document.write(totalB)
+  } else {
+    document.write(totalA + " " + totalB)
+  }
+
+
+
+  /*
+
+  for (let i = 0; i < 5; i++) {
+    a.push(Math.floor(Math.random() * 100) + 1)
+    b.push(Math.floor(Math.random() * 100) + 1)
+
+    totalA += a[i]
+    totalB += b[i]
+  }
+
+  document.write("a = " + a + "<br>")
+  document.write("b = " + b + "<br>")
+  document.write("totalA = " + totalA + "<br>")
+  document.write("totalB = " + totalB + "<br>")
+
+  if (totalA > totalB) {
+    document.write(totalA)
+  } else if (totalA < totalB) {
+    document.write(totalB)
+  }
+  */
+
+</script>

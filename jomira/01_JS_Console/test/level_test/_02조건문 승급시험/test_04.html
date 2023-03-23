@@ -1,0 +1,110 @@
+<script>
+  /*
+       [문제]
+           ATM 기능 중 로그인 기능을 구현한다.
+           
+           1. 변수 설명
+               cash	: 	가지고있는 현금
+               balance	:	예금
+               joinId	:	가입한 아이디
+               joinPw	:	가입한 패스워드
+           
+           2. 기능설명
+               1) 메인 메뉴 선택
+                   [1] 로그인
+                   [0] 종료
+               2) 로그인을 선택한 경우,
+                   아이디와 비밀번호를 입력받고 성공하면 "로그인 성공" 메세지를 출력하고
+                   [1] 입금 
+                   [2] 출금
+                   의 새로운 메뉴가 등장
+                   
+                   랜덤으로 1~2 사이의 숫자를 저장하여,
+                   2-1) 1번 랜덤 숫자인 경우,
+                       입금을 선택한 것으로
+                       현금이 3000원 줄어들고 예금이 3000원 늘어난다.
+                   2-2) 2번 랜덤 숫자인 경우,
+                       출금을 선택한 것으로
+                       예금이 1500원 줄어들고 현금이 1500원 늘어난다.
+               3) 로그인에 실패한 경우 "로그인 실패" 메세지 출력        
+               4) 프로그램 종료 후, 현금과 계좌잔액을 모두 출력하시오.
+       [예시1]
+           >>> 한국 은행 <<<
+           [1] 로그인
+           [0] 종료
+           
+           [1] 입금
+           [2] 출금
+           
+           1번 메뉴를 선택하였습니다.
+           현금 = 17000원
+           계좌잔액 = 33000원
+       [예시2]
+           >>> 한국 은행 <<<
+           [1] 로그인
+           [0] 종료
+           
+           로그인 실패
+           현금 = 20000원
+           계좌잔액 = 30000원
+   */
+
+
+  let cash = 20000;               // 현금
+  let accBalance = 30000;         // 계좌 잔액
+
+  let joinId = "qwer";
+  let joinPw = "1234";
+
+  let choice = Math.floor(Math.random() * 2) + 1; //랜덤 선택지
+
+  document.write(">>> 한국 은행 <<<<br>");
+  document.write("[1] 로그인<br>");
+  document.write("[0] 종료<br>");
+
+  if (choice == 1) { //로그인
+
+    let loginId = prompt("아이디를 입력하세요");
+    let loginPw = prompt("비밀번호를 입력하세요");
+
+    if (loginId == joinId && loginPw == joinPw) { //로그인에 성공하면
+
+      document.write("로그인 성공" + "<br>");
+
+      document.write("[1]입금" + "<br>");
+      document.write("[2]출금" + "<br>");
+
+      choice = Math.floor(Math.random() * 2) + 1; //입금 출금 선택지
+
+      if (choice == 1) { //입금선택
+
+        cash -= 3000;
+        accBalance += 3000;
+
+        document.write("1번 메뉴를 선택하였습니다." + "<br>");
+        document.write("현금 = " + cash + "<br>");
+        document.write("계좌잔액 = " + accBalance);
+
+      } else { //출금선택
+
+        cash += 1500;
+        accBalance -= 1500;
+
+        document.write("2번 메뉴를 선택하였습니다." + "<br>");
+        document.write("현금 = " + cash + "<br>");
+        document.write("계좌잔액 = " + accBalance);
+      }
+
+    } else { //로그인실패
+      document.write("로그인 실패" + "<br>");
+      document.write("현금 = " + cash + "<br>");
+      document.write("계좌잔액 = " + accBalance);
+    }
+
+  } else { //종료
+    document.write("[0] 종료" + "<br>");
+  }
+
+
+
+</script>

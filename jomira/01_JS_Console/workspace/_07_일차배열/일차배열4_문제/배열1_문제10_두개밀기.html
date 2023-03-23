@@ -1,0 +1,37 @@
+<script>
+
+  /*
+      [문제]
+          배열a에 있는 값들을 배열b에 저장하려고 한다. 
+          배열a의 값을 뒤에서부터 두 개씩 저장하시오.
+      [정답]     1  3    5
+          b = 7,7,3,3,1,1    
+  */
+
+  let a = [1, 3, 7];
+  let b = [0, 0, 0, 0, 0, 0];
+
+  let index = 0;
+  for (let i = b.length - 1; i >= 0; i--) {
+    b[i] = a[index]
+    document.write(i + " ")
+    if (i % 2 == 0) {
+      index++
+    }
+  }
+  document.write("<br>" + b)
+
+  /*
+  let index = a.length - 1; // 2
+  for (let i = 0; i < b.length; i++) {
+    b[i] = a[index]
+    if (i % 2 == 1) {
+      document.write(i)
+      index--
+    }
+  }
+
+  document.write(b)
+  */
+
+</script>

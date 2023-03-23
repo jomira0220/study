@@ -1,0 +1,73 @@
+<script>
+
+  /*
+      [문제]
+          연속된 세 개의 정수를 더해 12가 되는 경우는 3, 4, 5이다.
+          연속된 수 num개를 더한 값이 total이 될 때,
+          result 배열을 오름차순으로 저장하여 출력하시오.
+      [예시]
+          num=3, total=12, result=[3, 4, 5]
+          num=5, total=15, result=[1, 2, 3, 4, 5]
+          num=4, total=14, result=[2, 3, 4, 5]
+          num=5, total=5,  result=[-1, 0, 1, 2, 3]
+  */
+
+  let num = 5;
+  let total = 5;
+  let result = [];
+
+  for (let i = 0; i < num; i++) {
+    result.push(0);
+  }
+
+  //등차수열 
+  let nSum = num * (1 + num) / 2; // 5 * (1 + 5) / 2
+  let start = (total - nSum) / num; //(5 - nSum) / 5
+
+  document.write("nSum = " + nSum + "<br>")
+  document.write("start = " + start + "<br>")
+
+  for (let i = 1; i < num + 1; i++) {
+    result[i - 1] = i + start;
+  }
+
+  document.write(result);
+
+  /*
+    while (true) {
+  
+      let plus = 0;
+  
+      for (let j = 0; j < num; j++) {
+        let r = Math.floor(Math.random() * 10) - 1;
+        result.push(r)
+        plus += r
+      }
+  
+      if (plus != total) {
+        result = []
+      } else {
+        break
+      }
+    }
+  
+    for (let i = 0; i < result.length; i++) {
+      let min = result[i];
+      let minIndex = i;
+      for (let j = i; j < result.length; j++) {
+        if (min > result[j]) {
+          min = result[j]
+          minIndex = j
+        }
+      }
+      let temp = result[i]
+      result[i] = result[minIndex]
+      result[minIndex] = temp
+  
+    }
+  
+    document.write(result)
+  */
+
+
+</script>

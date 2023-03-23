@@ -1,0 +1,64 @@
+<script>
+
+  /*
+      [문제]
+          아래 userData는 회원번호와 이름이고, 
+          pointData는 포인트와 회원번호이다.
+          포인트는 여러번 쌓을 수 있고, 
+          전부 누적해서 합을 구한다.
+          포인터 점수가 가장 높은 회원의 이름을 출력하시오.
+      [정답]
+          이만수 (3점으로 1002번이 가장 높으므로 정답)        
+  */
+
+  let userData = "1001/김철수,";
+  userData += "1002/이만수,";
+  userData += "1003/이영희";
+
+  let pointData = "1/1001,";
+  pointData += "1/1002,";
+  pointData += "2/1003,";
+  pointData += "1/1001,";
+  pointData += "2/1002";
+
+  //글자로 된 것을 배열로 만들어주는 함수
+  function splitArr(str) {
+    let token = str.split(",")
+    let arr = [];
+    for (let i = 0; i < token.length; i++) {
+      arr.push(token[i].split("/"))
+    }
+    return arr
+  }
+  splitArr(userData)
+
+  let userInfo = splitArr(userData)
+  let pointInfo = splitArr(pointData)
+
+
+  //유저배열과 포인트배열을 비교하여 최고 포인트 회원 조회 함수
+  function maxUser(userInfo, pointInfo) {
+
+    let maxPoint = 0;
+    let maxName = "";
+
+    for (let i = 0; i < userInfo.length; i++) {
+      let userPoint = 0;
+      for (let j = 0; j < pointInfo.length; j++) {
+        if (userInfo[i][0] == pointInfo[j][1]) {
+          //아이디가 일치하면 포인트 누적
+          userPoint += Number(pointInfo[j][0])
+        }
+      }
+      if (maxPoint < userPoint) {
+        maxPoint = userPoint
+        maxName = userInfo[i][1]
+      }
+    }
+
+    document.write(maxName + "<br>")
+
+  }
+
+  maxUser(userInfo, pointInfo)
+</script>

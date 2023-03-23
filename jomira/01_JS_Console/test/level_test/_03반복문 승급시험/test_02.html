@@ -1,0 +1,49 @@
+<script>
+
+  /*
+      [문제]
+          128의 5번째 약수에서 
+          2번째 약수를 뺀 값을 구하시오.
+      [정답]
+          14
+  */
+
+
+  let cnt_5 = 0;
+  let cnt_2 = 0;
+
+  let cnt = 0;
+  for (let i = 1; i <= 128; i++) {
+    if (128 % i == 0) {
+      cnt++
+      if (cnt == 5) {
+        cnt_5 = i
+      }
+      if (cnt == 2) {
+        cnt_2 = i
+      }
+    }
+  }
+
+  document.write(cnt_5 - cnt_2)
+
+  /*
+  let count = 0;
+  let a = 0;
+  let b = 0;
+  for (let i = 1; i <= 128; i++) {
+    if (128 % i == 0) {
+      count += 1;
+      if (count == 5) {
+        a = i
+      }
+      if (count == 2) {
+        b = i
+      }
+    }
+  }
+
+  document.write(a - b)
+  */
+
+</script>

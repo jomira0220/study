@@ -1,0 +1,253 @@
+<script>
+
+  /*
+  [문제]
+          복권 1개당 7칸으로, 총 5개의 복권을 제작하려 한다.
+          복권 1줄은 1 또는 7의 랜덤 숫자로 구성되어 있다.
+          7이 연속으로 3개 이상이면 "당첨"이고, 그 미만은 "꽝"이다.
+          5개 중에 딱 1개만 당첨 복권이고 나머지 4개는 꽝인 복권을
+          랜덤으로 생성해서 출력하시오.
+      [예시]
+          1177117 (꽝)
+          1117771 (당첨)
+          7171117 (꽝)
+          7711771 (꽝)
+          7171717 (꽝)    
+  */
+
+  let lotto = [0, 0, 0, 0, 0];
+
+  /*
+   //선생님 풀이
+   let cnt = 0;
+   let mark = 0;
+   let index = 0;
+   while (true) {
+ 
+     // 복권 생성
+     let temp = [];
+     for (let i = 0; i < 7; i++) {
+       let r = Math.floor(Math.random() * 2);
+       if (r == 0) {
+         r = 7;
+       }
+ 
+       temp.push(r);
+     }
+     lotto[index] = temp;
+ 
+     document.write(lotto[index]);
+     console.log(lotto[index]);
+ 
+ 
+     // 당첨복권 확인
+     let check = false;
+     let count = 0;
+     for (let i = 0; i < 7; i++) {
+       if (lotto[index][i] == 7) {
+         count += 1;
+         if (count == 3) {
+           check = true;
+         }
+       } else {
+         count = 0;
+       }
+     }
+     if (check) {
+       document.write("(당첨)<br>");
+       console.log("(당첨)<br>");
+       mark += 1;
+     } else {
+       document.write("(꽝)<br>");
+       console.log("(꽝)<br>");
+     }
+ 
+     index += 1;
+ 
+ 
+     // 당첨 복권이 한개일 때
+     if (index == 5 && mark == 1) {
+       break;
+     }
+ 
+     // 당첨 복권이 한개도 없을 때
+     if (index == 5 && mark == 0) {
+       index = 0;
+       mark = 0;
+     }
+ 
+     // 당첨 복권이 한개 이상일 때
+     if (index == 5 && mark > 1) {
+       index = 0;
+       mark = 0;
+     }
+ 
+   }
+ 
+   document.write("<br><br><br>");
+ 
+   // 당첨복권 확인
+   for (let i = 0; i < lotto.length; i++) {
+     let check = false;
+     let count = 0;
+ 
+     for (let j = 0; j < lotto[i].length; j++) {
+       if (lotto[i][j] == 7) {
+         count += 1;
+ 
+         if (count == 3) {
+           check = true;
+         }
+       } else {
+         count = 0;
+       }
+     }
+     document.write(lotto[i]);
+     if (check) {
+       document.write("(당첨)<br>");
+       console.log("(당첨)<br>");
+       mark += 1;
+     } else {
+       document.write("(꽝)<br>");
+       console.log("(꽝)<br>");
+     }
+   }
+ */
+
+
+  let lottoList = []
+
+  let 당첨번호 = Math.floor(Math.random() * lotto.length)
+  document.write("당첨번호 = " + 당첨번호 + "<br>")
+
+
+  for (let i = 0; i < lotto.length; i++) {
+
+    lottoList.push([])
+
+    if (i == 당첨번호) {
+
+      while (true) { //당첨번호가 1개 나올때까지 실행
+
+        let cnt1 = 0;
+        let cnt7 = 0;
+        for (let j = 0; j < 7; j++) {
+          let num = Math.floor(Math.random() * 2);
+          if (num == 0) {
+            num = 7;
+            cnt7++
+            if (cnt7 > 3) {
+              num = 1
+            }
+          } else {
+            cnt1++
+            if (cnt1 > 4) {
+              num = 7
+            }
+          }
+          lottoList[i].push(num)
+        }
+
+        //document.write(lottoList[i] + "<br>")
+
+        cnt7 = 0;
+        let max = 0;
+        for (let j = 0; j < lottoList[i].length; j++) {
+          if (lottoList[i][j] == 7) {
+            cnt7++
+            if (cnt7 > max) {
+              max = cnt7;
+            }
+          } else {
+            cnt7 = 0
+          }
+        }
+
+        if (max == 3) {
+          break;
+        } else {
+          lottoList[i] = [];
+        }
+
+      } //while
+
+    } else {
+
+
+      while (true) { //꽝 번호만 나오도록 꽝번호 나오면 통과
+
+        let cnt1 = 0;
+        let cnt7 = 0;
+        for (let j = 0; j < 7; j++) {
+          let num = Math.floor(Math.random() * 2);
+          if (num == 0) {
+            num = 7;
+            cnt7++
+            if (cnt7 > 3) {
+              num = 1
+            }
+          } else {
+            cnt1++
+            if (cnt1 > 4) {
+              num = 7
+            }
+          }
+          lottoList[i].push(num)
+        }
+
+        cnt7 = 0;
+        let max = 0;
+        for (let j = 0; j < lottoList[i].length; j++) {
+          if (lottoList[i][j] == 7) {
+            cnt7++
+            if (cnt7 > max) {
+              max = cnt7;
+            }
+          } else {
+            cnt7 = 0
+          }
+        }
+
+        if (max < 3) {
+          break;
+        } else {
+          lottoList[i] = [];
+        }
+
+      }
+    }
+
+  }
+
+
+
+  for (let i = 0; i < lotto.length; i++) {
+    document.write(lottoList[i] + " ")
+    let cnt7 = 0;
+    let max = 0;
+    for (let j = 0; j < lottoList[i].length; j++) {
+      if (lottoList[i][j] == 7) {
+        cnt7++
+        if (cnt7 > max) {
+          max = cnt7;
+        }
+      } else {
+        cnt7 = 0
+      }
+    }
+
+    if (max == 3) {
+      document.write("당첨 <br>")
+    } else {
+      document.write("꽝 <br>")
+    }
+  }
+
+
+
+
+
+
+
+
+</script>

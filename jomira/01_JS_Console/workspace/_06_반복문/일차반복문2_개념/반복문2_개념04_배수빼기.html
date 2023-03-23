@@ -1,0 +1,54 @@
+<script>
+
+    /*
+            [문제] 
+                다음 조건이 전부 맞는 수를 출력하시오.
+                [조건1] 13 이상 100미만의 숫자중에서 13의 배수를 전부 검사한다.
+                [조건2] 그 중 6번째 배수에서 4번째 배수를 뺀 수를 구한다.
+            [정답]
+                26
+        */
+    /*
+    let i = 13;
+    let num = 0;
+    let _6번째배수 = 0;
+    let _4번째배수 = 0;
+    while (i < 100) {
+      
+        if (i % 13 == 0) {
+
+            num = num + 1;
+            //console.log(num,i)
+            if (num == 6) {
+                _6번째배수 = i;
+                //console.log(i)
+            }
+            if (num == 4) {
+                _4번째배수 = i;
+                //console.log(i)
+            }
+        }
+        i = i + 1;
+    }
+
+    let 정답 = _6번째배수 - _4번째배수;
+
+    console.log(정답)
+    */
+    let num1 = 0;
+    let num2 = 0;
+    let count = 0;
+    for (let i = 13; i < 100; i++) {
+        if (i % 13 == 0) {
+            count += 1;
+            if (count == 4) {
+                num1 = i
+            }
+            if (count == 6) {
+                num2 = i
+            }
+        }
+    }
+
+    document.write(num2 - num1)
+</script>

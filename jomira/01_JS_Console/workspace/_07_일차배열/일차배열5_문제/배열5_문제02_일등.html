@@ -1,0 +1,34 @@
+<script>
+
+  /*
+      [문제]
+          다음은 학생 번화와 점수의 한 셋트이다.
+          일등의 번호와 점수, 꼴등의 번호와 점수를 출력하시오. 
+      [정답]  
+          일등 = 1004번(98점)
+          꼴등 = 1002번(11점)        
+  */
+
+  let numberList = [1001, 1002, 1003, 1004, 1005];
+  let scoreList = [87, 11, 45, 98, 23];
+
+  let max = 0;
+  let min = 100;
+  let max_num = 0;
+  let min_num = 0;
+  for (let i = 0; i < numberList.length; i++) {
+    if (max < scoreList[i]) {
+      max = scoreList[i]
+      max_num = numberList[i]
+    }
+    if (min > scoreList[i]) {
+      min = scoreList[i]
+      min_num = numberList[i]
+    }
+  }
+
+  document.write("일등 = " + max_num + "번 " + max + "점<br>")
+  document.write("꼴등 = " + min_num + "번 " + min + "점")
+
+
+</script>

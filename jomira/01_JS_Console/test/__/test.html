@@ -1,0 +1,33 @@
+<script>
+
+  /*
+  ex) list = [2,4,5,7,8,9,10]; //주문번호 리스트
+  ex) n = 3; //최소된 순서
+  */
+
+  function solution(list, n) {
+
+    let last = list[list.length - 1];
+    let num = [];
+
+    for (let i = 0; i < last; i++) {
+      num.push(i + 1)
+    }
+
+    for (let i = 0; i < list.length; i++) {
+      for (let j = 0; j < num.length; j++) {
+        if (list[i] == num[j]) {
+          num.splice(j, 1)
+          break;
+        }
+      }
+    }
+    console.log(num[n - 1])
+  }
+
+  let list = [1, 2, 4, 5, 7, 9, 10]
+  let n = 3;
+
+  solution(list, n)
+
+</script>

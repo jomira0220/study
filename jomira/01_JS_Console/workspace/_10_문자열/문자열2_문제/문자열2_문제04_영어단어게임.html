@@ -1,0 +1,73 @@
+<script>
+
+  /*
+      [문제]
+          철수는 영어단어 타자 게임을 만들고 있다.
+          한 단어씩 출력하는데 그냥 출력하면 재미없기 때문에 
+          랜덤 위치에 글자 대신 * 을 한 개 출력한다.
+          타자 게임을 구현을 위한 화면을 출력하시오.
+      [예시]
+          ja*a
+          pytho*
+          c+*
+          n*de
+          *avascript    
+  */
+
+  let wordList = ["java", "python", "c++", "node", "javascript"];
+
+
+  for (let i = 0; i < wordList.length; i++) {
+    let r = Math.floor(Math.random() * (wordList[i].length - 1))
+    let temp = ""
+    for (let j = 0; j < wordList[i].length; j++) {
+      if (j == r) {
+        temp += "*"
+      } else {
+        temp += wordList[i][j]
+      }
+    }
+
+    document.write(temp + "<br>")
+  }
+
+
+  /*
+  for (let i = 0; i < wordList.length; i++) {
+
+    let r = Math.floor(Math.random() * wordList[i].length)
+
+    let temp = ""
+    for (let j = 0; j < wordList[i].length; j++) {
+      if (j == r) {
+        temp += "*"
+      } else {
+        temp += wordList[i][j]
+      }
+    }
+
+    document.write(temp + "<br>")
+  }
+  */
+
+
+  /*
+  for (let i = 0; i < wordList.length; i++) {
+
+    let index = Math.floor(Math.random() * wordList[i].length);
+
+    for (let j = 0; j < wordList[i].length; j++) {
+      if (j == index) {
+        document.write("*");
+      } else {
+        document.write(wordList[i][j]);
+      }
+    }
+
+    document.write("<br>")
+
+  }
+ */
+
+
+</script>

@@ -1,0 +1,40 @@
+<script>
+
+  /*
+      [문제]
+          배열 omr의 값들은 이번 시험 정답이다.
+          배열 myAnswer는 철수의 답안지이다. 
+          랜덤숫자(1~5) 열 개를 myAnswer에 추가 후,
+          정답과 비교해서 철수의 점수를 출력하시오.
+          한 문제당 10점이다. 
+      [예시]
+          omr      = 4, 3, 1, 5, 3, 2, 1, 4, 5, 3
+          myAnswer = 5, 2, 5, 5, 2, 1, 4, 4, 4, 1
+          score    = 20점   
+  */
+
+  let omr = [4, 3, 1, 5, 3, 2, 1, 4, 5, 3];
+  let myAnswer = [];
+  let score = 0;
+
+  for (let i = 0; i < 10; i++) {
+    myAnswer.push(Math.floor(Math.random() * 5) + 1)
+    if (myAnswer[i] == omr[i]) {
+      score += 10
+    }
+  }
+
+  /*
+  for (let i = 0; i < omr.length; i++) {
+    myAnswer.push(Math.floor(Math.random() * 5) + 1)
+    if (omr[i] == myAnswer[i]) {
+      score += 10
+    }
+  }
+*/
+  document.write("omr = " + omr + "<br>")
+  document.write("myAnswer = " + myAnswer + "<br>")
+  document.write("score = " + score + "점")
+
+
+</script>

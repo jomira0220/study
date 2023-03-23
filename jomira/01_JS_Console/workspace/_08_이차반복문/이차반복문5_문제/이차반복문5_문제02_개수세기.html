@@ -1,0 +1,146 @@
+<script>
+
+  /*
+      [문제]
+          arr배열의 값을 중복없이 value배열에 저장한다.
+          그리고 중복되는 개수를 count배열에 저장한다.
+      [정답]
+          value = [10, 20, 30, 100]
+          count = [ 2,  3,  5,   1]    
+  */
+
+  let arr = [10, 20, 30, 30, 100, 10, 30, 30, 20, 30, 20];
+
+  let value = [];
+  let count = [];
+
+  //arr[0] arr[0] fasle
+  //arr[1] arr[0] false
+  //arr[2] arr[0~1] false
+  //arr[3] arr[0~2] true
+  //arr[4] arr[0~3] false
+  //arr[5] arr[0~4] true
+  //arr[6] arr[0~5] true
+  //arr[7] arr[0~6] true
+  //arr[8] arr[0~6] true
+
+  for (let i = 0; i < arr.length; i++) {
+    let check = false
+    for (let j = 0; j < i; j++) {
+      if (arr[i] == arr[j]) {
+        check = true
+      }
+    }
+
+    if (check == false) {
+      value.push(arr[i])
+    }
+  }
+
+
+  for (let j = 0; j < value.length; j++) {
+    let cnt = 0;
+    for (let i = 0; i < arr.length; i++) {
+      if (value[j] == arr[i]) {
+        cnt++
+      }
+    }
+    count.push(cnt)
+  }
+
+  document.write(value + "<br>")
+  document.write(count + "<br>")
+
+
+  /*
+  for (let i = 0; i < arr.length; i++) {
+    let check = false;
+    for (let j = 0; j < i; i++) {
+      if (arr[i] == arr[j]) {
+        check = true
+      }
+    }
+
+    if (check == false) {
+      value.push(arr[i])
+    }
+  }
+
+  for (let i = 0; i < value.length; i++) {
+    let cnt = 0;
+    for (let j = 0; j < arr.length; j++) {
+      if (arr[i] == value[j]) {
+        cnt++
+      }
+    }
+    count[i] = cnt
+  }
+
+  */
+
+  /*
+  
+  for (let i = 0; i < arr.length; i++) {
+    let check = false;
+
+    for (let j = 0; j < i; j++) {
+      if (arr[i] == arr[j]) {
+        check = true
+      }
+    }
+
+    if (check == false) {
+      value.push(arr[i])
+
+    }
+  }
+
+  document.write("value = " + value + "<br>");
+
+
+
+  for (let i = 0; i < value.length; i++) {
+    let cnt = 0;
+    for (let j = 0; j < arr.length; j++) {
+      if (value[i] == arr[j]) {
+        cnt++
+      }
+    }
+    count[i] = cnt
+  }
+
+  document.write("count = " + count + "<br>");
+  
+  */
+
+  /*
+  let index = 0;
+  for (let i = 0; i < arr.length; i++) {
+    let check = false;
+    for (let j = 0; j < i; j++) {
+      if (arr[i] == arr[j]) { //같은값이 있으면
+        check = true;
+      }
+    }
+
+    if (check == false) { //같은값이 없으면
+      value.push(arr[i]);
+    }
+  }
+  document.write("value = " + value + "<br>");
+
+  for (let i = 0; i < value.length; i++) {
+    let cnt = 0;
+    for (let j = 0; j < arr.length; j++) {
+      if (value[i] == arr[j]) {
+        cnt += 1;
+      }
+    }
+
+    count.push(cnt);
+  }
+
+  document.write("count = " + count);
+*/
+
+</script>

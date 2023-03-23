@@ -1,0 +1,125 @@
+<script>
+
+  /*
+      [문제]
+          아래와 같이 출력하시오.    
+  */
+
+  /*
+      [문제1]
+          11112
+          11122
+          11222
+          12222    
+  */
+
+  /* 선생님 풀이 방식 */
+  for (let i = 0; i < 4; i++) {
+    for (let j = 0; j < 4 - i; j++) {
+      document.write("1");
+    }
+    for (let j = 0; j <= i; j++) {
+      document.write("2");
+    }
+    document.write("<br>");
+  }
+
+
+  for (let i = 4; i > 0; i--) {
+    for (let j = 0; j < 5; j++) {
+      if (i <= j) {
+        document.write(2)
+      } else {
+        document.write(1)
+      }
+    }
+    document.write("<br>")
+  }
+
+  document.write("<br>")
+
+  /*
+      [문제2]
+          12222
+          11222
+          11122
+          11112   
+  */
+
+  for (let i = 0; i < 4; i++) {
+    for (let j = 0; j < 5; j++) {
+      if (j <= i) {
+        document.write(1)
+      } else {
+        document.write(2)
+      }
+    }
+    document.write("<br>")
+  }
+
+  document.write("<br>")
+
+  /*
+      [문제3]
+          11211
+          12221	
+          22222
+  */
+
+
+  let count = 1;
+  let k = 1;
+  for (let i = 0; i < 3; i++) {
+    for (let j = 0; j < 2 - i; j++) { //0 1
+      document.write("1");
+    }
+    for (let j = 0; j < k; j++) { //0
+      document.write("2");
+    }
+    for (let j = 0; j < 2 - i; j++) { //0 1
+      document.write("1");
+    }
+    k += 2; //k 2씩증감 시켜서 2가 늘어나도록
+
+    document.write("<br>");
+  }
+
+  document.write("<br>");
+
+
+  /*
+      [문제4]
+          2
+          222
+          22222
+  */
+
+  let cnt = 1;
+  for (let i = 0; i < 3; i++) {
+    for (let j = 0; j < cnt; j++) {
+      document.write(2)
+    }
+    cnt += 2
+    document.write("<br>")
+  }
+
+  document.write("<br>")
+
+  /*
+      [문제5]
+          22222
+          222
+          2 
+  */
+
+  let cnt_2 = 5;
+  for (let i = 0; i < 3; i++) {
+    for (let j = cnt_2; j > 0; j--) {
+      document.write(2)
+    }
+    cnt_2 -= 2
+    document.write("<br>")
+  }
+
+
+</script>

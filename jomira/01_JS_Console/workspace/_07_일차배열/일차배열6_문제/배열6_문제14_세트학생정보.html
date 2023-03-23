@@ -1,0 +1,68 @@
+<script>
+
+  /*
+      [문제]
+          아래 arr배열은 3명의 학생 데이터이다.		
+          각 학생은 3개씩 데이터로 표현한다. 
+          맨 앞은 번호, 그 다음은 국어점수, 그 다음은 수학점수이다.					
+          1001번, 국어 100, 수학 20
+          1002번, 국어 32,  수학 54
+          1003번  국어 34,  수학 65	
+
+          [1] 전체 평균을 출력하시오. (소수점 두자리까지 출력)
+          [2] 국어 1등 학생 정보를 출력하시오.
+          [3] 수학 1등 학생 정보를 출력하시오.
+          [4] 전체 1등 학생 정보를 출력하시오.
+      [정답]    
+          평균 = 101.67점
+          국어 1등 = 1001번(100점)
+          수학 1등 = 1003번(65점)
+          전교 1등 = 1001번(120점)      
+  */
+
+  let arr = [1001, 100, 20, 1002, 32, 54, 1003, 34, 65]; // 0 3 6
+  let maxScore_1 = 0;
+  let maxScore_2 = 0;
+
+  let rank_1 = 0;
+  let rank_num = 0;
+
+  let maxNum_1 = 0;
+  let maxNum_2 = 0;
+
+  let total = 0;
+  let count = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (i == 0 || i % 3 == 0) {
+      count++
+      total += arr[i + 1]
+      total += arr[i + 2]
+
+      if (maxScore_1 < arr[i + 1]) {
+        maxScore_1 = arr[i + 1]
+        maxNum_1 = i
+      }
+      if (maxScore_2 < arr[i + 2]) {
+        maxScore_2 = arr[i + 2]
+        maxNum_2 = i
+      }
+
+      if (rank_1 < arr[i + 1] + arr[i + 2]) {
+        rank_1 = arr[i + 1] + arr[i + 2]
+        rank_num = i
+      }
+
+    }
+
+  }
+
+  total = (total / count).toFixed(2)
+  document.write("평균 = " + total + "<br>")
+  document.write("국어1등 = " + arr[maxNum_1] + "번 " + maxScore_1 + "점<br>")
+  document.write("수학1등 = " + arr[maxNum_2] + "번 " + maxScore_2 + "점<br>")
+  document.write("전교1등 = " + arr[rank_num] + "번 " + rank_1 + "점")
+
+
+
+</script>

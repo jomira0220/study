@@ -1,0 +1,41 @@
+<script>
+
+  /*
+      [문제]
+          1 ~ 2000 사이의 랜덤숫자를 저장하고, 
+          자리수가 얼마인지 출력하시오.
+      [예시]
+          969
+          3자리 수    
+  */
+
+  let num = Math.floor(Math.random() * 2000) + 1;
+  num = num.toString(); //스트링으로 변환하여
+  numDigit = num.length; //글자개수가 몇개인지로 확인
+  console.log(num, numDigit)
+
+
+  /*
+  let num = Math.floor(Math.random() * 2000) + 1;    // [0 ~ 1999] + 1
+  console.log("num = " + num);
+  document.write("num = " + num + "<br>");
+
+  let temp = num;
+
+  let count = 0;
+  let run = true;
+  while(run) {
+
+      temp = parseInt(temp / 10);
+      count += 1;
+
+      if(temp == 0) {
+          run = false;
+      }
+  }
+
+  console.log(count + "자리 수");
+  document.write(count + "자리 수");
+    
+  */
+</script>

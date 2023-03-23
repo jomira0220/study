@@ -1,0 +1,103 @@
+<script>
+
+  let arr = [];
+
+  /*
+      [문제1]
+          arr배열을 한 줄당 3개씩 3줄 총 9개로 이차원으로 만들고, 
+          랜덤값(1~100)을 9개 저장하시오.
+      [예시1]
+          [56, 64, 10] 
+          [100, 40, 12]
+          [9, 70, 29]     
+  */
+
+  for (let i = 0; i < 3; i++) {
+    arr.push([0])
+    for (let j = 0; j < 3; j++) {
+      let num = Math.floor(Math.random() * 100) + 1
+      arr[i][j] = num
+      document.write(num + " ")
+    }
+    document.write("<br>")
+  }
+
+
+  console.log(arr)
+
+  /*
+      [문제2]
+          arr배열의 값 중에서 50이상을 전부 출력하시오.
+      [예시2] 
+          56 64 100 70
+  */
+
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr[i].length; j++) {
+      if (arr[i][j] >= 50) {
+        document.write(arr[i][j] + " ")
+      }
+    }
+  }
+
+  document.write("<br>")
+
+  /*
+      [문제3]
+          arr배열의 값 중에서 4의 배수만 출력하시오.
+      [예시3]
+          56 64 100 40 12    
+  */
+
+
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr[i].length; j++) {
+      if (arr[i][j] % 4 == 0) {
+        document.write(arr[i][j] + " ")
+      }
+    }
+  }
+
+  document.write("<br>")
+
+  /*
+      [문제4]
+           arr배열의 값 중에서 50이상인 수의 합을 출력하시오.
+      [예시4]
+          total = 290    
+  */
+
+  let total = 0;
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr[i].length; j++) {
+      if (arr[i][j] >= 50) {
+        total += arr[i][j]
+      }
+    }
+  }
+
+  document.write(total)
+  document.write("<br>")
+
+
+  /*
+      [문제5]
+          arr배열의 값 중에서 50이상인 수의 개수를 출력하시오.
+      [예시5]
+          count = 4    
+  */
+
+  let count = 0;
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr[i].length; j++) {
+      if (arr[i][j] >= 50) {
+        count++
+      }
+    }
+  }
+
+  document.write(count)
+  document.write("<br>")
+
+
+</script>

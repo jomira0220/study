@@ -1,0 +1,101 @@
+<script>
+
+  /*
+  [문제]
+    아래 데이터는 각각의 회원이 물건을 구입가격들을 기록한 내용이다.
+    회원별 구입 총합을 테이블로 만들려고한다.
+    데이터는 아래와 같이 나올 수 있도록 result에 저장 후 출력하시오.
+    단, \n 은 줄바꿈이다. 구분자를 \n으로 넣으면 잘 잘린다.
+  [정답]
+    10001,김철수,2670
+    10002,이영희,1950
+    10003,유재석,4080
+    10004,박명수,7130
+  */
+
+  let data = "";
+  data += "10001/김철수/600\n";
+  data += "10002/이영희/800\n";
+  data += "10001/김철수/1400\n";
+  data += "10003/유재석/780\n";
+  data += "10002/이영희/950\n";
+  data += "10004/박명수/330\n";
+  data += "10001/김철수/670\n";
+  data += "10003/유재석/3300\n";
+  data += "10002/이영희/200\n";
+  data += "10004/박명수/6800\n";
+  data = data.substring(0, data.length - 1); // 마지막 글삭제 
+  //document.write(data);
+
+  let result = [];
+
+  function tokenData(data) {
+    let token = data.split("\n");
+    let dataList = []
+    for (let i = 0; i < token.length; i++) {
+      dataList.push(token[i].split("/"))
+    }
+    //console.log(dataList)
+    return dataList
+  }
+
+  let dataList = tokenData(data);
+
+  /*-------------------------------------*/
+
+  function userIdList(dataList) {
+
+    let idList = [];
+
+    for (let i = 0; i < dataList.length; i++) {
+      let check = false;
+      for (let j = 0; j < i; j++) {
+        if (dataList[i][0] == dataList[j][0]) {
+          check = true
+        }
+      }
+      if (check == false) {
+        idList.push(dataList[i][0])
+      }
+    }
+    //console.log(idList)
+    return idList
+  }
+
+  let idList = userIdList(dataList)
+
+  /*-------------------------------------*/
+
+
+  function userTotalOrder(idList) {
+
+    for (let i = 0; i < idList.length; i++) {
+      let check = false
+      let totalPrice = 0;
+      for (let j = 0; j < dataList.length; j++) {
+        if (idList[i] == dataList[j][0]) {
+          totalPrice += Number(dataList[j][2])
+          check = true
+        }
+      }
+      if (check) {
+        result.push([])
+        result[i][0] = dataList[i][0]
+        result[i][1] = dataList[i][1]
+        result[i][2] = totalPrice
+      }
+    }
+    //console.log(result)
+    return result
+  }
+
+  let TotalOrder = userTotalOrder(idList)
+
+  console.log(TotalOrder)
+
+  for (let i = 0; i < TotalOrder.length; i++) {
+    document.write(TotalOrder[i] + "<br>")
+  }
+
+
+</script>

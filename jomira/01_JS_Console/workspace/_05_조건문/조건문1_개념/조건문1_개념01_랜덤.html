@@ -1,0 +1,20 @@
+<script>
+
+    let num = Math.random();
+    num = Math.random() * 3;
+    //나눗셈 중에 몫을 구할때 : parseInt()
+    //램덤을 정수화 할때 : Math.floor()
+    num = parseInt(Math.random() * 3)
+    document.write(num);
+
+    //1 ~ 6 : 랜덤뒤에 곱하는 수는 경우의 수의 개수만큼 곱함
+    //[0 ~ 5] + 1 : 숫자 몇부터 시작할지를 뒤에 더하기 혹은 빼기
+    let dice = Math.floor(Math.random() * 6) + 1;
+
+    //-3 ~ 3
+    //[0 ~ 6] - 3
+    let num2 = Math.floor(Math.random() * 7) - 3;
+    
+    console.log(num2)
+
+</script>

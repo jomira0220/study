@@ -1,0 +1,35 @@
+<script>
+  /*
+        [문제]
+            1. 구구단 문제를 출제하기 위해 정수 2개를 랜덤하게 저장한다.   
+                정수1은 2~9 사이의 랜덤 숫자를
+                정수2는 1~9 사이의 랜덤 숫자를 저장한다.
+            2. 구구단 문제를 출력한다. 예) 3 x 7 = ?
+            3. 컴퓨터는 2~81사이의 랜덤 숫자로 정답을 저장한다.
+            4. 실제 정답과 컴퓨터가 저장한 정답을 비교해 "정답" 또는 "오답"을 출력한다.  
+        [예시]
+            3 x 7 = ?
+            com = 31
+            오답
+
+    */
+
+
+  let num1 = Math.floor(Math.random() * 8) + 2;
+  let num2 = Math.floor(Math.random() * 9) + 1;
+
+  let com = Math.floor(Math.random() * 80) + 2;
+
+  let rs = num1 * num2;
+
+  document.write(num1 + "x" + num2 + " = ?" + "<br>");
+  document.write("com = " + com + "<br>")
+
+  if (com == rs) {
+    document.write("정답")
+  } else {
+    document.write("오답")
+  }
+
+
+</script>

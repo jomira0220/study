@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <input id="inputBox" placeholder="소문자를 입력해주세요"></input>
+  <script>
+
+    let inputBox = document.querySelector("#inputBox")
+
+    inputBox.onblur = (e) => {
+      let text = e.target.value.toUpperCase()
+      e.target.value = text
+    }
+
+  </script>
+</body>
+
+</html>

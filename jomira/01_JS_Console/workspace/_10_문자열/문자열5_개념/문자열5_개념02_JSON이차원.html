@@ -1,0 +1,38 @@
+<script>
+
+  let arr = [
+    [1001, "김철수", 10, 20, 30],
+    [1002, "박민정", 40, 60, 10],
+    [1003, "이상아", 15, 10, 50],
+    [1004, "조민수", 16, 40, 20]
+  ]
+
+  /*
+      위와 같은 배열이 있을 때 각 학생별로
+      총점을 구하고 싶다면 아래와 같이 식을 작성한다.
+  */
+
+  let total = 0;
+  for (let i = 0; i < arr.length; i++) {
+    total += arr[i][2] + arr[i][3] + arr[i][4];
+  }
+  document.write("total = " + total + "<br>");
+
+  /*
+      위 배열을 JSON으로 바꿔보자.
+  */
+  var jsonArr = [
+    { "num": 1001, "name": "김철수", "math": 10, "eng": 20, "kor": 30 },
+    { "num": 1002, "name": "박민정", "math": 40, "eng": 60, "kor": 10 },
+    { "num": 1003, "name": "이상아", "math": 15, "eng": 10, "kor": 50 },
+    { "num": 1004, "name": "조민수", "math": 16, "eng": 40, "kor": 20 }
+  ];
+
+  total = 0;
+  for (let i = 0; i < jsonArr.length; i++) {
+    // 코드가 훨씬 직관적으로 변한다.
+    total += jsonArr[i]["math"] + jsonArr[i]["eng"] + jsonArr[i]["kor"];
+  }
+  document.write("total = " + total);
+
+</script>

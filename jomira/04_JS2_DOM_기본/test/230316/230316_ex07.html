@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <img src="images/close.jpg" alt="">
+
+  <script>
+
+    let btn = document.querySelector("img")
+
+    btn.addEventListener("mouseup", (e) => {
+      e.target.setAttribute("src", "images/close.jpg")
+    })
+
+    btn.addEventListener("mousedown", (e) => {
+      e.target.setAttribute("src", "images/open.jpg")
+    })
+
+  </script>
+</body>
+
+</html>

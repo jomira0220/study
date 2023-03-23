@@ -1,0 +1,35 @@
+<script>
+
+  /*
+      [문제]
+          랜덤 숫자(1~5)를 한 개 저장한다. 
+          랜덤 숫자만큼 반복문을 돌리고, 
+          저장한 랜덤 숫자를 계속 저장한다.
+      [예시]
+          r = 5
+          arr = 5,5,5,5,5    
+  */
+
+  let arr = [];
+  let num = Math.floor(Math.random() * 5) + 1;
+  document.write(num + "<br>")
+
+  for (let i = 0; i < num; i++) {
+    arr.push(Math.floor(Math.random() * 5) + 1)
+  }
+
+  document.write(arr)
+
+
+  /*
+  let r = Math.floor(Math.random() * 5) + 1;
+  document.write("r = " + r + "<br>")
+  let arr = [];
+
+  for (var i = 0; i < r; i++) {
+    arr.push(r);
+  }
+
+  document.write("arr = " + arr)
+*/
+</script>

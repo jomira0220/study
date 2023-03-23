@@ -1,0 +1,47 @@
+<script>
+
+  /*
+      [문제] 
+          변수 delNum과 같은 값을 data 배열에서 제외하여
+          result배열에 새로 추가하시오.
+          
+      [정답]
+          result = 2, 6, 8, 6
+  */
+
+  let delNum = 5;
+
+  let data = [5, 2, 6, 8, 5, 6];
+  let result = [];
+
+  for (let i = 0; i < data.length; i++) {
+    if (data[i] != delNum) {
+      result.push(data[i])
+    }
+  }
+
+  document.write(result)
+
+  /*
+  for (let i = 0; i < data.length; i++) {
+    if (data[i] != delNum) {
+      result.push(data[i])
+    }
+  }
+
+  document.write(result)
+*/
+  /*
+  let count = 0;
+  for (let i = 0; i < data.length; i++) {
+    if (data[i] != delNum) {
+      result.push(0)
+      result[count] = data[i]
+      count++
+    }
+  }
+
+  document.write(result)
+  */
+
+</script>

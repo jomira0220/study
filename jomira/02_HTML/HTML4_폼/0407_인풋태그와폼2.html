@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+
+<body>
+  <!--
+    
+    name속성은
+    사용자가 입력한 값(value)에
+    변수명을 짓는 개념이다.
+    
+  -->
+  <form action="#">
+    아이디: <input type="text" name="id"><br />
+    비번: <input type="password" name="pw"><br />
+
+    수강과목 :
+    <label><input type="checkbox" name="subject" value="html">html</label>
+    <label><input type="checkbox" name="subject" value="css">css</label>
+    <label><input type="checkbox" name="subject" value="javascript">javascript</label><br />
+
+    성별 :
+    <label><input type="radio" name="gender" value="male">남자 </label>
+    <label><input type="radio" name="gender" value="female">여자</label><br />
+
+    관심분야 :
+    <select name="study" id="">
+      <option value="">관심분야를 선택하세요</option>
+      <option value="frontend">프론트엔드</option>
+      <option value="backend">백엔드</option>
+      <option value="publisher">퍼블리셔</option>
+      <option value="database">데이터베이스</option>
+    </select><br />
+
+    <textarea name="memo" id="" cols="30" rows="10" placeholder="메모를 작성하세요!"></textarea><br />
+
+    <input type="submit" value="회원가입">
+  </form>
+
+  <!--
+		아래 3가지 기능은 추후에 배운다. 지금은 모습에 익숙해진다. 
+		[1] form 의 action 
+		[2] input 의 name
+		[3] input 의 submit		
+	-->
+
+</body>
+
+</html>

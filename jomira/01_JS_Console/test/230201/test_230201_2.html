@@ -1,0 +1,137 @@
+<script>
+
+  /*
+     [문제]
+          숫자 1은 player를 의미한다.
+          1~5 사이의 랜덤 숫자를 5번 저장해
+        player를 계속 이동시키고, 그 과정을 출력하시오.
+        단, 우측 끝에 도달하면 다시 왼쪽 첫번째 칸으로 이동시키시오.
+      [예시]
+          옷 __ __ __ __ __ __
+
+
+          r = 3
+          __ __ __ 옷 __ __ __
+
+
+          r = 4
+          옷 __ __ __ __ __ __
+
+
+          r = 2
+          __ __ 옷 __ __ __ __
+
+
+          r = 1
+          __ __ __ 옷 __ __ __
+
+
+          r = 1
+          __ __ __ __ 옷 __ __
+  */
+
+  let map = [0, 0, 0, 0, 0, 0, 0];
+
+  let player = 0;
+
+  document.write("옷 __ __ __ __ __ __ <br><br>");
+
+
+  for (let i = 0; i < map.length; i++) {
+    let r = Math.floor(Math.random() * 5) + 1;
+
+    player += r
+    player %= map.length
+
+    document.write("r = " + r + "<br>")
+
+    for (let j = 0; j < map.length; j++) {
+      if (j == player) {
+        document.write("옷 ")
+      } else {
+        document.write("__ ")
+      }
+    }
+
+    document.write("<br>")
+
+  }
+
+  /*
+
+  for (let i = 1; i < map.length; i++) {
+    let r = Math.floor(Math.random() * 5) + 1;
+    document.write("r = " + r + "<br>")
+
+    player += r;
+    player %= map.length;
+
+    for (let j = 0; j < map.length; j++) {
+      if (player == j) {
+        document.write("옷 ")
+      } else {
+        document.write("__ ")
+      }
+    }
+
+    document.write("<br>")
+
+  }
+
+  */
+
+
+  /*
+
+  for (let i = 0; i < map.length; i++) {
+    let r = Math.floor(Math.random() * 5) + 1;
+    document.write("r = " + r + "<br>")
+
+    player += r
+    player %= map.length;
+
+    document.write("player = " + player + "<br>")
+
+    for (let j = 0; j < map.length; j++) {
+      if (player == j) {
+        document.write("옷 ")
+      } else {
+        document.write("__ ")
+      }
+    }
+
+    document.write("<br><br>")
+
+  }
+*/
+
+  /*
+  document.write("옷 __ __ __ __ __ __ <br><br>")
+
+  for (let i = 0; i < map.length; i++) {
+
+    let r = Math.floor(Math.random() * 5) + 1;
+    document.write("r = " + r + " ")
+
+    player += r
+    player %= map.length
+
+    document.write("player = " + player + "<br>")
+
+    for (let j = 0; j < map.length; j++) {
+      if (player == j) {
+        document.write("옷 ")
+      } else {
+        document.write("__ ")
+      }
+    }
+
+    document.write("<br><br>")
+
+  }
+
+  */
+
+
+
+</script>

@@ -1,0 +1,139 @@
+<script>
+
+  /*
+      [문제]
+          철수는 빙고 게임을 만들고 있다.
+          빙고 조건은 가로 1이 3개 또는 세로 1이 3개 
+          또는 대각선으로 1이 3개이면 빙고이다.
+          빙고는 중첩될 수 있다.
+          반복적으로 랜덤 위치에 1을 저장한다. 
+          단, 한번 1이 저장된 곳은 또 다시 저장할 수 없다.
+          3빙고가 성립되면 종료한다.     
+  */
+
+  let bingo = [
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0]
+  ];
+
+  while (true) {
+
+    let y = Math.floor(Math.random() * bingo.length)
+    let x = Math.floor(Math.random() * bingo.length)
+
+    if (bingo[y][x] != 1) {
+      bingo[y][x] = 1;
+    } else {
+      document.write("<br>같은 위치를 선택하였습니다.")
+    }
+
+    let bingoCount = 0;
+    for (let i = 0; i < bingo.length; i++) {
+
+      let garoCount = 0;
+      let seroCount = 0;
+      let rightCount = 0;
+      let leftCount = 0;
+
+      for (let j = 0; j < bingo[i].length; j++) {
+        if (bingo[i][j] == 1) { //가로빙고
+          garoCount++
+          if (garoCount == 3) {
+            bingoCount++
+          }
+        }
+        if (bingo[j][i] == 1) { //세로빙고
+          seroCount++
+          if (seroCount == 3) {
+            bingoCount++
+          }
+        }
+        if (bingo[j][j] == 1 && i == 0) { //오른쪽대각선빙고
+          rightCount++
+          if (rightCount == 3) {
+            bingoCount++
+          }
+        }
+        if (bingo[j][2 - j] == 1 && i == 0) { //왼쪽대각선빙고 02 11 20
+          leftCount++
+          if (leftCount == 3) {
+            bingoCount++
+          }
+        }
+
+      }
+    }
+
+    document.write("<br> bingocount = " + bingoCount + "<br>")
+
+    for (let i = 0; i < bingo.length; i++) {
+      document.write(bingo[i] + "<br>")
+    }
+
+    if (bingoCount >= 3) {
+      break
+    }
+
+  }
+
+
+
+  /*
+  while (true) {
+
+    let bingoSize = bingo.length;
+    let x = Math.floor(Math.random() * bingoSize);
+    let y = Math.floor(Math.random() * bingoSize);
+
+    if (bingo[x][y] == 0) {
+      bingo[x][y] = 1;
+    } else {
+      document.write(x + ", " + y + " 같은위치를 선택하였습니다. <br>")
+    }
+
+    let bingoCount = 0;
+
+    //가로빙고
+    for (let i = 0; i < bingoSize; i++) {
+      if (bingo[i][0] == 1 && bingo[i][1] == 1 && bingo[i][2] == 1) {
+        bingoCount += 1
+      }
+    }
+
+    //세로빙고
+    for (let i = 0; i < bingoSize; i++) {
+      if (bingo[0][i] == 1 && bingo[1][i] == 1 && bingo[2][i] == 1) {
+        bingoCount += 1
+      }
+    }
+
+    //대각선 왼쪽 빙고
+    if (bingo[0][0] == 1 && bingo[1][1] == 1 && bingo[2][2] == 1) {
+      bingoCount += 1
+    }
+
+    //대각선 오른쪽 빙고
+    if (bingo[0][2] == 1 && bingo[1][1] == 1 && bingo[2][0] == 1) {
+      bingoCount += 1
+    }
+
+
+    document.write("<br> bingocount = " + bingoCount + "<br>")
+
+
+    for (let i = 0; i < bingo.length; i++) {
+      document.write(bingo[i] + "<br>")
+    }
+
+
+    if (bingoCount >= 3) {
+      break;
+    }
+
+  }
+*/
+
+
+
+</script>

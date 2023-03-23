@@ -1,0 +1,48 @@
+<script>
+
+    /*
+        [문제]
+            100 ~ 300 사이의 숫자 중에서 
+            [조건1] 8의 배수를 출력하고, 
+            [조건2] 그 총합을 구하시오.
+            [조건3] 개수를 구하시오.
+        [정답]
+            104 112 120 128 136 144 152 160 168 176 184 192 200 
+            208 216 224 232 240 248 256 264 272 280 288 296 
+            total = 5000
+            count = 25    
+    */
+
+    /*
+    let total = 0;
+    let count = 0;
+
+    let i = 100;
+    while (i <= 300) {
+        if (i % 8 == 0) {
+            console.log(i)
+            document.write(i + " ")
+            count += 1;
+            total += i;
+        }
+        i += 1;
+    }
+
+    console.log(total, count)
+    document.write("<br>" + total + ", " + count)
+    */
+
+    let total = 0;
+    let count = 0;
+    for (let i = 100; i <= 300; i++) {
+        if (i % 8 == 0) {
+            document.write(i + "<br>")
+            total += i
+            count += 1
+        }
+    }
+
+    document.write(total + "<br>")
+    document.write(count + "<br>")
+
+</script>

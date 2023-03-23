@@ -1,0 +1,58 @@
+<script>
+
+  /*
+      [문제]
+          numbers배열은 학생 다섯 명의 번호이다.
+          scores배열은 위 학생들의 수학 점수이다.
+          60점 이상은 합격이다.
+          [조건1] 합격생들의 번호와 점수 출력하시오.
+          [조건2] 전체 학생들의 점수와 평균을 출력하시오.
+          [조건3] 합격생들이 몇 명인지를 출력하시오.
+      [정답]
+          합격생 >>>
+          1003번) 65점
+          1004번) 90점
+          1005번) 89점
+          합격생 수 = 3명
+          총점 = 286점, 평균 = 57.2점        
+  */
+
+  let numbers = [1001, 1002, 1003, 1004, 1005];
+  let scores = [10, 32, 65, 90, 89];
+
+  let total = 0;
+  let count = 0;
+
+  let 총학생수 = numbers.length;
+  for (let i = 0; i < 총학생수; i++) {
+    if (scores[i] >= 60) {
+      document.write(numbers[i] + "번) " + scores[i] + "점 <br>")
+      count += 1
+    }
+    total += scores[i]
+  }
+
+  document.write("합격생수 = " + count + "<br>")
+  document.write("총점 = " + total + "점, ")
+  document.write("평균 = " + total / 총학생수 + "점")
+
+
+
+  /*
+
+  for (let i = 0; i < numbers.length; i++) {
+    if (scores[i] > 60) {
+      count += 1
+      document.write(numbers[i] + "번) " + scores[i] + "점 <br>")
+    }
+
+    total += scores[i] //총점
+  }
+
+  let 평균 = total / numbers.length;
+
+  document.write("합격생 수 = " + count + "명 <br>")
+  document.write("총점 = " + total + "점, 평균 = " + 평균 + "점")
+
+*/
+</script>

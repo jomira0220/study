@@ -1,0 +1,57 @@
+<script>
+
+  /*
+      [문제]
+          총 10회 반복을 진행해 1~9 사이의 랜덤 숫자 10개를 저장한다.
+          랜덤 숫자 중에 짝수가 연속으로 나왔을 때의 개수를 구한다.
+          그 개수 중 연속적으로 가장 긴 개수를 출력하시오.
+      [예시]
+          1, 6, 4, 3, 2, 4, 8, 6, 1, 2
+      
+          6,4 구간이 2칸이므로 2
+          2,4,8,6 구간이 4칸이므로 4
+          마지막 2는 한개이므로 1
+          가장 긴 개수는 4
+  */
+  let max = 0;
+  let cnt = 0;
+
+  for (let i = 0; i < 10; i++) {
+    let num = Math.floor(Math.random() * 9) + 1;
+    document.write(num + ", ")
+
+    if (num % 2 == 0) {
+      cnt++
+    } else {
+      cnt = 0;
+    }
+
+    if (cnt > max) {
+      max = cnt
+    }
+  }
+
+  document.write("max = " + max)
+
+  /*
+  let count = 0;
+  let max = 0;
+  for (let i = 0; i < 10; i++) {
+    let num = Math.floor(Math.random() * 9) + 1;
+    document.write(num + " ")
+
+    //짝수인지 아닌지 카운트
+    if (num % 2 == 0) {
+      count += 1;
+    } else {
+      count = 0;
+    }
+
+    //맥스값 찾기
+    if (max < count) {
+      max = count
+    }
+  }
+  document.write("<br>" + max)
+  */
+</script>

@@ -1,0 +1,29 @@
+<script>
+
+  /*
+      [문제]
+          1부터 100까지의 수들 중에 70이상인
+          3의 배수 중 첫번째 수와 마지막 수를 구하시오.
+      [정답]
+          첫번째 수 = 72
+          마지막 수 = 99
+  */
+
+  let front = 0;
+  let back = 0;
+  let cnt = 0
+  for (let i = 1; i <= 100; i++) {
+    if (i % 3 == 0) {
+      if (70 < i) {
+        cnt++
+        if (cnt == 1) {
+          front = i
+        }
+      }
+      back = i
+    }
+  }
+
+  document.write(front + "<br>" + back)
+
+</script>

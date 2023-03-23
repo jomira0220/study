@@ -1,0 +1,52 @@
+<script>
+
+  /*
+      [문제]
+          arr배열을 아래와 같은 삼각형 형태로
+          출력하시오.
+          1
+          23
+          456
+          7890
+          
+          00
+          01
+          012
+          0123
+  */
+
+
+  let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+
+  let count = 0;
+  let line = 0;
+  for (let i = 0; i < arr.length; i++) {
+    document.write(arr[i])
+    document.write("count = " + count + ", line" + line + "<br>")
+    if (count == line) {
+      document.write("<br>")
+      line++
+      count = 0
+    } else {
+      count++
+    }
+  }
+
+
+  /*
+  let line = 0;
+  let count = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    document.write(arr[i]);
+    if (line == count) {
+      document.write("<br>");
+      line += 1;
+      count = 0;
+    } else {
+      count += 1;
+    }
+  }
+  */
+
+</script>

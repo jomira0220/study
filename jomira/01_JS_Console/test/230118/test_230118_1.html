@@ -1,0 +1,74 @@
+<script>
+
+  /*
+    [문제]
+      1 ~ 99,999 사이의 랜덤 숫자를 저장하고
+      각 자리수의 합을 구하시오.
+    [예시]
+          919
+      정답 = 9 + 1 + 9 = 19	
+   */
+
+  let r = Math.floor(Math.random() * 99999) + 1;
+  //r = 919
+  document.write(r + "<br>")
+
+  let temp = r;
+  let total = 0;
+  for (let i = 0; i < 5; i++) {
+
+    let unit = temp % 10;
+    temp = parseInt(temp / 10)
+    total += unit
+    document.write(unit + " ")
+
+    if (temp == 0) {
+      break
+    }
+    document.write("+ ")
+  }
+
+  document.write(" = " + total)
+
+
+
+  /*
+ let num = Math.floor(Math.random() * 99999) + 1;
+ num = 919
+ let temp = num;
+ let total = 0;
+
+ for (let i = 0; i < 5; i++) {
+   let _unit1 = temp % 10;
+   temp = parseInt(temp / 10);
+   document.write(_unit1)
+
+   total += _unit1
+
+   if (temp == 0) {
+     break
+   }
+
+   document.write("+")
+
+ }
+
+ document.write(" = " + total)
+*/
+  /*
+  let num = Math.floor(Math.random() * 99999) + 1;
+  document.write(num + "<br>")
+
+  let temp = num;
+  let total = 0;
+
+  for (let i = 0; i < 5; i++) {
+    let unit = temp % 10;
+    temp = parseInt(temp / 10);
+    document.write(unit + "+")
+    total += unit
+  }
+
+  document.write("=" + total)
+  */
+</script>

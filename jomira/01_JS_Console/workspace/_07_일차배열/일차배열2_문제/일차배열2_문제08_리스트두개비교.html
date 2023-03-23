@@ -1,0 +1,62 @@
+<script>
+
+  /*
+      [문제]
+          [조건1] a배열과 b배열 두 개에 1~100 사이의 랜덤 값 다섯 개를 저장한다.
+          [조건2] 둘 다 짝수이면 "짝수" 출력, 둘 다 홀수이면 "홀수" 출력, 
+                  한쪽은 홀수이고 다른 한쪽은 짝수이면 "다르다"를 출력하시오.
+      [예시]    
+          a = 15,7,98,24,54
+          b = 9,50,16,12,81
+          홀수
+          다르다
+          짝수
+          짝수
+          다르다        
+  */
+
+  let a = [];
+  let b = [];
+
+  for (let i = 0; i < 5; i++) {
+    a.push(Math.floor(Math.random() * 100) + 1)
+    b.push(Math.floor(Math.random() * 100) + 1)
+  }
+
+  document.write(a + "<br>")
+  document.write(b + "<br>")
+
+  for (let i = 0; i < a.length; i++) {
+    if (a[i] % 2 == 0 && b[i] % 2 == 0) {
+      document.write("짝수 <br>")
+    } else if (a[i] % 2 == 1 && b[i] % 2 == 1) {
+      document.write("홀수 <br>")
+    } else {
+      document.write("다르다 <br>")
+    }
+  }
+
+
+  /*
+
+  for (let i = 0; i < 5; i++) {
+    a.push(Math.floor(Math.random() * 100) + 1)
+    b.push(Math.floor(Math.random() * 100) + 1)
+  }
+
+  document.write("a = " + a + "<br>")
+  document.write("b = " + b + "<br>")
+
+  for (let i = 0; i < 5; i++) {
+    if (a[i] % 2 == 0 && b[i] % 2 == 0) {
+      document.write("짝수 <br>")
+    } else if (a[i] % 2 == 1 && b[i] % 2 == 1) {
+      document.write("홀수 <br>")
+    } else {
+      document.write("다르다 <br>")
+    }
+  }
+  */
+
+
+</script>

@@ -1,0 +1,45 @@
+<script>
+
+  /*
+      [문제]
+          [조건1] arr배열에 랜덤 숫자(1~100) 다섯 개를 추가한다.
+          [조건2] 위 값 중에 5의 배수들만 출력하시오.
+      [예시]
+          arr = 70,34,58,10,74
+          70
+          10   
+  */
+
+  let arr = [];
+
+  for (let i = 0; i < 5; i++) {
+    let num = Math.floor(Math.random() * 100) + 1;
+    arr.push(num)
+  }
+  document.write(arr + "<br>")
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 5 == 0) {
+      document.write(arr[i] + "<br>")
+    }
+  }
+
+
+
+
+  /*
+
+  for (let i = 0; i < 5; i++) {
+    let r = Math.floor(Math.random() * 100) + 1;
+    arr.push(r)
+  }
+
+  document.write("arr = " + arr + "<br>")
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 5 == 0) {
+      document.write(arr[i] + "<br>")
+    }
+  }
+  */
+
+</script>

@@ -1,0 +1,43 @@
+<script>
+
+  /*
+      [문제] 
+          orderList는 오늘 주문 목록이다. 
+          orderNumber 주문번호이다. 
+          orderId 주문한 회원 id 이다.
+          itemName는 주문한 상품이름이다. 
+          count는 주문한 상품개수이다. 
+
+          cancleList는 주문취소 목록이다. 
+          cancleNumber는 주문을 취소한 번호이다. 
+
+          orderList에서 cancleList의 번호를 전부 삭제하시오.
+  */
+
+  let orderList = [
+    { "orderNumber": 100001, "orderId": "qwer1234", "itemName": "사과", "count": 3 },
+    { "orderNumber": 100002, "orderId": "pythongood", "itemName": "딸기", "count": 6 },
+    { "orderNumber": 100003, "orderId": "testid", "itemName": "바나나", "count": 1 },
+    { "orderNumber": 100004, "orderId": "pythongood", "itemName": "사과", "count": 2 },
+    { "orderNumber": 100005, "orderId": "testid", "itemName": "바나나", "count": 7 },
+    { "orderNumber": 100006, "orderId": "qwer1234", "itemName": "사과", "count": 1 }
+  ]
+  let cancelList = [
+    { "cancleNumber": 100003 },
+    { "cancleNumber": 100002 },
+    { "cancleNumber": 100005 },
+  ]
+
+  for (let i = 0; i < cancelList.length; i++) {
+    for (let j = 0; j < orderList.length; j++) {
+      if (cancelList[i]["cancelNumber"] == orderList[j]["orderNumber"]) {
+        orderList.splice(j, 1);
+        j -= 1;
+      }
+    }
+  }
+
+  document.write(JSON.stringify(orderList));
+
+
+</script>

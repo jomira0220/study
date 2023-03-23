@@ -1,0 +1,93 @@
+<script>
+
+  /*
+          [문제]
+              철수는 30개짜리 계단의 최상단에 서 있다. 
+              제일 아래까지 내려가려고 한다. 
+              철수가 내려갈 때 왼발로 밟은 계단을 출력하시오. 
+              아래 조건들을 참고하시오.
+              
+              [조건]
+              [1] 철수는 무조건 한 계단씩 내려간다. 
+              [2] 철수는 첫발은 왼쪽 다리부터 계단을 내려간다. 
+              [3] 출력을 다섯 번 할 때마다 반대편 다리로 바꿔서 출력하시오.
+              
+          [정답]
+              30 28 26 24 22
+              21 19 17 15 13
+              12 10 8 6 4
+              3 1
+    */
+
+  //let 철수 = 30;
+  let count = 0;
+  for (let i = 30; i >= 1; i--) {
+    document.write(i + " ")
+    count += 1;
+    if (count % 5 != 0) { //5의배수가 아니면 위와 밑 포함 -2씩 차감
+      i -= 1
+    } else {
+      document.write("<br>")
+    }
+  }
+
+
+  /*
+let i = 30;
+let count = 1; //30번은 이미 실행된것으로 치고 1로 시작
+let run = true;
+while (i >= 1) {
+
+  document.write(i + " " + "<br>"); //처음값은 계산없이 출력하고 이후값은 계산값으로 출력하기위해서 상단에
+  count += 1; //처음 제외 계산된 값부터는 순서가 2가 되도록 순서가 5의배수인지를 판단하는 조건이 밑에 있으므로 위에 기재
+
+  if (run) { //5의배수가 아닐때는 2씩차감
+    i -= 2;
+  } else { //5의배수 일때는 1씩차감
+    i -= 1;
+  }
+
+  if (count % 5 == 0) {
+    run = false;
+  } else {
+    run = true;
+  }
+
+  document.write("카운트" + count + " ")
+
+}
+*/
+
+  /*
+let turn = true; //왼발오른발 판단
+let count = 0;
+let print = true; //출력할것 판단
+
+let i = 30;
+while (i >= 1) {
+
+  if (turn) { //왼발일때
+
+    if (print) {
+      document.write(i + " ");
+      count += 1;
+    }
+  } else { // 왼발이 오른발로 바뀔때 
+    if (print == false) {
+      document.write(i + " .");
+      count += 1;
+    }
+  }
+
+  i -= 1;
+  turn = !turn; //왼발을 한번 실행한 후이므로 오른발 else문 처리되도록
+
+  if (count % 5 == 0) { //5의 배수 == 5번째마다 에만 실행되도록
+    document.write("<br>");
+    print = !print; //
+  }
+}
+*/
+
+
+</script>
