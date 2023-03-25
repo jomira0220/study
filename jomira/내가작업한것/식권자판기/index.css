@@ -18,6 +18,7 @@ html, body {
   position: relative;
   font-family: "TheJamsil", sans-serif;
   font-size: 1em;
+  overflow-x: hidden;
 }
 
 header {
@@ -101,25 +102,29 @@ button:disabled {
   color: #fff;
 }
 
-#adminCashList ul {
+#adminCashList ul, #infoTable ul {
   display: flex;
   align-items: center;
   justify-content: space-around;
   flex-wrap: wrap;
   border-bottom: 1px solid #ccc;
 }
-#adminCashList ul li {
+#adminCashList ul li, #infoTable ul li {
   list-style: none;
   width: 16.666%;
 }
-#adminCashList ul li span {
+#adminCashList ul li span, #infoTable ul li span {
   display: block;
   color: #000;
   padding: 15px 0;
 }
-#adminCashList ul li span.title {
+#adminCashList ul li span.title, #infoTable ul li span.title {
   background-color: var(--color-set1);
   color: #fff;
+}
+
+#infoTable ul li {
+  width: 25%;
 }
 
 #userCountTable strong {
@@ -132,7 +137,7 @@ button:disabled {
 
 .tableWrap {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   flex-wrap: wrap;
 }
@@ -218,9 +223,12 @@ button:disabled {
 #receipt .receipt_bg {
   width: 330px;
   background-image: url(receipt_bg.png);
-  background-size: 100% 100%;
+  background-color: #fff;
+  background-size: 100% auto;
+  background-position: bottom;
   background-repeat: no-repeat;
-  padding-bottom: 10%;
+  border-radius: 25px;
+  padding-bottom: 154px;
   overflow: hidden;
 }
 #receipt .receipt_bg .title {
@@ -248,6 +256,7 @@ button:disabled {
   background-color: var(--color-set2);
   color: #fff;
   font-size: 1.2em;
+  margin: 5px 0 15px;
 }
 
 @media screen and (max-width: 500px) {
@@ -263,8 +272,12 @@ button:disabled {
   header p {
     font-size: 1.2em;
   }
-  #adminCashList ul li {
+  #adminCashList ul li, #infoTable ul li {
     width: 50%;
+  }
+  #receipt .receipt_bg {
+    width: 80%;
+    padding-bottom: 37%;
   }
 }
 #guideBox {
@@ -291,6 +304,10 @@ button:disabled {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+#guideBox .inner .close {
+  margin-top: 15px;
+  background-color: var(--color-set1);
 }
 #guideBox p {
   margin: 20px 0;

@@ -1,5 +1,14 @@
 
-
+document.querySelectorAll(".treeWarp").forEach((el)=>{
+  el.innerHTML = `
+      <div id="tree"></div>
+      <div id="trunk">
+        <div id="left-branch"></div>
+        <div id="right-bottom-branch"></div>
+        <div id="right-top-branch"></div>
+      </div>
+  `
+})
 
 
 

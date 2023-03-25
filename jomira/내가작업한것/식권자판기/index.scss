@@ -19,6 +19,7 @@ html,body{
   position: relative;
   font-family: 'TheJamsil', sans-serif;
   font-size: 1em;
+  overflow-x: hidden;
 }
 
 header{
@@ -119,7 +120,7 @@ button:disabled {
   
 }
 
-#adminCashList {
+#adminCashList,#infoTable {
   ul {
     display: flex;
     align-items: center;
@@ -147,6 +148,14 @@ button:disabled {
   }
 }
 
+#infoTable {
+  ul {
+    li{
+      width: 25%;
+    }
+  }
+}
+
 
 #userCountTable{
   strong{
@@ -160,9 +169,8 @@ button:disabled {
 
 
 .tableWrap {
-  
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content:space-between;
   flex-wrap: wrap;
   
@@ -277,10 +285,14 @@ button:disabled {
   .receipt_bg {
     width: 330px;
     background-image: url(receipt_bg.png);
-    background-size:100% 100%;
+    background-color: #fff;
+    background-size: 100% auto;
+    background-position: bottom;
     background-repeat: no-repeat;
-    padding-bottom:10%;
+    border-radius: 25px;
+    padding-bottom:154px;
     overflow: hidden;
+
     
     .title {
       background-color: var(--color-set2);
@@ -314,6 +326,7 @@ button:disabled {
     background-color: var(--color-set2);
     color:#fff;
     font-size: 1.2em;
+    margin: 5px 0 15px;
   }
   
 }
@@ -339,13 +352,21 @@ button:disabled {
     }
   }
   
-  #adminCashList{
+  #adminCashList,#infoTable{
     ul{
       li{
         width: 50%;
       }
     }
   }
+  
+  #receipt {
+    .receipt_bg {
+      width: 80%;
+      padding-bottom: 37%;
+    }
+  }
+  
 }
 
 
@@ -373,7 +394,14 @@ button:disabled {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    
+    .close {
+      margin-top: 15px;
+      background-color: var(--color-set1);
+    }
+    
   }
+  
   
   
   p{

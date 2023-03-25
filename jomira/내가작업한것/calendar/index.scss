@@ -1,0 +1,156 @@
+@import url('https://webfontworld.github.io/score/SCoreDream.css');
+
+html,body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'SCoreDream', sans-serif;
+    color:#202020;
+}
+body{
+    width:100%;
+    overflow-x: hidden;
+    position: relative;
+    font-size: 1em;
+}
+
+input{
+    border:none;
+    text-align: center;
+    width: auto;
+    display: inline-block;
+    font-family: 'SCoreDream', sans-serif;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button
+{
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+#header{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #202020;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    color:#fff;
+    
+    h1{
+        flex:1;
+        font-weight: bold;
+        
+        div{
+            width: 80px;
+            height: 80px;
+            padding: 25px;
+            border-radius: 100%;
+            background-color: #fff;
+            display: inline-block;
+            img{
+                width: 100%;
+                vertical-align: middle;
+            }
+        }
+    }
+    
+    div{
+        flex:1;
+    }
+    
+    #controlBox {
+        display: flex;
+        font-size:1.8em;
+        
+        #year {
+            width: 180px;
+            input {
+                width:80%;
+ 
+            }
+        }
+        input{
+            font-size:1.8em;
+            font-weight: bold;
+            width: 40px;
+            background: none;
+            color: #fff;
+        }
+        
+    }
+    
+    #nowWarp{
+       
+    }
+
+}
+
+
+
+
+#calendarBox {
+    width: 80%;
+    margin: 50px auto;
+    text-align: center;
+}
+
+#daySection{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 5px;
+    
+    #columnHeaderWarp{
+        grid-gap: 5px;
+        grid-column: 1 / 8;
+        grid-row: 1;
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
+        
+        div:first-child {
+            background-color: #f4608a;
+        }
+        
+        div:last-child {
+            background-color: #49b2d6;
+        }
+        
+        div{
+            width: 14.285%;
+            background: #474545;
+            color: #fff;
+            border-radius:10px;
+            padding:10px 0;
+            font-weight: bold;
+        }
+    }
+    
+    .day{
+        border: 1px solid #e4e4e4;
+        border-radius:10px;
+        padding: 15px 0;
+        min-height: 90px;   
+    }
+    
+    .noday{
+        background-color: #eff4f7;
+        border:none;
+    }
+    
+    div.toDay {
+        div.dayNum {
+            font-weight: bold;
+            width: 40px;
+            height: 40px;
+            margin: 0 auto;
+            background: #f4608a;
+            line-height: 40px;
+            border-radius: 100%;
+            color: #fff;
+        }
+    }
+    
+}

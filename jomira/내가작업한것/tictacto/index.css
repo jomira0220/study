@@ -20,13 +20,17 @@ img {
 }
 
 html {
+  width: 100%;
   height: 100%;
+  overflow-x: hidden;
 }
 
 body {
   font-size:2.2em;
   font-family: 'yg-jalnan';
-  background-color: #ffebd6;
+  background-color: #d6f7ff;
+  background: rgb(190,238,245);
+  background: linear-gradient(180deg, rgba(190,238,245,1) 0%, rgba(237,255,254,1) 100%);
   display: flex;
   width: 100%;
   height: 100%;
@@ -106,6 +110,7 @@ div[id^="gameBox"]{
   border-radius: 50px;
   box-shadow: 1px 1px 10px 0px rgba(0,0,0,0.3);
   position: relative;
+  z-index: 5;
   flex-wrap: wrap;
   justify-content:space-between;
   align-items: center;
@@ -154,10 +159,11 @@ div[id^="gameBox"]{
 
 #startBox {
   position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    transform: translate(-50%, -50%);
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
 }
 #startBox h1 {
 text-shadow: 5px 5px #fff;
@@ -270,6 +276,191 @@ text-shadow: 5px 5px #fff;
 }
 
 
+@keyframes move {
+  50%{left:50%;opacity: 1;}
+  100%{left:100%;opacity: 0;}
+}
+
+.cloudWarp {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+
+.cloud{
+  width: 300px;
+  height: 75px;
+  background: #fff;
+  margin:80px 0 0 0;
+  border-radius: 50px;
+  display: inline-block;
+  position: absolute;
+  top:5%;
+  left:-50%;
+  opacity: 0;
+  animation: move 10s linear infinite;
+}
+
+.cloud[data-cloud="1"]{
+  transform: scale(0.7);
+}
+
+.cloud[data-cloud="2"]{
+  animation-delay: 2s;
+  top:15%;
+  transform: scale(0.4);
+}
+
+.cloud[data-cloud="3"]{
+  animation-delay:4.5s;
+  top: 0%;
+  transform: scale(0.6);
+}
+
+.cloud[data-cloud="4"]{
+  animation-delay:7s;
+  top:12%;
+  transform: scale(0.5);
+}
+
+.cloud:before{
+  content: "";
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  background: #fff;
+  border-radius: 50%;
+  margin: -70px 0 0 -110px;
+}
+.cloud:after{
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: #fff;
+  border-radius: 50%;
+  margin: -50px 0 0 15px;
+}
+
+
+
+
+
+.grass{
+  background-color: #6dcc6d;
+  width:100%;
+  height: 25%;
+  position: absolute;
+  left:0;
+  bottom:0;
+  z-index: 1;
+}
+
+.grassInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.treeWarp{
+  height: 145px;
+  width: 90px;
+  position: absolute;
+}
+
+.treeWarp[data-tree="1"]{
+  left: 8%;
+}
+
+.treeWarp[data-tree="1"],.treeWarp[data-tree="3"]{
+top: -50%;
+}
+
+.treeWarp[data-tree="2"],.treeWarp[data-tree="4"]{
+  transform: scale(0.6);
+}
+
+.treeWarp[data-tree="2"],.treeWarp[data-tree="4"]{
+  top: -43%;
+}
+
+.treeWarp[data-tree="2"]{
+  left: 18%;
+}
+.treeWarp[data-tree="3"]{
+  right: 8%;
+}
+.treeWarp[data-tree="4"]{
+  right: 18%;
+}
+
+
+
+
+#tree {
+  border-bottom: 100px solid #5b9a68;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  height: 0;
+  width: 0;
+}
+
+#trunk{
+	height: 85px; width: 10px;
+	background: #3b543f;
+	position: absolute; 
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+}
+
+#left-branch{
+	background: #3b543f;
+	height: 30px; width: 6px;
+	position: absolute; left: -10px; top: 15px;
+	
+	transform: rotate(-50deg);
+	-webkit-transform: rotate(-50deg);
+	-moz-transform: rotate(-50deg);
+	-ms-transform: rotate(-50deg);
+	-o-transform: rotate(-50deg);
+}
+
+#right-bottom-branch{
+  background: #3b543f;
+  height: 25px;
+  width: 6px;
+  position: absolute;
+  top: 20px;
+  left: 8px;
+	
+	transform: rotate(50deg);
+	-webkit-transform: rotate(50deg);
+	-moz-transform: rotate(50deg);
+	-ms-transform: rotate(50deg);
+	-o-transform: rotate(50deg);
+}
+#right-top-branch{
+	background: #3b543f;
+	height: 27px; width: 6px;
+	position: absolute; top: 2px; left: 10px;
+	
+	transform: rotate(50deg);
+	-webkit-transform: rotate(50deg);
+	-moz-transform: rotate(50deg);
+	-ms-transform: rotate(50deg);
+	-o-transform: rotate(50deg);
+}
+
+
 #closePop {
   position:absolute;
   width:53%;
@@ -295,11 +486,13 @@ text-shadow: 5px 5px #fff;
 }
 
 @media screen and (max-width:500px) {
-  html {
-    height: auto;
-  }
+ 
   html,body{
     font-size: 1.4em;
+  }
+  
+  body {
+    align-items: flex-start;
   }
   
   h1{
@@ -312,6 +505,7 @@ text-shadow: 5px 5px #fff;
     border-radius: 25px;
     margin: 10% 0;
   }
+  
   
   #startBox h1 {
     text-shadow: 5px 5px #fff;
@@ -359,6 +553,45 @@ text-shadow: 5px 5px #fff;
     height:45.5%;
     border-radius: 20px;
   }
+  
+  
+  .cloud[data-cloud="1"]{transform: scale(0.4);}
+  .cloud[data-cloud="2"]{transform: scale(0.3);}
+  .cloud[data-cloud="3"]{transform: scale(0.4);}
+  .cloud[data-cloud="4"]{transform: scale(0.2);}
+  
+  .grass {
+    height: 20%;
+  }
+  
+  
+  .grass .treeWarp[data-tree="1"],
+  .grass .treeWarp[data-tree="2"],
+  .grass .treeWarp[data-tree="3"],
+  .grass .treeWarp[data-tree="4"] {
+    top:-50%;
+  }
+  
+  
+  .treeWarp[data-tree="1"] {
+    left: 2%;;
+    transform: scale(0.7);
+  }
+  .treeWarp[data-tree="2"] {
+    transform: scale(0.4);
+    left: 15%;
+ 
+  }
+  .treeWarp[data-tree="3"] {
+    right: 2%;
+    transform: scale(0.7);
+  }
+  .treeWarp[data-tree="4"] {
+    transform: scale(0.4);
+    right: 15%;
+  }
+  
+  
 }
 @media screen and (min-width:500px) and (max-width:1000px){
   div[id^="gameBox"]{
@@ -366,6 +599,9 @@ text-shadow: 5px 5px #fff;
   }
   .gameHeader h2 {
     font-size: 1.3em;
+  }
+  .grass{
+    height: 20%;
   }
 }
 
