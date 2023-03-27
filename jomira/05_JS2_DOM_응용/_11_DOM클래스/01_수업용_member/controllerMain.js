@@ -15,7 +15,7 @@ export class ControllerMain {
         
         this.changePage("page-index")
         this.changePage("page-header")
-        //this.changePage("page-memberLogin")
+        this.changePage("page-memberLogin")
     }
     
     setPageList(){
