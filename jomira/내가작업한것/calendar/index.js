@@ -24,6 +24,7 @@ function setDate(calendarBox) {
   calendarBox.querySelector("#month input").value = thisMonth + 1;
 }
 
+//!기본 테이블구조 셋팅
 function dayTableSet(calendarBox) {
   let dayList = ["일", "월", "화", "수", "목", "금", "토"];
 
@@ -46,6 +47,7 @@ function dayTableSet(calendarBox) {
   }
 }
 
+//!테이블 구조에 데이터 셋팅
 function dayDataSet(calendarBox) {
   let yearCheck = calendarBox.querySelector("#year input").value;
   let monthCheck = calendarBox.querySelector("#month input").value - 1; //
@@ -146,11 +148,7 @@ function dayDataSet(calendarBox) {
             break;
           }
         }
-        
-        
-        
-        
-        
+         
       } //holiDay for close
 
       //오늘 날짜 표시
@@ -206,6 +204,8 @@ function dayDataSet(calendarBox) {
     }
   } //42열 박스 만들기용 for close
 }
+
+
 //!달력 데이터 변경
 function changeEvent(calendarBox) {
   let controlBox = calendarBox.querySelector("#controlBox");
@@ -242,7 +242,10 @@ function changeEvent(calendarBox) {
     if (1 < month && month <= 12) {
       month -= 1;
     } else {
-      alert("월 범위는 1 ~ 12 까지입니다.");
+      yearInput.value = Number(yearInput.value) - 1
+      year -= 1
+      month = 12
+      /*alert("월 범위는 1 ~ 12 까지입니다.");*/
     }
     monthInput.value = month;
     dayDataSet(calendarBox);
@@ -252,12 +255,29 @@ function changeEvent(calendarBox) {
     if (1 <= month && month < 12) {
       month += 1;
     } else {
-      alert("월 범위는 1 ~ 12 까지입니다.");
+      yearInput.value = Number(yearInput.value) + 1
+      year += 1
+      month = 1
     }
     monthInput.value = month;
     dayDataSet(calendarBox);
   });
 }
+
+/*
+//!달력 드래그 이벤트
+function dragChange(calendarBox){
+  let dragBottomEl = calendarBox.querySelectorAll(".day")
+  dragBottomEl.forEach((el,index)=>{
+    if(index > 18){
+      el.addEventListener("dragenter", (e) => {
+        
+      });
+    }
+  })
+}
+*/
+
 
 //!캘린더 기본 구조 셋팅 및 함수호출
 function calendar(elId) {
@@ -294,11 +314,10 @@ function calendar(elId) {
   setDate(calendarBox);
   dayTableSet(calendarBox);
   dayDataSet(calendarBox);
+  //dragChange(calendarBox)
   changeEvent(calendarBox);
 }
 
 calendar("#calendarBox");
-$(input).on('keydown', function(e){
-  $(input).css('width', $(input)[0].scrollWidth + 10); // 글자 하나의 대략적인 크기 
 
-});
+

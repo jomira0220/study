@@ -5,6 +5,7 @@ html, body {
   box-sizing: border-box;
   font-family: "SCoreDream", sans-serif;
   color: #202020;
+  -webkit-user-drag: none;
 }
 
 body {
@@ -26,6 +27,14 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+::-moz-selection {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+::selection {
+  background-color: rgba(255, 255, 255, 0);
 }
 
 #header {
@@ -56,13 +65,16 @@ input[type=number]::-webkit-outer-spin-button {
   flex-wrap: wrap;
   align-items: center;
 }
+#header #controlBox #year {
+  margin-right: 5px;
+}
 #header #controlBox #year input {
   width: 140px;
 }
 #header #controlBox input {
   font-size: 1.8em;
   font-weight: bold;
-  width: 75px;
+  width: 65px;
   background: none;
   color: #fff;
   text-align: right;
@@ -85,6 +97,7 @@ input[type=number]::-webkit-outer-spin-button {
   line-height: 40px;
   cursor: pointer;
   vertical-align: middle;
+  margin: 0 5px;
 }
 #header #buttonWarp button.minusBtn {
   line-height: 43px;
@@ -191,19 +204,22 @@ div[id$="Section"] {
     flex-direction: column;
     padding: 8% 0 13%;
   }
+  #header h1 img {
+    width: 60%;
+  }
   #header #controlBox #buttonWarp {
     width: 100%;
     flex-direction: column;
     margin: 20px 0;
   }
   #header #controlBox #year {
-    margin-right: 5px;
+    margin-right: 0px;
   }
   #header #controlBox #year input {
-    width: 100px;
+    width: 95px;
   }
   #header #controlBox input {
-    width: 50px;
+    width: 45px;
   }
   #calendarBox {
     margin: 0 0 15px;
@@ -217,6 +233,6 @@ div[id$="Section"] {
     padding: 0;
   }
   #nowWarp {
-    font-size: 1.7em;
+    font-size: 1.4em;
   }
 }/*# sourceMappingURL=index.css.map */
