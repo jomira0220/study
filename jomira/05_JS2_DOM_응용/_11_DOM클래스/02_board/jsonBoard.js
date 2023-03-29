@@ -1,5 +1,5 @@
 import { ControllerMain } from "./controllerMain.js";
-
+ 
 export class JsonBoard {
     static instance = new JsonBoard();
     static getInstance() { return JsonBoard.instance; }

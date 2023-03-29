@@ -1,6 +1,6 @@
 import { ControllerMain } from "./controllerMain.js";
 import { JsonBoard } from "./jsonBoard.js";
-
+ 
 export class PageBoardList {
 
     $boardNo = null;
@@ -168,7 +168,6 @@ export class PageBoardList {
 
     buttonBoardDummyAddProClick = (event) => {
         JsonBoard.getInstance().setBoardDummyAdd();
-
         ControllerMain.getInstance().changePage("page-boardList", null);
     }
 

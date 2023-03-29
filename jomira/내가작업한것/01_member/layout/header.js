@@ -2,8 +2,10 @@ import { ControllerMain } from "../controllerMain.js";
 
 export class LayoutHeader {
   execute(data) {
-    let $header = document.querySelector("#header");
+    
 
+    
+    let $header = document.querySelector("#header");
     let tag = "";
 
     // [로그아웃] 상태 화면
@@ -36,22 +38,17 @@ export class LayoutHeader {
       </ul>
       `;
     }
+  
 
+    
     $header.innerHTML = tag;
-
-    this.sticky($header); //헤더 스크롤시 상단고정
 
     let $indexPageBtn = document.querySelector("#btn-indexPage");
     let $joinPageBtn = document.querySelector("#btn-memberJoinPage");
     let $loginPageBtn = document.querySelector("#btn-memberLoginPage");
     let $boardPageBtn = document.querySelector("#btn-boardListPage");
     let $memberLogoutPro = document.querySelector("#btn-memberLogoutPro");
-    /*
-    let $loginBtn = document.querySelector("#btn-memberLoginPage");
-    let $loginBtn = document.querySelector("#btn-memberLoginPage");
-    let $loginBtn = document.querySelector("#btn-memberLoginPage");
 
-    */
    // [로그아웃] 상태 화면
    if(ControllerMain.getInstance().log == null) {
     
@@ -61,7 +58,6 @@ export class LayoutHeader {
       
     }else{ 
     // [로그인] 상태 화면
-      
       $boardPageBtn.addEventListener("click",() => { this.pageMove("page_boardList") }) 
       
       $memberLogoutPro.addEventListener("click",() => {  
@@ -72,26 +68,14 @@ export class LayoutHeader {
       }) 
       
     }
-  }
+  }// close execute
+  
   
   
   //!페이지 이동 처리용
   pageMove = (pageName) => {
     ControllerMain.getInstance().changePage(pageName, null);
   }
-  
-  
-  //!헤더 상단 고정
-  sticky = (el) => {
-    document.addEventListener('scroll',() => {
-      if(window.pageYOffset > el.offsetTop+200) {
-        el.classList.add("fixed");
-      } else {
-        el.classList.remove("fixed");
-      }
-    })
-  }
-      
   
   
 }

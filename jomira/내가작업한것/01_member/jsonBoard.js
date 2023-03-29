@@ -6,11 +6,11 @@ export class JsonBoard {
 
     start() {
         this.boardList = null;
-        this.setBoardList();
+        this.setSampleData()
     }
-
-    setBoardList() {
-        return this.boardList = [
+    
+    setSampleData() {
+        this.boardList = [
             {
                 "boardNo"   : 1001,
                 "title"     : "제목1",
@@ -46,6 +46,11 @@ export class JsonBoard {
             },
         ];
     }
+    
+    getBoardList() {
+        return this.boardList
+    }
+
     
     getBoard(boardNo) {
         let index = 0;
@@ -123,7 +128,7 @@ export class JsonBoard {
         }
     }
 
-    getBordCount() {
+    getBoardCount() {
         return this.boardList.length;
     }
 
@@ -165,7 +170,6 @@ export class JsonBoard {
     }
 
     checkBoardDeletePro(deleteList) {
-
         for(let i=0; i<deleteList.length; i++) {
             for(let j=0; j<this.boardList.length; j++) {
                 if(this.boardList[j].boardNo == deleteList[i]) {
@@ -173,8 +177,9 @@ export class JsonBoard {
                 }
             }
         }
-
-
     }
+    
+    
+   
 
 }

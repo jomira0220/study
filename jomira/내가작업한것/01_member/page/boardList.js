@@ -13,24 +13,11 @@ export class PageBoardList {
     $checkboxBoard = null;
     $buttonCheckBoardDeletePro = null;
 
+    
+    
     execute(data) {
         let $content = document.querySelector("#content");
-
         let tag = "";
-        tag += 
-        `
-        <style>
-            table, tr, td {
-                border-collapse: collapse;
-                border: 1px solid black;
-            }
-            #content-board {
-                margin: 0 auto;
-                width: 700px;
-                text-align: center;
-            }
-        </style>
-        `;
 
         tag +=
         `
@@ -65,10 +52,9 @@ export class PageBoardList {
                 <td>삭제</td>
             </tr>
         `;
-         
-     
-      
-        let boardList = JsonBoard.getInstance().setBoardList();
+        
+
+        let boardList = JsonBoard.getInstance().getBoardList()
         for(let i = 0; i < boardList.length; i++) {
             tag += 
             `
@@ -86,27 +72,22 @@ export class PageBoardList {
                 </tr>
             `;
         }
-
+        
         tag += `</table>`;
-       
+        
         $content.innerHTML = tag;
 
         this.$boardNo = document.querySelectorAll(".boardNo");
-
-        this.$atagBoardInfoPage = document.querySelectorAll(".atag-boardInfoPage");
-        for(let i=0; i<this.$atagBoardInfoPage.length; i++) {
-            this.$atagBoardInfoPage[i].addEventListener("click", this.boardInfoPageClick);
-        }
-
-        this.$buttonBoardModifyPro = document.querySelectorAll(".button-boardModifyPro");
-        for(let i=0; i<this.$buttonBoardModifyPro.length; i++) {
-            this.$buttonBoardModifyPro[i].addEventListener("click", this.boardModifyPageClick);
-        }
         
+        this.$atagBoardInfoPage = document.querySelectorAll(".atag-boardInfoPage");
+        this.eachClickPageMove(this.$atagBoardInfoPage,"page_boardInfo")
+        //this.eachClickPageMove(this.$atagBoardInfoPage,"page_boardInfo")
+        
+        this.$buttonBoardModifyPro = document.querySelectorAll(".button-boardModifyPro");
+        this.eachClickPageMove(this.$buttonBoardModifyPro,"page_boardModify")
+
         this.$buttonBoardDeletePro = document.querySelectorAll(".button-boardDeletePro");
-        for(let i=0; i<this.$buttonBoardDeletePro.length; i++) {
-            this.$buttonBoardDeletePro[i].addEventListener("click", this.boardDeleteProClick);
-        }
+        this.boardDeleteProClick()
 
         this.$buttonBoardWritePage = document.querySelector("#button-boardWritePage");
         this.$buttonBoardWritePage.addEventListener("click", this.boardWritePageClick);
@@ -118,94 +99,67 @@ export class PageBoardList {
         this.$checkboxAll.addEventListener("click", this.checkboxAllClick);
 
         this.$checkboxBoard = document.querySelectorAll(".checkbox-board");
-        for(let i=0; i<this.$checkboxBoard.length; i++) {
-            this.$checkboxBoard[i].addEventListener("click", this.checkboxBoardClick);
-        }
+        this.$checkboxBoard.forEach((el)=>{
+            el.addEventListener("click", this.checkboxBoardClick);
+        })
 
         this.$buttonCheckBoardDeletePro = document.querySelector("#button-checkBoardDeletePro");
         this.$buttonCheckBoardDeletePro.addEventListener("click", this.buttonCheckBoardDeleteProClick);
-    }
-    
-    /*
-    forEachClick = (page,classNAme,event) => {
-        this.page = document.querySelectorAll(classNAme);
-        for(let i=0; i<this.page.length; i++) {
-            this.page[i].addEventListener("click", this.event);
-        }
-    } 
-    */
+        
+        
+    }//close execute
     
 
-    /*
- 
-    boardInfoPageClick = (event) =>  {
-        let index = 0;
-        for(let i=0; i<this.$atagBoardInfoPage.length; i++) {
-            if(event.target == this.$atagBoardInfoPage[i]) {
-                index = i;
-                break;
-            }
-        }
-        
-        ControllerMain.getInstance().changePage("page_boardInfo", this.$boardNo[index].innerText);
+    
+    eachClickPageMove = (target,changePage) => {
+        target.forEach((el,index) => {
+            el.addEventListener("click", () => {
+                ControllerMain.getInstance().changePage(changePage, this.$boardNo[index].innerText);
+            });
+        })
     }
-
-    boardModifyPageClick = (event) => {
-        let index = 0;
-        for(let i=0; i<this.$buttonBoardModifyPro.length; i++) {
-            if(event.target == this.$buttonBoardModifyPro[i]) {
-                index = i;
-                break;
-            }
-        }
-        
-        ControllerMain.getInstance().changePage("page_boardModify", this.$boardNo[index].innerText);
-    }
-
+    
     boardDeleteProClick = (event) => {
-        let index = 0;
-        for(let i=0; i<this.$buttonBoardModifyPro.length; i++) {
-            if(event.target == this.$buttonBoardModifyPro[i]) {
-                index = i;
-                break;
-            }
-        }
-        
-
-        JsonBoard.getInstance().deleteBoard(this.$boardNo[index].innerText);
-        ControllerMain.getInstance().changePage("page_boardList", null);
-    }
-
+        this.$buttonBoardDeletePro.forEach((el,index) => {
+         el.addEventListener("click", () => {
+             JsonBoard.getInstance().deleteBoard(this.$boardNo[index].innerText);
+             ControllerMain.getInstance().changePage("page-boardList", null);
+         });
+        })
+     }
+    
+    
+    
+    
+    
     boardWritePageClick = (event) => {
         ControllerMain.getInstance().changePage("page_boardWrite", null);
     }
 
     buttonBoardDummyAddProClick = (event) => {
-        JsonBoard.getInstance().setBoardDummyAdd();
-
+        JsonBoard.getInstance().setBoardDummyAdd()
         ControllerMain.getInstance().changePage("page_boardList", null);
     }
 
     checkboxAllClick = (event) => {
         if(this.$checkboxAll.checked) {
-            for(let i=0; i<this.$checkboxBoard.length; i++) {
-                this.$checkboxBoard[i].checked = true;
-            }
+            this.$checkboxBoard.forEach((el)=>{
+                el.checked = true;
+            })
         } else {
-            for(let i=0; i<this.$checkboxBoard.length; i++) {
-                this.$checkboxBoard[i].checked = false;
-            }
+            this.$checkboxBoard.forEach((el)=>{
+                el.checked = false;
+            })
         }
     }
 
     checkboxBoardClick = (event) => {
         let count = 0;
-        for(let i=0; i<this.$checkboxBoard.length; i++) {
-            if(this.$checkboxBoard[i].checked) {
+        this.$checkboxBoard.forEach((el)=>{
+            if(el.checked){
                 count += 1;
             }
-        }
-
+        })
         if(count == this.$checkboxBoard.length) {
             this.$checkboxAll.checked = true;
         } else {
@@ -215,17 +169,15 @@ export class PageBoardList {
 
     buttonCheckBoardDeleteProClick = (event) => {
         let deleteList = [];
-        for(let i=0; i<this.$checkboxBoard.length; i++) {
-            if(this.$checkboxBoard[i].checked) {
-                deleteList.push(Number(this.$boardNo[i].innerHTML));
+        this.$checkboxBoard.forEach((el,index)=>{
+            if(el.checked){
+                deleteList.push(Number(this.$boardNo[index].innerHTML));
             }
-        }
-        console.log(deleteList);
+        })
 
         JsonBoard.getInstance().checkBoardDeletePro(deleteList);
-
         ControllerMain.getInstance().changePage("page_boardList", null);
     }
-*/
+
 
 }

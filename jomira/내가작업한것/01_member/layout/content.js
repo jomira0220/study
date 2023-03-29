@@ -1,6 +1,3 @@
-import { ControllerMain } from "../controllerMain.js";
-
-
 export class LayoutContent {
   execute(data) {
     let $content = document.querySelector("#content");
@@ -10,8 +7,5 @@ export class LayoutContent {
         `;
 
     $content.innerHTML = tag;
-    
-    
-    
   }
 }

@@ -1,5 +1,5 @@
-import { ControllerMain } from "./controllerMain.js";
-import { JsonBoard } from "./jsonBoard.js";
+import { ControllerMain } from "../controllerMain.js";
+import { JsonBoard } from "../jsonBoard.js";
 
 export class PageBoardInfo {
     execute(data) {
@@ -76,11 +76,11 @@ export class PageBoardInfo {
     }
     
     boardReplyPage = (event) =>  {
-// 기능구현하기
+       // 기능구현하기
     }
 
     boardListPage = (event) => {
-        ControllerMain.getInstance().changePage("page-boardList", null);
+        ControllerMain.getInstance().changePage("page_boardList", null);
     }
 
 }
