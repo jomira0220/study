@@ -2,13 +2,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;600;800&family=Noto+Sans+KR:wght@100;400;700&display=swap');
 
 :root{
-    --space-padding:1.5% 5%;
+    --bothSide-padding:5%;
     --basic-color-0:#fff;
     --basic-color-1:#000;
     --basic-color-2:#146C94;
     --basic-color-3:#19A7CE;
     --basic-color-3:#F6F1F1;
     --font-family:'Montserrat','Noto Sans KR', sans-serif;
+    --font-size:1.2em;
 }
 
 * {
@@ -22,6 +23,7 @@ body {
     position: relative;
     overflow-x: hidden;
     font-family: var(--font-family);
+    font-size: 1em;
 }
 
 ul {
@@ -33,14 +35,17 @@ ul {
 
 
 #header{
-    position:relative;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
+    height:80px;
     border-bottom: 1px solid #ccc;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    padding:var(--space-padding);
+    padding:0 var(--bothSide-padding);
     background-color:var(--basic-color-0);
     
     &.fixed{
@@ -77,8 +82,12 @@ ul {
     }
 }
 
+.topSpace {
+    height: 80px;
+}
+
 #content{
-    min-height:1000px;
+    min-height:900px;
     display:flex;
     justify-content: center;
     align-items: center;
@@ -89,11 +98,11 @@ ul {
     width: 100%;
     position: relative;
     left: 0;
-    bottom:-10px;
+    bottom:0px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding:var(--space-padding);
+    padding:3% var(--bothSide-padding);
     background-color: var(--basic-color-1);
     color:#fff;
     

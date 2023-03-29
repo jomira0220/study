@@ -4,20 +4,79 @@ import { memberDB } from "./db.js";
 
 
 
+//!스토어 정보
 let storeKey = Object.keys(storeDB);
 let storeValue = Object.values(storeDB.Seoul);
 console.log(storeValue)
 
-//큰 메뉴 카테고리 배열
+//!큰 메뉴 카테고리 정보
 let menuKey = Object.keys(menuDB);
 console.log(menuKey);
 
-//큰 메뉴 카테고리별 상품정보 객체
+//!큰 메뉴 카테고리별 상품정보
 let menuValue = Object.values(menuDB);
 console.log(menuValue);
 
 
+//!회원정보
+let userValue = Object.values(memberDB.Member)
+console.log(userValue.length)
 
+function introClose(){
+  let introBox = document.querySelector(".intro")
+  if(introBox){
+    setTimeout(function(){
+      introBox.setAttribute("style","border-radius:100%;width:0;height:0;")
+    },1500)
+  }
+ 
+}
+introClose()
+
+//!로그인체크
+function loginCheck(){
+  let loginBtn = document.querySelector(".loginBtn")
+  if(loginBtn){
+    loginBtn.addEventListener("click", () => {
+      let loginId = document.querySelector(".userId").value
+      let loginPw = document.querySelector(".userPw").value
+      userValue.forEach((el) => {
+        if(el.id == loginId && el.password == loginPw){
+          document.location.href = "../index.html?userId="+ loginId
+        }else if(loginId == "" || loginPw == ""){
+          console.log("아이디 또는 비밀번호를 입력해주세요")
+        }else if(el.id != loginId || el.password != loginPw){
+          console.log("아이디 또는 비밀번호를 확인해주세요")
+        }
+      })
+    })
+  }
+}
+loginCheck()
+
+//! 아이디복사버튼
+function copyToClipBoard(){
+  let copyBtn = document.querySelector("#copyBtn")
+  if(copyBtn){
+    copyBtn.addEventListener("click",()=>{
+      console.log("d")
+      let copyText = document.querySelector('#copyText').value;
+      navigator.clipboard.writeText(copyText)
+          .then(() => {
+          console.log("Text copied to clipboard...")
+      })
+          .catch(err => {
+          console.log('Something went wrong', err);
+      })
+    })
+  }
+}
+copyToClipBoard()
+
+
+
+
+//! 팝업 형태 박스 노출 관련
 let popOnBtn = document.querySelector("#popOnBtn");
 let popOffBtn = document.querySelector("#popOffBtn");
 let popBox = document.querySelector("#popBox");
@@ -38,6 +97,8 @@ if (popOnBtn && popOffBtn && popBox) {
   popClose();
 }
 
+
+//! header 뒤로가기 버튼 클릭 이벤트
 function backPage() {
   let headerBackBtn = document.querySelector("header .backBtn");
   if (headerBackBtn) {
@@ -48,7 +109,8 @@ function backPage() {
 }
 backPage();
 
-/* storeChoice 매장선택 */
+//! 매장 선택 페이지 & 매장 검색 페이지  
+//! 매장 리스트 노출
 function storeList() {
   /* 해당 매장에서 주문할지 여부 확인 팝업 노출관련*/
   function storePop() {
@@ -109,8 +171,8 @@ function storeList() {
 storeList();
 
 
-
-/* orderStep_1 메뉴선택 및 상품검색버튼 파라미터 셋팅 */
+//! orderStep_1 메뉴 선택 페이지
+//! 카테고리 셋팅 및 상품검색버튼 파라미터 셋팅 
 function menuCategory() {
   
   let menuCategory = document.querySelector(".orderStep_1 .menuCategory ul");
@@ -157,9 +219,11 @@ function menuCategory() {
 
         //열개수 기본값 3열
         let colCount = "3";
+        
+        //* 상품 카테고리에 따른 상품리스트 노출
         prdListSet(colCount);
 
-        //열 바꾸기 버튼 클릭시 바뀐 배열로 노출처리
+        //~열 바꾸기 버튼 클릭시 바뀐 배열로 노출처리
         document.querySelector(".colCount").addEventListener("click", () => {
           if (colCount == "3") {
             colCount = "1";
@@ -174,6 +238,7 @@ function menuCategory() {
           prdListSet(colCount);
         });
 
+        //!상품리스트 셋팅
         function prdListSet(colCount) {
           //상품리스트 초기화 - 열바꾸기 버튼 클릭시 초기화용
           prdList.innerHTML = "";
@@ -231,7 +296,7 @@ function menuCategory() {
           }
         }
 
-        //디저트는 온도 관련 내용 삭제
+        //!디저트 카테고리 온도 관련 내용 삭제
         if (categoryName == "디저트") {
           document.querySelectorAll(".prdName span").forEach((el) => {
             el.remove();
@@ -248,17 +313,41 @@ function menuCategory() {
     let storeName = ""
   
     for(let i = 0; i < storeValue.length; i++){
-      
       if (storeValue[i].storeCodeName == storeCode){
         storeName = storeValue[i].storeName
       }
     }
     
-
-    
-    $footer.innerHTML = `<button type="button">`+storeName+` <i class="icon-angle_down"></i></button>
+    $footer.innerHTML = `<button type="button" id="storeChangeBtn">`+storeName+` <i class="icon-angle_down"></i></button>
     <button class="cartBtn" onClick="location.href='../page/basket.html'"><span class="hidden">장바구니</span><i class="icon-cart"></i><span class="cartCount">0</span></button>
     `;
+    
+    
+    let storeChangeBtn = $footer.querySelector("#storeChangeBtn")
+    let $storeChangePop = document.createElement("div")
+    $storeChangePop.id = "storeChangePop"
+    storeChangeBtn.addEventListener("click",() => {
+      $footer.append($storeChangePop)
+    })
+    
+    $storeChangePop.innerHTML = `
+      <div class="storeChangeBox">
+        <strong>매장을 변경하시겠습니까?</strong>
+        <p>매장을 변경하실 경우 이전에 담은 메뉴가 삭제됩니다.</p>
+        <button type="button" class="changeCancel">취소</button>
+        <button type="button" class="changeOk">매장변경</button>
+      </div>
+    `
+    $storeChangePop.querySelector(".changeCancel").addEventListener("click",() => {
+      $storeChangePop.remove()
+    })
+    
+    $storeChangePop.querySelector(".changeOk").addEventListener("click",() => {
+      window.history.back();
+    })
+    
+    
+    
     
     
   } //menucategory
@@ -512,7 +601,7 @@ function prdOptionSet() {
     let mainPrdPrice = Number(menuValue[menuCate][menuCode].prdPrice);
     //let mainPrdPrice = Number(menuValue[menuCate][menuCode].prdPrice) * mainPrdPrice;
     
-    //★개수 3개이상 주문시 계산이 맞지 않음 수정해야함!!!!!!!!!!!!!!!!!!!!!
+    //!★개수 3개이상 주문시 계산이 맞지 않음 수정해야함!!!!!!!!!!!!!!!!!!!!!
     mainPrdCountBtn.forEach(function(e){
       e.addEventListener("click",()=>{
         if(e.className == "plus"){
@@ -530,9 +619,6 @@ function prdOptionSet() {
       });
     })
     
-
-    
-
     let totalPrice = 0;
     
     document.querySelector(".orderBottom .totalBox b").innerText = mainPrdPrice.toLocaleString("Ko-KR")+`원`;
@@ -662,7 +748,8 @@ function userRecommended(){
   let sugestionMenu = document.querySelector(".sugestionMenu .swiper-wrapper")
   if(sugestionMenu){
     
-    let userID = document.location.search.replace("?","") //유저아이디
+    let userID = new URL(location.href).searchParams.get("userId") //유저아이디
+    console.log(userID)
     let userRecommended = []; // 유저추천메뉴
     for(let i = 0; i < memberDB.Member.length; i++){
       if(memberDB.Member[i]["id"] == userID){

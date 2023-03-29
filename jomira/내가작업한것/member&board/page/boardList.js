@@ -55,6 +55,7 @@ export class PageBoardList {
         
 
         let boardList = JsonBoard.getInstance().getBoardList()
+        //console.log(boardList)
         for(let i = 0; i < boardList.length; i++) {
             tag += 
             `
@@ -123,7 +124,7 @@ export class PageBoardList {
         this.$buttonBoardDeletePro.forEach((el,index) => {
          el.addEventListener("click", () => {
              JsonBoard.getInstance().deleteBoard(this.$boardNo[index].innerText);
-             ControllerMain.getInstance().changePage("page-boardList", null);
+             ControllerMain.getInstance().changePage("page_boardList", null);
          });
         })
      }

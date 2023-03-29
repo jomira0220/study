@@ -15,7 +15,7 @@ export class PageBoardListPaging {
 
 
     execute(data) {
-        console.log("data = " + data);
+        //console.log("data = " + data);
 
         let $content = document.querySelector("#content");
 
@@ -27,7 +27,7 @@ export class PageBoardListPaging {
             5. 현재 페이지의 게시글 마침번호
         */
 
-        this.전체게시글수 = JsonBoard.getInstance().getBordCount();
+        this.전체게시글수 = JsonBoard.getInstance().getBoardCount();
         this.한페이지에보여줄게시글수 = 5;
         this.현재페이지번호 = 1;
         this.게시글시작번호 = 0;
@@ -196,7 +196,7 @@ export class PageBoardListPaging {
     buttonBoardDummyAddProClick = (event) => {
         JsonBoard.getInstance().setBoardDummyAdd();
 
-        ControllerMain.getInstance().changePage("page-boardListPaging", null);
+        ControllerMain.getInstance().changePage("page_boardListPaging", null);
     }
 
     atagBoardListPagingPageClick = (event) => {

@@ -74,6 +74,9 @@ export class PageMemberLogin {
     
         let result = JsonMember.getInstance().loginMember(this.$inputMemberId.value, this.$inputMemberPw.value);
         if(result) {
+            //로그인 성공시 세션 스토리지에 아이디저장
+            localStorage.setItem("user",this.$inputMemberId.value)
+            
             ControllerMain.getInstance().log = this.$inputMemberId.value;
             ControllerMain.getInstance().changePage("layout_header", null);
             ControllerMain.getInstance().changePage("layout_content", null);

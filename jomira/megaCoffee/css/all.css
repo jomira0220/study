@@ -1,3 +1,6 @@
+
+
+
 #popBox.off {
   display: none !important;
 }
@@ -113,6 +116,63 @@
 #order .menuFooter button.cartBtn {
   font-size:1.5em;
 }
+
+#order #storeChangePop {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0, 0, 0, 0.5);
+  z-index:51;
+  display: flex;
+  align-items:center;
+  justify-content: center;
+}
+
+#order #storeChangePop .storeChangeBox {
+  width:70%;
+  padding-top:8%;
+  background-color: #fff;
+  border-radius: 20px;
+  text-align: center;
+  overflow: hidden;
+}
+
+#storeChangePop .storeChangeBox strong{
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+#storeChangePop .storeChangeBox p{
+  margin: 15px 0 25px;
+  padding: 0 15px;
+  word-break: keep-all;
+  line-height: 1.5em;
+}
+
+#storeChangePop .storeChangeBox button{
+  display:block;
+  float: left;
+  width: 50%;
+  height:40px;
+  font-weight: bold;
+  font-size: var(--basic-font-size);
+}
+
+#storeChangePop .storeChangeBox .changeCancel{
+  background-color: var(--main-color2);
+  color:var(--main-color1);
+}
+
+#storeChangePop .storeChangeBox .changeOk{
+  background-color: var(--main-color1);
+  color:var(--main-color2);
+}
+
+
+
+
 
 /* === orderStep_2 주문 - 옵션선택페이지 === */
 
@@ -994,25 +1054,81 @@ input#saveCashReceipts:checked + label:before {
 }
 
 /* join,login 페이지 */
-#loginBtn {
+#loginStart {
   height: 100%;
-  padding: 0 20px;
+  padding: 0 10%;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-.login {
-  width: 100%;
+.loginNjoin {
   text-align: center;
 }
-.login .logoImg {
-  max-width: 300px;
-  width: 80%;
+.loginNjoin li {
+  display: inline-block;
+  margin: 0 25px;
 }
 
+
 .kakaoLogin {
-  padding: 50% 0 5%;
+  display: inline-block;
+  width: 100%;
+  margin: 50% 0 8%;
 }
+
+#login {
+  height: 100%;
+  padding: 0 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#login h1 {
+  width: 80%;
+  margin: 0 auto 10%;
+}
+
+#login label{
+  display: block;
+  width: 100%;
+  position: relative;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  border:1px solid var(--main-color2);
+  overflow: hidden;
+}
+
+#login label span{
+  position: absolute;
+  left: 15px;
+  top: 50%; 
+  transform: translateY(-50%);
+}
+
+#login input {
+  margin: 0;
+  width: 100%;
+  height:50px;
+  padding:0 25%;
+  border:none;
+}
+#login input[type="password"] {
+  font-size:1.8em;
+  padding-bottom: 5px;
+}
+
+#login .loginBtn {
+  width: 100%;
+  height:50px;
+  background-color: var(--main-color1);
+  color:#fff;
+  font-size: var(--main-font-size);
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+
 
 /* loginBtn 끝*/
 /* Join 시작*/
@@ -1065,7 +1181,8 @@ input#saveCashReceipts:checked + label:before {
 .input1 span {
   position: absolute;
   right: 20px;
-  top: 0;
+  top: 50%;
+  transform: translateY(-50%);
   z-index: 5;
 }
 
@@ -1091,7 +1208,7 @@ input#saveCashReceipts:checked + label:before {
 }
 
 #join .privacy > div {
-  background-color: lightgray;
+  background-color: #f0f0f0;
   padding: 10px;
   border-radius: 5px;
 }
