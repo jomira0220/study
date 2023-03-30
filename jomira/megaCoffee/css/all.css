@@ -224,50 +224,50 @@
   top: -5px;
 }
 
-#optionBox {
+.optionBox {
   padding: 15px;
 }
 
-#optionBox form label {
+.optionBox form label {
   display: block;
   margin: 20px 0;
 }
 
-#optionBox form h4 {
+.optionBox form h4 {
   color: #676767;
   margin-top: 20px;
 }
 
-#optionBox.recommendBox {
+.optionBox.recommendBox {
   margin-bottom: 45px;
 }
 
-#optionBox .recoMenu h4 {
+.optionBox .recoMenu h4 {
   font-weight: bold;
   color: #000;
   margin-top: 0;
 }
 
-#optionBox .recoMenu img {
+.optionBox .recoMenu img {
   max-width: 150px;
   width: 22%;
 }
 
-#optionBox .recoMenu label {
+.optionBox .recoMenu label {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 0;
 }
 
-#optionBox .recoMenu .recoInfo {
+.optionBox .recoMenu .recoInfo {
   flex: 1;
   padding-left: 10px;
   line-height: 1.5em;
   font-size: var(--basic-font-size);
 }
 
-#optionBox .recoMenu .recoInfo .recoPrice {
+.optionBox .recoMenu .recoInfo .recoPrice {
   font-weight: bold;
 }
 
@@ -762,7 +762,7 @@ input#saveCashReceipts:checked + label:before {
   font-weight: bold;
 }
 
-.storeList .storeAdress {
+.storeList .storeAddress {
   margin: 8px 0;
   font-size: 0.85em;
   letter-spacing: -0.5px;

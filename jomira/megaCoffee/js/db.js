@@ -552,6 +552,7 @@ const memberDB = {
   ],
   Member: [
     {
+      memberName: "조미라",
       id: "Memberid_01",
       password: "123123",
       birthDay: "91-02-20",

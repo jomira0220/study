@@ -27,5 +27,68 @@
 i = 1					# 초기식
 
 while i <= 5:			# 조건식
-    print(i)
+    print(i) # 1 2 3 4 5
     i = i + 1			# 증감식
+    
+
+for i in range(1,10,2):
+    print(i, end= " ") # 1 3 5 7 9 5 번 실행됨
+print()
+
+
+# break
+i = 1
+while True:
+    print(i, end=" ") # 1 2 3
+    if i == 3:
+        break
+    i += 1
+print()
+
+# continue
+i = 1
+while i <= 5:
+    if i == 3:
+        i += 1
+        continue
+    print(i, end=" ") # 1 2 4 5
+    i += 1
+
+
+#이차반복문
+for i in range(2,10):
+	print(i, "단>>>")
+	for j in range(1,10):
+            print(i, "X", j, "=", i*j)
+        
+
+for i in range(-5, 6):
+    print(i, end=" ")
+print()
+
+
+#이차반복문
+
+list = [
+    [1,2,3],
+    [4,5,6],
+    [7,8,9]
+]
+print(id(list[0]))
+print(id(list[1]))
+print(id(list[2]))
+
+print(list[0])
+print(list[1])
+print(list[2])
+
+list[0] = list[1]
+list[1][0] = 100
+
+print(id(list[0]))
+print(id(list[1]))
+print(id(list[2]))
+
+print(list[0])
+print(list[1])
+print(list[2])

@@ -38,11 +38,11 @@
   z-index: 5;
 }
 
-#main .info .name{
+#main .info .nameBox{
   font-size: var(--main-font-size);
 }
 
-#main .info .name span{
+#main .info .name{
   font-weight: bold;
 }
 

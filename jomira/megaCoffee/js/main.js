@@ -2,7 +2,9 @@ import { storeDB } from "./db.js";
 import { menuDB } from "./db.js";
 import { memberDB } from "./db.js";
 
-
+document.cookie = "safeCookie1=foo; SameSite=Lax"; 
+document.cookie = "safeCookie2=foo"; 
+document.cookie = "crossCookie=bar; SameSite=None; Secure";
 
 //!스토어 정보
 let storeKey = Object.keys(storeDB);
@@ -19,8 +21,8 @@ console.log(menuValue);
 
 
 //!회원정보
-let userValue = Object.values(memberDB.Member)
-console.log(userValue.length)
+let userValue = Object.values(memberDB.Member);
+//console.log(userValue.length)
 
 function introClose(){
   let introBox = document.querySelector(".intro")
@@ -43,16 +45,36 @@ function loginCheck(){
       userValue.forEach((el) => {
         if(el.id == loginId && el.password == loginPw){
           document.location.href = "../index.html?userId="+ loginId
+          localStorage.setItem("memberId",loginId)
         }else if(loginId == "" || loginPw == ""){
-          console.log("아이디 또는 비밀번호를 입력해주세요")
+          alert("아이디 또는 비밀번호를 입력해주세요")
         }else if(el.id != loginId || el.password != loginPw){
-          console.log("아이디 또는 비밀번호를 확인해주세요")
+          alert("아이디 또는 비밀번호를 확인해주세요")
         }
       })
     })
   }
 }
 loginCheck()
+
+
+//! 접속 아이디에 따른 이름 노출
+function nameCheck(){
+  let nameBox =  document.querySelectorAll(".name")
+  let loginIdCheck = localStorage.getItem("memberId")
+  userValue.forEach((el) => {
+    if(el.id == loginIdCheck){
+      nameBox.forEach((nameBox)=>{
+        nameBox.innerText = el.memberName
+      })
+      
+    }
+  });
+}
+nameCheck()
+
+
+
 
 //! 아이디복사버튼
 function copyToClipBoard(){
@@ -146,25 +168,17 @@ function storeList() {
       }
 
       storeList.children[i].innerHTML =
-        `<td class="storeInfo">
-        <div class="storeName" data-store-code="` +
-        storeValue[i].storeCodeName +
-        `">` +
-        storeValue[i].storeName +
-        `</div>
-        <div class="storeAdress">` +
-        storeValue[i].storeAddress +
-        `</div>
-        <div class="storeMap">` +
-        storeValue[i].storeDistance +
-        `</div>
+        `
+        <td class="storeInfo">
+          <div class="storeName" data-store-code="`+storeValue[i].storeCodeName+`">`+storeValue[i].storeName+`</div>
+          <div class="storeAddress">`+storeValue[i].storeAddress+`</div>
+          <div class="storeMap">`+storeValue[i].storeDistance+`</div>
         </td>
         <td class="storeImgBox">
-        <img class="storeImg" src="../resource/img/store/` +
-        storeValue[i].storeCodeName +
-        `.jpg" alt="">
-        <div class="favorite"><i class="icon-favorite_star_circle"></i></div>
-      </td>`;
+          <img class="storeImg" src="../resource/img/store/`+storeValue[i].storeCodeName+`.jpg" alt="">
+          <div class="favorite"><i class="icon-favorite_star_circle"></i></div>
+        </td>
+        `;
     }
   }
 }
@@ -265,30 +279,18 @@ function menuCategory() {
                 let temperature = prdContent.prdCategory.temperature;
                 let prdCodeName = Object.keys(menuValue[i])[prdIndex];
                 let prdName = prdContent.prdName.ko;
+                let prdPrice = prdContent.prdPrice;
                 let prdCateLan = prdContent.prdCategory.language.en;
 
                 prdList.children[k].children[j].innerHTML =
-                  `<a href="orderStep_2.html` +
-                  location.search +
-                  `&` +
-                  prdCodeName +
-                  `">
-                  <img src="../resource/img/menu/` +
-                  prdCateLan +
-                  `/` +
-                  temperature +
-                  `/` +
-                  prdCodeName +
-                  `.jpg" alt="">
-                  <div class="prdInfo">
-                    <div class="prdName"><span>(` +
-                  temperature +
-                  `)</span>` +
-                  prdName +
-                  `</div>
-                    <div class="prdPrice"><span>1,500</span>원</div>
+                `
+                <a href="orderStep_2.html`+location.search+`&prdCode=`+prdCodeName+`">
+                  <img src="../resource/img/menu/`+prdCateLan+`/`+temperature+`/`+prdCodeName+`.jpg" alt="">
+                  <div class="prdInfo"><div class="prdName"><span>(`+temperature+`)</span>`+prdName+`</div>
+                    <div class="prdPrice"><span>`+prdPrice+`</span>원</div>
                   </div>
-                </a>`;
+                </a>
+                `;
               }
 
               prdIndex++;
@@ -318,8 +320,14 @@ function menuCategory() {
       }
     }
     
-    $footer.innerHTML = `<button type="button" id="storeChangeBtn">`+storeName+` <i class="icon-angle_down"></i></button>
-    <button class="cartBtn" onClick="location.href='../page/basket.html'"><span class="hidden">장바구니</span><i class="icon-cart"></i><span class="cartCount">0</span></button>
+    $footer.innerHTML = 
+    `
+     <button type="button" id="storeChangeBtn">`
+      +storeName+` <i class="icon-angle_down"></i>
+     </button>
+     <button class="cartBtn" onClick="location.href='../page/basket.html'">
+      <span class="hidden">장바구니</span><i class="icon-cart"></i><span class="cartCount">0</span>
+     </button>
     `;
     
     
@@ -330,7 +338,8 @@ function menuCategory() {
       $footer.append($storeChangePop)
     })
     
-    $storeChangePop.innerHTML = `
+    $storeChangePop.innerHTML = 
+    `
       <div class="storeChangeBox">
         <strong>매장을 변경하시겠습니까?</strong>
         <p>매장을 변경하실 경우 이전에 담은 메뉴가 삭제됩니다.</p>
@@ -346,10 +355,7 @@ function menuCategory() {
       window.history.back();
     })
     
-    
-    
-    
-    
+
   } //menucategory
 }
 menuCategory();
@@ -364,7 +370,7 @@ menuCategory();
 
 
 
-//prdSearch 페이지 전상품리스트 노출
+//! prdSearch 페이지 전상품리스트 노출
 function prdSearchList() {
   let searchList = document.querySelector(".prdSearch .prdList");
 
@@ -383,52 +389,38 @@ function prdSearchList() {
         let temperature = searchPrdCon.prdCategory.temperature;
         let prdCodeName = Object.keys(menuValue[i])[j];
         let prdName = searchPrdCon.prdName.ko;
+        let prdPrice = searchPrdCon.prdPrice;
 
         searchList.append(document.createElement("tr"));
 
         //검색키워드가 없으면 기본값으로 전상품 출력
         if (searchBox.value == "") {
           searchList.children[prdCount].innerHTML =
-            `<td><a href="orderStep_2.html` +
-            location.search +
-            `&` +
-            prdCodeName +
-            `">
-              <img src="../resource/img/menu/` +
-            prdCateLanguage +
-            `/` +
-            temperature +
-            `/` +
-            prdCodeName +
-            `.jpg" alt="">
+            `
+            <td><a href="orderStep_2.html`+location.search+`&prdCode=`+prdCodeName+`">
+              <img src="../resource/img/menu/`+prdCateLanguage+`/`+temperature+`/`+prdCodeName+`.jpg" alt="">
               <div class="prdInfo">
-                <div class="prdName"><span>(` +
-            temperature +
-            `)</span>` +
-            prdName +
-            `</div>
-                <div class="prdPrice"><span>1,500</span>원</div>
+                <div class="prdName"><span>(`+temperature+`)</span>`+prdName+`</div>
+                <div class="prdPrice"><span>`+prdPrice+`</span>원</div>
               </div>
-        </a></td>`;
+            </a></td>
+            `;
           prdCount++;
         } else {
           //검색키워드가 있으면 키워드에 맞는 상품정보만 출력
           if (prdName.indexOf(searchBox.value) != -1) {
             searchList.append(document.createElement("tr"));
             searchList.children[trCount].innerHTML =
-              `<td><a href="orderStep_2.html?">
-              <img src="../resource/img/menu/` +
-              prdCateLanguage +
-              `/` +
-              temperature +
-              `/` +
-              prdCodeName +
-              `.jpg" alt="">
-              <div class="prdInfo"><div class="prdName"><span>(` +
-              temperature +
-              `)</span>` +
-              prdName +
-              `</div><div class="prdPrice"><span>1,500</span>원</div></div></a></td>`;
+              `
+              <td><a href="orderStep_2.html`+location.search+`&prdCode=`+prdCodeName+`">
+                <img src="../resource/img/menu/`+prdCateLanguage+`/`+temperature+`/`+prdCodeName+`.jpg" alt="">
+                <div class="prdInfo">
+                  <div class="prdName"><span>(`+temperature+`)</span>`+prdName+`</div>
+                  <div class="prdPrice"><span>`+prdPrice+`</span>원</div>
+                </div>
+              </a></td>
+              `;
+              
             trCount++;
           }
         }
@@ -449,17 +441,14 @@ function prdSearchList() {
 }
 prdSearchList();
 
-/*
 
 
-*/
-
-//orderStep_2 주문상품 옵션 선택 생성
+//! orderStep_2 주문상품 옵션 선택 생성
 function prdOptionSet() {
   let orderStep_2 = document.querySelector(".orderStep_2");
   if (orderStep_2) {
     //선택해서 들어온 상품코드를 url로 확인
-    let menuCode = location.href.split("&")[2];
+    let menuCode = new URL(location.href).searchParams.get("prdCode")
 
     //상품코드에 맞는 DB값 selectMenu에 담기
     let selectMenu;
@@ -495,7 +484,7 @@ function prdOptionSet() {
       prdDes +
       `</p>`;
 
-    //온도가 있는 상품이면 상품명 앞에 온도 표시
+    //* 온도 정보가 있는 상품이면 상품명 앞에 온도 표시
     if (temperature != "none") {
       let prdtemper = document.querySelector("#prdDetail .prdName");
       prdtemper.prepend(document.createElement("span"));
@@ -503,7 +492,7 @@ function prdOptionSet() {
     }
 
     //선택 상품 옵션 정보 노출
-    let prdOptionBox = document.querySelector("#optionBox form");
+    let prdOptionBox = document.querySelector(".optionBox form");
     let prdOption = selectMenu.prdOption;
 
     for (let i = 0; i < Object.keys(prdOption).length; i++) {
@@ -521,9 +510,6 @@ function prdOptionSet() {
       //옵션별 타이틀 넣기
       optionDiv.querySelector("h4").innerHTML = optionCont.title;
 
-      //옵션박스안의 세부옵션개수(타이틀개수포함)
-      //console.log(Object.keys(optionCont).length);
-
       //세부옵션별 선택지 만큼 선택요소(라디오버튼) 생성
       for (let j = 0; j < Object.keys(optionCont).length - 1; j++) {
         optionDiv.append(document.createElement("label"));
@@ -537,7 +523,7 @@ function prdOptionSet() {
 
         //radio 첫번째 요소 기본 체크처리
         if (j + 1 == 1) {
-          optionDiv.children[j + 1].children[0].setAttribute("checked","checked");
+          optionDiv.children[j + 1].children[0].checked = true;
         }
       } //for
     
@@ -585,23 +571,77 @@ function prdOptionSet() {
       
     } //for
     
+    //선택한 상품 옵션 선택에 따른 총가격 노출
+    prdOptionTotal(menuCode)
+
     
-    //선택한 옵션별 가격 합산
-    let optionBox = document.querySelectorAll("#optionBox div") //옵션별 박스
-    let selectOption = {} //선택한 옵션 객체
+  }
+}
+prdOptionSet();
+
+
+//!옵션 선택 및 상품개수에 따른 총 가격 계산
+function prdOptionTotal(menuCode){
+
+    //옵션별 박스선택 추가구성상품 박스포함 선택임
+    let optionBox = document.querySelectorAll(".optionBox div") 
     
-  
-    let mainPrdCountBtn = document.querySelectorAll(".orderBottom .prdCountBox button"); //상품 카운트 버튼
-    let mainPrdCountBox = document.querySelector(".orderBottom .prdCountBox .prdCount"); //상품 카운트 박스
-    let mainPrdCount = Number(mainPrdCountBox.value); //상품 카운트 개수
+    //상품 카운트 버튼
+    let mainPrdCountBtn = document.querySelectorAll(".orderBottom .prdCountBox button"); 
     
-    //url 카테고리 번호 확인
+    //상품 카운트 박스
+    let mainPrdCountBox = document.querySelector(".orderBottom .prdCountBox .prdCount"); 
+    
+    //상품 카운트 개수
+    let mainPrdCount = Number(mainPrdCountBox.value); 
+    
+    //현재 접속한 url 카테고리 번호 확인
     let menuCate = new URL(location.href).searchParams.get("category");
-    //메인상품 가격
-    let mainPrdPrice = Number(menuValue[menuCate][menuCode].prdPrice);
-    //let mainPrdPrice = Number(menuValue[menuCate][menuCode].prdPrice) * mainPrdPrice;
     
-    //!★개수 3개이상 주문시 계산이 맞지 않음 수정해야함!!!!!!!!!!!!!!!!!!!!!
+    //상품 1개 가격
+    let mainPrdPrice = Number(menuValue[menuCate][menuCode].prdPrice)
+    
+     //선택한 옵션 객체
+    let selectOption = {}
+     //선택한 옵션 토탈가격
+    let totalOptionPrice = 0;
+    
+    function totalSet(mainPrdCount,mainPrdPrice,totalOptionPrice){
+      let totalSet = mainPrdPrice * mainPrdCount + totalOptionPrice
+      document.querySelector(".orderBottom .totalBox b").innerText = totalSet.toLocaleString("Ko-KR")+`원`;      
+    }
+    totalSet(mainPrdCount,mainPrdPrice,totalOptionPrice) //기본 가격 노출
+
+    
+
+    optionBox.forEach(function(e,index){
+      let radioOption = e.querySelectorAll("input")
+      radioOption.forEach(function(op){
+        op.addEventListener("click", () => {
+          
+          if(op.type == "radio"){
+            selectOption[op.name] = Number(op.dataset.optionPrice)
+          }else{
+         
+            if(op.checked){
+              selectOption[op.value] = Number(op.dataset.optionPrice)
+            }else{
+              delete selectOption[op.value]
+            }
+          }
+          
+          totalOptionPrice = 0
+          Object.values(selectOption).forEach((el)=>{
+            totalOptionPrice += el
+          });
+
+          totalSet(mainPrdCount,mainPrdPrice,totalOptionPrice)
+          return totalOptionPrice
+          
+        })
+      })
+    })
+    
     mainPrdCountBtn.forEach(function(e){
       e.addEventListener("click",()=>{
         if(e.className == "plus"){
@@ -615,45 +655,12 @@ function prdOptionSet() {
             alert("1개 미만 으로는 주문이 불가합니다.")
           }
         }
-        document.querySelector(".orderBottom .totalBox b").innerText = (totalPrice+mainPrdPrice).toLocaleString("Ko-KR")+`원`
+        totalSet(mainPrdCount,mainPrdPrice,totalOptionPrice)
       });
     })
-    
-    let totalPrice = 0;
-    
-    document.querySelector(".orderBottom .totalBox b").innerText = mainPrdPrice.toLocaleString("Ko-KR")+`원`;
-    
-    optionBox.forEach(function(e,index){
-      let radioOption = e.querySelectorAll("input")
-      radioOption.forEach(function(op){
-        op.addEventListener("click", () => {
-          
-          totalPrice += mainPrdPrice
-        
-          if(op.type == "radio"){
-            selectOption[op.name] = Number(op.dataset.optionPrice)
-          }else{
-            if(op.checked){
-              selectOption[op.value] = Number(op.dataset.optionPrice)
-            }else{
-              delete selectOption[op.value]
-            }
-          }
-        
-          Object.values(selectOption).forEach((el)=>{
-            totalPrice += el
-          });
-          
-          document.querySelector(".orderBottom .totalBox b").innerText = totalPrice.toLocaleString("Ko-KR")+`원`
-        })
-      })
-    })
-   
-    
-    
-  }
 }
-prdOptionSet();
+
+
 
 
 
@@ -717,7 +724,7 @@ function storeSearchList() {
               `">` +
               storeValue[i].storeName +
               `</div>
-              <div class="storeAdress">` +
+              <div class="storeAddress">` +
               storeValue[i].storeAddress +
               `</div>
               <div class="storeMap">` +
@@ -742,14 +749,14 @@ function storeSearchList() {
 storeSearchList();
 
 
-/* index.html 유저 추천메뉴 */
+//! index.html 유저 추천메뉴 
 function userRecommended(){
   
   let sugestionMenu = document.querySelector(".sugestionMenu .swiper-wrapper")
   if(sugestionMenu){
     
     let userID = new URL(location.href).searchParams.get("userId") //유저아이디
-    console.log(userID)
+    //console.log(userID)
     let userRecommended = []; // 유저추천메뉴
     for(let i = 0; i < memberDB.Member.length; i++){
       if(memberDB.Member[i]["id"] == userID){
@@ -767,20 +774,15 @@ function userRecommended(){
         if(menuValue[k][userRecommended[j]] != undefined){
           let menuInfo = menuValue[k][userRecommended[j]]
           let menuCode = userRecommended[j]
-          console.log(menuInfo.prdName.ko)
+          //console.log(menuInfo.prdName.ko)
 
           $div.innerHTML =
-            `<a href="./page/storeChoice.html?` +
-            userID +
-            `"><img src="./resource/img/menu/` +
-            menuInfo.prdCategory.language.en +
-            `/` +
-            menuInfo.prdCategory.temperature +
-            `/` +
-            menuCode +
-            `.jpg" alt="">
-          <div class="title"></div>
-          </a>`;
+          `
+            <a href="./page/storeChoice.html?`+userID +`">
+              <img src="./resource/img/menu/`+menuInfo.prdCategory.language.en+`/`+menuInfo.prdCategory.temperature+`/`+menuCode+`.jpg" alt="">
+              <div class="title"></div>
+            </a>
+          `;
           
           if( menuInfo.prdCategory.temperature != "none" ){
             $div.children[0].children[1].innerHTML = `(`+menuInfo.prdCategory.temperature+`)`+menuInfo.prdName.ko
@@ -794,3 +796,143 @@ function userRecommended(){
   }
 }
 userRecommended()
+
+
+
+function basketBtn(){
+  let basketAll = []
+  let basketBtn = document.querySelector(".basketBtn");
+
+  if(basketBtn){
+    basketBtn.addEventListener("click",() => {
+    
+      let selectOptionList = []
+      let addPrdList = []
+      
+      let buyPrdData = {
+          prdName: document.querySelector("#prdDetail .prdName").innerText,
+          prdCode: new URL(location.href).searchParams.get("prdCode"), 
+          prdOption: selectOptionList, 
+          prdPrice: document.querySelector(".orderBottom .totalBox b").innerText, 
+          prdCount: Number(document.querySelector(".orderBottom .prdCountBox .prdCount").value),
+          addPrdCode: addPrdList
+      };
+      
+      let selectOptionTitle = document.querySelectorAll(".optionBox div[class^='option_'] input")
+      selectOptionTitle.forEach((el) => {
+        if(el.checked == true){
+          selectOptionList.push(el.value)
+        }
+      })
+    
+      document.querySelectorAll(".recoInfo").forEach((el) => {
+        let recoCheckBox = el.nextElementSibling
+        if(recoCheckBox.checked == true){
+          let recoName = String(el.querySelector(".recoName").innerText)
+          let recoPrice = String(el.querySelector(".recoPrice").innerText)
+          addPrdList.push([recoName,recoPrice])
+        }
+      })
+      
+      localStorage.setItem("buyItemInfo",JSON.stringify(buyPrdData))
+      basketAll.push(buyPrdData)
+      localStorage.setItem("basketList",JSON.stringify(basketAll))
+
+    })
+  }
+}
+basketBtn()
+
+
+function basketCountSet(){
+  let basketCountBox = document.querySelector(".cartCount")
+  if(basketCountBox){
+    let nowBasketListCount = 0
+    //로컬에 저장된 값이 있으면 가져오기
+    let nowBasketList = JSON.parse(localStorage.getItem("basketList"))
+    if(nowBasketList != null){
+      nowBasketListCount = nowBasketList.length
+    }
+    basketCountBox.innerText = nowBasketListCount
+  }
+}
+basketCountSet()
+
+function basketListSet(){
+  let basketPageCk = document.querySelector("#order.basket")
+  if(basketPageCk){
+    let nowBasketList = JSON.parse(localStorage.getItem("basketList"))
+    if(nowBasketList == null){
+      nowBasketList = 0
+    }else{
+      let basketList = basketPageCk.querySelector(".basketList")
+      nowBasketList.forEach((el) => {
+        let $li = document.createElement("li")
+        basketList.append($li)
+        
+        menuValue.forEach((menu)=>{
+          console.log(menu[el.prdCode])
+        })
+        
+        $li.innerHTML = 
+        `
+            <div class="prdImg"><img src="../resource/img/menu/coffee/hot/`+el.prdCode+`.jpg" alt="뜨거운 아메리카노"></div>
+            <div class="basketPrd">
+              <div class="prdName">`+el.prdName+`</div>
+              <ul>
+              </ul>
+            </div>
+            <div class="delBtn"><button><i class="icon-cancel"></i></button></div>
+            <div class="prdCountBox">
+              <div class="countBox">
+                <button type="button" aria-label="수량내리기"><i class="icon-circle_minus"></i></button>
+                <div class="prdCount">`+el.prdCount+`</div>
+                <button type="button" aria-label="수량올리기"><i class="icon-circle_plus"></i></button>
+              </div>
+              <div class="prdPrice">`+el.prdPrice+`</div>
+            </div>
+        `;
+        
+        el.prdOption.forEach((option)=>{
+          let optionLi = document.createElement("li")
+          optionLi.innerText = option
+          $li.querySelector(".basketPrd ul").append(optionLi)
+        })
+        
+        
+        
+      })
+      
+      
+      
+    }
+    console.log(nowBasketList)
+    
+  
+    
+    //
+    
+    
+  }
+}
+basketListSet()
+
+
+/*
+function paymentPageSet(){
+ 
+  //let buyAll = {상품코드:menuCode,선택옵션:[],상품개수:0,상품가격:0,추가상품메뉴코드:[]}
+
+}
+paymentPageSet()
+
+
+
+function orderBtn(){
+  let orderBtn = document.querySelector(".orderBtn")
+  if(orderBtn){
+  
+  }
+}
+orderBtn()
+*/
