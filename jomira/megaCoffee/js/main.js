@@ -151,6 +151,8 @@ function storeList() {
     orderBtn.addEventListener("click", () => {
       document.location.href =
         "./orderStep_1.html?storeCode=" + storeCode + "&category=0";
+      let storeInfo = [storeName,storeCode]
+      localStorage.setItem("orderStore",JSON.stringify(storeInfo))
     });
   }
 
@@ -344,16 +346,14 @@ function menuCategory() {
         <strong>매장을 변경하시겠습니까?</strong>
         <p>매장을 변경하실 경우 이전에 담은 메뉴가 삭제됩니다.</p>
         <button type="button" class="changeCancel">취소</button>
-        <button type="button" class="changeOk">매장변경</button>
+        <button type="button" class="changeOk" onclick="location.href='storeChoice.html'">매장변경</button>
       </div>
     `
     $storeChangePop.querySelector(".changeCancel").addEventListener("click",() => {
       $storeChangePop.remove()
     })
     
-    $storeChangePop.querySelector(".changeOk").addEventListener("click",() => {
-      window.history.back();
-    })
+
     
 
   } //menucategory
@@ -804,6 +804,12 @@ function basketBtn(){
   let basketBtn = document.querySelector(".basketBtn");
 
   if(basketBtn){
+    
+    //상품하나 담고 다른거 상품 담는 경우 누적되도록
+    if(localStorage.getItem("basketList") != null){
+      basketAll = JSON.parse(localStorage.getItem("basketList"))
+    }
+    
     basketBtn.addEventListener("click",() => {
     
       let selectOptionList = []
@@ -837,7 +843,7 @@ function basketBtn(){
       localStorage.setItem("buyItemInfo",JSON.stringify(buyPrdData))
       basketAll.push(buyPrdData)
       localStorage.setItem("basketList",JSON.stringify(basketAll))
-
+      document.querySelector(".cartCount").innerText = basketAll.length
     })
   }
 }
@@ -861,62 +867,153 @@ basketCountSet()
 function basketListSet(){
   let basketPageCk = document.querySelector("#order.basket")
   if(basketPageCk){
+    
+    //로컬에 저장된 장바구니 담은 상품 정보 가져오기
     let nowBasketList = JSON.parse(localStorage.getItem("basketList"))
+    
+    //상품 주문한 지점명 노출
+    let selStoreName = JSON.parse(localStorage.getItem("orderStore"))[0]
+    document.querySelector("#storeName").innerText = selStoreName
+    
+    //장바구니가 비어있는 경우
     if(nowBasketList == null){
       nowBasketList = 0
+      document.querySelector(".basketEmpty").style.display = "flex";
     }else{
+    //장바구니에 상품이 있는 경우
+
+      //장바구니 비어있습니다 비노출
+      document.querySelector(".basketEmpty").style.display = "none"
+    
       let basketList = basketPageCk.querySelector(".basketList")
-      nowBasketList.forEach((el) => {
+      nowBasketList.forEach((basketLi,liIndex) => {
+        
         let $li = document.createElement("li")
         basketList.append($li)
         
-        menuValue.forEach((menu)=>{
-          console.log(menu[el.prdCode])
-        })
+        let elEn = ""
+        let elTemperature = ""
+        let elMainPrice = 0;
         
+        //주문한 상품 정보 확인
+        menuValue.forEach((value)=>{
+          let menu = value[basketLi.prdCode]
+          if(menu != undefined){
+            elEn = menu.prdCategory.language.en
+            elTemperature = menu.prdCategory.temperature
+            elMainPrice = menu.prdPrice
+          }
+          return false
+        })
+        //주문한 상품 정보 셋팅
         $li.innerHTML = 
         `
-            <div class="prdImg"><img src="../resource/img/menu/coffee/hot/`+el.prdCode+`.jpg" alt="뜨거운 아메리카노"></div>
+            <div class="prdImg"><img src="../resource/img/menu/`+elEn+`/`+elTemperature+`/`+basketLi.prdCode+`.jpg" alt=""></div>
             <div class="basketPrd">
-              <div class="prdName">`+el.prdName+`</div>
+              <div class="prdName">`+basketLi.prdName+`</div>
               <ul>
               </ul>
             </div>
             <div class="delBtn"><button><i class="icon-cancel"></i></button></div>
             <div class="prdCountBox">
               <div class="countBox">
-                <button type="button" aria-label="수량내리기"><i class="icon-circle_minus"></i></button>
-                <div class="prdCount">`+el.prdCount+`</div>
-                <button type="button" aria-label="수량올리기"><i class="icon-circle_plus"></i></button>
+                <button class="downBtn" type="button" aria-label="수량내리기"><i class="icon-circle_minus"></i></button>
+                <div class="prdCount">`+basketLi.prdCount+`</div>
+                <button class="upBtn" type="button" aria-label="수량올리기"><i class="icon-circle_plus"></i></button>
               </div>
-              <div class="prdPrice">`+el.prdPrice+`</div>
+              <div class="prdPrice">`+basketLi.prdPrice+`</div>
             </div>
         `;
         
-        el.prdOption.forEach((option)=>{
+        //주문한 상품의 옵션 나열
+        basketLi.prdOption.forEach((option)=>{
           let optionLi = document.createElement("li")
           optionLi.innerText = option
           $li.querySelector(".basketPrd ul").append(optionLi)
         })
         
+        //상품에 따른 카운트 및 삭제 실행
+        countNDelEvent($li,liIndex,elMainPrice)
         
+      })// close nowBasketList
+      
+       
+      function countNDelEvent(parent,parentIndex,elMainPrice){
         
-      })
+        //상품 개수 추가
+        let prdCountBtnUp = parent.querySelector(".upBtn")
+        let prdCountBtnDown = parent.querySelector(".downBtn")
+        let prdCountBox = parent.querySelector(".prdCount");
+        let prdPrice = parent.querySelector(".prdPrice");
+       
+
+        prdCountBtnUp.addEventListener("click",(el)=>{
+          let prdCount = Number(parent.querySelector(".prdCount").innerText);
+          prdCount++
+          prdCountBox.innerText = prdCount
+          if(prdCount > 1){
+            let prdNowPrice = Number(prdPrice.innerText.replace(/[^0-9]/g,""))
+            prdNowPrice += elMainPrice
+            prdPrice.innerText = prdNowPrice.toLocaleString("ko-KR") + `원`
+            basketTotalSet()
+          }
+          
+        })
+        prdCountBtnDown.addEventListener("click",(el)=>{
+          let prdCount = Number(parent.querySelector(".prdCount").innerText);
+          if(prdCount > 1){
+            prdCount--
+            prdCountBox.innerText = prdCount
+            let prdNowPrice = Number(prdPrice.innerText.replace(/[^0-9]/g,""))
+            prdNowPrice -= elMainPrice
+            prdPrice.innerText = prdNowPrice.toLocaleString("ko-KR") + `원`
+            basketTotalSet()
+          }else{
+            alert("1개이상 구매가 가능합니다.")
+          }
+        })
+        
+        //장바구니 상품 삭제
+        let prdDelBtn = parent.querySelector(".delBtn")
+        prdDelBtn.addEventListener("click",(delBtn)=>{
+          //현재 장바구니 리스트 배열에서 해당하는 객체 삭제
+          nowBasketList.splice(parentIndex,1)
+          console.log(nowBasketList)
+          if(nowBasketList == ""){ 
+            //삭제하여 장바구니에 아무것도 없는 경우
+            localStorage.removeItem("basketList")
+            localStorage.removeItem("buyItemInfo")
+            parent.remove()
+            document.querySelector(".basketEmpty").style.display = "flex";
+          }else{
+            //위에서 삭제한 리스트를 다시 로컬에 셋팅
+            localStorage.setItem("basketList",JSON.stringify(nowBasketList))
+            parent.remove()
+          }
+
+        })
+        
+      } //close countNDelEvent
       
       
+      function basketTotalSet(){
+        let listPriceSet =  document.querySelectorAll(".basketList .prdPrice")
+        let basketTotal = 0;
+        listPriceSet.forEach((listPrice) => {
+          basketTotal += Number(listPrice.innerText.replace(/[^0-9]/g,""))
+          document.querySelector(".orderBottom b").innerText = basketTotal.toLocaleString("ko-KR") + `원`
+        })
+      }
+      basketTotalSet()
       
     }
-    console.log(nowBasketList)
-    
-  
-    
     //
-    
     
   }
 }
 basketListSet()
 
+//!주문완료시 로컬스토리지 리셋 관련하여 처리 작업 필요 - 멤버아이디 장바구니 선택매장
 
 /*
 function paymentPageSet(){

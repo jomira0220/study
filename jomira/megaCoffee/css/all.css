@@ -276,8 +276,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 0 0 10px;
+  margin: 5px 0 10px;
   font-size: var(--basic-font-size);
+  font-weight: bold;
+}
+
+.orderBottom b {
+  color:red;
+  font-weight: bold;
 }
 
 .orderBottom .prdCountBox {
@@ -289,17 +295,13 @@
   text-align: center;
   margin: 0;
   border: none;
-  padding: 5px 0;
+  padding:0 0 5px;
 }
 
 .orderBottom .prdCountBox i {
   font-size: 1.5em;
 }
 
-.orderBottom .totalBox b {
-  color: red;
-  font-weight: bold;
-}
 
 .orderMenu {
   text-align: center;
@@ -488,8 +490,12 @@ input#saveCashReceipts:checked + label:before {
   font-weight: bold;
 }
 
-.basketList {
-  padding: 10px 15px 15px;
+
+p.basketEmpty{
+    height: calc(100vh - 150px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .basketList > li {
@@ -497,13 +503,14 @@ input#saveCashReceipts:checked + label:before {
   flex-flow: row wrap;
   justify-content: flex-end;
   position: relative;
-  padding-bottom: 18px;
+  margin:5px 15px 0px;
+  padding-bottom: 20px;
   border-bottom: 1px solid #f7f7f7;
   margin-bottom: 18px;
+  font-size: var(--basic-font-size);
 }
 
 .basketList > li:last-child {
-  padding-bottom: 0;
   border-bottom: 0;
   margin-bottom: 0;
 }
@@ -528,6 +535,7 @@ input#saveCashReceipts:checked + label:before {
   position: absolute;
   right: 0;
   top: 0;
+  font-size: var(--main-font-size);
 }
 
 .basketList li .delBtn i {
@@ -536,7 +544,7 @@ input#saveCashReceipts:checked + label:before {
 }
 
 .basketList li .prdCountBox {
-  flex: 0 2 80%;
+  flex: 0 2 75%;
   display: flex;
   justify-content: space-between;
 }
