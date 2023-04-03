@@ -10,31 +10,20 @@
 
 <body>
     <script>
-        let quiz = ["19 - 6 = 13", "5 + 66 = 71", "5 - 15 = 63", "3 - 1 = 2"]
-
-        function solution(quiz) {
-            let result = []
-            quiz.forEach(element => {
-                let elArr = element.split(" ")
-                let 계산
-                if(elArr[1] == "-"){
-                    계산 = Number(elArr[0]) - Number(elArr[2]) 
-                }else{
-                    계산 = Number(elArr[0]) + Number(elArr[2])
-                }
-                console.log(Number(elArr[0]),Number(elArr[2]))
-                if(계산 == elArr[4]){
-                    result.push("O")
-                }else{
-                    result.push("X")
-                }
-                
-            });
-            console.log(result)
+        let n = 7
+        function solution(n) {
+            let result = 1;
+            for(let i = 1; i <= n; i++){
+                 result *= i
+                 if(result === n){
+                    return i
+                 }
+                 if(result > n){
+                    return i - 1
+                 }
+            }
         }
-
-
-        solution(quiz)
+        solution(n)
     </script>
 </body>
 
