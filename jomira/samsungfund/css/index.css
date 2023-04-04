@@ -115,6 +115,9 @@ main {
   min-height: 100vh;
   position: relative;
 }
+main .lottie-content {
+  width: 50px;
+}
 main .main-header {
   width: var(--l-wrap-width, 100vw);
   min-width: 1280px !important;
@@ -128,59 +131,78 @@ main .main-header .slide-item {
   left: 0;
   padding: 0 max(2.4rem, 1.6667vw);
 }
-main .main-header .slide-item .card-container .card:nth-child(1) {
-  grid-column-start: 1;
-  grid-row-start: 1;
-  grid-row-end: span 2;
+main .main-header .slide-item:nth-child(1) .card:nth-child(1) {
+  background-color: var(--bg-color1);
 }
-main .main-header .slide-item [data-type=A] .card-container .card:nth-child(1) {
-  grid-column-end: span 4;
+main .main-header .slide-item:nth-child(1) .card:nth-child(2) {
+  background-color: var(--bg-color2);
 }
-main .main-header .slide-item [data-type=B] .card-container .card:nth-child(1) {
-  grid-column-end: span 3;
-}
-main .main-header .slide-item [data-type=B] .card-container .card:nth-child(2) {
-  grid-column-start: 4;
-}
-main .main-header .slide-item [data-type=C] .card-container .card:nth-child(1) {
-  grid-column-end: span 3;
-}
-main .main-header .slide-item [data-type=D] .card-container .card:nth-child(1) {
-  grid-column-end: span 2;
-}
-main .main-header .slide-item [data-type=D] .card-container .card:nth-child(2) {
-  grid-column-start: 3;
-}
-main .main-header .slide-item [data-type=D] .card-container .card:nth-child(3) {
-  grid-column-start: 4;
-}
-main .main-header .slide-item [data-type=E] .card-container .card:nth-child(1) {
-  grid-column-end: span 2;
-}
-main .main-header .slide-item [data-type=E] .card-container .card:nth-child(2) {
-  grid-column-start: 3;
-}
-main .main-header .slide-item [data-type=F] .card-container .card:nth-child(1) {
-  grid-column-end: span 2;
-}
-main .main-header .slide-item [data-type=G] .card-container .card:nth-child(2) {
-  grid-column-start: 2;
-}
-main .main-header .slide-item [data-type=G] .card-container .card:nth-child(3) {
-  grid-column-start: 3;
-}
-main .main-header .slide-item [data-type=G] .card-container .card:nth-child(4) {
-  grid-column-start: 4;
+main .main-header .slide-item:nth-child(1) .card:nth-child(3) {
+  background-color: var(--bg-color3);
 }
 main .main-header .slide-item .card-container {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 1fr;
   gap: max(1.2rem, 0.625vw);
   grid-auto-flow: column;
   width: 100%;
   height: 100%;
+}
+main .main-header .slide-item .card-container .card {
+  position: relative;
   border-radius: calc(max(1rem, 0.8334vw) * 2.5);
+}
+main .main-header .slide-item .card-container .card:nth-child(1) {
+  grid-column-start: 1;
+  grid-row-start: 1;
+}
+main .main-header .slide-item .card-container .card .content {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: calc(max(1rem, 0.8334vw) * 2.5);
+  color: #fff;
+}
+main .main-header .slide-item .card-container[data-type=A] .card:nth-child(1) {
+  grid-column-end: span 4;
+}
+main .main-header .slide-item .card-container[data-type=B] .card:nth-child(1) {
+  grid-column-end: span 3;
+}
+main .main-header .slide-item .card-container[data-type=B] .card:nth-child(2) {
+  grid-column-start: 4;
+}
+main .main-header .slide-item .card-container[data-type=C] .card:nth-child(1) {
+  grid-column-end: span 3;
+}
+main .main-header .slide-item .card-container[data-type=D] .card:nth-child(1) {
+  grid-column-end: span 2;
+}
+main .main-header .slide-item .card-container[data-type=D] .card:nth-child(2) {
+  grid-column-start: 3;
+}
+main .main-header .slide-item .card-container[data-type=D] .card:nth-child(3) {
+  grid-column-start: 4;
+}
+main .main-header .slide-item .card-container[data-type=E] .card:nth-child(1) {
+  grid-column-end: span 2;
+}
+main .main-header .slide-item .card-container[data-type=E] .card:nth-child(2) {
+  grid-column-start: 3;
+}
+main .main-header .slide-item .card-container[data-type=F] .card:nth-child(1) {
+  grid-column-end: span 2;
+}
+main .main-header .slide-item .card-container[data-type=G] .card:nth-child(2) {
+  grid-column-start: 2;
+}
+main .main-header .slide-item .card-container[data-type=G] .card:nth-child(3) {
+  grid-column-start: 3;
+}
+main .main-header .slide-item .card-container[data-type=G] .card:nth-child(4) {
+  grid-column-start: 4;
 }
 
 footer {

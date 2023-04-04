@@ -1,31 +1,31 @@
 document.querySelectorAll(".treeWarp").forEach(function (el) {
     el.innerHTML = "\n      <div id=\"tree\"></div>\n      <div id=\"trunk\">\n        <div id=\"left-branch\"></div>\n        <div id=\"right-bottom-branch\"></div>\n        <div id=\"right-top-branch\"></div>\n      </div>\n  ";
 });
-function gameBox(size, gameBoxId) {
+function gameOpenBox(size, gameBoxId, characterArr) {
     var gameBox = document.querySelector(gameBoxId);
+    var gameCount = 0;
     var meList = [];
     var comList = [];
-    var meIndex = 0;
-    var comIndex = 0;
-    var gameCount = 0;
     if (gameBox) {
         //게임박스 만들고
         gameTableSet(gameBox, size);
-        //클릭될 위치 체크용 배열
+        //클릭될 위치 체크용 배열 셋팅
         clickPositionSet(size, meList, comList);
         //스타트박스에서 캐릭터 선택하면 게임시작
         var $gameStartBox = document.querySelector("#startBox");
         if ($gameStartBox) {
             var $gameStartBtn = $gameStartBox.querySelectorAll("button");
-            $gameStartBtn.forEach(function (e, index) {
-                e.addEventListener("click", function () {
-                    characterSet(e, gameBox, index, comIndex);
-                    markEvent(gameBox, size, meList, comList, meIndex, comIndex);
+            $gameStartBtn.forEach(function (btn, meIndex) {
+                btn.addEventListener("click", function () {
+                    characterSet(btn, gameBox, meIndex);
+                    var comIndex = characterSet(btn, gameBox, meIndex) != 1 ? 0 : 1;
+                    markEvent(gameBox, size, meList, comList, meIndex, comIndex, characterArr);
                 });
             });
         }
     }
 }
+gameOpenBox(3, "#gameBox", ["dog", "cat"]);
 function gameTableSet(gameBox, size) {
     var $gameBox = gameBox;
     var $gameHeader = document.createElement("div");
@@ -46,24 +46,28 @@ function gameTableSet(gameBox, size) {
     }
     return gameBox = $gameBox;
 } //close gameTableSet
-function characterSet(me, gameBox, meIndex, comIndex) {
+function characterSet(btn, gameBox, meIndex) {
     var $gameBox = gameBox;
     if ($gameBox) {
         $gameBox.style.display = "flex";
-        if (me.parentElement) {
-            me.parentElement.style.display = "none";
+        if (btn.parentElement) {
+            btn.parentElement.style.display = "none";
         }
+        var comIndex = 0;
         var $gameOrder = $gameBox.querySelector('#playerBox');
         if ($gameOrder) {
             $gameOrder.children[meIndex].classList.add("on");
             var gameOrderChildren = $gameOrder.children[meIndex].children[1];
             gameOrderChildren.innerText = "ME";
+            var comBox = void 0;
             if (meIndex == 0) {
-                $gameOrder.children[meIndex + 1].children[1].innerText = "COM";
+                comBox = $gameOrder.children[meIndex + 1].children[1];
+                comBox.innerText = "COM";
                 comIndex = meIndex + 1;
             }
             else {
-                $gameOrder.children[meIndex - 1].children[1].innerText = "COM";
+                comBox = $gameOrder.children[meIndex - 1].children[1];
+                comBox.innerText = "COM";
                 comIndex = meIndex - 1;
             }
         }
@@ -82,8 +86,8 @@ function clickPositionSet(size, meList, comList) {
     }
     return meList, comList;
 } //close clickPositionSet
-function markEvent(gameBox, size, meList, comList, meIndex, comIndex) {
-    var $tableTd = document.querySelectorAll("#" + gameBox.id + " td");
+function markEvent(gameBox, size, meList, comList, meIndex, comIndex, characterArr) {
+    var $tableTd = gameBox.querySelectorAll("td");
     $tableTd.forEach(function (e) {
         e.addEventListener("click", function (td) {
             var turn = true;
@@ -111,7 +115,7 @@ function markEvent(gameBox, size, meList, comList, meIndex, comIndex) {
             if (turn) {
                 $gameOrder.children[meIndex].classList.add("on");
                 if ($gameTable.children[y].children[x].innerHTML == "") {
-                    $gameTable.children[y].children[x].innerHTML = "<img src=\"./img/" + character[meIndex] + ".png\">";
+                    $gameTable.children[y].children[x].innerHTML = "<img src=\"./img/" + characterArr[meIndex] + ".png\">";
                     meList[y][x] = 1;
                     winCheck(meList, size, gameBox);
                     $gameTable.classList.add("on");
@@ -133,11 +137,12 @@ function markEvent(gameBox, size, meList, comList, meIndex, comIndex) {
                         var com_x = Math.floor(Math.random() * size);
                         //해당 위치에 아무것도 없으면 해당 위치 자동클릭처리
                         if ($gameTable.children[com_y].children[com_x].innerHTML == "") {
-                            $gameTable.children[com_y].children[com_x].innerHTML = "<img src=\"./img/" + character[comIndex] + ".png\">";
+                            $gameTable.children[com_y].children[com_x].innerHTML = "<img src=\"./img/" + characterArr[comIndex] + ".png\">";
                             comList[com_y][com_x] = 1;
                             winCheck(comList, size, gameBox);
                             turn = true;
-                            $gameTable.children[com_y].children[com_x].click();
+                            var gameClickTable = $gameTable.children[com_y].children[com_x];
+                            gameClickTable.click();
                             break;
                         }
                     }
@@ -164,58 +169,59 @@ function closeGame(gameBox) {
         }
     });
 } //close closeGame
-function winCheck(arr, size, gameBox) {
-    var garoCount = 0;
-    var seroCount = 0;
+var gameCount = 0;
+function winCheck(meList, size, gameBox) {
+    var widthCount = 0;
+    var lengthCount = 0;
     var leftCount = 0;
     var rightCount = 0;
     //가로검사
-    for (var i = 0; i < arr.length; i++) {
-        for (var j = 0; j < arr.length; j++) {
-            if (arr[i][j] == 1) {
-                garoCount++;
+    for (var i = 0; i < meList.length; i++) {
+        for (var j = 0; j < meList.length; j++) {
+            if (meList[i][j] == 1) {
+                widthCount++;
             }
         }
-        if (garoCount == 3) {
+        if (widthCount == 3) {
             closeGame(gameBox);
             break;
         }
         else {
-            garoCount = 0;
+            widthCount = 0;
         }
     }
     //세로검사
-    for (var i = 0; i < arr.length; i++) {
-        for (var j = 0; j < arr.length; j++) {
-            if (arr[j][i] == 1) {
-                seroCount++;
+    for (var i = 0; i < meList.length; i++) {
+        for (var j = 0; j < meList.length; j++) {
+            if (meList[j][i] == 1) {
+                lengthCount++;
             }
         }
-        if (seroCount == 3) {
+        if (lengthCount == 3) {
             closeGame(gameBox);
             break;
         }
         else {
-            seroCount = 0;
+            lengthCount = 0;
         }
     }
     //왼쪽 대각선 검사
-    if (arr[0][0] == 1 && arr[1][1] == 1 && arr[2][2] == 1) {
+    if (meList[0][0] == 1 && meList[1][1] == 1 && meList[2][2] == 1) {
         leftCount = 1;
         closeGame(gameBox);
     }
     //오른쪽 대각선 검사
-    if (arr[0][2] == 1 && arr[1][1] == 1 && arr[2][0] == 1) {
+    if (meList[0][2] == 1 && meList[1][1] == 1 && meList[2][0] == 1) {
         rightCount = 1;
         closeGame(gameBox);
     }
     //검사할때마다 게임 카운트 세기
     gameCount++;
     //무승부 판단
-    //console.log(gameCount,garoCount,seroCount,leftCount,rightCount)
+    console.log(gameCount, widthCount, lengthCount, leftCount, rightCount);
     if (gameCount == (size * size)) {
         //모든 카운트를 채웠는데 빙고된게 없으면 무승부로 처리
-        if (garoCount == 0 && seroCount == 0 && leftCount == 0 && rightCount == 0) {
+        if (widthCount == 0 && lengthCount == 0 && leftCount == 0 && rightCount == 0) {
             var $closePop = document.createElement("div");
             $closePop.id = "closePop";
             gameBox.append($closePop);
@@ -224,6 +230,5 @@ function winCheck(arr, size, gameBox) {
         }
     }
 } //close winCheck
-gameBox(3, "#gameBox", ["dog", "cat"]);
 
 //# sourceMappingURL=index.js.map

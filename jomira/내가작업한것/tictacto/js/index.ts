@@ -11,43 +11,42 @@ document.querySelectorAll(".treeWarp").forEach((el)=>{
 
 
 
-function gameBox(size : number , gameBoxId : string ){
+function gameOpenBox(size : number , gameBoxId : string, characterArr: string[] ){
   
-  let gameBox = document.querySelector(gameBoxId);
-  
+  let gameBox = document.querySelector(gameBoxId) as HTMLElement;
+  let gameCount:number = 0;
   let meList = []
   let comList = []
-  
-  let meIndex = 0;
-  let comIndex = 0;
-  
-  let gameCount = 0;
-  
+    
   if(gameBox){ 
     
     //게임박스 만들고
     gameTableSet(gameBox,size)
     
-    //클릭될 위치 체크용 배열
+    //클릭될 위치 체크용 배열 셋팅
     clickPositionSet(size,meList,comList)
     
     //스타트박스에서 캐릭터 선택하면 게임시작
     let $gameStartBox = document.querySelector("#startBox")
     if($gameStartBox){
-    let $gameStartBtn = $gameStartBox.querySelectorAll("button")
-    $gameStartBtn.forEach((e,index) => {
-      e.addEventListener("click",() => {
-        characterSet(e,gameBox,index,comIndex)
-        markEvent(gameBox,size,meList,comList,meIndex,comIndex)
+      let $gameStartBtn = $gameStartBox.querySelectorAll("button")
+      $gameStartBtn.forEach((btn,meIndex) => {
+        btn.addEventListener("click",() => {
+          characterSet(btn,gameBox,meIndex)
+          let comIndex = characterSet(btn,gameBox,meIndex) != 1 ? 0 : 1
+          markEvent(gameBox,size,meList,comList,meIndex,comIndex,characterArr)
+          
+        });
       });
-    });
     }
+    
+    
     
   }
 }
+gameOpenBox(3,"#gameBox",["dog","cat"])
 
-
-function gameTableSet(gameBox : Element,size : number){
+function gameTableSet(gameBox : Element, size : number){
   let $gameBox = gameBox
   let $gameHeader = document.createElement("div");
   $gameBox.append($gameHeader)
@@ -80,28 +79,33 @@ function gameTableSet(gameBox : Element,size : number){
   return gameBox = $gameBox
 }//close gameTableSet
 
-function characterSet(me : HTMLButtonElement, gameBox : HTMLElement, meIndex : number, comIndex : number){
+function characterSet(btn : HTMLButtonElement, gameBox : HTMLElement, meIndex : number){
   
+ 
   let $gameBox = gameBox;
   if($gameBox){
   
-    $gameBox.style.display = "flex"
+    $gameBox.style.display = "flex" 
     
-    if(me.parentElement){
-      me.parentElement.style.display = "none"
+    if(btn.parentElement){
+      btn.parentElement.style.display = "none"
     }
     
+    let comIndex: number = 0;
     let $gameOrder = $gameBox.querySelector('#playerBox') as HTMLElement
     
     if($gameOrder){
       $gameOrder.children[meIndex].classList.add("on")
       let gameOrderChildren = $gameOrder.children[meIndex].children[1] as HTMLElement
       gameOrderChildren.innerText = "ME"
-      if(meIndex == 0){
-        $gameOrder.children[meIndex+1].children[1].innerText = "COM"
+      let comBox: HTMLElement;
+      if(meIndex == 0){ 
+        comBox = $gameOrder.children[meIndex+1].children[1] as HTMLElement
+        comBox.innerText = "COM"
         comIndex = meIndex+1;
       }else{
-        $gameOrder.children[meIndex-1].children[1].innerText = "COM"
+        comBox =  $gameOrder.children[meIndex-1].children[1] as HTMLElement
+        comBox.innerText = "COM"
         comIndex = meIndex-1;
       }
     }
@@ -109,7 +113,7 @@ function characterSet(me : HTMLButtonElement, gameBox : HTMLElement, meIndex : n
   }
 }//close characterSet
 
-function clickPositionSet(size,meList,comList){
+function clickPositionSet(size: number, meList: number[][], comList: number[][]){
   //me와 com의 클릭한 위치 저장할 공간마련
   for (let i = 0; i < size; i++) {
       meList.push([])
@@ -124,15 +128,15 @@ function clickPositionSet(size,meList,comList){
 
 }//close clickPositionSet
 
-function markEvent(gameBox: Element | null,size: number,meList: number[][],comList: number[][],meIndex: number,comIndex: number){
+function markEvent(gameBox: HTMLElement,size: number,meList: number[][],comList: number[][],meIndex: number,comIndex: number, characterArr:string[]){
   
-  let $tableTd = document.querySelectorAll("#"+gameBox.id + " td")
+  let $tableTd = gameBox.querySelectorAll("td")
   $tableTd.forEach((e) => {
     
     e.addEventListener("click", (td)=>{
       
       let turn = true
-      let $gameTable = gameBox.querySelector("#gameTable");
+      let $gameTable = gameBox.querySelector("#gameTable") as HTMLElement;
       let y = 0;
       let x = 0;
       
@@ -150,7 +154,7 @@ function markEvent(gameBox: Element | null,size: number,meList: number[][],comLi
       }
 
       
-      let $gameOrder = gameBox.querySelector('#playerBox')
+      let $gameOrder = gameBox.querySelector('#playerBox') as HTMLElement
       $gameOrder.querySelectorAll("div").forEach((order) => {
         if(order.classList.contains('on')){
           order.classList.remove("on")
@@ -163,7 +167,7 @@ function markEvent(gameBox: Element | null,size: number,meList: number[][],comLi
       if (turn) {
         $gameOrder.children[meIndex].classList.add("on")
         if ($gameTable.children[y].children[x].innerHTML == "") {
-          $gameTable.children[y].children[x].innerHTML = `<img src="./img/`+character[meIndex]+`.png">`;
+          $gameTable.children[y].children[x].innerHTML = `<img src="./img/`+characterArr[meIndex]+`.png">`;
           meList[y][x] = 1
           winCheck(meList,size,gameBox)
           $gameTable.classList.add("on")
@@ -192,11 +196,12 @@ function markEvent(gameBox: Element | null,size: number,meList: number[][],comLi
                 //해당 위치에 아무것도 없으면 해당 위치 자동클릭처리
                 if($gameTable.children[com_y].children[com_x].innerHTML == ""){
                   
-                    $gameTable.children[com_y].children[com_x].innerHTML = `<img src="./img/`+ character[comIndex] +`.png">`;
+                    $gameTable.children[com_y].children[com_x].innerHTML = `<img src="./img/`+ characterArr[comIndex] +`.png">`;
                     comList[com_y][com_x] = 1;
                     winCheck(comList,size,gameBox);
                     turn = true
-                    $gameTable.children[com_y].children[com_x].click();
+                    let gameClickTable = $gameTable.children[com_y].children[com_x] as HTMLElement
+                    gameClickTable.click();
                     break;
                 }
             }
@@ -211,9 +216,9 @@ function markEvent(gameBox: Element | null,size: number,meList: number[][],comLi
     
 }//close markEvent
   
-function closeGame(gameBox){
+function closeGame(gameBox: HTMLElement){
   
-  let $gameOrder = gameBox.querySelector('#playerBox')
+  let $gameOrder = gameBox.querySelector('#playerBox') as HTMLElement;
   $gameOrder.querySelectorAll("div").forEach((order) => {
     if(order.classList.contains('on')){
       
@@ -233,52 +238,54 @@ function closeGame(gameBox){
   
 }//close closeGame
 
-function winCheck(arr,size,gameBox) {
 
-  let garoCount = 0;
-  let seroCount = 0;
+let gameCount:number = 0;
+function winCheck(meList : number[][], size: number, gameBox: HTMLElement) {
+
+  let widthCount = 0;
+  let lengthCount = 0;
   let leftCount = 0;
   let rightCount = 0;
 
     //가로검사
-    for (let i = 0; i < arr.length; i++) {
-      for (let j = 0; j < arr.length; j++) {
-        if (arr[i][j] == 1) {
-          garoCount++;
+    for (let i = 0; i < meList.length; i++) {
+      for (let j = 0; j < meList.length; j++) {
+        if (meList[i][j] == 1) {
+          widthCount++;
         }
       }
-      if (garoCount == 3) {
+      if (widthCount == 3) {
         closeGame(gameBox)
         break;
       } else {
-        garoCount = 0;
+        widthCount = 0;
       }
     }
   
 
     //세로검사
-    for (let i = 0; i < arr.length; i++) {
-      for (let j = 0; j < arr.length; j++) {
-        if (arr[j][i] == 1) {
-          seroCount++;
+    for (let i = 0; i < meList.length; i++) {
+      for (let j = 0; j < meList.length; j++) {
+        if (meList[j][i] == 1) {
+          lengthCount++;
         }
       }
-      if (seroCount == 3) {
+      if (lengthCount == 3) {
         closeGame(gameBox);
         break;
       } else {
-        seroCount = 0;
+        lengthCount = 0;
       }
     }
 
     //왼쪽 대각선 검사
-    if (arr[0][0] == 1 && arr[1][1] == 1 && arr[2][2] == 1) {
+    if (meList[0][0] == 1 && meList[1][1] == 1 && meList[2][2] == 1) {
       leftCount = 1
       closeGame(gameBox);
     }
   
     //오른쪽 대각선 검사
-    if (arr[0][2] == 1 && arr[1][1] == 1 && arr[2][0] == 1) {
+    if (meList[0][2] == 1 && meList[1][1] == 1 && meList[2][0] == 1) {
       rightCount = 1
       closeGame(gameBox);
     }
@@ -288,10 +295,10 @@ function winCheck(arr,size,gameBox) {
   gameCount++
 
   //무승부 판단
-  //console.log(gameCount,garoCount,seroCount,leftCount,rightCount)
+  console.log(gameCount,widthCount,lengthCount,leftCount,rightCount)
   if(gameCount == (size*size)){
     //모든 카운트를 채웠는데 빙고된게 없으면 무승부로 처리
-    if(garoCount == 0 && seroCount == 0 && leftCount == 0 && rightCount == 0){
+    if(widthCount == 0 && lengthCount == 0 && leftCount == 0 && rightCount == 0){
       let $closePop = document.createElement("div")
       $closePop.id = "closePop"
       gameBox.append($closePop)
@@ -305,6 +312,6 @@ function winCheck(arr,size,gameBox) {
 
 
 
-gameBox(3,"#gameBox",["dog","cat"])
+
 
 

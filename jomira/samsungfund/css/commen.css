@@ -1,3 +1,6 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css');
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300;400;500;600;700;900&display=swap');
+
 :root {
   --color-primary-black: #000;
   --color-primary-white: #FFF;
@@ -53,7 +56,15 @@
   --toggle-bg: rgba(215, 221, 229, 0.7);
   --header-bg: #F1F3F8;
   --top-of-site-link-bg: rgba(31, 33, 49, 0.9);
-  --top-of-site-link-hover: rgba(31, 33, 49, 1)
+  --top-of-site-link-hover: rgba(31, 33, 49, 1);
+  --bg-color1:#003cdc;
+  --bg-color2:#ff9e2d;
+  --bg-color3:#9c26f6;
+  --bg-color4:#008cf0;
+  --bg-color5:#e93661;
+  --bg-color6:#343644;
+  --bg-color7:#08a687;
+  --bg-color8:#0a2481;
 }
 
 html,
@@ -156,11 +167,13 @@ hgroup,
 menu,
 nav,
 section {
-  display: block
+  display: block;
+  box-sizing: border-box;
 }
 
 body {
-  line-height: 1
+  overflow-x: hidden;
+  line-height: 1;
 }
 
 ol,
