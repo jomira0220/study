@@ -555,11 +555,11 @@ function prdOptionSet() {
               recoMenuCode +
               `.jpg" alt="">
             <div class="recoInfo">
-              <div class="recoName">` +
+              <div class="recoName" data-menu-code="`+recoMenuCode+`">` +
               prdName +
               `</div>
               <div class="recoPrice"><span>` +
-              prdPrice +
+              prdPrice.toLocaleString("ko-KR") +
               `</span>원</div>
             </div>
             <input type="checkbox" name="recoOption" value="`+ recoMenuCode +`" data-option-price="`+ prdPrice +`">
@@ -666,15 +666,13 @@ function prdOptionTotal(menuCode){
 
 
 //메뉴 옵션 선택 토글버튼
-function toggleBtn() {
-  let toggleBtn = document.querySelector(".toggleBtn");
-  if (toggleBtn) {
-    toggleBtn.addEventListener("click", (e) => {
+function menuToggleBtn() {
+  let menuToggleBtn = document.querySelector(".orderStep_2 .toggleBtn");
+  if (menuToggleBtn) {
+    menuToggleBtn.addEventListener("click", (e) => {
       //토글버튼의 다음요소를 토글처리
       let nextEl = e.target.nextElementSibling;
-      let nextStyle = window
-        .getComputedStyle(nextEl)
-        .getPropertyValue("display");
+      let nextStyle = window.getComputedStyle(nextEl).getPropertyValue("display");
 
       if (nextStyle == "none") {
         nextEl.style.display = "block";
@@ -687,7 +685,11 @@ function toggleBtn() {
   }
 }
 
-toggleBtn();
+menuToggleBtn();
+
+
+
+
 
 //storeSearch 매장검색 페이지
 function storeSearchList() {
@@ -813,35 +815,55 @@ function basketBtn(){
     basketBtn.addEventListener("click",() => {
     
       let selectOptionList = []
-      let addPrdList = []
       
+      //메인상품 가격 및 옵션
       let buyPrdData = {
           prdName: document.querySelector("#prdDetail .prdName").innerText,
           prdCode: new URL(location.href).searchParams.get("prdCode"), 
           prdOption: selectOptionList, 
           prdPrice: document.querySelector(".orderBottom .totalBox b").innerText, 
           prdCount: Number(document.querySelector(".orderBottom .prdCountBox .prdCount").value),
-          addPrdCode: addPrdList
+          prdImg: document.querySelector("#prdDetail > img").getAttribute("src"),
       };
       
+      
+      
+      //주문시 선택한 옵션 리스트 셋팅
       let selectOptionTitle = document.querySelectorAll(".optionBox div[class^='option_'] input")
       selectOptionTitle.forEach((el) => {
         if(el.checked == true){
           selectOptionList.push(el.value)
         }
       })
-    
+      
+      //함께 구매한 추천상품명, 가격, 메뉴코드
+      let buyRecommendedPrdData = {
+        prdName:"",
+        prdCode:"", 
+        prdPrice:0, 
+        prdCount:1,
+        prdImg:"",
+      };
+      
+      //추천상품중에서 체크되어있는 상품만 정보 셋팅
       document.querySelectorAll(".recoInfo").forEach((el) => {
         let recoCheckBox = el.nextElementSibling
         if(recoCheckBox.checked == true){
-          let recoName = String(el.querySelector(".recoName").innerText)
-          let recoPrice = String(el.querySelector(".recoPrice").innerText)
-          addPrdList.push([recoName,recoPrice])
+          buyRecommendedPrdData.prdName = String(el.querySelector(".recoName").innerText)
+          buyRecommendedPrdData.prdCode = String(el.querySelector(".recoName").getAttribute("data-menu-code"))
+          buyRecommendedPrdData.prdPrice = String(el.querySelector(".recoPrice").innerText)
+          buyPrdData.prdPrice = (document.querySelector(".orderBottom .totalBox b").innerText.replace(/[^0-9]/g,"") - el.querySelector(".recoPrice").innerText.replace(/[^0-9]/g,"")).toLocaleString("ko-KR") + "원"
+          
+          console.log(buyPrdData.prdPrice)
+          
+          localStorage.setItem("buyItemInfo",JSON.stringify(buyRecommendedPrdData))
+          basketAll.push(buyRecommendedPrdData)
         }
       })
       
       localStorage.setItem("buyItemInfo",JSON.stringify(buyPrdData))
       basketAll.push(buyPrdData)
+      
       localStorage.setItem("basketList",JSON.stringify(basketAll))
       document.querySelector(".cartCount").innerText = basketAll.length
     })
@@ -908,36 +930,40 @@ function basketListSet(){
         //주문한 상품 정보 셋팅
         $li.innerHTML = 
         `
-            <div class="prdImg"><img src="../resource/img/menu/`+elEn+`/`+elTemperature+`/`+basketLi.prdCode+`.jpg" alt=""></div>
+            <div class="prdImg"><img src="`+basketLi.prdImg+`" alt=""></div>
             <div class="basketPrd">
               <div class="prdName">`+basketLi.prdName+`</div>
               <ul>
               </ul>
-            </div>
-            <div class="delBtn"><button><i class="icon-cancel"></i></button></div>
-            <div class="prdCountBox">
-              <div class="countBox">
-                <button class="downBtn" type="button" aria-label="수량내리기"><i class="icon-circle_minus"></i></button>
-                <div class="prdCount">`+basketLi.prdCount+`</div>
-                <button class="upBtn" type="button" aria-label="수량올리기"><i class="icon-circle_plus"></i></button>
+              <div class="delBtn"><button><i class="icon-cancel"></i></button></div>
+              <div class="prdCountBox">
+                <div class="countBox">
+                  <button class="downBtn" type="button" aria-label="수량내리기"><i class="icon-circle_minus"></i></button>
+                  <div class="prdCount">`+basketLi.prdCount+`</div>
+                  <button class="upBtn" type="button" aria-label="수량올리기"><i class="icon-circle_plus"></i></button>
+                </div>
+                <div class="prdPrice">`+basketLi.prdPrice+`</div>
               </div>
-              <div class="prdPrice">`+basketLi.prdPrice+`</div>
             </div>
+            
         `;
         
         //주문한 상품의 옵션 나열
-        basketLi.prdOption.forEach((option)=>{
-          let optionLi = document.createElement("li")
-          optionLi.innerText = option
-          $li.querySelector(".basketPrd ul").append(optionLi)
-        })
+        if(basketLi.prdOption){
+          basketLi.prdOption.forEach((option)=>{
+            let optionLi = document.createElement("li")
+            optionLi.innerText = option
+            $li.querySelector(".basketPrd ul").append(optionLi)
+          })
+        }
         
+
         //상품에 따른 카운트 및 삭제 실행
         countNDelEvent($li,liIndex,elMainPrice)
         
       })// close nowBasketList
       
-       
+      
       function countNDelEvent(parent,parentIndex,elMainPrice){
         
         //상품 개수 추가
@@ -945,7 +971,7 @@ function basketListSet(){
         let prdCountBtnDown = parent.querySelector(".downBtn")
         let prdCountBox = parent.querySelector(".prdCount");
         let prdPrice = parent.querySelector(".prdPrice");
-       
+      
 
         prdCountBtnUp.addEventListener("click",(el)=>{
           let prdCount = Number(parent.querySelector(".prdCount").innerText);
@@ -1015,11 +1041,60 @@ basketListSet()
 
 //!주문완료시 로컬스토리지 리셋 관련하여 처리 작업 필요 - 멤버아이디 장바구니 선택매장
 
-/*
-function paymentPageSet(){
- 
-  //let buyAll = {상품코드:menuCode,선택옵션:[],상품개수:0,상품가격:0,추가상품메뉴코드:[]}
 
+function paymentPageSet(){
+  let paymentPage = document.querySelector("#order.payment")
+  if(paymentPage){
+    
+    //로컬에 있는 매장명 가져와서 노출
+    let storeName = JSON.parse(localStorage.getItem("orderStore"))
+    document.querySelector("#storeName").innerText = storeName[0]
+    //로컬에 있는 주문상품 가져와서 노출
+    let buyList = JSON.parse(localStorage.getItem("basketList"))
+    let orderList = document.querySelector("#orderList")
+    buyList.forEach((el) => {
+      let buyLi = document.createElement("li")
+      orderList.append(buyLi)
+      
+      buyLi.innerHTML = 
+      `
+      <div class="prdImg"><img src="`+el.prdImg+`" alt=""></div>
+      <div class="basketPrd">
+        <div class="prdName">`+el.prdName+`</div>
+        <ul class="optionList">
+        </ul>
+        <div class="prdCountBox">
+          <div class="countBox">
+            <div class="prdCount">`+el.prdCount+`개</div>
+          </div>
+          <div class="prdPrice">`+el.prdPrice+`</div>
+        </div>
+      </div>
+      `;
+      
+      
+      //주문한 상품의 옵션 나열
+      if(el.prdOption){
+        el.prdOption.forEach((option)=>{
+          let optionLi = document.createElement("li")
+          optionLi.innerText = option
+          buyLi.querySelector(".basketPrd ul").append(optionLi)
+        })
+      }
+      
+    })
+    
+    //주문할 상품 축약 안내 및 토글클릭시 주문상품 요약 노출
+    let orderContraction = document.querySelector(".orderContraction")
+    orderContraction.innerText = buyList[0].prdName + ` 외 ` + (buyList.length - 1) + `건`
+    
+    let payToggleBtn = document.querySelector(".payment .toggleBtn")
+    payToggleBtn.addEventListener("click",() => {
+      orderList.classList.toggle("open")
+      payToggleBtn.querySelector("i").classList.toggle("icon-angle_up")
+    })
+    
+  }
 }
 paymentPageSet()
 
@@ -1032,4 +1107,3 @@ function orderBtn(){
   }
 }
 orderBtn()
-*/

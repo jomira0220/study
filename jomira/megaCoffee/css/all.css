@@ -28,6 +28,7 @@
 #order {
   padding-top: var(--basic-height);
   height: 100%;
+  overflow-y: scroll;
 }
 #order .menuCategory {
   padding: 10px 15px 15px;
@@ -337,8 +338,8 @@
   background-color: var(--basic-bg-color);
 }
 
-.payment form > div {
-  padding: 15px;
+.payment .payWrap > div {
+ padding: 15px;
 }
 
 #storeName {
@@ -346,17 +347,59 @@
   color: #fff;
   padding: 15px;
 }
+.payment #orderList {
+  display: none;
+}
 
-.payment .toggleBtn {
+.payment #orderList.open {
+  display: block;
+}
+
+
+.payment #orderList > li{
+  display: flex;
+  align-items: center;
+  padding: 15px 0 5px;
+  font-size: var(--basic-font-size);
+}
+
+.payment #orderList li .prdImg {
+  flex:0 1 20%;
+}
+.payment #orderList li .basketPrd {
+  flex:0 1 80%;
+}
+
+.payment #orderList li .basketPrd .optionList {
+  margin:10px 0;
+  font-weight: 400;
+}
+
+.payment #orderList li .basketPrd .optionList li {
+  margin-bottom:8px;
+}
+
+.payment #orderList li .basketPrd .prdCountBox {
+  display: flex;
+  justify-content: space-between;
+  margin-top:15px;
+}
+
+.payment h4 {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   padding: 15px;
   font-weight: bold;
 }
 
-.payment .orderList {
+.payment .orderContraction {
   font-weight: 400;
+}
+
+.payment #orderList {
+  width: 100%;
 }
 
 .payment h5 {
@@ -501,7 +544,8 @@ p.basketEmpty{
 .basketList > li {
   display: flex;
   flex-flow: row wrap;
-  justify-content: flex-end;
+  justify-content:space-between;
+  align-items: center;
   position: relative;
   margin:5px 15px 0px;
   padding-bottom: 20px;
@@ -516,7 +560,7 @@ p.basketEmpty{
 }
 
 .basketList li > div {
-  flex: 0 1 25%;
+  flex: 0 1 23%;
 }
 
 .basketList li .basketPrd {
@@ -544,9 +588,9 @@ p.basketEmpty{
 }
 
 .basketList li .prdCountBox {
-  flex: 0 2 75%;
   display: flex;
   justify-content: space-between;
+  margin-top: 15px;
 }
 
 .basketList li .prdCountBox .countBox {
@@ -561,12 +605,18 @@ p.basketEmpty{
 }
 
 .basketList li .prdCountBox .countBox button i {
-  font-size: 1.3em;
+  font-size:1.8em
 }
 
 .basketList li .prdCountBox .prdPrice {
   font-weight: bold;
   font-size: var(--main-font-size);
+}
+.basketList > li.recoMenu {
+  align-items: center;
+}
+.basketList > li.recoMenu .prdName{
+  margin-bottom: 15px;
 }
 
 /* alarm 페이지 */
