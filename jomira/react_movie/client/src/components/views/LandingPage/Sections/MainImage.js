@@ -4,7 +4,7 @@ function MainImage(props){
     return (
         <div style={{ background: `
         
-        `}}>
+        -`}}>
             <div>
                 <div style={{ position: 'absolute', maxWidth: '500px', bottom: '2rem', marginLeft: '2rem'}}>
                     <h2>title</h2>
