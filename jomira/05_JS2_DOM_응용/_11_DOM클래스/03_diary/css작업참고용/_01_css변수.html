@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* 
+            :root 선택자는
+            문서의 최상위 요소를 가리켜
+            전역 CSS변수를 선언할 때 사용한다.
+        */
+        :root {
+            --color: yellow;
+        }
+
+        div {
+            width: 100px;
+            height: 50px;
+            /* CSS 변수 사용법 */
+            background-color: var(--color);
+            border: 1px solid lightgray;
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <div></div>
+
+    <button onclick="changeColor()">색상 변경</button>
+
+    <script>
+
+        function changeColor() {
+            let colorList = ["red", "orange", "green"];
+            let r = Math.floor(Math.random() * colorList.length);
+
+            document.documentElement.style.setProperty("--color", colorList[r]);
+        }
+
+
+    </script>
+
+</body>
+</html>
