@@ -28,4 +28,22 @@ price =[500, 1200, 4300, 2300]
 count = [3, 1, 2, 1]
 
 order = [0, 1, 3, 3, 2, 2, 1]
+total = 0
+for i in range(len(order)) :
+    
+    itemIndex = order[i]
+    
+    print(f'order = {itemIndex},',end=' ')
+    
+    if count[itemIndex] > 0 :
+        total += price[itemIndex]
+        count[itemIndex] -= 1
+        print(f'count = {count}')
+    else :
+        print('주문불가')
+    
+    
+print(f'총 금액 = {total}')
+    
+    
 
