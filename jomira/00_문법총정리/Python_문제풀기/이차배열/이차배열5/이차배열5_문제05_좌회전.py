@@ -20,9 +20,31 @@
         8 5 2 
         9 6 3 
 '''
+import random
+
 block = [
     [1, 2, 3],
     [4, 5, 6],
     [7, 8, 9]
 ]
+
+rNum = random.randint(1,4)
+print('rNum = {}'.format(rNum))
+
+for i in range(rNum) :
+    for j in range(3):
+        print(block[j])
+    print()
+    
+    temp1 = []
+    for j in range(3):
+        temp2 = []
+        for k in range(3):
+            temp2.append(block[j][k])
+        temp1.append(temp2)
+        
+    for j in range(3):
+        for k in range(3):
+            block[k][j] = temp1[j][2-k]
+
 

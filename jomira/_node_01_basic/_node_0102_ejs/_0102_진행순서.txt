@@ -1,0 +1,24 @@
+[1] _test_0102 폴더 생성
+[2] 폴더 이동 : cd _test_0102
+[3] express 설치 : npm install express
+[4] ejs 설치 : npm install ejs
+[5] myserver.js 파일 생성
+	1) 서버 셋팅
+		let express = require("express");
+		let app = express();
+		let port = 3101;
+		let server = app.listen(port, function(){
+			console.log("서버가 가동되었습니다" + port);
+		});
+	2) ejs 셋팅
+		let ejs = require("ejs");           
+		app.set("views", __dirname);       
+		app.set("view engine", "ejs");       
+		app.engine("ejs", ejs.renderFile); 
+	3) router 셋팅
+		app.get("/main", function(req, res){ 
+    		res.render("test_main.ejs"); 
+		});
+
+[6] ex01.ejs 파일 생성
+[7] node myserver.js

@@ -1,0 +1,23 @@
+[1] _test_0103 폴더 생성
+[2] 폴더 이동 : cd _test_0103
+[3] express 설치 : npm install express
+[4] ejs 설치 : npm install ejs
+[5] myserver.js 파일 생성 및 셋팅
+	1) 서버 셋팅
+		let express = require("express");
+		let app = express();
+		let port = 3101;
+		let server = app.listen(port, function(){
+			console.log("서버가 가동되었습니다" + port);
+		});
+	2) ejs 셋팅
+		let ejs = require("ejs");           
+		app.set("views", __dirname + "/views"); (여기가 변경되었다. 관리를 편리하게 하기위해 views 폴더를 생성한다.) 
+		app.set("view engine", "ejs");       
+		app.engine("ejs", ejs.renderFile); 
+	3) router 셋팅 (명령어 추가 res.render , res.redirect )
+		app.get("/", function(req, res){ 
+		    res.redirect("main");  (ejs 파일을 출력하는것이아니고, 라우터를 찾아간다. )
+		});
+[6] main.ejs 파일 생성
+[7] node myserver.js
