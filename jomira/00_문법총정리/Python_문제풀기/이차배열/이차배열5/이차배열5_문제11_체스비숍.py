@@ -31,26 +31,49 @@ print('y = {}, x = {}'.format(y,x))
 # x -= 1 y += 1 왼쪽 아래대각선 
 # x += 1 y += 1 오른쪽 아래대각선 
 # x -= 1 y -= 1 왼쪽 아래대각선
+
 size = len(list)
-i = 0
-while i <= 5 :
-    check = True
-    if x+1 < size and y-1 >= 0:
-        list[y-1][x+1] = 1
-        check = False
-    if x-1 >= 0 and y+1 < size:
-        list[y+1][x-1] = 1
-        check = False
-    if x+1 < size and y+1 < size:
-        list[y+1][x+1] = 1
-        check = False
-    if x-1 >= 0 and y-1 >= 0:
-        list[y-1][x-1] = 1
-        check = False
+print('size = {}'.format(size))
+
+def check(a,b) :
     
-    if check : break
-    i += 1
+    check1 = y
+    check2 = x
     
-    
+    if a == '+' : 
+        tempX = True
+        check1 = x
+    else :
+        tempX = False
+        check2 = x
+    if b == '+' :
+        tempY = True
+        check1 = y
+    else :
+        tempY = False
+        check2 = y
+
+    while True :
+        if check1 < size and check2 >= 0:
+            if tempX : 
+                check1 += 1 
+            else :
+                check2 -= 1
+                
+            if tempY: 
+                check1 += 1
+            else :
+                check2 -= 1
+                
+            list[y][x] = 1
+        else:
+            break
+
+
+check('+','-')
+# check('-','+')
+# check('+','+')
+# check('-','-')
+
 for i in range(len(list)):
     print(list[i])
