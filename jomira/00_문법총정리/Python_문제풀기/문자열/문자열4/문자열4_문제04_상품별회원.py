@@ -48,3 +48,14 @@ orderList = [
 ]
 
 totalList = []
+
+for i in range(len(memberList)):
+    check = False
+
+    for j in range(len(orderList)):
+        if memberList[i]["id"] == orderList[j]["orderId"] :
+            check = True
+            item = orderList[j]["itemName"]
+            
+    if check :
+        totalList.append({'id':memberList[i], 'itemName':})
