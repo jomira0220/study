@@ -35,45 +35,48 @@ print('y = {}, x = {}'.format(y,x))
 size = len(list)
 print('size = {}'.format(size))
 
-def check(a,b) :
+list[y][x] = 1
+tempY = y
+tempX = x
+
+while True :
+    if x + 1 < size and y - 1 >= 0 :
+        x += 1
+        y -= 1
+        list[y][x] = 1
+    else:
+        break
+
+y = tempY
+x = tempX
+while True :
+    if x + 1 < size and y + 1 < size :
+        x += 1
+        y += 1
+        list[y][x] = 1
+    else:
+        break
     
-    check1 = y
-    check2 = x
+y = tempY
+x = tempX
+while True :
+    if x - 1 >= 0 and y + 1 < size :
+        x -= 1
+        y += 1
+        list[y][x] = 1
+    else:
+        break
     
-    if a == '+' : 
-        tempX = True
-        check1 = x
-    else :
-        tempX = False
-        check2 = x
-    if b == '+' :
-        tempY = True
-        check1 = y
-    else :
-        tempY = False
-        check2 = y
-
-    while True :
-        if check1 < size and check2 >= 0:
-            if tempX : 
-                check1 += 1 
-            else :
-                check2 -= 1
-                
-            if tempY: 
-                check1 += 1
-            else :
-                check2 -= 1
-                
-            list[y][x] = 1
-        else:
-            break
+y = tempY
+x = tempX
+while True :
+    if x - 1 >= 0 and y - 1 >= 0 :
+        x -= 1
+        y -= 1
+        list[y][x] = 1
+    else:
+        break
 
 
-check('+','-')
-# check('-','+')
-# check('+','+')
-# check('-','-')
-
-for i in range(len(list)):
+for i in range(len(list)) :
     print(list[i])
